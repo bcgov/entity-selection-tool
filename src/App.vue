@@ -1,32 +1,29 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
+    <h1 
+    style="font-size:50px"
+    >
+      {{ $t("business_structures") }}</h1>
+      <p>Powered by BizPaL</p>
+    <br/>
     <router-view />
   </div>
 </template>
 
 <style>
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+  text-align:left;
+  color:#edf3f7;
+  background-color: #274f6e;
 }
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+h1 {
+  padding: 40px;
+  align-content: center;
+  color:white;
+  font-size:40px;
 }
 </style>
