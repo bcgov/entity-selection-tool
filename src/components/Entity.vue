@@ -1,13 +1,13 @@
 <template> 
   <div class="columns">              
   <div class="column is-half is-offset-1">   
-    <b-button
+    <!-- <b-button
       @click="toggleLocale()"
       size="is-small"
       style="background-color:pink"
     >
     {{ locale == "en" ? "Francais" : "English" }}
-    </b-button>
+    </b-button> -->
 
       <div class="column">  
         <h2>QUESTION {{ currentCategory + 1 }} of {{ weights.length }}</h2>
@@ -80,7 +80,7 @@
           <div class="be-entitywrap">
           <em>{{ $t(types[0]) }}</em> {{ total[0] }}%
           <br/>
-          <b-progress size="is-small" type="is-info" class="uk-progress" :value="total[0]" max="100"></b-progress>
+          <b-progress size="is-small" type="is-info" class="uk-progress" :value="total[0]" min="0" max="100"></b-progress>
           </div>
                     <div class="be-entitywrap">
           <em>{{ $t(types[1]) }}</em> {{ total[1] }}%
@@ -176,10 +176,10 @@ export default {
         "Where will your business operate?",
         "How much risk is there in your industry or profession?",
         "How do you feel about personal risk?",
-        "How many owners will you have?",
+        "How many owners will there be?",
         "Including yourself, how many employees will you have?",
         "How will you finance your organization?",
-        "How do you feel about setup and administrative costs?",
+        "How do you feel about setup and administrative costs for the first few years?",
         "What's your financial forecast for your organization?",
         "How important is protecting your organization's name?"
       ]

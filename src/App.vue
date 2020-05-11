@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <h1 
-    style="font-size:50px"
+    style="font-size:40px"
     >
       {{ $t("business_structures") }}</h1>
       <p>Powered by BizPaL</p>

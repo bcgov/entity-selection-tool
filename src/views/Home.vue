@@ -3,8 +3,8 @@
     <div v-if="!started" class="columns" >
       <div class="column is-one-fourth">
         <div >
-          <p>"First Gate_EN"</p>
-          <p>What is the main purpose of your new organization?</p>
+          <p>"For-profit/not-for-profit gate"</p>
+          <p>Which of these statements best describes the main purpose of your new organization?</p>
           <b-button @click="start()">
             a) Generate a profit for owners
           </b-button>
@@ -13,9 +13,9 @@
             b) Provide services as a licensed professional
           </b-button>
           <br/>
-          <b-button router-link to='/nonprofit' tag="button">c) Charitable cause or public benifit</b-button>
+          <b-button tag="router-link" to="/nonprofit">c) Charitable cause or public benifit</b-button>
           <br/>
-          <b-button router-link to='/nonprofit' tag="button">d) Provide shared benefit for members</b-button>
+          <b-button tag="router-link" to="/nonprofit">d) Provide shared benefit for members through a cooperative association</b-button>
         </div>
       </div>
     </div>
