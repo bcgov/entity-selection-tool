@@ -10,10 +10,10 @@
     </b-button> -->
 
       <div class="column">  
-        <h2>QUESTION {{ currentCategory + 1 }} of {{ weights.length }}</h2>
+        <h2>QUESTION {{ currentCategoryIndex}} of {{ totalCategories }}</h2>
         <br/>
           <!-- <h3>{{ weights[currentCategory] }}</h3> -->
-        <h3>{{ exquestions[currentCategory] }}</h3>
+        <h3>{{ data.collection[`cat-${currentCategoryIndex}`][`question_${locale}`] }}</h3>
         <br/>
         <form >
           <template v-for="(a, i) in current.answers">
@@ -36,7 +36,7 @@
             <b-button
               size="is-medium"
               @click="previous()"
-              :disabled="currentCategory == 0 && currentQuestion == 0"
+              :disabled="currentCategoryIndex == 0 && currentQuestionIndex == 0"
              >
             Previous
             </b-button>
@@ -44,8 +44,8 @@
               size="is-medium"
               @click="next()"
               :disabled="
-              currentCategory == data.length - 1 &&
-                currentQuestion ==
+              currentCategoryIndex == data.length - 1 &&
+                currentQuestionIndex ==
                   data[data.length - 1].questions.length - 1
               "
             >
@@ -113,12 +113,12 @@
       </div>
   </div> 
    <div>
-          <li v-for="(c, i) in data" v-bind:key="c.cid" style="color:#2C5671">
+        <li v-for="(c, i) in data" v-bind:key="c.cid" style="color:#2C5671">
             <ul 
                 v-for="(q, j) in c.questions"
                 v-bind:key="q.qid"
                 :class="
-                  currentCategory == i && currentQuestion == j
+                  currentCategoryIndex == i && currentQuestionIndex == j
                     ? 'uk-active'
                     : ''
                 "
@@ -131,7 +131,7 @@
 </template>
 
 <script>
-import json from "@/data/questions.json";
+import json from "@/data/be-json-v3-saya.json";
 import Vue from 'vue'
 import Buefy from 'buefy'
 import 'buefy/dist/buefy.css'
@@ -148,9 +148,10 @@ export default {
       total: [0, 0, 0, 0, 0, 0],
       tempImp: [0, 0, 0, 0, 0, 0],
       selectedImp: [0, 0, 0, 0, 0, 0],
+      totalCategories:0,
       data: json,
-      currentCategory: 0,
-      currentQuestion: 0,
+      currentCategoryIndex: 1,
+      currentQuestionIndex: 1,
       navElement: "",
       isHidden: false,
       types: [
@@ -202,10 +203,10 @@ export default {
      * @param {boolean} open Whether current category nav is open, default true
      */
     changeCurrent: function(c, q, open = true) {
-      if (this.currentCategory !== c && open)
+      if (this.currentCategoryIndex !== c && open)
         UIkit.nav(this.navElement).toggle(c);
-      this.currentCategory = c;
-      this.currentQuestion = q;
+      this.currentCategoryIndex = c;
+      this.currentQuestionIndex = q;
       this.updateSelectedImp();
       this.tempImp = this.selectedImp;
       this.updateTotal();
@@ -234,24 +235,24 @@ export default {
      */
     next: function() {
       if (
-        this.currentQuestion ==
-        this.data[this.currentCategory].questions.length - 1
+        this.currentQuestionIndex ==
+        this.data[this.currentCategoryIndex].questions.length - 1
       ) {
-        if (this.currentCategory != this.data.length - 1)
-          this.changeCurrent(this.currentCategory + 1, 0);
-      } else this.changeCurrent(this.currentCategory, this.currentQuestion + 1);
+        if (this.currentCategoryIndex != this.data.length - 1)
+          this.changeCurrent(this.currentCategoryIndex + 1, 0);
+      } else this.changeCurrent(this.currentCategoryIndex, this.currentQuestionIndex + 1);
     },
     /**
      * Goes back to the previous question
      */
     previous: function() {
-      if (this.currentQuestion == 0) {
-        if (this.currentCategory != 0)
+      if (this.currentQuestionIndex == 0) {
+        if (this.currentCategoryIndex != 0)
           this.changeCurrent(
-            this.currentCategory - 1,
-            this.data[this.currentCategory - 1].questions.length - 1
+            this.currentCategoryIndex - 1,
+            this.data[this.currentCategoryIndex - 1].questions.length - 1
           );
-      } else this.changeCurrent(this.currentCategory, this.currentQuestion - 1);
+      } else this.changeCurrent(this.currentCategoryIndex, this.currentQuestionIndex - 1);
     },
     /**
      * Saves the selected question option
@@ -260,6 +261,9 @@ export default {
     onSelect: function(answer) {
       this.tempImp = this.current.answers[answer].impact;
       this.updateTotal();
+      console.log("onselect");
+      console.log(answer)
+      console.log(this.current)
       this.current.completed = answer;
     },
     /**
@@ -274,7 +278,9 @@ export default {
      * @returns The data for the current question
      */
     current: function() {
-      return this.data[this.currentCategory].questions[this.currentQuestion];
+      //return this.data[this.currentCategory].questions[this.currentQuestionIndex];
+      console.log(this.data)
+      return this.data.collection[`cat-${this.currentCategoryIndex}`].answers[`a${this.currentQuestionIndex}`];
     },
     /**
      * @returns The current language
@@ -311,9 +317,16 @@ export default {
       return this.types[maxIndex];
     }
   },
+  created(){
+    this.data= this.data["pid-59"]
+    this.totalCategories = Object.keys(this.data.collection).length
+   
+  },
   mounted() {
     this.navElement = document.getElementById("nav");
     UIkit.nav(this.navElement).toggle(0); // Toggles the first nav open
+
+  
   }
 };
 </script>

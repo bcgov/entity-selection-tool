@@ -16,22 +16,22 @@
                 "question_fr": "Where will your business operate?(FR)",
                 "context_en": "If you intend to operate outside British Columbia it may make sense to incorporate federally. Note: there may be other professional or industry requirements if you intend to operate in other jurisdictions.",
                 "context_fr": "If you intend to operate outside British Columbia it may make sense to incorporate federally. Note: there may be other professional or industry requirements if you intend to operate in other jurisdictions.(FR)",
-                "answers": {"1a":{
-                        "id": "1a",
-                        "a_en": "Across Canada.",
-                        "a_fr": "Across Canada(FR).",
+                "answers": {"a1":{
+                        "id": "a1",
+                        "title_en": "Across Canada.",
+                        "title_fr": "Across Canada(FR).",
                         "impact": [4, 4, 4, 20, 4, 4]
                     },
-                    "1b":{
-                        "id": "1b",
-                        "b_en": "Primarily British Columbia, but we may expand nationally.",
-                        "b_fr": "Primarily British Columbia, but we may expand nationally.(FR)",
+                    "a2":{
+                        "id": "a2",
+                        "title_en": "Primarily British Columbia, but we may expand nationally.",
+                        "title_fr": "Primarily British Columbia, but we may expand nationally.(FR)",
                         "impact": [4, 4, 12, 16, 4, 8]
                     },
-                    "1c":{
-                        "id": "1c",
-                        "c_en": "British Columbia only.",
-                        "c_fr": "Colombie Britannique seulment.",
+                    "a3":{
+                        "id": "a3",
+                        "title_en": "British Columbia only.",
+                        "title_fr": "Colombie Britannique seulment.",
                         "impact": [12, 12, 12, 0, 12, 12]
                     }
                 }
