@@ -16,16 +16,18 @@
         <h3>{{ data.collection[`cat-${currentCategoryIndex}`][`question_${locale}`] }}</h3>
         <br/>
         <form >
-          <template v-for="(a, i) in current.answers">
-            <label v-bind:key="a.id">
+          <template v-for="(value, index) in current">
+            <label v-bind:key="index">
               <input
                 type="radio"
                 class="be-radio"
-                v-model="tempImp"
-                v-bind:value="a.impact"
-                @click="onSelect(i)"
+                name="questions"
+                :id="index"
+               :checked="index === userSelectedAnswer[`cat-${currentCategoryIndex}`].answerIndex"
+                v-bind:value="value.impact"
+                @click="onSelect(value,index)"
               />
-              {{ $t(currentCategory + 1 + "-" + a.id) }}
+             {{value[`title_${locale}`]}}
               <br />
             </label>
           </template>
@@ -80,32 +82,32 @@
           <div class="be-entitywrap">
           <em>{{ $t(types[0]) }}</em> {{ total[0] }}%
           <br/>
-          <b-progress size="is-small" type="is-info" class="uk-progress" :value="total[0]" min="0" max="100"></b-progress>
+          <b-progress size="is-small" type="is-info" class="uk-progress" :value="total[0]" min="0"></b-progress>
           </div>
                     <div class="be-entitywrap">
           <em>{{ $t(types[1]) }}</em> {{ total[1] }}%
                     <br/>
-          <b-progress size="is-small" type="is-info" class="uk-progress" :value="total[1]" max="100"></b-progress>
+          <b-progress size="is-small" type="is-info" class="uk-progress" :value="total[1]" ></b-progress>
                     </div>
                     <div class="be-entitywrap">
           <em>{{ $t(types[2]) }}</em> {{ total[2] }}%
                     <br/>
-          <b-progress size="is-small" type="is-info" class="uk-progress" :value="total[2]" max="100"></b-progress>
+          <b-progress size="is-small" type="is-info" class="uk-progress" :value="total[2]" ></b-progress>
                     </div>
                     <div class="be-entitywrap">
           <em>{{ $t(types[3]) }}</em> {{ total[3] }}%
                     <br/>
-          <b-progress size="is-small" type="is-info" class="uk-progress" :value="total[3]" max="100"></b-progress>
+          <b-progress size="is-small" type="is-info" class="uk-progress" :value="total[3]" ></b-progress>
                     </div>
                     <div class="be-entitywrap">
           <em>{{ $t(types[4]) }}</em> {{ total[4] }}%
                     <br/>
-          <b-progress size="is-small" type="is-info" class="uk-progress" :value="total[4]" max="100"></b-progress>
+          <b-progress size="is-small" type="is-info" class="uk-progress" :value="total[4]" ></b-progress>
                     </div>
                     <div class="be-entitywrap">
           <em>{{ $t(types[5]) }}</em> {{ total[5] }}%
                     <br/>
-          <b-progress size="is-small" type="is-info" class="uk-progress" :value="total[5]" max="100"></b-progress>
+          <b-progress size="is-small" type="is-info" class="uk-progress" :value="total[5]"></b-progress>
                     </div>
           </section>          
           <br />
@@ -147,6 +149,11 @@ export default {
     return {
       total: [0, 0, 0, 0, 0, 0],
       tempImp: [0, 0, 0, 0, 0, 0],
+      // this will be dynamicallly created
+      userSelectedAnswer:{'cat-1':{
+           answerIndex:"a1",
+           impact:[4, 4, 4, 20, 4, 4]
+      }},
       selectedImp: [0, 0, 0, 0, 0, 0],
       totalCategories:0,
       data: json,
@@ -234,6 +241,7 @@ export default {
      * Advances to the next question
      */
     next: function() {
+      /*
       if (
         this.currentQuestionIndex ==
         this.data[this.currentCategoryIndex].questions.length - 1
@@ -241,11 +249,18 @@ export default {
         if (this.currentCategoryIndex != this.data.length - 1)
           this.changeCurrent(this.currentCategoryIndex + 1, 0);
       } else this.changeCurrent(this.currentCategoryIndex, this.currentQuestionIndex + 1);
+      */
+
+       if(this.currentCategoryIndex < this.totalCategories){
+           this.currentCategoryIndex++;
+       }
+
     },
     /**
      * Goes back to the previous question
      */
     previous: function() {
+      /*
       if (this.currentQuestionIndex == 0) {
         if (this.currentCategoryIndex != 0)
           this.changeCurrent(
@@ -253,18 +268,24 @@ export default {
             this.data[this.currentCategoryIndex - 1].questions.length - 1
           );
       } else this.changeCurrent(this.currentCategoryIndex, this.currentQuestionIndex - 1);
+      */
+      if(this.currentCategoryIndex>1) this.currentCategoryIndex--
     },
     /**
      * Saves the selected question option
      * @param {number} answer The index of the selected option
      */
-    onSelect: function(answer) {
-      this.tempImp = this.current.answers[answer].impact;
-      this.updateTotal();
-      console.log("onselect");
-      console.log(answer)
-      console.log(this.current)
-      this.current.completed = answer;
+    onSelect: function(answer,answerIndex) {
+    //  this.tempImp = this.current.answers[answer].impact;
+      //this.updateTotal();
+
+      //record user selection
+      this.userSelectedAnswer[`cat-${this.currentCategoryIndex}`].answerIndex = answerIndex;
+       this.userSelectedAnswer[`cat-${this.currentCategoryIndex}`].impact = answer.impact;
+       console.log(this.userSelectedAnswer)
+
+
+     // this.current.completed = answer;
     },
     /**
      * Toggles display language
@@ -280,7 +301,8 @@ export default {
     current: function() {
       //return this.data[this.currentCategory].questions[this.currentQuestionIndex];
       console.log(this.data)
-      return this.data.collection[`cat-${this.currentCategoryIndex}`].answers[`a${this.currentQuestionIndex}`];
+      //return this.data.collection[`cat-${this.currentCategoryIndex}`].answers[`a${this.currentQuestionIndex}`];
+      return this.data.collection[`cat-${this.currentCategoryIndex}`].answers;
     },
     /**
      * @returns The current language
@@ -320,11 +342,25 @@ export default {
   created(){
     this.data= this.data["pid-59"]
     this.totalCategories = Object.keys(this.data.collection).length
+
+    // here all the variables that are needed to be created
+    // via the json file.
+
+      // to track user selection
+     for (let [key, value] of Object.entries(this.data.collection)){
+       this.userSelectedAnswer[key] = {
+         answerIndex:"notset",
+         impact:"notset"
+       }
+     }
+
+     // should create one to track each entity Total
    
   },
   mounted() {
     this.navElement = document.getElementById("nav");
     UIkit.nav(this.navElement).toggle(0); // Toggles the first nav open
+   // this.userSelectedAnswer="a2"
 
   
   }

@@ -35,6 +35,44 @@
                         "impact": [12, 12, 12, 0, 12, 12]
                     }
                 }
+            },
+            "cat-2":{
+                
+                    "category": 2,
+                    "completed":-1,
+                    "category_name_en":"Risk level of industry",
+                    "category_name_fr":"Risk level of industry(FR)",
+                    "question_en":"How much risk is there in your industry or profession?",
+                    "question_fr":"How much risk is there in your industry or profession?(FR)",
+                    "context_en":"In some industries or professions there is a greater chance somebody will take legal action against you or your company. They may seek compensation for personal injury, property damage, or financial loss for example. Some industries like construction, transportation, fishing, and manufacturing - and some professions like medicine and dentistry - have high risks than others. If you think your industry may have high risk you will probably want to protect yourself through a limited liability structure. (e.g., corporation or limited liability partnership.)",
+                    "context_fr":"In some industries or professions there is a greater chance somebody will take legal action against you or your company. They may seek compensation for personal injury, property damage, or financial loss for example. Some industries like construction, transportation, fishing, and manufacturing - and some professions like medicine and dentistry - have high risks than others. If you think your industry may have high risk you will probably want to protect yourself through a limited liability structure. (e.g., corporation or limited liability partnership.)(FR)",
+                    "answers":{
+                        "a1":{
+                            "id":"a1",
+                            "title_en":"High Risk.",
+                            "title_fr":"High Risk. (FR)",
+                            "impact": [0, 0, 17.5, 17.5, 10.5, 17.5]
+                        },
+                        "a2":{
+                            "id": "a2",
+                            "title_en":"Moderate risk.",
+                            "title_fr":"Moderate risk.(FR)",
+                            "impact": [3.5, 3.5, 14, 14, 7, 14]
+                        },
+                        "a3":{
+                            "id": "a3",
+                            "title_en":"Some risk.",
+                            "title_fr":"Some risk.(FR)",
+                            "impact": [7, 7, 10.5, 10.5, 7, 10.5]
+                        },
+                        "a4":{
+                            "id": "a4",
+                            "title_en":"Low risk.",
+                            "title_fr":"Low risk.(FR)",
+                            "impact": [10.5, 10.5, 7, 7, 7, 7]
+                        }
+                    }               
+
             }
             
         }
