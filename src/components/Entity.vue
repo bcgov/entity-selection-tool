@@ -76,38 +76,26 @@
   <!-- end left side -->
   <div class="column is-one-quarter">
            <h2 style="color:#edf3f7" >{{ $t("entity_titles") }}</h2>
-      <div class="column is-four-fifth">
+   <div class="column is-four-fifth">
+
+         
           <section>
-          <div class="be-entitywrap">
-          <em>{{ $t(types[0]) }}</em> {{ entitiesTotal['e1'].total }}%
-          <br/>
-          <b-progress size="is-small" type="is-info" class="uk-progress" :value="entitiesTotal['e1'].total" min="0"></b-progress>
-          </div>
-                    <div class="be-entitywrap">
-          <em>{{ $t(types[1]) }}</em> {{ entitiesTotal['e2'].total }}%
-                    <br/>
-          <b-progress size="is-small" type="is-info" class="uk-progress" :value="entitiesTotal['e2'].total" ></b-progress>
-                    </div>
-                    <div class="be-entitywrap">
-          <em>{{ $t(types[2]) }}</em> {{ entitiesTotal['e3'].total }}%
-                    <br/>
-          <b-progress size="is-small" type="is-info" class="uk-progress" :value="entitiesTotal['e3'].total" ></b-progress>
-                    </div>
-                    <div class="be-entitywrap">
-          <em>{{ $t(types[3]) }}</em> {{ entitiesTotal['e4'].total }}%
-                    <br/>
-          <b-progress size="is-small" type="is-info" class="uk-progress" :value="entitiesTotal['e4'].total" ></b-progress>
-                    </div>
-                    <div class="be-entitywrap">
-          <em>{{ $t(types[4]) }}</em> {{ entitiesTotal['e5'].total }}%
-                    <br/>
-          <b-progress size="is-small" type="is-info" class="uk-progress" :value="entitiesTotal['e5'].total" ></b-progress>
-                    </div>
-                    <div class="be-entitywrap">
-          <em>{{ $t(types[5]) }}</em> {{entitiesTotal['e6'].total }}%
-                    <br/>
-          <b-progress size="is-small" type="is-info" class="uk-progress" :value="entitiesTotal['e6'].total"></b-progress>
-                    </div>
+
+
+          <template v-for="(value, index) in data.entities">
+           
+            
+
+               <div class="be-entitywrap"  v-bind:key="index">
+                   <em>{{value[`title_${locale}`] }}</em> {{ entitiesTotal[index].total }}%
+               <br/>
+                <b-progress size="is-small" type="is-info" class="uk-progress" :value="entitiesTotal[index].total" min="0"></b-progress>
+               </div>
+
+          
+          </template>
+
+
           </section>          
           <br />
           {{ $t("disclaimer") }}
