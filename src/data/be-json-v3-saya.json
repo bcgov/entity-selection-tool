@@ -75,6 +75,57 @@
 
             }
             
-        }
+        },
+        "entities":{
+             "e1":{
+                   "id":"e1",
+                    "title_en":"Sole Proprietorship", 
+                    "title_fr":"Sole Proprietorship(FR)", 
+                    "summary_en":"Summary Sole",
+                    "summary_fr":"Summary (FR)"
+
+
+               },
+               "e2":{
+                "id":"e2",
+                 "title_en":"General Partnership", 
+                 "title_fr":"General Partnership(FR)", 
+                 "summary_en":"Summary General Partnership",
+                 "summary_fr":"Summary General Partnership (FR)"
+
+            },
+            "e3":{
+                "id":"e3",
+                 "title_en":"BC Corporation ", 
+                 "title_fr":"BC Corporation (FR)", 
+                 "summary_en":"Summary BC Corporation ",
+                 "summary_fr":"Summary BC Corporation  (FR)"
+
+            },
+            "e4":{
+                "id":"e4",
+                 "title_en":"Federal Corporation ", 
+                 "title_fr":"Federal Corporation (FR)", 
+                 "summary_en":"Summary Federal Corporation ",
+                 "summary_fr":"Summary Federal Corporation  (FR)"
+
+            },                                             
+            "e5":{
+                "id":"e5",
+                 "title_en":"Limited Partnership ", 
+                 "title_fr":"Limited Partnership (FR)", 
+                 "summary_en":"Summary Limited Partnership ",
+                 "summary_fr":"Summary Limited Partnership  (FR)"
+
+            },  
+            "e6":{
+                "id":"e6",
+                 "title_en":"Limited Liability Partnership ", 
+                 "title_fr":"Limited Liability Partnership (FR)", 
+                 "summary_en":"Limited Liability Partnership ",
+                 "summary_fr":"Limited Liability Partnership  (FR)"
+
+            }        
+       }
     }
 }

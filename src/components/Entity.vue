@@ -17,14 +17,13 @@
         <br/>
         <form >
           <template v-for="(value, index) in current">
-            <label v-bind:key="index">
+            <label v-bind:key="`${index}${currentCategoryIndex}`">
               <input
                 type="radio"
                 class="be-radio"
                 name="questions"
                 :id="index"
                :checked="index === userSelectedAnswer[`cat-${currentCategoryIndex}`].answerIndex"
-                v-bind:value="value.impact"
                 @click="onSelect(value,index)"
               />
              {{value[`title_${locale}`]}}
@@ -80,34 +79,34 @@
       <div class="column is-four-fifth">
           <section>
           <div class="be-entitywrap">
-          <em>{{ $t(types[0]) }}</em> {{ total[0] }}%
+          <em>{{ $t(types[0]) }}</em> {{ entitiesTotal['e1'].total }}%
           <br/>
-          <b-progress size="is-small" type="is-info" class="uk-progress" :value="total[0]" min="0"></b-progress>
+          <b-progress size="is-small" type="is-info" class="uk-progress" :value="entitiesTotal['e1'].total" min="0"></b-progress>
           </div>
                     <div class="be-entitywrap">
-          <em>{{ $t(types[1]) }}</em> {{ total[1] }}%
+          <em>{{ $t(types[1]) }}</em> {{ entitiesTotal['e2'].total }}%
                     <br/>
-          <b-progress size="is-small" type="is-info" class="uk-progress" :value="total[1]" ></b-progress>
+          <b-progress size="is-small" type="is-info" class="uk-progress" :value="entitiesTotal['e2'].total" ></b-progress>
                     </div>
                     <div class="be-entitywrap">
-          <em>{{ $t(types[2]) }}</em> {{ total[2] }}%
+          <em>{{ $t(types[2]) }}</em> {{ entitiesTotal['e3'].total }}%
                     <br/>
-          <b-progress size="is-small" type="is-info" class="uk-progress" :value="total[2]" ></b-progress>
+          <b-progress size="is-small" type="is-info" class="uk-progress" :value="entitiesTotal['e3'].total" ></b-progress>
                     </div>
                     <div class="be-entitywrap">
-          <em>{{ $t(types[3]) }}</em> {{ total[3] }}%
+          <em>{{ $t(types[3]) }}</em> {{ entitiesTotal['e4'].total }}%
                     <br/>
-          <b-progress size="is-small" type="is-info" class="uk-progress" :value="total[3]" ></b-progress>
+          <b-progress size="is-small" type="is-info" class="uk-progress" :value="entitiesTotal['e4'].total" ></b-progress>
                     </div>
                     <div class="be-entitywrap">
-          <em>{{ $t(types[4]) }}</em> {{ total[4] }}%
+          <em>{{ $t(types[4]) }}</em> {{ entitiesTotal['e5'].total }}%
                     <br/>
-          <b-progress size="is-small" type="is-info" class="uk-progress" :value="total[4]" ></b-progress>
+          <b-progress size="is-small" type="is-info" class="uk-progress" :value="entitiesTotal['e5'].total" ></b-progress>
                     </div>
                     <div class="be-entitywrap">
-          <em>{{ $t(types[5]) }}</em> {{ total[5] }}%
+          <em>{{ $t(types[5]) }}</em> {{entitiesTotal['e6'].total }}%
                     <br/>
-          <b-progress size="is-small" type="is-info" class="uk-progress" :value="total[5]"></b-progress>
+          <b-progress size="is-small" type="is-info" class="uk-progress" :value="entitiesTotal['e6'].total"></b-progress>
                     </div>
           </section>          
           <br />
@@ -150,10 +149,8 @@ export default {
       total: [0, 0, 0, 0, 0, 0],
       tempImp: [0, 0, 0, 0, 0, 0],
       // this will be dynamicallly created
-      userSelectedAnswer:{'cat-1':{
-           answerIndex:"a1",
-           impact:[4, 4, 4, 20, 4, 4]
-      }},
+      userSelectedAnswer:{},
+      entitiesTotal:{},
       selectedImp: [0, 0, 0, 0, 0, 0],
       totalCategories:0,
       data: json,
@@ -278,11 +275,34 @@ export default {
     onSelect: function(answer,answerIndex) {
     //  this.tempImp = this.current.answers[answer].impact;
       //this.updateTotal();
-
+      console.log("selected")
       //record user selection
       this.userSelectedAnswer[`cat-${this.currentCategoryIndex}`].answerIndex = answerIndex;
        this.userSelectedAnswer[`cat-${this.currentCategoryIndex}`].impact = answer.impact;
-       console.log(this.userSelectedAnswer)
+
+
+       //console.log(this.userSelectedAnswer)
+
+       // calculated new total for all:
+    let entitiesIndex=0; // position of entitity in impact array
+    for (let [key, value] of Object.entries(this.data.entities)){
+
+      let totalImpact=0;
+
+    
+          for (let [key, value] of Object.entries(this.userSelectedAnswer)){
+            if(value.answerIndex !="notset"){
+              let anwserImpact = value.impact
+              let impactValue = anwserImpact[entitiesIndex] || 0;
+               totalImpact = totalImpact + impactValue;
+            }
+          }
+       
+       //}// end for 
+       entitiesIndex++;
+       this.entitiesTotal[key].total = totalImpact;
+
+     }//entities
 
 
      // this.current.completed = answer;
@@ -295,12 +315,15 @@ export default {
     }
   },
   computed: {
+    getTotal: function(entityKey){
+      return (this.entitiesTotal[entityKey]) ? this.entitiesTotal[entityKey].total:0;
+    },
     /**
      * @returns The data for the current question
      */
     current: function() {
       //return this.data[this.currentCategory].questions[this.currentQuestionIndex];
-      console.log(this.data)
+      console.log("current called")
       //return this.data.collection[`cat-${this.currentCategoryIndex}`].answers[`a${this.currentQuestionIndex}`];
       return this.data.collection[`cat-${this.currentCategoryIndex}`].answers;
     },
@@ -350,11 +373,18 @@ export default {
      for (let [key, value] of Object.entries(this.data.collection)){
        this.userSelectedAnswer[key] = {
          answerIndex:"notset",
-         impact:"notset"
+         impact:[]
        }
      }
 
      // should create one to track each entity Total
+          for (let [key, value] of Object.entries(this.data.entities)){
+       this.entitiesTotal[key] = {
+         total:0,
+       }
+     }
+
+   
    
   },
   mounted() {
