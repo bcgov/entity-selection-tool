@@ -191,49 +191,7 @@ export default {
     };
   },
   methods: {
-    /**
-     * Updates the totals based on the currently selected answer
-     */
-    updateTotal: function() {
-      this.updateSelectedImp();
-      for (let i = 0; i < 8; i++) {
-        this.total[i] = this.total[i] + this.tempImp[i] - this.selectedImp[i];
-      }
-    },
-    /**
-     * Changes the current question
-     * @param {number} c The category number
-     * @param {number} q The question number
-     * @param {boolean} open Whether current category nav is open, default true
-     */
-    changeCurrent: function(c, q, open = true) {
-      if (this.currentCategoryIndex !== c && open)
-        UIkit.nav(this.navElement).toggle(c);
-      this.currentCategoryIndex = c;
-      this.currentQuestionIndex = q;
-      this.updateSelectedImp();
-      this.tempImp = this.selectedImp;
-      this.updateTotal();
-    },
-    /**
-     * Checks how many questions are completed out of the category
-     * @param {number} category The category number
-     * @returns {number} The number of completed questions in the category
-     */
-    categoryCompletion: function(category) {
-      let tally = 0;
-      for (let i = 0; i < this.data[category].questions.length; i++)
-        if (this.data[category].questions[i].completed > -1) tally++;
-      return tally;
-    },
-    /**
-     * Updates the impact selected on question change (could probably be a computed property instead)
-     */
-    updateSelectedImp: function() {
-      if (this.current.completed == -1) this.selectedImp = [0, 0, 0, 0, 0, 0];
-      else
-        this.selectedImp = this.current.answers[this.current.completed].impact;
-    },
+   
     /**
      * Advances to the next question
      */
