@@ -221,7 +221,6 @@ export default {
     onSelect: function(answer,answerIndex) {
     //  this.tempImp = this.current.answers[answer].impact;
       //this.updateTotal();
-      console.log("selected")
       //record user selection
       this.userSelectedAnswer[`cat-${this.currentCategoryIndex}`].answerIndex = answerIndex;
        this.userSelectedAnswer[`cat-${this.currentCategoryIndex}`].impact = answer.impact;
@@ -269,7 +268,7 @@ export default {
      */
     current: function() {
       //return this.data[this.currentCategory].questions[this.currentQuestionIndex];
-      console.log("current called")
+
       //return this.data.collection[`cat-${this.currentCategoryIndex}`].answers[`a${this.currentQuestionIndex}`];
       return this.data.collection[`cat-${this.currentCategoryIndex}`].answers;
     },
@@ -317,17 +316,19 @@ export default {
 
       // to track user selection
      for (let [key, value] of Object.entries(this.data.collection)){
-       this.userSelectedAnswer[key] = {
+        // use set to make it  reactive 
+        Vue.set(this.userSelectedAnswer, key, {
          answerIndex:"notset",
          impact:[]
-       }
+       })
      }
 
-     // should create one to track each entity Total
-          for (let [key, value] of Object.entries(this.data.entities)){
-       this.entitiesTotal[key] = {
-         total:0,
-       }
+     // to track entities total
+     for (let [key, value] of Object.entries(this.data.entities)){
+        // use set to make it  reactive 
+        Vue.set(this.entitiesTotal, key, {
+          total:0,
+       })   
      }
 
    
