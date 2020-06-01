@@ -120,7 +120,7 @@
 </template>
 
 <script>
-import json from "@/data/be-json-v3-saya.json";
+import json from "@/data/be-json-v4-david-BC.json";
 import Vue from 'vue'
 import Buefy from 'buefy'
 import 'buefy/dist/buefy.css'
@@ -164,17 +164,6 @@ export default {
         "Set-up and ongoing costs",
         "Anticipated profits",
         "Name Protection"
-      ],
-      exquestions: [
-        "Where will your business operate?",
-        "How much risk is there in your industry or profession?",
-        "How do you feel about personal risk?",
-        "How many owners will there be?",
-        "Including yourself, how many employees will you have?",
-        "How will you finance your organization?",
-        "How do you feel about setup and administrative costs for the first few years?",
-        "What's your financial forecast for your organization?",
-        "How important is protecting your organization's name?"
       ]
     };
   },

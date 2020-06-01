@@ -1,0 +1,345 @@
+{
+   "pid-59":{
+        "pid": 59,
+        "prov_name_en": "British Columbia",
+        "prov_name_fr": "Colombie Britannique",
+        "be_title_en":"Business Entity Tool",
+        "be_title_fr":"Business Entity Tool(FR)",
+        "disclaimer_en":"Please note that this tool is intended as general guidance only and not as legal or financial advice. Please consider seeking the services of a lawyer and accountant before making a final decision.",
+        "disclaimer_fr":"Please note that this tool is intended as general guidance only and not as legal or financial advice. Please consider seeking the services of a lawyer and accountant before making a final decision.(FR)",       
+        "collection":{
+            "cat-1":{
+            "category": 1,
+            "completed":-1,
+            "category_name_en":"Geographic Reach",
+            "category_name_fr":"Geographic Reach(FR)",
+            "question_en":"Where will your business operate?",
+            "question_fr":"Where will your business operate?(FR)",
+            "context_en":"If you intend to operate outside British Columbia it may make sense to incorporate federally. Note: there may be other professional or industry requirements if you intend to operate in other jurisdictions.",
+            "context_fr":"If you intend to operate outside British Columbia it may make sense to incorporate federally. Note: there may be other professional or industry requirements if you intend to operate in other jurisdictions.(FR)",
+            "answers":{
+                "a1":{
+                    "id":"a1",
+                    "title_en":"Across Canada.",
+                    "title_fr":"Across Canada(FR).",
+                    "impact": [4, 4, 4, 20, 4, 4]
+                },
+                "a2":{
+                    "id": "a2",
+                    "title_en":"Primarily British Columbia, but we may expand nationally.",
+                    "title_fr":"Primarily British Columbia, but we may expand nationally.(FR)",
+                    "impact": [4, 4, 12, 16, 4, 8]
+                },
+                "a3":{
+                    "id": "a3",
+                    "title_en":"British Columbia only.",
+                    "title_fr":"Colombie Britannique seulment.",
+                    "impact": [12, 12, 12, 0, 12, 12]
+                }
+               }
+            },
+            "cat-2":{
+            "category": 2,
+            "completed":-1,
+            "category_name_en":"Risk level of industry",
+            "category_name_fr":"Risk level of industry(FR)",
+            "question_en":"How much risk is there in your industry or profession?",
+            "question_fr":"How much risk is there in your industry or profession?(FR)",
+            "context_en":"In some industries or professions there is a greater chance somebody will take legal action against you or your company. They may seek compensation for personal injury, property damage, or financial loss for example. Some industries like construction, transportation, fishing, and manufacturing - and some professions like medicine and dentistry - have high risks than others. If you think your industry may have high risk you will probably want to protect yourself through a limited liability structure. (e.g., corporation or limited liability partnership.)",
+            "context_fr":"In some industries or professions there is a greater chance somebody will take legal action against you or your company. They may seek compensation for personal injury, property damage, or financial loss for example. Some industries like construction, transportation, fishing, and manufacturing - and some professions like medicine and dentistry - have high risks than others. If you think your industry may have high risk you will probably want to protect yourself through a limited liability structure. (e.g., corporation or limited liability partnership.)(FR)",
+            "answers":{
+                "a1":{
+                    "id":"a1",
+                    "title_en":"High Risk.",
+                    "title_fr":"High Risk. (FR)",
+                    "impact": [0, 0, 17.5, 17.5, 10.5, 17.5]
+                },
+                "a2":{
+                    "id": "a2",
+                    "title_en":"Moderate risk.",
+                    "title_fr":"Moderate risk.(FR)",
+                    "impact": [3.5, 3.5, 14, 14, 7, 14]
+                },
+                "a3":{
+                    "id": "a3",
+                    "title_en":"Some risk.",
+                    "title_fr":"Some risk.(FR)",
+                    "impact": [7, 7, 10.5, 10.5, 7, 10.5]
+                },
+                "a4":{
+                    "id": "a4",
+                    "title_en":"Low risk.",
+                    "title_fr":"Low risk.(FR)",
+                    "impact": [10.5, 10.5, 7, 7, 7, 7]
+                }
+               }
+            },
+            "cat-3":{
+            "category": 3,
+            "completed":-1,
+            "category_name_en":"Risks to owners",
+            "category_name_fr":"Risks to owners(FR)",
+            "question_en":"How do you feel about personal risk?",
+            "question_fr":"How do you feel about personal risk?(FR)",
+            "context_en":"Personal risk in a business is the chance that legal action might be taken against you personally, and that you might suffer personal financial losses. If you are concerened about personal risk, or have a lot of personal assets, a corporation or limited liability partnership may make the most sense.",
+            "context_fr":"Personal risk in a business is the chance that legal action might be taken against you personally, and that you might suffer personal financial losses. If you are concerened about personal risk, or have a lot of personal assets, a corporation or limited liability partnership may make the most sense.(FR)",
+            "answers":{
+                "a1":{
+                    "id":"a1",
+                    "title_en":"Very concerned.",
+                    "title_fr":"Very concerned.(FR)",
+                    "impact": [0, 0, 12.5, 12.5, 7.5, 12.5]
+                },
+                "a2":{
+                    "id": "a2",
+                    "title_en":"Somewhat concerned.",
+                    "title_fr":"Somewhat concerned.(FR)",
+                    "impact": [5, 5, 10, 10, 5, 10]
+                },
+                "a3":{
+                    "id": "a3",
+                    "title_en":"Not concerned.",
+                    "title_fr":"Not concerned.(FR)",
+                    "impact": [10, 10, 5, 5, 5, 5]
+                }
+                    }
+            },
+            "cat-4":{
+            "category": 4,
+            "completed":-1,
+            "category_name_en":"Number of owners.",
+            "category_name_fr":"Number of owners.(FR)",
+            "question_en":"How many owners will you have?",
+            "question_fr":"How many owners will you have?(FR)",
+            "context_en":"The number determines your organization type options. Sole proprietorships have only one owner, and partnerships must have at elast 2 owners, while a corporation can have any number of owners.",
+            "context_fr":"The number determines your organization type options. Sole proprietorships have only one owner, and partnerships must have at elast 2 owners, while a corporation can have any number of owners.(FR)",
+            "answers":{
+                "a1":{
+                    "id":"a1",
+                    "title_en":"1.",
+                    "title_fr":"1.(FR)",
+                    "impact": [-100, 0, 7.5, 5, 0, 0]
+                },
+                "a2":{
+                    "id": "a2",
+                    "title_en":"2-9.",
+                    "title_fr":"2-9.(FR)",
+                    "impact": [0, 7.5, 7.5, 7.5, 7.5, 7.5]
+                },
+                "a3":{
+                    "id": "a3",
+                    "title_en":"10-99.",
+                    "title_fr":"10-99.(FR)",
+                    "impact": [0, 7.5, 10, 10, 7.5, 7.5]
+                },
+                "a4":{
+                    "id": "a4",
+                    "title_en":"100+.",
+                    "title_fr":"100+.(FR)",
+                    "impact": [0, 5, 12.5, 12.5, 5, 7.5]
+                }
+                    }
+            },
+            "cat-5":{
+            "category": 5,
+            "completed":-1,
+            "category_name_en":"Number of employees.",
+            "category_name_fr":"Number of employees.(FR)",
+            "question_en":"Including yourself, how many employees will you have?",
+            "question_fr":"Including yourself, how many employees will you have?(FR)",
+            "context_en":"The number of employees indicates how complicated your business may be.It's generally better to incorporate if you will have a large number of employees.",
+            "context_fr":"The number of employees indicates how complicated your business may be.It's generally better to incorporate if you will have a large number of employees.(FR)",
+            "answers":{
+                "a1":{
+                    "id":"a1",
+                    "title_en":"1.",
+                    "title_fr":"1.(FR)",
+                    "impact": [12.5, 2.5, 7.5, 5, 2.5, 0]
+                },
+                "a2":{
+                    "id": "a2",
+                    "title_en":"2-9.",
+                    "title_fr":"2-9.(FR)",
+                    "impact": [7.5, 7.5, 10, 10, 7.5, 7.5]
+                },
+                "a3":{
+                    "id": "a3",
+                    "title_en":"10-99.",
+                    "title_fr":"10-99.(FR)",
+                    "impact": [5, 5, 10, 10, 5, 7.5]
+                },
+                "a4":{
+                    "id": "a4",
+                    "title_en":"100+.",
+                    "title_fr":"100+.(FR)",
+                    "impact": [2.5, 2.5, 12.5, 12.5, 2.5, 7.5]
+                }
+                    }
+            },
+            "cat-6":{
+            "category": 6,
+            "completed":-1,
+            "category_name_en":"Financing wants/needs.",
+            "category_name_fr":"Financing wants/needs.(FR)",
+            "question_en":"How will you finance your organization?",
+            "question_fr":"How will you finance your organization?(FR)",
+            "context_en":"Banks and other investors usually require a business to be incorporated to receive loans or investments.",
+            "context_fr":"Banks and other investors usually require a business to be incorporated to receive loans or investments.(FR)",
+            "answers":{
+                "a1":{
+                    "id":"a1",
+                    "title_en":"Profits from the business- no external funding required.",
+                    "title_fr":"Profits from the business- no external funding required.(FR)",
+                    "impact": [8, 8, 6, 6, 8, 10]
+                },
+                "a2":{
+                    "id": "a2",
+                    "title_en":"Personal lines of credit, personal loans, personal savings, and/or reinvested profits.",
+                    "title_fr":"Personal lines of credit, personal loans, personal savings, and/or reinvested profits.(FR)",
+                    "impact": [10, 10, 6, 6, 10, 10]
+                },
+                "a3":{
+                    "id": "a3",
+                    "title_en":"Corporate line of credit, corporate bank loans, stock offerings, and/or reinvested profits.",
+                    "title_fr":"Corporate line of credit, corporate bank loans, stock offerings, and/or reinvested profits.(FR)",
+                    "impact": [0, 0, 10, 10, 0, 0]
+                }
+                    }
+            },
+            "cat-7":{
+            "category": 7,
+            "completed":-1,
+            "category_name_en":"Set-up and ongoing costs.",
+            "category_name_fr":"Set-up and ongoing costs.(FR)",
+            "question_en":"How do you feel about setup and administrative costs for the first few years?",
+            "question_fr":"How do you feel about setup and administrative costs for the first few years?(FR)",
+            "context_en":"These costs include legal fees, accounting fees, tax return preparation, bookkeeping, and provincial and federal filling fees. Propietorships and general partnerships have the lowest setup and ongoing costs. Other entity types are more costly to set up, and more costly to maintain.",
+            "context_fr":"These costs include legal fees, accounting fees, tax return preparation, bookkeeping, and provincial and federal filling fees. Propietorships and general partnerships have the lowest setup and ongoing costs. Other entity types are more costly to set up, and more costly to maintain.(FR)",
+            "answers":{
+                "a1":{
+                    "id":"a1",
+                    "title_en":"Not concerned, willing to pay what's necessary to get the right entity type.",
+                    "title_fr":"Not concerned, willing to pay what's necessary to get the right entity type.(FR)",
+                    "impact": [3, 3, 7.5, 7.5, 4.5, 6]
+                },
+                "a2":{
+                    "id": "a2",
+                    "title_en":"Somewhat concerned, would want costs to be less than $3000 in total.",
+                    "title_fr":"Somewhat concerned, would want costs to be less than $3000 in total.(FR)",
+                    "impact": [4.5, 4.5, 3, 3, 3, 3]
+                },
+                "a3":{
+                    "id": "a3",
+                    "title_en":"Very concerned, would want costs to be less than $1000.",
+                    "title_fr":"Very concerned, would want costs to be less than $1000.(FR)",
+                    "impact": [7.5, 7.5, 0, 0, 1.5, 0]
+                }
+                    }
+            },
+            "cat-8":{
+            "category": 8,
+            "completed":-1,
+            "category_name_en":"Anticipated profits.",
+            "category_name_fr":"Anticipated profits.(FR)",
+            "question_en":"What's your financial forecast for your organization?",
+            "question_fr":"How do you feel about setup and administrative costs?(FR)",
+            "context_en":"If you choose proprietorship or partnership you might be able to use losses from the business to offset other income, and therefore pay less personal income tax.",
+            "context_fr":"If you choose proprietorship or partnership you might be able to use losses from the business to offset other income, and therefore pay less personal income tax.(FR)",
+            "answers":{
+                "a1":{
+                    "id":"a1",
+                    "title_en":"Expect to operate at a loss for the first few years.",
+                    "title_fr":"Expect to operate at a loss for the first few years.(FR)",
+                    "impact": [5, 5, 2, 2, 5, 5]
+                },
+                "a2":{
+                    "id": "a2",
+                    "title_en":"Expected to be profitable in a year or two.",
+                    "title_fr":"Expected to be profitable in a year or two.(FR)",
+                    "impact": [3, 3, 4, 4, 3, 3]
+                },
+                "a3":{
+                    "id": "a3",
+                    "title_en":"Expect to be profitable right away, or soon after start-up.",
+                    "title_fr":"Expect to be profitable right away, or soon after start-up.(FR)",
+                    "impact": [1, 1, 5, 5, 3, 3]
+                }
+                    }
+            },
+            "cat-9":{
+            "category": 9,
+            "completed":-1,
+            "category_name_en":"Name Protection.",
+            "category_name_fr":"Name Protection.(FR)",
+            "question_en":"How important is protecting your organization's name?",
+            "question_fr":"How important is protecting your organization's name?(FR)",
+            "context_en":"Incorporation provides a higher level of name protection than other entity types. If you are a sole proprietorship -or parnership -and someone inforporates using your business name, they will get the name. Sol proprietorships and partnerships have no name protection in this area.",
+            "context_fr":"Incorporation provides a higher level of name protection than other entity types. If you are a sole proprietorship -or parnership -and someone inforporates using your business name, they will get the name. Sol proprietorships and partnerships have no name protection in this area.(FR)",
+            "answers":{
+                "a1":{
+                    "id":"a1",
+                    "title_en":"Not important.",
+                    "title_fr":"Not important.(FR)",
+                    "impact": [2.5, 2.5, 1, 1, 2.5, 2.5]
+                },
+                "a2":{
+                    "id": "a2",
+                    "title_en":"Somewhat important.",
+                    "title_fr":"Somewhat important.(FR)",
+                    "impact": [1.5, 1.5, 2, 2, 1.5, 2]
+                },
+                "a3":{
+                    "id": "a3",
+                    "title_en":"Very important.",
+                    "title_fr":"Very important.(FR)",
+                    "impact": [0, 0, 2.5, 2.5, 0, 1.5]
+                }
+                    }
+            }
+    },
+		"entities":{
+		"e1":{
+		"id": "e1",
+		"title_en":"Sole Proprietorship",
+		"title_fr":"Sole Proprietorship (FR)",
+		"summary_en":"A sole proprietorship is the simplest form of a business, in which you and your company are considered a single entity. As a sole proprietor, you do whatever is required for successful operation of your business. You make decisions, receive all profits, and claim all losses. Although you may hire employees to assist you, you usually manage the business yourself. Among its advantages a sole proprietorship is simple and inexpensive to set up, and simple from a tax standpoint—it’s part of your personal taxes. There are disadvantages to a sole proprietorship. Most importantly, you have unlimited personal liability—you are personally responsible for the business’ financial and legal liabilities. Profits will be taxed at your personal income tax rate, which is typically higher than a corporate tax rate. And if you need to raise capital you will need to rely solely on your personal resources and credit-worthiness.",
+		"summary_fr":" Summary1(FR)"
+		},
+		"e2":{
+		"id": "e2",
+		"title_en":"General Partnership",
+		"title_fr":"General Partnership (FR)",
+		"summary_en":"In a general partnership you combine your resources with others to make a profit. Each partner contributes money, property, or skills. The profits or losses are divided among the partners based on each partner’s share. Partners are usually active in business operations, and they may employ others who are not partners to help run the business. A general partnership is more time consuming and expensive to set up and run than a sole proprietorship, but easier and less costly than a corporation. It also has a simpler tax structure—partners report income and expenses on their personal tax returns. The main disadvantage of a general partnership is that partners have unlimited personal liability—they are personally responsible for all of the business’ financial and legal liabilities, and partners can legally bind one another without prior approval. Profits are taxed at the personal rate, which is typically higher than a corporate tax rate. There are also fewer options for raising capital than a corporation; the partnership will need to rely on partners’ personal resources and credit-worthiness.",
+		"summary_fr":"Summary2(FR) "
+		},
+		"e3":{
+		"id": "e3",
+		"title_en":"Limited Partnership",
+		"title_fr":"Limited Partnership (FR)",
+		"summary_en":"Limited partnerships are formed by two or more individuals or corporations. Each partner contributes money, property, or skills. They usually employ others who are not partners. Unlike a general partnership, a limited partnership has legal status separate from its partners, and a finite life. They are often used in real estate development and in the film industry. There are two types of partner in a limited partnership—general and limited. The general partner manages day to day operations, and has unlimited liability. The limited partners are typically investors who do not have day-to-day management responsibilities. Their financial and legal liability is limited to the amount invested. The profits (or losses) are divided among the partners, with general partners usually earning a larger share. Partners report income and expenses on their own tax returns. Limited partner ownership interests can be transferred, similar to shares in a corporation. A limited partnership is more time consuming and expensive to set up than a general partnership, and requires a detailed partnership agreement. ",
+		"summary_fr":"Summary3(FR) "
+		},
+		"e4":{
+		"id": "e4",
+		"title_en":"Limited Liability Partnership",
+		"title_fr":"Limited Liability Partnership (FR)",
+		"summary_en":"Limited liability partnerships (“LLPs”) are formed by two or more individuals or corporations. Each partner contributes money, property, or skills. The profits or losses are divided among the partners based on each partner’s share. Like a corporation, LLPs have legal status separate from its partners, and can be maintained over many years. LLPs are frequently used by professionals such as doctors, lawyers, accountants, architects and engineers. The main advantage of a LLP over a general partnership is that the liability of limited partners is capped. And, unlike a general partnership, limited partner ownership interests can be transferred, similar to shares in a corporation. Because partners report income on their own returns they have the opportunity to claim losses against other sources of income. The main disadvantage is that general partners in an LLP have unlimited personal liability—they are personally responsible for all of the business’ financial and legal liabilities. An LLP is also more time consuming and expensive to set up than a general partnership, as a detailed partnership agreement is required.",
+		"summary_fr":"Summary4(FR) "
+		},
+		"e5":{
+		"id": "e5",
+		"title_en":"BC Corporation",
+		"title_fr":"BC Corporation (FR)",
+		"summary_en":"A BC corporation is a legal entity, separate and distinct from its owners. When a company is incorporated, it acquires many of the legal powers of an individual. It can, for example, own real estate, hold investments, acquire assets, go into debt, enter into contracts, sue or be sued. If incorporation makes sense, and you do not have plans for employees or locations outside the province, incorporating as a BC corporation is probably your best choice. There are several advantages to incorporation: as a shareholder your liability is limited; corporations generally benefit from lower tax rates than the rates applied to sole proprietors or partners; it’s easier to raise capital for a corporation than for other entity types; and there are tax advantages. There are some disadvantages as well: corporations are more closely regulated than sole proprietorships and partnerships; losses in a corporation cannot be claimed by shareholders and can only be offset against earnings in the corporation; and a corporation is more complex and costly to set up and run than a sole proprietorship or partnership. ",
+		"summary_fr":"Summary5(FR) "
+		},
+		"e6":{
+		"id": "e6",
+		"title_en":"Federal Corporation",
+		"title_fr":"Federal Corporation (FR)",
+		"summary_en":"A federal corporation is a legal entity, separate and distinct from its owners. When a company is incorporated, it acquires many of the legal powers of an individual. It can, for example, own real estate, hold investments, acquire assets, go into debt, enter into contracts, sue or be sued. If incorporation makes sense, and you expect to have employees or locations outside British Columbia, incorporating federally is probably your best choice. There are several advantages to incorporation: as a shareholder your liability is limited; corporations generally benefit from lower tax rates than the rates applied to sole proprietors or partners; it’s easier to raise capital for a corporation than for other entity types; and there are tax advantages. There are some disadvantages as well: corporations are more closely regulated than sole proprietorships and partnerships; losses in a corporation cannot be claimed by shareholders and can only be offset against earnings in the corporation; and a corporation is more complex and costly to set up and run than a sole proprietorship or partnership.",
+		"summary_fr":"Summary6(FR) "
+		}
+		}
+	}	
+}
