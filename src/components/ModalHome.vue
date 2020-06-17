@@ -2,7 +2,7 @@
   <BaseModal>
     <template v-slot:modalheader>
       <p class="title is-4">
-        {{ $t("") }}
+        {{ $t("business_structures") }}
       </p>
     </template>
     <template v-slot:modalbody>
@@ -26,7 +26,7 @@
 <script>
 import BaseModal from "@/components/base-components/BaseModal.vue";
 export default {
-  name: "FaqModal",
+  name: "ModalHome",
   components: {
     BaseModal
   }
