@@ -24,6 +24,8 @@
 <script>
 import BaseModal from "@/components/base-components/BaseModal.vue";
 import TileHome from "@/components/TileHome.vue";
+require("../i18n");
+
 export default {
   name: "ModalHome",
   components: {
