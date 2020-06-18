@@ -21,4 +21,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.bet-modal-card {
+  background-color: rgba(39, 79, 110, 1);
+}
+</style>

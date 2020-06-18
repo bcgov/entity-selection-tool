@@ -35,7 +35,7 @@
 </template>
 <script>
 export default {
-  name: "results",
+  name: "Results",
   props: {
     structure: String
   },

@@ -1,14 +1,12 @@
 <template>
   <BaseModal>
     <template v-slot:modalheader>
-      <p class="title is-4">
+      <h1>
         {{ $t("business_structures") }}
-      </p>
+      </h1>
     </template>
     <template v-slot:modalbody>
-      <p>
-        {{ $t("") }}
-      </p>
+      <TileHome></TileHome>
     </template>
     <template v-slot:modalfooter>
       <b-button
@@ -25,10 +23,12 @@
 
 <script>
 import BaseModal from "@/components/base-components/BaseModal.vue";
+import TileHome from "@/components/TileHome.vue";
 export default {
   name: "ModalHome",
   components: {
-    BaseModal
+    BaseModal,
+    TileHome
   }
 };
 </script>

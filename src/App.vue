@@ -1,29 +1,56 @@
 <template>
   <div id="app">
-    <h1 
-    style="font-size:40px"
-    >
-      {{ $t("business_structures") }}</h1>
-      <p>Powered by BizPaL</p>
-    <br/>
-    <router-view />
+    <h1 style="font-size:40px">
+      {{ $t("business_structures") }}
+    </h1>
+    <p>Powered by BizPaL</p>
+    <br />
+    <b-button @click="homeModal()">
+      Start Business Structures Widget
+    </b-button>
   </div>
 </template>
+<script>
+import ModalHome from "@/components/ModalHome.vue";
+import Vue from "vue";
 
+import Buefy from "buefy";
+import "buefy/dist/buefy.css";
+
+Vue.use(Buefy);
+export default {
+  name: "App",
+  methods: {
+    homeModal: function() {
+      this.$buefy.modal.open({
+        parent: this,
+        component: ModalHome,
+        hasModalCard: true,
+        customClass: "bet-modal"
+      });
+    }
+  }
+};
+</script>
 <style>
-
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align:left;
-  color:#edf3f7;
+  text-align: left;
+  color: #edf3f7;
   background-color: #274f6e;
 }
 h1 {
   padding: 40px;
   align-content: center;
-  color:white;
-  font-size:40px;
+  color: white;
+  font-size: 40px;
+}
+.bet-modal .modal-card {
+  width: 900px;
+}
+.bet-modal .modal-card-head {
+  background-color: #274f6e;
 }
 </style>
