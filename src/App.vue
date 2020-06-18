@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="myapp">
     <h1 style="font-size:40px">
       {{ $t("business_structures") }}
     </h1>
@@ -13,13 +13,16 @@
 <script>
 import ModalHome from "@/components/ModalHome.vue";
 import Vue from "vue";
+require("./i18n");
 
 import Buefy from "buefy";
+Vue.use(Buefy);
+
 import "buefy/dist/buefy.css";
 
 Vue.use(Buefy);
 export default {
-  name: "App",
+  name: "BE",
   methods: {
     homeModal: function() {
       this.$buefy.modal.open({
@@ -33,7 +36,7 @@ export default {
 };
 </script>
 <style>
-#app {
+#myapp {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
