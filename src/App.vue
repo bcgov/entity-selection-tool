@@ -1,3 +1,14 @@
+<i18n>
+{
+  "en": {
+    "business_structures": "Business Structure Title"
+  },
+   "fr": {
+    "business_structures": "Business Structure Title - French"
+  }
+}
+</i18n>
+
 <template>
   <div id="myapp">
     <h1 style="font-size:40px">
