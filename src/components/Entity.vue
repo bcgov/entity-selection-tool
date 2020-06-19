@@ -1,3 +1,24 @@
+<i18n>
+{
+  "en": {
+    "business_structures": "Business Structure Title",
+    "submit": "sumbit",
+    "generic_context": "context",
+    "entity_titles":"Entity Title",
+    "disclaimer":"Disclaimer"
+  },
+   "fr": {
+    "business_structures": "Business Structure Title - French",
+        "submit": "sumbit",
+            "generic_context": "context",
+                "entity_titles":"Entity Title",
+                    "disclaimer":"Disclaimer"
+
+
+
+  }
+}
+</i18n>
 <template>
   <div class="columns">
     <div v-if="!resultsShow" class="column is-half">
@@ -135,6 +156,8 @@ import Vue from "vue";
 import json from "@/data/be-json-v4-david-BC.json";
 import Results from "@/components/Results.vue";
 import UIkit from "uikit";
+require("../i18n");
+
 // import i18n from "@/i18n";
 /* eslint-disable */ 
 
@@ -143,8 +166,11 @@ export default {
   components: {
     Results
   },
+  
   data: function() {
+     this.$i18n.locale = "en";
     return {
+      
       resultsShow: false,
       total: [0, 0, 0, 0, 0, 0],
       tempImp: [0, 0, 0, 0, 0, 0],
@@ -178,6 +204,9 @@ export default {
         "Name Protection"
       ]
     };
+  },
+    created(){
+    this.$i18n.locale = "en";
   },
   methods: {
    showResults: function() {
@@ -341,6 +370,8 @@ this.resultsShow = true;
     this.navElement = document.getElementById("nav");
     UIkit.nav(this.navElement).toggle(0); // Toggles the first nav open
    // this.userSelectedAnswer="a2"
+
+   console.log(this.$i18n.locale)
 
   
   }

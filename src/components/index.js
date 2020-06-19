@@ -1,11 +1,7 @@
-
 import Vue from "vue";
 import BE from "../App.vue";
-import ModalHome from "./ModalHome.vue";
-
 const Components = {
-  BE,
-  ModalHome
+  BE
 };
 Object.keys(Components).forEach(name => {
   Vue.component(name, Components[name]);

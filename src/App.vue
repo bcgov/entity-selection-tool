@@ -34,6 +34,9 @@ import "buefy/dist/buefy.css";
 Vue.use(Buefy);
 export default {
   name: "BE",
+  created(){
+    this.$i18n.locale = "en";
+  },
   methods: {
     homeModal: function() {
       this.$buefy.modal.open({

@@ -1,3 +1,14 @@
+<i18n>
+{
+  "en": {
+    "business_structures": "Business Structure Title"
+  },
+   "fr": {
+    "business_structures": "Business Structure Title - French"
+  }
+}
+</i18n>
+
 <template>
   <BaseModal>
     <template v-slot:modalheader>
@@ -31,7 +42,10 @@ export default {
   components: {
     BaseModal,
     TileHome
-  }
+  },
+    created(){
+    this.$i18n.locale = "en";
+  },
 };
 </script>
 

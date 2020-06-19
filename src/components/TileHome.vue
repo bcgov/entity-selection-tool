@@ -63,6 +63,9 @@ export default {
       nonProfit: false
     };
   },
+    created(){
+    this.$i18n.locale = "en";
+  },
   methods: {
     start: function() {
       this.started = true;

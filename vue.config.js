@@ -7,9 +7,24 @@ module.exports = {
       })
     ]
   },
+
   chainWebpack: config => {
     config.optimization.delete("splitChunks");
   },
+
   filenameHashing: false,
-  css: { extract: false } // include if you do not want a separate css file
+
+  // include if you do not want a separate css file
+  css: { extract: false },
+
+  pluginOptions: {
+    i18n: {
+      locale: "en",
+      fallbackLocale: "en",
+      localeDir: "locales",
+      enableInSFC: true,
+      silentFallbackWarn: true,
+      silentTranslationWarn: true
+    }
+  }
 };
