@@ -153,7 +153,7 @@
 
 <script>
 import Vue from "vue";
-import json from "@/data/be-json-v4-david-BC.json";
+import json from "@/data/be-json-v4.2-BC.json";
 import Results from "@/components/Results.vue";
 import UIkit from "uikit";
 require("../i18n");
