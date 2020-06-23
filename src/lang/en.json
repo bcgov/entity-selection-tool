@@ -1,6 +1,7 @@
 {
     "business_structures" : "Business Structures Wizard",
-    "entity_titles" : "Suggested Business Structure",
+    "entity_title_one" : "Suggested",
+    "entity_title_two" : "Business Structure",
     "close" : "Close",
     "start" : "Start",
     "restart": "Restart",
@@ -89,6 +90,6 @@
     "lim_liability_partnership_body": "Incorporation is either at the federal or provincial/territorial level. An incorporated business is considered a legal entity separate from its shareholders. As a corporate shareholder, you will not be personally responsible for the corporation's debts, commitments or acts.",
     "lim_liability_partnership_adv": "<li>Limited liability, ownership is transferable, easier to raise capital than it might be with other business structures.</li>",
     "lim_liability_partnership_dis": "<li>A corporation is closely regulated, more expensive to set up a corporation than other business forms, possible conflict between shareholders and directors.</li>",
-    "disclaimer":"Please note that this tool is intended as eneral guidance and not as legal or financial advice. Please seek the services of a lawyer and accountant before making a decision."
+    "disclaimer":"Please note that this tool is intended as general guidance and not as legal or financial advice. Please seek the services of a lawyer and accountant before making a decision."
 
 }

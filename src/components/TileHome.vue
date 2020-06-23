@@ -1,6 +1,6 @@
 <template>
-  <BaseTile>
-    <template v-slot:tilebody>
+  <div class="tile is-ancestor">
+    <div class="tile box">
       <div class="home">
         <div v-if="!started && !nonProfit" class="columns">
           <div class="column">
@@ -62,18 +62,16 @@
           <Entity></Entity>
         </div>
       </div>
-    </template>
-  </BaseTile>
+    </div>
+  </div>
 </template>
 
 <script>
-import BaseTile from "@/components/base-components/BaseTile.vue";
 import Entity from "@/components/Entity.vue";
 import NonProfit from "@/components/NonProfit.vue";
 export default {
   name: "TileHome",
   components: {
-    BaseTile,
     Entity,
     NonProfit
   },
