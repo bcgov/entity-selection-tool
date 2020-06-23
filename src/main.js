@@ -1,6 +1,11 @@
 import Vue from "vue";
 import App from "./App.vue";
+<<<<<<< HEAD
 //import i18n from "./i18n";
+=======
+
+import i18n from "./i18n";
+>>>>>>> dynamic-components
 import Buefy from "buefy";
 
 import UIkit from "uikit"; //remove later
@@ -19,8 +24,12 @@ UIkit.use(Icons); //remove later
 Vue.config.productionTip = false;
 
 new Vue({
+<<<<<<< HEAD
   //i18n,
 
   // i18n,
+=======
+  i18n,
+>>>>>>> dynamic-components
   render: h => h(App)
 }).$mount("#app");

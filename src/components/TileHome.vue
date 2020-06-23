@@ -1,36 +1,57 @@
 <template>
   <BaseTile>
-    <template v-slot:tileheader>
-      <p class="title is-4">
-        {{ $t("") }}
-      </p>
-    </template>
     <template v-slot:tilebody>
       <div class="home">
         <div v-if="!started && !nonProfit" class="columns">
-          <div class="column is-one-fourth">
+          <div class="column">
             <div>
-              <p>"For-profit/not-for-profit gate"</p>
               <p>
                 Which of these statements best describes the main purpose of
                 your new organization?
               </p>
-              <b-button @click="start()">
-                a) Generate a profit for owners
-              </b-button>
-              <br />
-              <b-button @click="start()">
-                b) Provide services as a licensed professional
-              </b-button>
-              <br />
-              <b-button @click="showNonProfit()"
-                >c) Charitable cause or public benifit</b-button
+              <b-radio
+                @click.native="start()"
+                name="purpose"
+                native-value="profit"
               >
+                <label for="profit">Generate a profit for owners</label>
+              </b-radio>
+
               <br />
-              <b-button @click="showNonProfit()"
-                >d) Provide shared benefit for members through a cooperative
-                association</b-button
+              <b-radio
+                @click.native="start()"
+                name="purpose"
+                native-value="services"
               >
+                <label for="services"
+                  >Provide services as a licensed professional</label
+                >
+              </b-radio>
+
+              <br />
+              <b-radio
+                @click.native="showNonProfit()"
+                name="purpose"
+                native-value="charitable"
+              >
+                <label for="charitable"
+                  >Charitable cause or public benefit</label
+                >
+              </b-radio>
+
+              <br />
+              <b-radio
+                @click.native="showNonProfit()"
+                name="purpose"
+                native-value="cooperative"
+              >
+                <label for="cooperative"
+                  >Provide shared benefit for members through a cooperative
+                  association</label
+                >
+              </b-radio>
+
+              <br />
             </div>
           </div>
         </div>
@@ -42,7 +63,6 @@
         </div>
       </div>
     </template>
-    <template v-slot:tilefooter> </template>
   </BaseTile>
 </template>
 
