@@ -42,15 +42,22 @@ export default {
   background-color: #274f6e;
 }
 h1 {
-  padding: 40px;
+  padding: 20px;
   align-content: center;
   color: white;
   font-size: 40px;
 }
-.bet-modal .modal-card {
+.modal-card {
   width: 900px;
 }
-.bet-modal .modal-card-head {
+.modal-card-head {
   background-color: #274f6e;
+}
+.modal-card-body {
+  background-color: rgb(207, 232, 252);
+  padding: 10px;
+}
+.modal-card-foot {
+  background-color: rgb(207, 232, 252);
 }
 </style>

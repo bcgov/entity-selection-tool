@@ -10,7 +10,9 @@
       </div>
     </div>
     <div class="modal-card-foot">
-      <slot name="modalfooter"> </slot>
+      <slot name="modalfooter">
+        <p>Powered by BizPaL</p>
+      </slot>
     </div>
   </div>
 </template>
@@ -21,8 +23,4 @@ export default {
 };
 </script>
 
-<style>
-.bet-modal-card {
-  background-color: rgba(39, 79, 110, 1);
-}
-</style>
+<style></style>

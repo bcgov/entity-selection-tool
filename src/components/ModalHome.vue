@@ -1,23 +1,32 @@
 <template>
   <BaseModal>
     <template v-slot:modalheader>
-      <h1>
-        {{ $t("business_structures") }}
-      </h1>
+      <div class="container">
+        <div class="columns">
+          <div class="column is-three-quarters">
+            <h1>
+              {{ $t("business_structures") }}
+            </h1>
+          </div>
+          <div class="column is-one-quarter">
+            <b-button
+              class="is-pulled-right"
+              outlined
+              type="is-light"
+              :aria-label="$t('close')"
+              @click="$parent.close()"
+            >
+              <font-awesome-icon :icon="['fas', 'times']" />
+              {{ $t("close") }}
+            </b-button>
+          </div>
+        </div>
+      </div>
     </template>
     <template v-slot:modalbody>
       <TileHome></TileHome>
     </template>
-    <template v-slot:modalfooter>
-      <b-button
-        outlined
-        type="is-primary"
-        :aria-label="$t('')"
-        @click="$parent.close()"
-      >
-        <font-awesome-icon :icon="['fas', 'times']" />
-      </b-button>
-    </template>
+    <template v-slot:modalfooter> </template>
   </BaseModal>
 </template>
 

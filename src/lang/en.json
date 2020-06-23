@@ -1,6 +1,7 @@
 {
     "business_structures" : "Business Structures Wizard",
     "entity_titles" : "Suggested Business Structure",
+    "close" : "Close",
     "start" : "Start",
     "restart": "Restart",
     "submit": "Submit",

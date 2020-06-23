@@ -1,5 +1,7 @@
 {
     "business_structures": "Structures D'Entreprise",
+    "entity_titles" : "Structures d'entreprise suggérée",
+    "close": "Fermer",
     "start": "Démarrer",
     "restart": "Redémarrer",
     "submit": "Envoyer",

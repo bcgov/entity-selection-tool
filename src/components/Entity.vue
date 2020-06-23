@@ -22,17 +22,17 @@
         <form>
           <template v-for="(value, index) in current">
             <label v-bind:key="`${index}${currentCategoryIndex}`">
-              <input
-                type="radio"
-                class="be-radio"
+              <b-radio
+                type="is-info"
                 name="questions"
+                v-model="radioButton"
                 :id="index"
-                :checked="
+                :native-value="
                   index ===
                     userSelectedAnswer[`cat-${currentCategoryIndex}`]
                       .answerIndex
                 "
-                @click="onSelect(value, index)"
+                @click.native="onSelect(value, index)"
               />
               {{ value[`title_${locale}`] }}
               <br />
@@ -145,6 +145,7 @@ export default {
   },
   data: function() {
     return {
+      radioButton: "",
       resultsShow: false,
       total: [0, 0, 0, 0, 0, 0],
       tempImp: [0, 0, 0, 0, 0, 0],
