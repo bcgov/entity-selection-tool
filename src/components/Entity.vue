@@ -32,21 +32,19 @@
     </b-button> -->
         <template v-slot:headertext>
           <h2>QUESTION {{ currentCategoryIndex }} of {{ totalCategories }}</h2>
-          <br />
-          <!-- <h3>{{ weights[currentCategory] }}</h3> -->
-          <h3>
+        </template>
+        <template v-slot:bodytext>
+          <p>
             {{
               data.collection[`cat-${currentCategoryIndex}`][
                 `question_${locale}`
               ]
             }}
-          </h3>
+          </p>
           <br />
-        </template>
-        <template v-slot:bodytext>
           <form>
             <template v-for="(value, index) in current">
-              <label v-bind:key="`${index}${currentCategoryIndex}`">
+              <div v-bind:key="`${index}${currentCategoryIndex}`" class="field">
                 <b-radio
                   type="is-info"
                   name="questions"
@@ -58,10 +56,9 @@
                         .answerIndex
                   "
                   @click.native="onSelect(value, index)"
-                />
-                {{ value[`title_${locale}`] }}
-                <br />
-              </label>
+                  ><label :for="index"> {{ value[`title_${locale}`] }}</label>
+                </b-radio>
+              </div>
             </template>
           </form>
           <br />
@@ -70,26 +67,20 @@
               <b-button
                 size="is-medium"
                 @click="previous()"
-                :disabled="
-                  currentCategoryIndex == 0 && currentQuestionIndex == 0
-                "
+                :disabled="disabledPreviousButton"
               >
                 Previous
               </b-button>
               <b-button
                 size="is-medium"
                 @click="next()"
-                :disabled="
-                  currentCategoryIndex == data.length - 1 &&
-                    currentQuestionIndex ==
-                      data[data.length - 1].questions.length - 1
-                "
+                :disabled="disabledNextButton"
               >
                 Next
               </b-button>
               <!-- change v-if allAnswered to true after testing -->
               <b-button
-                v-if="!allAnswered"
+                :disabled="disabledSubmitButton"
                 size="is-medium"
                 @click="showResults()"
                 >{{ $t("submit") }}</b-button
@@ -180,17 +171,16 @@ export default {
      this.$i18n.locale = "en";
     return {    
       radioButton: "",
+      disabledNextButton: true,
+      disabledSubmitButton: true,
+      disabledPreviousButton: true,
       resultsShow: false,
-      total: [0, 0, 0, 0, 0, 0],
-      tempImp: [0, 0, 0, 0, 0, 0],
       // this will be dynamicallly created
       userSelectedAnswer:{},
       entitiesTotal:{},
-      selectedImp: [0, 0, 0, 0, 0, 0],
       totalCategories:0,
       data: json,
       currentCategoryIndex: 1,
-      currentQuestionIndex: 1,
       navElement: "",
       isHidden: false,
       types: [
@@ -225,15 +215,7 @@ this.resultsShow = true;
      * Advances to the next question
      */
     next: function() {
-      /*
-      if (
-        this.currentQuestionIndex ==
-        this.data[this.currentCategoryIndex].questions.length - 1
-      ) {
-        if (this.currentCategoryIndex != this.data.length - 1)
-          this.changeCurrent(this.currentCategoryIndex + 1, 0);
-      } else this.changeCurrent(this.currentCategoryIndex, this.currentQuestionIndex + 1);
-      */
+       
 
        if(this.currentCategoryIndex < this.totalCategories){
            this.currentCategoryIndex++;
@@ -260,6 +242,8 @@ this.resultsShow = true;
      * @param {number} answer The index of the selected option
      */
     onSelect: function(answer,answerIndex) {
+        this.disabledNextButton = (this.currentCategoryIndex == 9) ? true : false;
+        if(this.currentCategoryIndex == 9) this.disabledSubmitButton = false;
  
       // recourd user answer index and impact to variable 
       this.userSelectedAnswer[`cat-${this.currentCategoryIndex}`].answerIndex = answerIndex;
@@ -291,6 +275,27 @@ this.resultsShow = true;
       this.$i18n.locale = this.locale == "en" ? "fr" : "en";
     }
   },
+  watch: {
+    currentCategoryIndex: function(val) {
+
+      if(val==9){
+        this.disabledNextButton = true;
+      }else {
+        // check if questions already answered
+
+        let question = this.userSelectedAnswer[`cat-${val}`];
+
+       this.disabledNextButton = (question.answerIndex=="notset") ? true : false;
+
+
+      }
+
+      this.disabledPreviousButton=(val==1) ? true : false
+     
+
+    }
+  
+  },
   computed: {
     getTotal: function(entityKey){
       return (this.entitiesTotal[entityKey]) ? this.entitiesTotal[entityKey].total:0;
@@ -299,10 +304,17 @@ this.resultsShow = true;
      * @returns The data for the current question
      */
     current: function() {
-      //return this.data[this.currentCategory].questions[this.currentQuestionIndex];
+
 
       //return this.data.collection[`cat-${this.currentCategoryIndex}`].answers[`a${this.currentQuestionIndex}`];
       return this.data.collection[`cat-${this.currentCategoryIndex}`].answers;
+
+
+    
+
+
+
+
     },
     /**
      * @returns The current language

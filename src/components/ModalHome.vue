@@ -45,6 +45,11 @@
                   {{ $t("entity_title_two") }}
                 </h2>
               </div>
+              <div v-if="!started">
+                <h3 style="hidden">test</h3>
+
+                <h2 style="hidden">test</h2>
+              </div>
             </div>
           </div>
         </div>
@@ -53,13 +58,13 @@
     <div class="modal-card-body">
       <div v-if="!started && !nonProfit">
         <BaseCard class="question box">
-          <template v-slot:headertext>
+          <template v-slot:headertext> </template>
+          <template v-slot:bodytext>
             <p>
               Which of these statements best describes the main purpose of your
               new organization?
             </p>
-          </template>
-          <template v-slot:bodytext>
+            <br />
             <b-radio
               @click.native="start()"
               name="purpose"
