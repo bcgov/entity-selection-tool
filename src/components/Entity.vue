@@ -46,26 +46,20 @@
               <b-button
                 size="is-medium"
                 @click="previous()"
-                :disabled="
-                  currentCategoryIndex == 0 && currentQuestionIndex == 0
-                "
+                :disabled="disabledPreviousButton"
               >
                 Previous
               </b-button>
               <b-button
                 size="is-medium"
                 @click="next()"
-                :disabled="
-                  currentCategoryIndex == data.length - 1 &&
-                    currentQuestionIndex ==
-                      data[data.length - 1].questions.length - 1
-                "
+                :disabled="disabledNextButton"
               >
                 Next
               </b-button>
               <!-- change v-if allAnswered to true after testing -->
               <b-button
-                v-if="!allAnswered"
+                :disabled="disabledSubmitButton"
                 size="is-medium"
                 @click="showResults()"
                 >{{ $t("submit") }}</b-button
@@ -137,7 +131,7 @@
 
 <script>
 import Vue from "vue";
-import json from "@/data/be-json-v4-david-BC.json";
+import json from "@/data/be-json-v4.2-BC.json";
 import Results from "@/components/Results.vue";
 import UIkit from "uikit";
 import BaseCard from "@/components/base-components/BaseCard.vue";
@@ -153,17 +147,16 @@ export default {
   data: function() {
     return {
       radioButton: "",
+      disabledNextButton: true,
+      disabledSubmitButton: true,
+      disabledPreviousButton: true,
       resultsShow: false,
-      total: [0, 0, 0, 0, 0, 0],
-      tempImp: [0, 0, 0, 0, 0, 0],
       // this will be dynamicallly created
       userSelectedAnswer:{},
       entitiesTotal:{},
-      selectedImp: [0, 0, 0, 0, 0, 0],
       totalCategories:0,
       data: json,
       currentCategoryIndex: 1,
-      currentQuestionIndex: 1,
       navElement: "",
       isHidden: false,
       types: [
@@ -195,15 +188,7 @@ this.resultsShow = true;
      * Advances to the next question
      */
     next: function() {
-      /*
-      if (
-        this.currentQuestionIndex ==
-        this.data[this.currentCategoryIndex].questions.length - 1
-      ) {
-        if (this.currentCategoryIndex != this.data.length - 1)
-          this.changeCurrent(this.currentCategoryIndex + 1, 0);
-      } else this.changeCurrent(this.currentCategoryIndex, this.currentQuestionIndex + 1);
-      */
+       
 
        if(this.currentCategoryIndex < this.totalCategories){
            this.currentCategoryIndex++;
@@ -230,33 +215,26 @@ this.resultsShow = true;
      * @param {number} answer The index of the selected option
      */
     onSelect: function(answer,answerIndex) {
-    //  this.tempImp = this.current.answers[answer].impact;
-      //this.updateTotal();
-      //record user selection
+        this.disabledNextButton = (this.currentCategoryIndex == 9) ? true : false;
+        if(this.currentCategoryIndex == 9) this.disabledSubmitButton = false;
+ 
+      // recourd user answer index and impact to variable 
       this.userSelectedAnswer[`cat-${this.currentCategoryIndex}`].answerIndex = answerIndex;
-       this.userSelectedAnswer[`cat-${this.currentCategoryIndex}`].impact = answer.impact;
+      this.userSelectedAnswer[`cat-${this.currentCategoryIndex}`].impact = answer.impact;
 
-
-       //console.log(this.userSelectedAnswer)
-
-       // calculated new total for all:
-    let entitiesIndex=0; // position of entitity in impact array
-    for (let [key, value] of Object.entries(this.data.entities)){
+    for (let [entityKey, value] of Object.entries(this.data.entities)){
 
       let totalImpact=0;
 
-    
-          for (let [key, value] of Object.entries(this.userSelectedAnswer)){
+         // go throught all recoreded anwers to find impact for that Entity
+          for (let [key, answerValue] of Object.entries(this.userSelectedAnswer)){
             if(value.answerIndex !="notset"){
-              let anwserImpact = value.impact
-              let impactValue = anwserImpact[entitiesIndex] || 0;
+              let impactValue = answerValue.impact[entityKey] || 0;
                totalImpact = totalImpact + impactValue;
             }
           }
-       
-       //}// end for 
-       entitiesIndex++;
-       this.entitiesTotal[key].total = totalImpact;
+
+       this.entitiesTotal[entityKey].total = totalImpact;
 
      }//entities
 
@@ -270,6 +248,27 @@ this.resultsShow = true;
       this.$i18n.locale = this.locale == "en" ? "fr" : "en";
     }
   },
+  watch: {
+    currentCategoryIndex: function(val) {
+
+      if(val==9){
+        this.disabledNextButton = true;
+      }else {
+        // check if questions already answered
+
+        let question = this.userSelectedAnswer[`cat-${val}`];
+
+       this.disabledNextButton = (question.answerIndex=="notset") ? true : false;
+
+
+      }
+
+      this.disabledPreviousButton=(val==1) ? true : false
+     
+
+    }
+  
+  },
   computed: {
     getTotal: function(entityKey){
       return (this.entitiesTotal[entityKey]) ? this.entitiesTotal[entityKey].total:0;
@@ -278,10 +277,17 @@ this.resultsShow = true;
      * @returns The data for the current question
      */
     current: function() {
-      //return this.data[this.currentCategory].questions[this.currentQuestionIndex];
+
 
       //return this.data.collection[`cat-${this.currentCategoryIndex}`].answers[`a${this.currentQuestionIndex}`];
       return this.data.collection[`cat-${this.currentCategoryIndex}`].answers;
+
+
+    
+
+
+
+
     },
     /**
      * @returns The current language
