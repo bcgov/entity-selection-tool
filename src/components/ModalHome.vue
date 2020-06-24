@@ -118,24 +118,11 @@
 </template>
 
 <script>
-<<<<<<< HEAD
-import BaseModal from "@/components/base-components/BaseModal.vue";
-import TileHome from "@/components/TileHome.vue";
-require("../i18n");
-
-export default {
-  name: "ModalHome",
-  components: {
-    BaseModal,
-    TileHome
-  },
-    created(){
-    this.$i18n.locale = "en";
-  },
-=======
 import BaseCard from "@/components/base-components/BaseCard.vue";
 import Entity from "@/components/Entity.vue";
 import NonProfit from "@/components/NonProfit.vue";
+require("../i18n");
+
 export default {
   name: "ModalHome",
   components: {
@@ -144,6 +131,8 @@ export default {
     NonProfit
   },
   data: function() {
+    this.$i18n.locale = "en";
+
     return {
       started: false,
       nonProfit: false
@@ -157,7 +146,6 @@ export default {
       this.nonProfit = true;
     }
   }
->>>>>>> dynamic-components
 };
 </script>
 
