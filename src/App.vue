@@ -1,10 +1,5 @@
 <template>
   <div id="app">
-    <h1 style="font-size:40px">
-      {{ $t("business_structures") }}
-    </h1>
-    <p>Powered by BizPaL</p>
-    <br />
     <b-button @click="homeModal()">
       Start Business Structures Widget
     </b-button>
@@ -32,14 +27,6 @@ export default {
 };
 </script>
 <style>
-#app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: left;
-  color: #edf3f7;
-  background-color: #274f6e;
-}
 h1 {
   align-content: center;
   color: white;
