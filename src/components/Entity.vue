@@ -11,21 +11,19 @@
     </b-button> -->
         <template v-slot:headertext>
           <h2>QUESTION {{ currentCategoryIndex }} of {{ totalCategories }}</h2>
-          <br />
-          <!-- <h3>{{ weights[currentCategory] }}</h3> -->
-          <h3>
+        </template>
+        <template v-slot:bodytext>
+          <p>
             {{
               data.collection[`cat-${currentCategoryIndex}`][
                 `question_${locale}`
               ]
             }}
-          </h3>
+          </p>
           <br />
-        </template>
-        <template v-slot:bodytext>
           <form>
             <template v-for="(value, index) in current">
-              <label v-bind:key="`${index}${currentCategoryIndex}`">
+              <div v-bind:key="`${index}${currentCategoryIndex}`" class="field">
                 <b-radio
                   type="is-info"
                   name="questions"
@@ -37,10 +35,9 @@
                         .answerIndex
                   "
                   @click.native="onSelect(value, index)"
-                />
-                {{ value[`title_${locale}`] }}
-                <br />
-              </label>
+                  ><label :for="index"> {{ value[`title_${locale}`] }}</label>
+                </b-radio>
+              </div>
             </template>
           </form>
           <br />
