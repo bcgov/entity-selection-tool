@@ -59,22 +59,40 @@ export default {
   background-color: #274f6e;
 }
 h1 {
-  padding: 20px;
   align-content: center;
   color: white;
-  font-size: 40px;
+  font-size: 30px;
 }
 .modal-card {
   width: 900px;
 }
 .modal-card-head {
   background-color: #274f6e;
+  padding-bottom: 6px;
 }
 .modal-card-body {
   background-color: rgb(207, 232, 252);
+  min-height: 400px;
+
   padding: 10px;
 }
 .modal-card-foot {
   background-color: rgb(207, 232, 252);
+}
+.question.box {
+  max-width: 520px;
+  z-index: 50;
+  position: absolute;
+  top: 80px;
+  left: 10px;
+}
+h3 {
+  font-size: 16px;
+}
+h2 {
+  font-size: 22px;
+}
+.be-subtitle {
+  padding-bottom: 0px;
 }
 </style>

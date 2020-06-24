@@ -26,7 +26,7 @@
         </div>
       </div>
       <div class="uk-card-footer">
-        <router-link to="/">{{ $t("restart") }}</router-link> ||
+        <!-- <router-link to="/">{{ $t("restart") }}</router-link> || -->
         <button>Print result</button> ||
         <button>Print all entities summary</button>
       </div>

@@ -22,93 +22,101 @@
 <template>
   <div class="columns">
     <div v-if="!resultsShow" class="column is-half">
-      <!-- <b-button
+      <BaseCard class="question box">
+        <!-- <b-button
       @click="toggleLocale()"
       size="is-small"
       style="background-color:pink"
     >
     {{ locale == "en" ? "Francais" : "English" }}
     </b-button> -->
-
-      <div class="column">
-        <h2>QUESTION {{ currentCategoryIndex }} of {{ totalCategories }}</h2>
-        <br />
-        <!-- <h3>{{ weights[currentCategory] }}</h3> -->
-        <h3>
-          {{
-            data.collection[`cat-${currentCategoryIndex}`][`question_${locale}`]
-          }}
-        </h3>
-        <br />
-        <form>
-          <template v-for="(value, index) in current">
-            <label v-bind:key="`${index}${currentCategoryIndex}`">
-              <b-radio
-                type="is-info"
-                name="questions"
-                v-model="radioButton"
-                :id="index"
-                :native-value="
-                  index ===
-                    userSelectedAnswer[`cat-${currentCategoryIndex}`]
-                      .answerIndex
+        <template v-slot:headertext>
+          <h2>QUESTION {{ currentCategoryIndex }} of {{ totalCategories }}</h2>
+          <br />
+          <!-- <h3>{{ weights[currentCategory] }}</h3> -->
+          <h3>
+            {{
+              data.collection[`cat-${currentCategoryIndex}`][
+                `question_${locale}`
+              ]
+            }}
+          </h3>
+          <br />
+        </template>
+        <template v-slot:bodytext>
+          <form>
+            <template v-for="(value, index) in current">
+              <label v-bind:key="`${index}${currentCategoryIndex}`">
+                <b-radio
+                  type="is-info"
+                  name="questions"
+                  v-model="radioButton"
+                  :id="index"
+                  :native-value="
+                    index ===
+                      userSelectedAnswer[`cat-${currentCategoryIndex}`]
+                        .answerIndex
+                  "
+                  @click.native="onSelect(value, index)"
+                />
+                {{ value[`title_${locale}`] }}
+                <br />
+              </label>
+            </template>
+          </form>
+          <br />
+          <section>
+            <div class="buttons">
+              <b-button
+                size="is-medium"
+                @click="previous()"
+                :disabled="
+                  currentCategoryIndex == 0 && currentQuestionIndex == 0
                 "
-                @click.native="onSelect(value, index)"
-              />
-              {{ value[`title_${locale}`] }}
-              <br />
-            </label>
-          </template>
-        </form>
-        <br />
-        <section>
-          <div class="buttons">
-            <b-button
-              size="is-medium"
-              @click="previous()"
-              :disabled="currentCategoryIndex == 0 && currentQuestionIndex == 0"
-            >
-              Previous
-            </b-button>
-            <b-button
-              size="is-medium"
-              @click="next()"
-              :disabled="
-                currentCategoryIndex == data.length - 1 &&
-                  currentQuestionIndex ==
-                    data[data.length - 1].questions.length - 1
-              "
-            >
-              Next
-            </b-button>
-            <!-- change v-if allAnswered to true after testing -->
-            <b-button
-              v-if="!allAnswered"
-              size="is-medium"
-              @click="showResults()"
-              >{{ $t("submit") }}</b-button
-            >
-          </div>
-          <!-- :to="{ name: 'results', params: { structure: maxCheck } }" -->
-        </section>
-      </div>
-
-      <div class="column ">
-        <!-- <button v-on:click="isHidden = !isHidden">
+              >
+                Previous
+              </b-button>
+              <b-button
+                size="is-medium"
+                @click="next()"
+                :disabled="
+                  currentCategoryIndex == data.length - 1 &&
+                    currentQuestionIndex ==
+                      data[data.length - 1].questions.length - 1
+                "
+              >
+                Next
+              </b-button>
+              <!-- change v-if allAnswered to true after testing -->
+              <b-button
+                v-if="!allAnswered"
+                size="is-medium"
+                @click="showResults()"
+                >{{ $t("submit") }}</b-button
+              >
+            </div>
+            <!-- :to="{ name: 'results', params: { structure: maxCheck } }" -->
+          </section>
+        </template>
+        <template v-slot:footertext>
+          <section>
+            <p v-if="!isHidden">
+              {{ $t("generic_context") }}
+            </p>
+          </section>
+          <!-- <button v-on:click="isHidden = !isHidden">
           More details/context
         </button> -->
-        <p v-if="!isHidden">
-          {{ $t("generic_context") }}
-        </p>
-      </div>
+        </template>
+      </BaseCard>
     </div>
     <div v-if="resultsShow" class="column is-half">
       <Results></Results>
     </div>
     <!-- end left side -->
     <div class="column is-half">
-      <h2 style="color: #2C5671">{{ $t("entity_titles") }}</h2>
-      <div class="column is-four-fifth">
+      <!--  <h2 style="color: #2C5671">{{ $t("entity_titles") }}</h2> -->
+      <div class="column is-four-fifths is-pulled-right">
         <section>
           <template v-for="(value, index) in data.entities">
             <div class="be-entitywrap" v-bind:key="index">
@@ -118,15 +126,15 @@
               <b-progress
                 size="is-small"
                 type="is-info"
-                class="uk-progress"
+                class="be-progress"
                 :value="entitiesTotal[index].total"
                 min="0"
               ></b-progress>
             </div>
           </template>
         </section>
-        <br />
-        {{ $t("disclaimer") }}
+        <!--   <br />
+        {{ $t("disclaimer") }} -->
       </div>
     </div>
     <div>
@@ -157,13 +165,14 @@ import json from "@/data/be-json-v4.2-BC.json";
 import Results from "@/components/Results.vue";
 import UIkit from "uikit";
 require("../i18n");
-
+import BaseCard from "@/components/base-components/BaseCard.vue";
 // import i18n from "@/i18n";
 /* eslint-disable */ 
 
 export default {
   name: "Entity",
   components: {
+    BaseCard,
     Results
   },
   
@@ -385,10 +394,7 @@ h3 {
   text-align: left;
   font-size: 25px;
 }
-h2{
-  text-align: left;
-  font-size: 30px;
-}
+
 p {
   font-weight: 50;
   color:#2C5671;
@@ -396,12 +402,12 @@ p {
 em {
   color:#2C5671;
 }
-.uk-progress {
-  margin-bottom: 15px;
-  margin-top: 15px;
+.be-progress {
+  margin-bottom: 5px;
+  margin-top: 5px;
   margin-right: 20px;
   margin-left: 20px;
-  height: 7px;
+ 
   border-color: #2C5671;
 }
 .uk-button-group {
@@ -413,8 +419,9 @@ em {
   border-color: #2C5671;  
 }
 .be-entitywrap{
-  border-style: solid;
-  border-color: #edf3f7;
+  border-bottom-style: solid;
+  border-bottom-color: #edf3f7;
+  padding-top: 5px;
   /* padding-left: 15px;
   padding-right: 15px;
   padding-top: 20px;
