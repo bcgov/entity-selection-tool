@@ -13,7 +13,6 @@
 <script>
 import ModalHome from "@/components/ModalHome.vue";
 import Vue from "vue";
-
 import Buefy from "buefy";
 import "buefy/dist/buefy.css";
 
@@ -64,9 +63,10 @@ h1 {
   background-color: rgb(207, 232, 252);
   padding-bottom: 10px;
   padding-top: 10px;
+  justify-content: flex-end;
 }
 .question.box {
-  max-width: 520px;
+  width: 520px;
   height: 480px;
   z-index: 50;
   position: absolute;
@@ -82,9 +82,21 @@ h2 {
 .be-subtitle {
   padding-bottom: 0px;
 }
-.card-content {
+.card .custom-header {
+  height: 60px;
+}
+
+.card .card-content {
   background-color: transparent;
   padding: 1rem;
-  height: 340px;
+  height: 320px;
+}
+
+.card .custom-footer {
+  height: 60px;
+}
+.card .content .be-nonprofit-list {
+  margin-top: 6px;
+  margin-bottom: 6px;
 }
 </style>

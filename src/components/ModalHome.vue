@@ -35,9 +35,9 @@
                 </h2>
               </div>
               <div v-if="!started">
-                <h3 style="hidden">test</h3>
+                <h3 style="visibility: hidden">test</h3>
 
-                <h2 style="hidden">test</h2>
+                <h2 style="visibility: hidden">test</h2>
               </div>
             </div>
           </div>
@@ -101,12 +101,12 @@
       <div v-if="started">
         <Entity></Entity>
       </div>
-      <div v-if="nonProfit" class="tile is-ancestor">
+      <div v-if="nonProfit">
         <NonProfit></NonProfit>
       </div>
     </div>
     <footer class="modal-card-foot">
-      <p>Powered by BizPaL</p>
+      <p class="is-pulled-right">Powered by BizPaL</p>
     </footer>
   </div>
 </template>
