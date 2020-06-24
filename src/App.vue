@@ -72,16 +72,15 @@ h2 {
 .card .custom-header {
   height: 60px;
 }
-
 .card .card-content {
   background-color: transparent;
   padding: 1rem;
   height: 320px;
 }
-
-.card .custom-footer {
+/* .card .custom-footer {
   height: 60px;
-}
+  justify-content: space-between;
+} */
 .card .content .be-nonprofit-list {
   margin-top: 6px;
   margin-bottom: 6px;

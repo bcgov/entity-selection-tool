@@ -10,19 +10,16 @@
           <ul class="be-nonprofit-list">
             <li>1</li>
             <li>2</li>
-            <li>3</li>
           </ul>
           <h6>Incorporated Society</h6>
           <ul class="be-nonprofit-list">
             <li>1</li>
             <li>2</li>
-            <li>3</li>
           </ul>
           <h6>Non-Registered Society</h6>
           <ul class="be-nonprofit-list">
             <li>1</li>
             <li>2</li>
-            <li>3</li>
           </ul>
         </template>
       </BaseCard>

@@ -9,7 +9,7 @@
         <slot name="bodytext"></slot>
       </div>
     </div>
-    <div class="custom-footer">
+    <div class="card-footer">
       <slot name="footertext"> </slot>
     </div>
   </div>
