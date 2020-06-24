@@ -260,33 +260,24 @@ this.resultsShow = true;
      * @param {number} answer The index of the selected option
      */
     onSelect: function(answer,answerIndex) {
-    //  this.tempImp = this.current.answers[answer].impact;
-      //this.updateTotal();
-      //record user selection
+ 
+      // recourd user answer index and impact to variable 
       this.userSelectedAnswer[`cat-${this.currentCategoryIndex}`].answerIndex = answerIndex;
-       this.userSelectedAnswer[`cat-${this.currentCategoryIndex}`].impact = answer.impact;
+      this.userSelectedAnswer[`cat-${this.currentCategoryIndex}`].impact = answer.impact;
 
-
-       //console.log(this.userSelectedAnswer)
-
-       // calculated new total for all:
-    let entitiesIndex=0; // position of entitity in impact array
-    for (let [key, value] of Object.entries(this.data.entities)){
+    for (let [entityKey, value] of Object.entries(this.data.entities)){
 
       let totalImpact=0;
 
-    
-          for (let [key, value] of Object.entries(this.userSelectedAnswer)){
+         // go throught all recoreded anwers to find impact for that Entity
+          for (let [key, answerValue] of Object.entries(this.userSelectedAnswer)){
             if(value.answerIndex !="notset"){
-              let anwserImpact = value.impact
-              let impactValue = anwserImpact[entitiesIndex] || 0;
+              let impactValue = answerValue.impact[entityKey] || 0;
                totalImpact = totalImpact + impactValue;
             }
           }
-       
-       //}// end for 
-       entitiesIndex++;
-       this.entitiesTotal[key].total = totalImpact;
+
+       this.entitiesTotal[entityKey].total = totalImpact;
 
      }//entities
 
