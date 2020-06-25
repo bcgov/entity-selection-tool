@@ -2,14 +2,14 @@
 {
   "en": {
     "business_structures": "Business Structure Title",
-    "submit": "sumbit",
+    "submit": "submit",
     "generic_context": "context",
     "entity_titles":"Entity Title",
     "disclaimer":"Disclaimer"
   },
    "fr": {
     "business_structures": "Business Structure Title - French",
-        "submit": "sumbit",
+        "submit": "submit",
             "generic_context": "context",
                 "entity_titles":"Entity Title",
                     "disclaimer":"Disclaimer"
