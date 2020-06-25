@@ -3,34 +3,31 @@
     <div class="column is-half">
       <BaseCard class="question box">
         <template v-slot:headertext>
-          <h3>
+          <h2>
             {{ title }}
-          </h3>
+          </h2>
         </template>
         <template v-slot:bodytext>
-          <!-- <p>{{ body }}</p> -->
+          <p class="be-results-text">{{ body }}</p>
           <div>
-            <h4>{{ $t("advantages") }}</h4>
-            <ul>
+            <h6>{{ $t("advantages") }}</h6>
+            <ul class="be-results-text">
               <span v-html="advantages"></span>
             </ul>
           </div>
+          <br />
           <div>
-            <h4>{{ $t("disadvantages") }}</h4>
-            <ul>
+            <h6>{{ $t("disadvantages") }}</h6>
+            <ul class="be-results-text">
               <span v-html="disadvantages"></span>
             </ul>
           </div>
         </template>
         <template v-slot:footertext>
-          <!-- <router-link to="/">{{ $t("restart") }}</router-link> || -->
-          <b-button class="card-footer-item">Print result</b-button>
-          <b-button class="card-footer-item"
-            >Print all entities summary</b-button
-          >
+          <a href="#" class="card-footer-item">{{ $t("restart") }}</a>
+          <a href="#" class="card-footer-item">Print Results</a>
+          <a href="#" class="card-footer-item">Print All Entity Summaries</a>
         </template>
-
-        <!-- new -->
       </BaseCard>
     </div>
     <div class="column is-half"></div>

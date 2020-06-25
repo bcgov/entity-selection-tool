@@ -76,13 +76,13 @@ h2 {
   background-color: transparent;
   padding: 1rem;
   height: 320px;
+  overflow-y: scroll;
 }
-/* .card .custom-footer {
-  height: 60px;
-  justify-content: space-between;
-} */
 .card .content .be-nonprofit-list {
   margin-top: 6px;
   margin-bottom: 6px;
+}
+.be-results-text {
+  font-size: 14px;
 }
 </style>
