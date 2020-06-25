@@ -504,42 +504,66 @@
 		"title_en":"Sole Proprietorship",
 		"title_fr":"Sole Proprietorship (FR)",
 		"summary_en":"A sole proprietorship is the simplest form of a business, in which you and your company are considered a single entity. As a sole proprietor, you do whatever is required for successful operation of your business. You make decisions, receive all profits, and claim all losses. Although you may hire employees to assist you, you usually manage the business yourself. Among its advantages a sole proprietorship is simple and inexpensive to set up, and simple from a tax standpoint—it’s part of your personal taxes. There are disadvantages to a sole proprietorship. Most importantly, you have unlimited personal liability—you are personally responsible for the business’ financial and legal liabilities. Profits will be taxed at your personal income tax rate, which is typically higher than a corporate tax rate. And if you need to raise capital you will need to rely solely on your personal resources and credit-worthiness.",
-		"summary_fr":" Summary1(FR)"
+        "summary_fr":" Summary1(FR)",
+        "advantage_en":"<li>Easy and inexpensive to register, direct control of decision making, minimal working capital required for start-up, all profits go to you directly.</li>",
+        "advantage_fr":"",
+        "disadvantage_en":"<li>Unlimited liability (if you have business debts, claims can be made against your personal assets to pay them off), Income is taxable at your personal rate, can be difficult to raise capital on your own.</li>",
+        "disadvantage_fr":""
 		},
 		"e2":{
 		"id": "e2",
 		"title_en":"General Partnership",
 		"title_fr":"General Partnership (FR)",
 		"summary_en":"In a general partnership you combine your resources with others to make a profit. Each partner contributes money, property, or skills. The profits or losses are divided among the partners based on each partner’s share. Partners are usually active in business operations, and they may employ others who are not partners to help run the business. A general partnership is more time consuming and expensive to set up and run than a sole proprietorship, but easier and less costly than a corporation. It also has a simpler tax structure—partners report income and expenses on their personal tax returns. The main disadvantage of a general partnership is that partners have unlimited personal liability—they are personally responsible for all of the business’ financial and legal liabilities, and partners can legally bind one another without prior approval. Profits are taxed at the personal rate, which is typically higher than a corporate tax rate. There are also fewer options for raising capital than a corporation; the partnership will need to rely on partners’ personal resources and credit-worthiness.",
-		"summary_fr":"Summary2(FR) "
+        "summary_fr":"Summary2(FR) ",
+        "advantage_en":"<li>Easy and inexpensive to form a partnership, start-up costs are shared equally with you and your partner(s), equal share in the management, profits and assets</li>",
+        "advantage_fr":"",
+        "disadvantage_en":"<li>No legal difference between you and your business, unlimited liability (if you have business debts, personal assets can be used to pay off the debt)</li><ul><li>An unlimited liability only applies to general partnerships. Limited partnerships do not have an unlimited liability.</li></ul>",
+        "disadvantage_fr":""
 		},
 		"e3":{
 		"id": "e3",
 		"title_en":"Limited Partnership",
 		"title_fr":"Limited Partnership (FR)",
 		"summary_en":"Limited partnerships are formed by two or more individuals or corporations. Each partner contributes money, property, or skills. They usually employ others who are not partners. Unlike a general partnership, a limited partnership has legal status separate from its partners, and a finite life. They are often used in real estate development and in the film industry. There are two types of partner in a limited partnership—general and limited. The general partner manages day to day operations, and has unlimited liability. The limited partners are typically investors who do not have day-to-day management responsibilities. Their financial and legal liability is limited to the amount invested. The profits (or losses) are divided among the partners, with general partners usually earning a larger share. Partners report income and expenses on their own tax returns. Limited partner ownership interests can be transferred, similar to shares in a corporation. A limited partnership is more time consuming and expensive to set up than a general partnership, and requires a detailed partnership agreement. ",
-		"summary_fr":"Summary3(FR) "
+        "summary_fr":"Summary3(FR) ",
+        "advantage_en":"<li>Limited liability, ownership is transferable, easier to raise capital than it might be with other business structures.</li>",
+        "advantage_fr":"",
+        "disadvantage_en":"<li>A corporation is closely regulated, more expensive to set up a corporation than other business forms, possible conflict between shareholders and directors.</li>",
+        "disadvantage_fr":""
 		},
 		"e4":{
 		"id": "e4",
 		"title_en":"Limited Liability Partnership",
 		"title_fr":"Limited Liability Partnership (FR)",
 		"summary_en":"Limited liability partnerships (“LLPs”) are formed by two or more individuals or corporations. Each partner contributes money, property, or skills. The profits or losses are divided among the partners based on each partner’s share. Like a corporation, LLPs have legal status separate from its partners, and can be maintained over many years. LLPs are frequently used by professionals such as doctors, lawyers, accountants, architects and engineers. The main advantage of a LLP over a general partnership is that the liability of limited partners is capped. And, unlike a general partnership, limited partner ownership interests can be transferred, similar to shares in a corporation. Because partners report income on their own returns they have the opportunity to claim losses against other sources of income. The main disadvantage is that general partners in an LLP have unlimited personal liability—they are personally responsible for all of the business’ financial and legal liabilities. An LLP is also more time consuming and expensive to set up than a general partnership, as a detailed partnership agreement is required.",
-		"summary_fr":"Summary4(FR) "
+        "summary_fr":"Summary4(FR) ",
+        "advantage_en":"<li>Limited liability, ownership is transferable, easier to raise capital than it might be with other business structures.</li>",
+        "advantage_fr":"",
+        "disadvantage_en":"<li>A corporation is closely regulated, more expensive to set up a corporation than other business forms, possible conflict between shareholders and directors.</li>",
+        "disadvantage_fr":""
 		},
 		"e5":{
 		"id": "e5",
 		"title_en":"BC Corporation",
 		"title_fr":"BC Corporation (FR)",
 		"summary_en":"A BC corporation is a legal entity, separate and distinct from its owners. When a company is incorporated, it acquires many of the legal powers of an individual. It can, for example, own real estate, hold investments, acquire assets, go into debt, enter into contracts, sue or be sued. If incorporation makes sense, and you do not have plans for employees or locations outside the province, incorporating as a BC corporation is probably your best choice. There are several advantages to incorporation: as a shareholder your liability is limited; corporations generally benefit from lower tax rates than the rates applied to sole proprietors or partners; it’s easier to raise capital for a corporation than for other entity types; and there are tax advantages. There are some disadvantages as well: corporations are more closely regulated than sole proprietorships and partnerships; losses in a corporation cannot be claimed by shareholders and can only be offset against earnings in the corporation; and a corporation is more complex and costly to set up and run than a sole proprietorship or partnership. ",
-		"summary_fr":"Summary5(FR) "
+        "summary_fr":"Summary5(FR) ",
+        "advantage_en":"<li>Limited liability, ownership is transferable, easier to raise capital than it might be with other business structures.</li>",
+        "advantage_fr":"",
+        "disadvantage_en":"<li>A corporation is closely regulated, more expensive to set up a corporation than other business forms, possible conflict between shareholders and directors.</li>",
+        "disadvantage_fr":""
 		},
 		"e6":{
 		"id": "e6",
 		"title_en":"Federal Corporation",
 		"title_fr":"Federal Corporation (FR)",
 		"summary_en":"A federal corporation is a legal entity, separate and distinct from its owners. When a company is incorporated, it acquires many of the legal powers of an individual. It can, for example, own real estate, hold investments, acquire assets, go into debt, enter into contracts, sue or be sued. If incorporation makes sense, and you expect to have employees or locations outside British Columbia, incorporating federally is probably your best choice. There are several advantages to incorporation: as a shareholder your liability is limited; corporations generally benefit from lower tax rates than the rates applied to sole proprietors or partners; it’s easier to raise capital for a corporation than for other entity types; and there are tax advantages. There are some disadvantages as well: corporations are more closely regulated than sole proprietorships and partnerships; losses in a corporation cannot be claimed by shareholders and can only be offset against earnings in the corporation; and a corporation is more complex and costly to set up and run than a sole proprietorship or partnership.",
-		"summary_fr":"Summary6(FR) "
+        "summary_fr":"Summary6(FR) ",
+        "advantage_en":"<li>Limited liability, ownership is transferable, easier to raise capital than it might be with other business structures.</li>",
+        "advantage_fr":"",
+        "disadvantage_en":"<li>A corporation is closely regulated, more expensive to set up a corporation than other business forms, possible conflict between shareholders and directors.</li>",
+        "disadvantage_fr":""
 		}
 		}
 	}	

@@ -81,7 +81,7 @@
       </BaseCard>
     </div>
     <div v-if="resultsShow" class="column is-half">
-      <Results></Results>
+      <Results :data="data" :entity-id="bestEntity"></Results>
     </div>
     <!-- end left side -->
     <div class="column is-half">
@@ -151,6 +151,7 @@ export default {
       disabledSubmitButton: true,
       disabledPreviousButton: true,
       resultsShow: false,
+      bestEntity:"",
       // this will be dynamicallly created
       userSelectedAnswer:{},
       entitiesTotal:{},
@@ -192,9 +193,17 @@ export default {
          })
 
        let sortedEntities = {}
+       let gotTopEntity = false;
+       let bestEntitySelectionId = "";
        keysSorted.map(function(key){
+             if(!gotTopEntity){
+               bestEntitySelectionId = key;
+               gotTopEntity = true;
+               
+             }
              sortedEntities[key]= myEntities[key];
        })
+       this.bestEntity = bestEntitySelectionId;
       this.entitiesTotal = sortedEntities;
 
    },

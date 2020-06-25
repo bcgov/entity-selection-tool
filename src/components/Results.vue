@@ -4,21 +4,21 @@
       <BaseCard class="question box">
         <template v-slot:headertext>
           <h3>
-            {{ $t(structure) }}
+            {{ title }}
           </h3>
         </template>
         <template v-slot:bodytext>
-          <p>{{ $t(body) }}</p>
+          <!-- <p>{{ body }}</p> -->
           <div>
             <h4>{{ $t("advantages") }}</h4>
             <ul>
-              <span v-html="$t(advantages)"></span>
+              <span v-html="advantages"></span>
             </ul>
           </div>
           <div>
             <h4>{{ $t("disadvantages") }}</h4>
             <ul>
-              <span v-html="$t(disadvantages)"></span>
+              <span v-html="disadvantages"></span>
             </ul>
           </div>
         </template>
@@ -44,29 +44,34 @@ export default {
     BaseCard
   },
   props: {
-    structure: String
+    data: Object,
+    entityId: String
+  },
+  data: function() {
+    return {
+      entity: {},
+      lang: "en"
+    };
+  },
+  created() {
+    // get top Entity from data
+    this.entity = this.data.entities[this.entityId];
   },
   computed: {
-    /**
-     * For use with i18n
-     * @returns key for structure description
-     */
+    title: function() {
+      return this.entity[`title_${this.lang}`];
+    },
+
     body: function() {
-      return this.structure + "_body";
+      return this.entity[`summary_${this.lang}`];
     },
-    /**
-     * For use with i18n
-     * @returns key for advantages of structure
-     */
+
     advantages: function() {
-      return this.structure + "_adv";
+      return this.entity[`advantage_${this.lang}`];
     },
-    /**
-     * For use with i18n
-     * @returns key for disadvantages of strucutre
-     */
+
     disadvantages: function() {
-      return this.structure + "_dis";
+      return this.entity[`disadvantage_${this.lang}`];
     }
   }
 };
