@@ -34,15 +34,17 @@
           <h2>QUESTION {{ currentCategoryIndex }} of {{ totalCategories }}</h2>
         </template>
         <template v-slot:bodytext>
-          <p>
-            {{
-              data.collection[`cat-${currentCategoryIndex}`][
-                `question_${locale}`
-              ]
-            }}
-          </p>
+          <section class="be-question-text">
+            <p>
+              {{
+                data.collection[`cat-${currentCategoryIndex}`][
+                  `question_${locale}`
+                ]
+              }}
+            </p>
+          </section>
           <br />
-          <form>
+          <form class="be-question-form">
             <template v-for="(value, index) in current">
               <div v-bind:key="`${index}${currentCategoryIndex}`" class="field">
                 <b-radio
@@ -62,32 +64,33 @@
             </template>
           </form>
           <br />
-          <section>
-            <div class="buttons">
-              <b-button
-                size="is-medium"
-                @click="previous()"
-                :disabled="disabledPreviousButton"
-              >
-                Previous
-              </b-button>
-              <b-button
-                size="is-medium"
-                @click="next()"
-                :disabled="disabledNextButton"
-              >
-                Next
-              </b-button>
-              <!-- change v-if allAnswered to true after testing -->
-              <b-button
-                :disabled="disabledSubmitButton"
-                size="is-medium"
-                @click="showResults()"
-                >{{ $t("submit") }}</b-button
-              >
-            </div>
-            <!-- :to="{ name: 'results', params: { structure: maxCheck } }" -->
-          </section>
+          <div class="buttons">
+            <b-button
+              class="be-button"
+              size="is-medium"
+              @click="previous()"
+              :disabled="disabledPreviousButton"
+            >
+              Previous
+            </b-button>
+            <b-button
+              class="be-button"
+              size="is-medium"
+              @click="next()"
+              :disabled="disabledNextButton"
+            >
+              Next
+            </b-button>
+            <!-- change v-if allAnswered to true after testing -->
+            <b-button
+              class="be-button"
+              :disabled="disabledSubmitButton"
+              size="is-medium"
+              @click="showResults()"
+              >{{ $t("submit") }}</b-button
+            >
+          </div>
+          <!-- :to="{ name: 'results', params: { structure: maxCheck } }" -->
         </template>
         <template v-slot:footertext>
           <section>
@@ -102,7 +105,11 @@
       </BaseCard>
     </div>
     <div v-if="resultsShow" class="column is-half">
-      <Results></Results>
+      <Results
+        :data="data"
+        :entity-id="bestEntity"
+        :user-answers="userSelectedAnswer"
+      ></Results>
     </div>
     <!-- end left side -->
     <div class="column is-half">
@@ -175,6 +182,7 @@ export default {
       disabledSubmitButton: true,
       disabledPreviousButton: true,
       resultsShow: false,
+      bestEntity:"",
       // this will be dynamicallly created
       userSelectedAnswer:{},
       entitiesTotal:{},
@@ -219,9 +227,17 @@ export default {
          })
 
        let sortedEntities = {}
+       let gotTopEntity = false;
+       let bestEntitySelectionId = "";
        keysSorted.map(function(key){
+             if(!gotTopEntity){
+               bestEntitySelectionId = key;
+               gotTopEntity = true;
+               
+             }
              sortedEntities[key]= myEntities[key];
        })
+       this.bestEntity = bestEntitySelectionId;
       this.entitiesTotal = sortedEntities;
 
    },
