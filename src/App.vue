@@ -10,12 +10,16 @@
 </i18n>
 
 <template>
+<<<<<<< HEAD
   <div id="myapp">
     <h1 style="font-size:40px">
       {{ $t("business_structures") }}
     </h1>
     <p>Powered by BizPaL</p>
     <br />
+=======
+  <div id="app">
+>>>>>>> dynamic-components
     <b-button @click="homeModal()">
       Start Business Structures Widget
     </b-button>
@@ -24,8 +28,11 @@
 <script>
 import ModalHome from "@/components/ModalHome.vue";
 import Vue from "vue";
+<<<<<<< HEAD
 require("./i18n");
 
+=======
+>>>>>>> dynamic-components
 import Buefy from "buefy";
 Vue.use(Buefy);
 
@@ -50,6 +57,7 @@ export default {
 };
 </script>
 <style>
+<<<<<<< HEAD
 #myapp {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -58,6 +66,8 @@ export default {
   color: #edf3f7;
   background-color: #274f6e;
 }
+=======
+>>>>>>> dynamic-components
 h1 {
   align-content: center;
   color: white;
@@ -81,9 +91,10 @@ h1 {
   background-color: rgb(207, 232, 252);
   padding-bottom: 10px;
   padding-top: 10px;
+  justify-content: flex-end;
 }
 .question.box {
-  max-width: 520px;
+  width: 520px;
   height: 480px;
   z-index: 50;
   position: absolute;
@@ -99,9 +110,20 @@ h2 {
 .be-subtitle {
   padding-bottom: 0px;
 }
-.card-content {
+.card .custom-header {
+  height: 60px;
+}
+.card .card-content {
   background-color: transparent;
   padding: 1rem;
-  height: 340px;
+  height: 320px;
+}
+/* .card .custom-footer {
+  height: 60px;
+  justify-content: space-between;
+} */
+.card .content .be-nonprofit-list {
+  margin-top: 6px;
+  margin-bottom: 6px;
 }
 </style>

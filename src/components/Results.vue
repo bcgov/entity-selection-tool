@@ -1,41 +1,48 @@
 <template>
-  <div class="uk-flex uk-flex-center">
-    <div class="uk-card uk-card-default uk-width-2-3">
-      <div class="uk-card-header">
-        <div class="uk-grid-small uk-flex-middle" uk-grid>
-          <div class="uk-width-expand">
-            <h3 class="uk-card-title uk-margin-remove-bottom">
-              {{ $t(structure) }}
-            </h3>
+  <div class="columns">
+    <div class="column is-half">
+      <BaseCard class="question box">
+        <template v-slot:headertext>
+          <h3>
+            {{ $t(structure) }}
+          </h3>
+        </template>
+        <template v-slot:bodytext>
+          <p>{{ $t(body) }}</p>
+          <div>
+            <h4>{{ $t("advantages") }}</h4>
+            <ul>
+              <span v-html="$t(advantages)"></span>
+            </ul>
           </div>
-        </div>
-      </div>
-      <div class="uk-card-body" uk-grid>
-        <p>{{ $t(body) }}</p>
-        <div class="uk-width-1-2">
-          <h4>{{ $t("advantages") }}</h4>
-          <ul>
-            <span v-html="$t(advantages)"></span>
-          </ul>
-        </div>
-        <div class="uk-width-1-2">
-          <h4>{{ $t("disadvantages") }}</h4>
-          <ul>
-            <span v-html="$t(disadvantages)"></span>
-          </ul>
-        </div>
-      </div>
-      <div class="uk-card-footer">
-        <!-- <router-link to="/">{{ $t("restart") }}</router-link> || -->
-        <button>Print result</button> ||
-        <button>Print all entities summary</button>
-      </div>
+          <div>
+            <h4>{{ $t("disadvantages") }}</h4>
+            <ul>
+              <span v-html="$t(disadvantages)"></span>
+            </ul>
+          </div>
+        </template>
+        <template v-slot:footertext>
+          <!-- <router-link to="/">{{ $t("restart") }}</router-link> || -->
+          <b-button class="card-footer-item">Print result</b-button>
+          <b-button class="card-footer-item"
+            >Print all entities summary</b-button
+          >
+        </template>
+
+        <!-- new -->
+      </BaseCard>
     </div>
+    <div class="column is-half"></div>
   </div>
 </template>
 <script>
+import BaseCard from "@/components/base-components/BaseCard.vue";
 export default {
   name: "Results",
+  components: {
+    BaseCard
+  },
   props: {
     structure: String
   },

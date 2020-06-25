@@ -109,9 +109,9 @@
       <!--  <h2 style="color: #2C5671">{{ $t("entity_titles") }}</h2> -->
       <div class="column is-four-fifths is-pulled-right">
         <section>
-          <template v-for="(value, index) in data.entities">
+          <template v-for="(value, index) in entitiesTotal">
             <div class="be-entitywrap" v-bind:key="index">
-              <em>{{ value[`title_${locale}`] }}</em>
+              <em>{{ data.entities[index][`title_${locale}`] }}</em>
               {{ entitiesTotal[index].total }}%
               <br />
               <b-progress
@@ -209,7 +209,21 @@ export default {
   },
   methods: {
    showResults: function() {
-this.resultsShow = true;
+        this.resultsShow = true;
+
+         // re-order to show from higher to lower for structure resultbundleRenderer.renderToStream
+    
+       let myEntities=this.entitiesTotal;
+       let keysSorted = Object.keys(this.entitiesTotal).sort(function(a,b){
+         return myEntities[b]["total"]-myEntities[a]["total"]
+         })
+
+       let sortedEntities = {}
+       keysSorted.map(function(key){
+             sortedEntities[key]= myEntities[key];
+       })
+      this.entitiesTotal = sortedEntities;
+
    },
     /**
      * Advances to the next question
