@@ -47,7 +47,9 @@
                 {{ title }}
               </h2>
 
-               <div><p>{{body}}</p></div>
+              <div>
+                <p>{{ body }}</p>
+              </div>
               <div>
                 <h2>{{ $t("advantages") }}</h2>
                 <ul>
@@ -66,10 +68,26 @@
           <section class="section">
             <div class="container">
               <h1 class="title">Your Questions/Anwers</h1>
-              <h2 class="subtitle">
-                A simple container to divide your page into
-                <strong>sections</strong>, like the one you're currently reading
-              </h2>
+
+              <ul>
+                <template v-for="(value, index) in data.collection">
+                 
+                <li v-bind:key="index">
+                  {{value[`question_${lang}`]}}
+                  <ul>
+                     <template v-for="(answer, answerIndex) in value.answers">
+                     
+                    <li v-bind:key="answerIndex">
+                      <b-radio type="is-info"  :disabled="setDisabled(index, answerIndex)"
+                        ><label> {{answer[`title_${lang}`]}}</label>
+                      </b-radio>
+                    </li>
+                     </template>
+
+                  </ul>
+                </li>
+                 </template>
+              </ul>
             </div>
           </section>
         </div>
@@ -87,7 +105,8 @@ export default {
   },
   props: {
     data: Object,
-    entityId: String
+    entityId: String,
+    userAnswers: Object
   },
   data: function() {
     return {
@@ -120,7 +139,12 @@ export default {
   methods: {
     printEntity: function() {
       this.isCardModalActive = true;
-    }
+    },
+
+    setDisabled: function(questionIndex, answerIndex) {
+          let userAnswerIndex = this.userAnswers[questionIndex].answerIndex;
+           return (userAnswerIndex == answerIndex) ? false : true;
+  }
   }
 };
 </script>

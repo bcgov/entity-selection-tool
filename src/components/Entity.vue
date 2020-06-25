@@ -81,7 +81,11 @@
       </BaseCard>
     </div>
     <div v-if="resultsShow" class="column is-half">
-      <Results :data="data" :entity-id="bestEntity"></Results>
+      <Results
+        :data="data"
+        :entity-id="bestEntity"
+        :user-answers="userSelectedAnswer"
+      ></Results>
     </div>
     <!-- end left side -->
     <div class="column is-half">
