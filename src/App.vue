@@ -76,7 +76,7 @@ h2 {
   background-color: transparent;
   padding: 1rem;
   height: 320px;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 .card .content .be-nonprofit-list {
   margin-top: 6px;
@@ -84,5 +84,18 @@ h2 {
 }
 .be-results-text {
   font-size: 14px;
+}
+.be-question-text {
+  height: 48px;
+}
+.be-question-form {
+  height: 140px;
+}
+.buttons {
+  height: 60px;
+  justify-content: center;
+}
+.be-button {
+  width: 30%;
 }
 </style>
