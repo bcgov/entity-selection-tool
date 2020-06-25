@@ -10,16 +10,7 @@
 </i18n>
 
 <template>
-<<<<<<< HEAD
-  <div id="myapp">
-    <h1 style="font-size:40px">
-      {{ $t("business_structures") }}
-    </h1>
-    <p>Powered by BizPaL</p>
-    <br />
-=======
   <div id="app">
->>>>>>> dynamic-components
     <b-button @click="homeModal()">
       Start Business Structures Widget
     </b-button>
@@ -28,11 +19,6 @@
 <script>
 import ModalHome from "@/components/ModalHome.vue";
 import Vue from "vue";
-<<<<<<< HEAD
-require("./i18n");
-
-=======
->>>>>>> dynamic-components
 import Buefy from "buefy";
 Vue.use(Buefy);
 
@@ -57,17 +43,6 @@ export default {
 };
 </script>
 <style>
-<<<<<<< HEAD
-#myapp {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: left;
-  color: #edf3f7;
-  background-color: #274f6e;
-}
-=======
->>>>>>> dynamic-components
 h1 {
   align-content: center;
   color: white;
