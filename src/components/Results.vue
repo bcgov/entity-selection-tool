@@ -34,13 +34,31 @@
     </div>
     <div class="column is-half"></div>
 
-    <b-modal :active.sync="isCardModalActive" full-screen class="print-modal">
+    <b-modal
+      :active.sync="isCardModalActive"
+      full-screen
+      aria-role="dialog"
+      aria-modal
+      class="print-modal"
+    >
       <div class="columns">
-        <div class="column is-full">
+        <div class="column is-full" id="printBody" ref="PrintBody">
           <section class="section">
             <div class="container">
+              <button class="button" type="button" @click="print()">
+                Print
+              </button>
+              <button
+                class="button"
+                type="button"
+                @click="isCardModalActive = false"
+              >
+                Close
+              </button>
+
               <h1 class="title">Suggested Business Structure</h1>
-              <h2 class="subtitle">
+
+              <h2 class="subtitle has-text-weight-bold">
                 {{ title }}
               </h2>
 
@@ -48,14 +66,14 @@
                 <p>{{ body }}</p>
               </div>
               <div>
-                <h2>{{ $t("advantages") }}</h2>
+                <h2 class="has-text-weight-bold">{{ $t("advantages") }}</h2>
                 <ul>
                   <span v-html="advantages"></span>
                 </ul>
               </div>
 
               <div>
-                <h2>{{ $t("disadvantages") }}</h2>
+                <h2 class="has-text-weight-bold">{{ $t("disadvantages") }}</h2>
                 <ul>
                   <span v-html="disadvantages"></span>
                 </ul>
@@ -64,26 +82,34 @@
           </section>
           <section class="section">
             <div class="container">
-              <h1 class="title">Your Questions/Anwers</h1>
+              <h1 class="title">Questions/Anwers</h1>
+              <h2 class="subtitle">
+                Your answers are in
+                <span class="has-text-weight-bold is-italic">
+                  bold and italic </span
+                >.
+              </h2>
 
               <ul>
                 <template v-for="(value, index) in data.collection">
-                 
-                <li v-bind:key="index">
-                  {{value[`question_${lang}`]}}
-                  <ul>
-                     <template v-for="(answer, answerIndex) in value.answers">
-                     
-                    <li v-bind:key="answerIndex">
-                      <b-radio type="is-info"  :disabled="setDisabled(index, answerIndex)"
-                        ><label> {{answer[`title_${lang}`]}}</label>
-                      </b-radio>
-                    </li>
-                     </template>
-
-                  </ul>
-                </li>
-                 </template>
+                  <li v-bind:key="index">
+                    <strong>{{ value[`question_${lang}`] }}</strong>
+                    <ul class="answers">
+                      <li
+                        v-for="(answer, answerIndex) in value.answers"
+                        v-bind:key="answerIndex"
+                        v-bind:class="{
+                          'has-text-weight-bold is-italic': checkAnswer(
+                            index,
+                            answerIndex
+                          )
+                        }"
+                      >
+                        {{ answer[`title_${lang}`] }}
+                      </li>
+                    </ul>
+                  </li>
+                </template>
               </ul>
             </div>
           </section>
@@ -94,6 +120,7 @@
 </template>
 <script>
 import BaseCard from "@/components/base-components/BaseCard.vue";
+import Printd from "printd";
 
 export default {
   name: "Results",
@@ -138,15 +165,25 @@ export default {
       this.isCardModalActive = true;
     },
 
-    setDisabled: function(questionIndex, answerIndex) {
-          let userAnswerIndex = this.userAnswers[questionIndex].answerIndex;
-           return (userAnswerIndex == answerIndex) ? false : true;
-  }
+    checkAnswer: function(questionIndex, answerIndex) {
+      let userAnswerIndex = this.userAnswers[questionIndex].answerIndex;
+      return userAnswerIndex == answerIndex ? true : false;
+    },
+    print: function() {
+      const d = new Printd();
+      d.print(this.$refs.PrintBody);
+    }
   }
 };
 </script>
 <style scoped>
 .print-modal {
   z-index: 100000;
+}
+
+.answers {
+  list-style: disc;
+  margin-left: 3%;
+  padding: 2px;
 }
 </style>
