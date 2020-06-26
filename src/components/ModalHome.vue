@@ -1,10 +1,14 @@
 <i18n>
 {
   "en": {
-    "business_structures": "Business Structure Title"
+    "business_structures": "Business Structure Title",
+    "entity_title_one" : "Suggested",
+    "entity_title_two" : "Business Structure"
   },
    "fr": {
-    "business_structures": "Business Structure Title - French"
+    "business_structures": "Business Structure Title - French",
+    "entity_title_one" : "Suggested - French",
+    "entity_title_two" : "Business Structure - French"
   }
 }
 </i18n>
