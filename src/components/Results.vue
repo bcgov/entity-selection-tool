@@ -34,86 +34,85 @@
     </div>
     <div class="column is-half"></div>
 
+    <!-- modal for print view -->
     <b-modal
       :active.sync="isCardModalActive"
       full-screen
       aria-role="dialog"
       aria-modal
-      class="print-modal"
+      class="be-print-modal"
     >
-      <div class="columns">
-        <div class="column is-full" id="printBody" ref="PrintBody">
-          <section class="section">
-            <div class="container">
-              <button class="button" type="button" @click="print()">
-                Print
-              </button>
-              <button
-                class="button"
-                type="button"
-                @click="isCardModalActive = false"
-              >
-                Close
-              </button>
-
-              <h1 class="title">Suggested Business Structure</h1>
-
-              <h2 class="subtitle has-text-weight-bold">
-                {{ title }}
-              </h2>
-
-              <div>
-                <p>{{ body }}</p>
-              </div>
-              <div>
-                <h2 class="has-text-weight-bold">{{ $t("advantages") }}</h2>
-                <ul>
-                  <span v-html="advantages"></span>
-                </ul>
-              </div>
-
-              <div>
-                <h2 class="has-text-weight-bold">{{ $t("disadvantages") }}</h2>
-                <ul>
-                  <span v-html="disadvantages"></span>
-                </ul>
-              </div>
+      <div class="modal-card" style="width: auto">
+        <header class="modal-card-head be-print-modal-head">
+          <span class="modal-card-title be-print-modal-title"
+            >Results - Print View</span
+          >
+        </header>
+        <section id="printBody" ref="PrintBody" class="modal-card-body">
+          <div>
+            <h1 class="title">Suggested Business Structure</h1>
+            <h2 class="subtitle has-text-weight-bold">
+              {{ title }}
+            </h2>
+            <div>
+              <p>{{ body }}</p>
             </div>
-          </section>
-          <section class="section">
-            <div class="container">
-              <h1 class="title">Questions/Anwers</h1>
-              <h2 class="subtitle">
-                Your answers are in
-                <span class="has-text-weight-bold is-italic">
-                  bold and italic </span
-                >.
-              </h2>
-
+            <div>
+              <h2 class="has-text-weight-bold">{{ $t("advantages") }}</h2>
               <ul>
-                <template v-for="(value, index) in data.collection">
-                  <li v-bind:key="index">
-                    <strong>{{ value[`question_${lang}`] }}</strong>
-                    <ul class="answers">
-                      <li
-                        v-for="(answer, answerIndex) in value.answers"
-                        v-bind:key="answerIndex"
-                        v-bind:class="{
-                          'has-text-weight-bold is-italic': checkAnswer(
-                            index,
-                            answerIndex
-                          )
-                        }"
-                      >
-                        {{ answer[`title_${lang}`] }}
-                      </li>
-                    </ul>
-                  </li>
-                </template>
+                <span v-html="advantages"></span>
               </ul>
             </div>
-          </section>
-        </div>
+            <div>
+              <h2 class="has-text-weight-bold">{{ $t("disadvantages") }}</h2>
+              <ul>
+                <span v-html="disadvantages"></span>
+              </ul>
+            </div>
+          </div>
+          <div>
+            <h1 class="title">Questions/Anwers</h1>
+            <h2 class="subtitle">
+              Your answers are in
+              <span class="has-text-weight-bold is-italic">
+                bold and italic </span
+              >.
+            </h2>
+            <ul>
+              <template v-for="(value, index) in data.collection">
+                <li v-bind:key="index">
+                  <strong>{{ value[`question_${lang}`] }}</strong>
+                  <ul class="be-answers">
+                    <li
+                      v-for="(answer, answerIndex) in value.answers"
+                      v-bind:key="answerIndex"
+                      v-bind:class="{
+                        'has-text-weight-bold is-italic': checkAnswer(
+                          index,
+                          answerIndex
+                        )
+                      }"
+                    >
+                      {{ answer[`title_${lang}`] }}
+                    </li>
+                  </ul>
+                </li>
+              </template>
+            </ul>
+          </div>
+        </section>
+        <footer class="be-print-modal-foot">
+          <button class="button" type="button" @click="print()">
+            Print
+          </button>
+          <button
+            class="button"
+            type="button"
+            @click="isCardModalActive = false"
+          >
+            Close
+          </button>
+        </footer>
       </div>
     </b-modal>
   </div>
@@ -139,7 +138,7 @@ export default {
       isCardModalActive: false
     };
   },
-  created() {
+  created: function() {
     // get top Entity from data
     this.entity = this.data.entities[this.entityId] || {};
   },
@@ -147,15 +146,12 @@ export default {
     title: function() {
       return this.entity[`title_${this.lang}`] || "N/A";
     },
-
     body: function() {
       return this.entity[`summary_${this.lang}`] || "N/A";
     },
-
     advantages: function() {
       return this.entity[`advantage_${this.lang}`] || "N/A";
     },
-
     disadvantages: function() {
       return this.entity[`disadvantage_${this.lang}`] || "N/A";
     }
@@ -164,7 +160,6 @@ export default {
     printEntity: function() {
       this.isCardModalActive = true;
     },
-
     checkAnswer: function(questionIndex, answerIndex) {
       let userAnswerIndex = this.userAnswers[questionIndex].answerIndex;
       return userAnswerIndex == answerIndex ? true : false;
@@ -177,11 +172,25 @@ export default {
 };
 </script>
 <style scoped>
-.print-modal {
+.be-print-modal {
   z-index: 100000;
 }
-
-.answers {
+.be-print-modal-head {
+  height: 75px !important;
+  padding-top: 5px !important;
+  padding-bottom: 5px !important;
+}
+.be-print-modal-title {
+  color: white !important;
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
+}
+.be-print-modal-foot {
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+  padding-left: 10px !important;
+}
+.be-answers {
   list-style: disc;
   margin-left: 3%;
   padding: 2px;
