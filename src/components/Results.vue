@@ -34,16 +34,19 @@
     </div>
     <div class="column is-half"></div>
 
+    <!-- modal for print view -->
     <b-modal
       :active.sync="isCardModalActive"
       full-screen
       aria-role="dialog"
       aria-modal
-      class="print-modal"
+      class="be-print-modal"
     >
       <div class="modal-card" style="width: auto">
         <header class="modal-card-head be-print-modal-head">
-          <span class="modal-card-title be-print-modal-title">Results</span>
+          <span class="modal-card-title be-print-modal-title"
+            >Results - Print View</span
+          >
         </header>
         <section id="printBody" ref="PrintBody" class="modal-card-body">
           <div>
@@ -79,15 +82,12 @@
               <template v-for="(value, index) in data.collection">
                 <li v-bind:key="index">
                   <strong>{{ value[`question_${lang}`] }}</strong>
-                  <ul class="answers">
+                  <ul class="be-answers">
                     <li
                       v-for="(answer, answerIndex) in value.answers"
                       v-bind:key="answerIndex"
                       v-bind:class="{
-                        'has-text-weight-bold is-italic': checkAnswer(
-                          index,
-                          answerIndex
-                        )
+                        selected: checkAnswer(index, answerIndex)
                       }"
                     >
                       {{ answer[`title_${lang}`] }}
@@ -169,7 +169,7 @@ export default {
 };
 </script>
 <style scoped>
-.print-modal {
+.be-print-modal {
   z-index: 100000;
 }
 .be-print-modal-head {
@@ -187,9 +187,18 @@ export default {
   padding-bottom: 10px !important;
   padding-left: 10px !important;
 }
-.answers {
+.be-answers {
   list-style: disc;
   margin-left: 3%;
   padding: 2px;
+}
+.selected {
+  font-weight: bolder;
+  font-style: italic;
+}
+h1,
+h2 {
+  margin-bottom: 0.3em;
+  margin-top: 0.3em;
 }
 </style>
