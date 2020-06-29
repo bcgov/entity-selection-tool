@@ -87,10 +87,7 @@
                       v-for="(answer, answerIndex) in value.answers"
                       v-bind:key="answerIndex"
                       v-bind:class="{
-                        'has-text-weight-bold is-italic': checkAnswer(
-                          index,
-                          answerIndex
-                        )
+                        selected: checkAnswer(index, answerIndex)
                       }"
                     >
                       {{ answer[`title_${lang}`] }}
@@ -194,5 +191,14 @@ export default {
   list-style: disc;
   margin-left: 3%;
   padding: 2px;
+}
+.selected {
+  font-weight: bolder;
+  font-style: italic;
+}
+h1,
+h2 {
+  margin-bottom: 0.3em;
+  margin-top: 0.3em;
 }
 </style>
