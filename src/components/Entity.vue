@@ -37,7 +37,8 @@
                         .answerIndex
                   "
                   @click.native="onSelect(value, index)"
-                  ><label :for="index"> {{ value[`title_${locale}`] }}</label>
+                >
+                  {{ value[`title_${locale}`] }}
                 </b-radio>
               </div>
             </template>
