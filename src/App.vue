@@ -82,6 +82,9 @@ h2 {
   margin-top: 6px;
   margin-bottom: 6px;
 }
+.card-footer-item {
+  color: #2c5671;
+}
 .be-results-text {
   font-size: 14px;
 }
