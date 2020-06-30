@@ -24,7 +24,9 @@
           </div>
         </template>
         <template v-slot:footertext>
-          <a href="#" class="card-footer-item">{{ $t("restart") }}</a>
+          <a href="#" class="card-footer-item" @click="onClickButton">{{
+            $t("restart")
+          }}</a>
           <a href="#" class="card-footer-item" @click="printEntity">
             Print Results</a
           >
@@ -164,6 +166,10 @@ export default {
     print: function() {
       const d = new Printd();
       d.print(this.$refs.PrintBody);
+    },
+    onClickButton() {
+      this.tempValue = false;
+      this.$emit("clicked", this.tempValue);
     }
   }
 };

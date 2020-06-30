@@ -90,6 +90,7 @@
         :data="data"
         :entity-id="bestEntity"
         :user-answers="userSelectedAnswer"
+        @clicked="restartEntity"
       ></Results>
     </div>
     <!-- end left side -->
@@ -278,6 +279,9 @@ export default {
      */
     toggleLocale: function() {
       this.$i18n.locale = this.locale == "en" ? "fr" : "en";
+    },
+    restartEntity(value) {
+      this.$parent.started = value;
     }
   },
   watch: {
