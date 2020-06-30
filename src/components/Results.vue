@@ -24,7 +24,9 @@
           </div>
         </template>
         <template v-slot:footertext>
-          <a href="#" class="card-footer-item">{{ $t("restart") }}</a>
+          <a href="#" class="card-footer-item" @click="onClickButton">{{
+            $t("restart")
+          }}</a>
           <a href="#" class="card-footer-item" @click="printEntity">
             Print Results</a
           >
@@ -87,10 +89,7 @@
                       v-for="(answer, answerIndex) in value.answers"
                       v-bind:key="answerIndex"
                       v-bind:class="{
-                        'has-text-weight-bold is-italic': checkAnswer(
-                          index,
-                          answerIndex
-                        )
+                        'be-selected': checkAnswer(index, answerIndex)
                       }"
                     >
                       {{ answer[`title_${lang}`] }}
@@ -167,6 +166,10 @@ export default {
     print: function() {
       const d = new Printd();
       d.print(this.$refs.PrintBody);
+    },
+    onClickButton() {
+      this.tempValue = false;
+      this.$emit("clicked", this.tempValue);
     }
   }
 };
@@ -194,5 +197,14 @@ export default {
   list-style: disc;
   margin-left: 3%;
   padding: 2px;
+}
+.be-selected {
+  font-weight: bolder;
+  font-style: italic;
+}
+h1,
+h2 {
+  margin-bottom: 0.3em;
+  margin-top: 0.3em;
 }
 </style>

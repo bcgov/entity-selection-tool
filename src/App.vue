@@ -36,7 +36,8 @@ export default {
         parent: this,
         component: ModalHome,
         hasModalCard: true,
-        customClass: "bet-modal"
+        customClass: "bet-modal",
+        canCancel: false
       });
     }
   }
@@ -86,7 +87,7 @@ h2 {
   padding-bottom: 0px;
 }
 .card .custom-header {
-  height: 60px;
+  height: 40px;
 }
 .card .card-content {
   background-color: transparent;
@@ -97,6 +98,17 @@ h2 {
 .card .content .be-nonprofit-list {
   margin-top: 6px;
   margin-bottom: 6px;
+}
+.card-footer-item {
+  color: #2c5671;
+}
+.card .card-footer {
+  height: 80px;
+  overflow-y: auto;
+}
+.be-context {
+  color: #2c5671;
+  font-size: 14px;
 }
 .be-results-text {
   font-size: 14px;
