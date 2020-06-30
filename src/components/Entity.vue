@@ -20,7 +20,8 @@
                   `question_${locale}`
                 ]
               }}
-            </p>
+              <strong><sup>1</sup></strong>
+            </p> 
           </section>
           <br />
           <form class="be-question-form">
@@ -75,7 +76,7 @@
         <template v-slot:footertext>
           <section>
             <p v-if="!isHidden">
-              {{ $t("generic_context") }}
+              <strong><sup>1</sup></strong> {{ getQuestionContext }}
             </p>
           </section>
           <!-- <button v-on:click="isHidden = !isHidden">
@@ -318,6 +319,11 @@ export default {
 
 
 
+
+    },
+    getQuestionContext: function(){
+
+      return this.data.collection[`cat-${this.currentCategoryIndex}`][`context_${this.locale}`] || "";
 
     },
     /**

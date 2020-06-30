@@ -87,7 +87,7 @@
                       v-for="(answer, answerIndex) in value.answers"
                       v-bind:key="answerIndex"
                       v-bind:class="{
-                        selected: checkAnswer(index, answerIndex)
+                        'be-selected': checkAnswer(index, answerIndex)
                       }"
                     >
                       {{ answer[`title_${lang}`] }}
@@ -192,7 +192,7 @@ export default {
   margin-left: 3%;
   padding: 2px;
 }
-.selected {
+.be-selected {
   font-weight: bolder;
   font-style: italic;
 }
