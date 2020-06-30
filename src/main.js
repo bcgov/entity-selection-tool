@@ -14,7 +14,9 @@ library.add(faTimes);
 
 Vue.component("font-awesome-icon", FontAwesomeIcon);
 
-Vue.use(Buefy);
+Vue.use(Buefy, {
+  defaultIconComponent: "font-awesome-icon"
+});
 UIkit.use(Icons); //remove later
 Vue.config.productionTip = false;
 
