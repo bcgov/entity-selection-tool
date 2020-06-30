@@ -55,43 +55,51 @@
             </p>
             <br />
             <b-radio
+              type="is-info"
               @click.native="start()"
+              id="profit"
               name="purpose"
               native-value="profit"
+              v-model="radioButton"
             >
-              <label for="profit">Generate a profit for owners</label>
+              Generate a profit for owners
             </b-radio>
 
             <br />
             <b-radio
+              type="is-info"
               @click.native="start()"
+              id="services"
               name="purpose"
               native-value="services"
+              v-model="radioButton"
             >
-              <label for="services"
-                >Provide services as a licensed professional</label
-              >
+              Provide services as a licensed professional
             </b-radio>
 
             <br />
             <b-radio
+              type="is-info"
               @click.native="showNonProfit()"
+              id="charitable"
               name="purpose"
               native-value="charitable"
+              v-model="radioButton"
             >
-              <label for="charitable">Charitable cause or public benefit</label>
+              Charitable cause or public benefit
             </b-radio>
 
             <br />
             <b-radio
+              type="is-info"
               @click.native="showNonProfit()"
+              id="cooperative"
               name="purpose"
               native-value="cooperative"
+              v-model="radioButton"
             >
-              <label for="cooperative"
-                >Provide shared benefit for members through a cooperative
-                association</label
-              >
+              Provide shared benefit for members through a cooperative
+              association
             </b-radio>
 
             <br />
@@ -124,6 +132,7 @@ export default {
   },
   data: function() {
     return {
+      radioButton: "",
       started: false,
       nonProfit: false
     };
