@@ -21,7 +21,7 @@ export default {
         component: ModalHome,
         hasModalCard: true,
         customClass: "bet-modal",
-        canCancel: "escape"
+        canCancel: false
       });
     }
   }
