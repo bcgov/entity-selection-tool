@@ -102,7 +102,7 @@
         <Entity></Entity>
       </div>
       <div v-if="nonProfit">
-        <NonProfit></NonProfit>
+        <NonProfit @clicked="restartNonProfit"></NonProfit>
       </div>
     </div>
     <footer class="modal-card-foot">
@@ -134,6 +134,9 @@ export default {
     },
     showNonProfit: function() {
       this.nonProfit = true;
+    },
+    restartNonProfit(value) {
+      this.nonProfit = value;
     }
   }
 };

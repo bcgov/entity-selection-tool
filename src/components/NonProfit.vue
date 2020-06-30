@@ -22,6 +22,13 @@
             <li>2</li>
           </ul>
         </template>
+        <template v-slot:footertext>
+          <a href="#" class="card-footer-item" @click="onClickButton">{{
+            $t("restart")
+          }}</a>
+          <a href="#" class="card-footer-item"> Print Results</a>
+          <a href="#" class="card-footer-item">Print All Entity Summaries</a>
+        </template>
       </BaseCard>
     </div>
     <div class="column is-half"></div>
@@ -34,6 +41,12 @@ export default {
   name: "NonProfit",
   components: {
     BaseCard
+  },
+  methods: {
+    onClickButton() {
+      this.tempValue = false;
+      this.$emit("clicked", this.tempValue);
+    }
   }
 };
 </script>
