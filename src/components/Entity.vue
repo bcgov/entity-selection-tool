@@ -74,7 +74,7 @@
           <!-- :to="{ name: 'results', params: { structure: maxCheck } }" -->
         </template>
         <template v-slot:footertext>
-          <section>
+          <section class="be-context">
             <p v-if="!isHidden">
               <strong><sup>1</sup></strong> {{ getQuestionContext }}
             </p>
