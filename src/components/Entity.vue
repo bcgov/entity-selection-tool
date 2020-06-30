@@ -21,7 +21,7 @@
                 ]
               }}
               <strong><sup>1</sup></strong>
-            </p> 
+            </p>
           </section>
           <br />
           <form class="be-question-form">
@@ -100,9 +100,26 @@
         <section>
           <template v-for="(value, index) in entitiesTotal">
             <div class="be-entitywrap" v-bind:key="index">
-              <em>{{ data.entities[index][`title_${locale}`] }}</em>
-              {{ entitiesTotal[index].total }}%
-              <br />
+              <b-collapse :open="false" :aria-id="`contentIdFor${index}`">
+                <div
+                  slot="trigger"
+                  slot-scope="props"
+                  role="button"
+                  :aria-controls="`contentIdFor${index}`"
+                >
+                  {{ props.open ? "-" : "+" }}
+                  <em>{{ data.entities[index][`title_${locale}`] }}</em>
+                  {{ entitiesTotal[index].total }}%
+                  <br />
+                </div>
+
+                <div class="notification">
+                  <div class="content">
+                    <p>{{ entitiesTotal[index][`summary_${locale}`] }}</p>
+                  </div>
+                </div>
+              </b-collapse>
+
               <b-progress
                 size="is-small"
                 type="is-info"
@@ -259,7 +276,7 @@ export default {
 
       let totalImpact=0;
 
-         // go throught all recoreded anwers to find impact for that Entity
+         // go throught all recoreded answers to find impact for that Entity
           for (let [key, answerValue] of Object.entries(this.userSelectedAnswer)){
             if(value.answerIndex !="notset"){
               let impactValue = answerValue.impact[entityKey] || 0;
@@ -381,11 +398,13 @@ export default {
        })
      }
 
-     // to track entities total
+     // to track entities total and added summary for quick access to it
      for (let [key, value] of Object.entries(this.data.entities)){
         // use set to make it  reactive 
         Vue.set(this.entitiesTotal, key, {
           total:0,
+          summary_en:value["summary_en"] || "",
+          summary_fr:value["summary_fr"] || ""
        })   
      }
 
