@@ -20,7 +20,7 @@
                   `question_${locale}`
                 ]
               }}
-              <strong><sup>1</sup></strong>
+              <strong><sup class="be-sup">1</sup></strong>
             </p>
           </section>
           <br />
@@ -76,7 +76,8 @@
         <template v-slot:footertext>
           <section class="be-context">
             <p v-if="!isHidden">
-              <strong><sup>1</sup></strong> {{ getQuestionContext }}
+              <strong><sup class="be-sup">1</sup></strong>
+              {{ getQuestionContext }}
             </p>
           </section>
           <!-- <button v-on:click="isHidden = !isHidden">
@@ -107,10 +108,17 @@
                   role="button"
                   :aria-controls="`contentIdFor${index}`"
                 >
-                  {{ props.open ? "-" : "+" }}
+                  <!-- {{ props.open ? "-" : "+" }} -->
                   <em>{{ data.entities[index][`title_${locale}`] }}</em>
                   {{ entitiesTotal[index].total }}%
-                  <br />
+
+                  <font-awesome-icon
+                    class="be-carat-icon is-pulled-right"
+                    :icon="
+                      props.open ? ['fas', 'angle-up'] : ['fas', 'angle-down']
+                    "
+                  >
+                  </font-awesome-icon>
                 </div>
 
                 <div class="notification">

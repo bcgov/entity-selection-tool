@@ -110,4 +110,10 @@ h2 {
 .be-button {
   width: 30%;
 }
+.be-carat-icon {
+  color: #2c5671;
+}
+.be-sup {
+  color: #24465c;
+}
 </style>

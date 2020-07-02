@@ -7,10 +7,14 @@ import Buefy from "buefy";
 import UIkit from "uikit"; //remove later
 import Icons from "uikit/dist/js/uikit-icons"; //remove later
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import {
+  faTimes,
+  faAngleDown,
+  faAngleUp
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
-library.add(faTimes);
+library.add(faTimes, faAngleDown, faAngleUp);
 
 Vue.component("font-awesome-icon", FontAwesomeIcon);
 
