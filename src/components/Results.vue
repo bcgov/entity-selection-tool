@@ -30,7 +30,7 @@
           <a href="#" class="card-footer-item" @click="printEntity">
             Print Results</a
           >
-          <a href="#" class="card-footer-item">Print All Entity Summaries</a>
+          <a href="#" class="card-footer-item">Print All Summaries</a>
         </template>
       </BaseCard>
     </div>

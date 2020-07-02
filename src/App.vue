@@ -62,9 +62,11 @@ h1 {
   left: 10px;
 }
 h3 {
+  color: white;
   font-size: 16px;
 }
 h2 {
+  color: white;
   font-size: 22px;
 }
 .be-subtitle {
@@ -91,6 +93,7 @@ h2 {
   overflow-y: auto;
 }
 .be-context {
+  padding-top: 4px;
   color: #2c5671;
   font-size: 14px;
 }

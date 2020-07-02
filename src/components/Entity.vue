@@ -10,7 +10,9 @@
     {{ locale == "en" ? "Francais" : "English" }}
     </b-button> -->
         <template v-slot:headertext>
-          <h2>QUESTION {{ currentCategoryIndex }} of {{ totalCategories }}</h2>
+          <p class="title is-4">
+            QUESTION {{ currentCategoryIndex }} of {{ totalCategories }}
+          </p>
         </template>
         <template v-slot:bodytext>
           <section class="be-question-text">
@@ -138,8 +140,6 @@
             </div>
           </template>
         </section>
-        <!--   <br />
-        {{ $t("disclaimer") }} -->
       </div>
     </div>
     <div>

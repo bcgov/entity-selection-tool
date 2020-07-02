@@ -38,18 +38,18 @@
           <div class="column is-one-half">
             <div class="column is-four-fifths is-pulled-right be-subtitle">
               <div v-if="started">
-                <h3 style="color: white">
+                <h3>
                   {{ $t("entity_title_one") }}
                 </h3>
 
-                <h2 style="color: white">
+                <h2>
                   {{ $t("entity_title_two") }}
                 </h2>
               </div>
               <div v-if="!started">
-                <h3 style="visibility: hidden">test</h3>
+                <h3 style="visibility: hidden">Placeholder</h3>
 
-                <h2 style="visibility: hidden">test</h2>
+                <h2 style="visibility: hidden">Placeholder</h2>
               </div>
             </div>
           </div>
@@ -115,6 +115,13 @@
             </b-radio>
 
             <br />
+          </template>
+          <template v-slot:footertext>
+            <section class="be-context">
+              <p>
+                {{ $t("disclaimer") }}
+              </p>
+            </section>
           </template>
         </BaseCard>
       </div>
