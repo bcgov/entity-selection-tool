@@ -10,7 +10,7 @@
     {{ locale == "en" ? "Francais" : "English" }}
     </b-button> -->
         <template v-slot:headertext>
-          <p class="title is-4">
+          <p class="title be-question-title is-4">
             QUESTION {{ currentCategoryIndex }} of {{ totalCategories }}
           </p>
         </template>
@@ -144,9 +144,7 @@
           v-for="(q, j) in c.questions"
           v-bind:key="q.qid"
           :class="
-            currentCategoryIndex == i && currentQuestionIndex == j
-              ? 'uk-active'
-              : ''
+            currentCategoryIndex == i && currentQuestionIndex == j ? '' : ''
           "
         ></li>
       </ul>
@@ -158,7 +156,6 @@
 import Vue from "vue";
 import json from "@/data/be-json-v4.2-BC.json";
 import Results from "@/components/Results.vue";
-import UIkit from "uikit";
 import BaseCard from "@/components/base-components/BaseCard.vue";
 // import i18n from "@/i18n";
 /* eslint-disable */ 
@@ -209,7 +206,6 @@ export default {
   methods: {
    showResults: function() {
         this.resultsShow = true;
-
          // re-order to show from higher to lower for structure resultbundleRenderer.renderToStream
     
        let myEntities=this.entitiesTotal;
@@ -232,41 +228,23 @@ export default {
       this.entitiesTotal = sortedEntities;
 
    },
-    /**
-     * Advances to the next question
-     */
+    // Advances to the next question
     next: function() {
-       
-
        if(this.currentCategoryIndex < this.totalCategories){
            this.currentCategoryIndex++;
        }
-
     },
-    /**
-     * Goes back to the previous question
-     */
+    // Goes back to the previous question
     previous: function() {
-      /*
-      if (this.currentQuestionIndex == 0) {
-        if (this.currentCategoryIndex != 0)
-          this.changeCurrent(
-            this.currentCategoryIndex - 1,
-            this.data[this.currentCategoryIndex - 1].questions.length - 1
-          );
-      } else this.changeCurrent(this.currentCategoryIndex, this.currentQuestionIndex - 1);
-      */
       if(this.currentCategoryIndex>1) this.currentCategoryIndex--
     },
-    /**
-     * Saves the selected question option
-     * @param {number} answer The index of the selected option
-     */
+    //Saves the selected question option param {number} answer 
+    //The index of the selected option
     onSelect: function(answer,answerIndex) {
         this.disabledNextButton = (this.currentCategoryIndex == 9) ? true : false;
         if(this.currentCategoryIndex == 9) this.disabledSubmitButton = false;
  
-      // recourd user answer index and impact to variable 
+      // record user answer index and impact to variable 
       this.userSelectedAnswer[`cat-${this.currentCategoryIndex}`].answerIndex = answerIndex;
       this.userSelectedAnswer[`cat-${this.currentCategoryIndex}`].impact = answer.impact;
 
@@ -281,79 +259,47 @@ export default {
                totalImpact = totalImpact + impactValue;
             }
           }
-
        this.entitiesTotal[entityKey].total = totalImpact;
-
-     }//entities
-
-
-     // this.current.completed = answer;
+     }
     },
-    /**
-     * Toggles display language
-     */
+    //Toggles display language
     toggleLocale: function() {
       this.$i18n.locale = this.locale == "en" ? "fr" : "en";
     },
+    //Restarts business entity tool
     restartEntity(value) {
       this.$parent.started = value;
     }
-  },
+  }, //end methods
   watch: {
     currentCategoryIndex: function(val) {
-
       if(val==9){
         this.disabledNextButton = true;
       }else {
         // check if questions already answered
-
         let question = this.userSelectedAnswer[`cat-${val}`];
 
        this.disabledNextButton = (question.answerIndex=="notset") ? true : false;
-
-
       }
-
       this.disabledPreviousButton=(val==1) ? true : false
-     
-
     }
-  
-  },
+  }, //end watch
   computed: {
     getTotal: function(entityKey){
       return (this.entitiesTotal[entityKey]) ? this.entitiesTotal[entityKey].total:0;
     },
-    /**
-     * @returns The data for the current question
-     */
+    // returns The data for the current question
     current: function() {
-
-
-      //return this.data.collection[`cat-${this.currentCategoryIndex}`].answers[`a${this.currentQuestionIndex}`];
       return this.data.collection[`cat-${this.currentCategoryIndex}`].answers;
-
-
-    
-
-
-
-
     },
     getQuestionContext: function(){
-
       return this.data.collection[`cat-${this.currentCategoryIndex}`][`context_${this.locale}`] || "";
-
     },
-    /**
-     * @returns The current language
-     */
+    // returns The current language
     locale: function() {
       return this.$i18n.locale;
     },
-    /**
-     * @returns percentage completed
-     */
+    //returns percentage completed
     progress: function() {
       let tally = 0;
       for (let i = 0; i < this.data.length; i++) {
@@ -361,16 +307,11 @@ export default {
       }
       return tally * (100 / 9);
     },
-    /**
-     * Whether the submit button should be showing
-     * @returns True if done, False otherwise
-     */
+    //Whether the submit button should be showing - returns True if done, False otherwise
     allAnswered: function() {
       return this.progress >= 100;
     },
-    /**
-     * @returns The category the most full
-     */
+    //returns The category the most full
     maxCheck: function() {
       let a = this.total;
       let maxIndex = a.reduce(
@@ -379,13 +320,11 @@ export default {
       );
       return this.types[maxIndex];
     }
-  },
+  }, //end computed
   created(){
     this.data= this.data["pid-59"]
     this.totalCategories = Object.keys(this.data.collection).length
-
-    // here all the variables that are needed to be created
-    // via the json file.
+    // here all the variables that are needed to be created via the json file.
 
       // to track user selection
      for (let [key, value] of Object.entries(this.data.collection)){
@@ -395,7 +334,6 @@ export default {
          impact:[]
        })
      }
-
      // to track entities total and added summary for quick access to it
      for (let [key, value] of Object.entries(this.data.entities)){
         // use set to make it  reactive 
@@ -405,32 +343,11 @@ export default {
           summary_fr:value["summary_fr"] || ""
        })   
      }
-
-   
-   
-  },
-  mounted() {
-    this.navElement = document.getElementById("nav");
-    UIkit.nav(this.navElement).toggle(0); // Toggles the first nav open
-   // this.userSelectedAnswer="a2"
-
-  
-  }
+  }, //end created
 };
 </script>
 <style scoped>
-#Entity{
-  background-color:pink;
-}
-h3 {
-  text-align: left;
-  font-size: 25px;
-}
 
-p {
-  font-weight: 50;
-  color:#2C5671;
-}
 em {
   color:#2C5671;
 }
@@ -439,39 +356,13 @@ em {
   margin-top: 5px;
   margin-right: 20px;
   margin-left: 20px;
- 
-  border-color: #2C5671;
-}
-.uk-button-group {
-  border-style: solid;
-  border: #2C5671;
-}
-.uk-button {
-  border-style: solid;
-  border-color: #2C5671;  
 }
 .be-entitywrap{
   border-bottom-style: solid;
   border-bottom-color: #edf3f7;
   padding-top: 5px;
-  /* padding-left: 15px;
-  padding-right: 15px;
-  padding-top: 20px;
-  padding-bottom: 20px; */
-}
-.be-toolbar{
-  background-color: #edf3f7 ;
-}
-.be-qestion-header{
-  border-style: solid;
-  border-color: #2C5671;
-  background-color: #d0e9f9;
 }
 #be-results-list {
   list-style: none;
 }
-/* div{
-  border-style: solid;
-  border-color: pink;
-} */
 </style>

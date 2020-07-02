@@ -3,9 +3,9 @@
     <div class="column is-half">
       <BaseCard class="question box">
         <template v-slot:headertext>
-          <h2>
+          <p class="title be-question-title is-4">
             {{ title }}
-          </h2>
+          </p>
         </template>
         <template v-slot:bodytext>
           <p class="be-results-text">{{ body }}</p>

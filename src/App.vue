@@ -125,4 +125,8 @@ h2 {
 .be-sup {
   color: #24465c;
 }
+.be-question-title {
+  font-weight: 50;
+  color: #2c5671;
+}
 </style>

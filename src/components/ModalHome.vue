@@ -76,7 +76,6 @@
             >
               Generate a profit for owners
             </b-radio>
-
             <br />
             <b-radio
               type="is-info"
@@ -88,7 +87,6 @@
             >
               Provide services as a licensed professional
             </b-radio>
-
             <br />
             <b-radio
               type="is-info"
@@ -100,7 +98,6 @@
             >
               Charitable cause or public benefit
             </b-radio>
-
             <br />
             <b-radio
               type="is-info"
@@ -113,7 +110,6 @@
               Provide shared benefit for members through a cooperative
               association
             </b-radio>
-
             <br />
           </template>
           <template v-slot:footertext>
@@ -160,6 +156,7 @@ export default {
     start: function() {
       this.started = true;
     },
+    // reset form
     reset: function() {
       this.started = false;
       this.nonProfit = false;
@@ -167,10 +164,11 @@ export default {
     showNonProfit: function() {
       this.nonProfit = true;
     },
+    // restart from non-profit card
     restartNonProfit(value) {
       this.nonProfit = value;
     }
-  }
+  } //end methods
 };
 </script>
 
