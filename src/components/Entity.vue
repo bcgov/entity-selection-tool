@@ -47,7 +47,7 @@
           <br />
           <div class="buttons">
             <b-button
-              class="be-button"
+              class="be-form-button"
               size="is-medium"
               @click="previous()"
               :disabled="disabledPreviousButton"
@@ -55,7 +55,7 @@
               Previous
             </b-button>
             <b-button
-              class="be-button"
+              class="be-form-button"
               size="is-medium"
               @click="next()"
               :disabled="disabledNextButton"
@@ -64,7 +64,7 @@
             </b-button>
             <!-- change v-if allAnswered to true after testing -->
             <b-button
-              class="be-button"
+              class="be-form-button"
               :disabled="disabledSubmitButton"
               size="is-medium"
               @click="showResults()"

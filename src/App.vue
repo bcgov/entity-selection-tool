@@ -107,8 +107,11 @@ h2 {
   height: 60px;
   justify-content: center;
 }
-.be-button {
+.be-form-button {
   width: 30%;
+}
+.be-nav-button {
+  width: 80px;
 }
 .be-carat-icon {
   color: #2c5671;

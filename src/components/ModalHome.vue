@@ -8,11 +8,23 @@
               {{ $t("business_structures") }}
             </h1>
           </div>
-          <div class="column is-one-quarter">
+          <div v-if="started" class="column is-one-eigth">
             <b-button
-              class="is-pulled-right"
+              class="be-nav-button is-pulled-right"
               outlined
-              type="is-light"
+              type="is-light is-small"
+              :aria-label="$t('restart')"
+              @click="reset()"
+            >
+              <font-awesome-icon :icon="['fas', 'undo']" />
+              Restart
+            </b-button>
+          </div>
+          <div class="column is-one-eigth">
+            <b-button
+              class="be-nav-button is-pulled-right"
+              outlined
+              type="is-light is-small"
               :aria-label="$t('close')"
               @click="$parent.close()"
             >
@@ -140,6 +152,10 @@ export default {
   methods: {
     start: function() {
       this.started = true;
+    },
+    reset: function() {
+      this.started = false;
+      this.nonProfit = false;
     },
     showNonProfit: function() {
       this.nonProfit = true;

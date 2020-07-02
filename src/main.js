@@ -10,11 +10,12 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import {
   faTimes,
   faAngleDown,
-  faAngleUp
+  faAngleUp,
+  faUndo
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
-library.add(faTimes, faAngleDown, faAngleUp);
+library.add(faTimes, faAngleDown, faAngleUp, faUndo);
 
 Vue.component("font-awesome-icon", FontAwesomeIcon);
 
