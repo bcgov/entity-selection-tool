@@ -82,6 +82,7 @@ h2 {
   padding-top: 0rem;
   padding-bottom: 1rem;
   height: 320px;
+  overflow-y: auto;
 }
 .card .content .be-nonprofit-list {
   margin-top: 6px;

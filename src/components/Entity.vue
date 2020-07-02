@@ -64,16 +64,15 @@
             >
               Next
             </b-button>
-            <!-- change v-if allAnswered to true after testing -->
             <b-button
               class="be-form-button"
               :disabled="disabledSubmitButton"
               size="is-medium"
               @click="showResults()"
-              >{{ $t("submit") }}</b-button
             >
+              {{ $t("submit") }}
+            </b-button>
           </div>
-          <!-- :to="{ name: 'results', params: { structure: maxCheck } }" -->
         </template>
         <template v-slot:footertext>
           <section class="be-context">
@@ -82,9 +81,6 @@
               {{ getQuestionContext }}
             </p>
           </section>
-          <!-- <button v-on:click="isHidden = !isHidden">
-          More details/context
-        </button> -->
         </template>
       </BaseCard>
     </div>
@@ -98,7 +94,6 @@
     </div>
     <!-- end left side -->
     <div class="column is-half">
-      <!--  <h2 style="color: #2C5671">{{ $t("entity_titles") }}</h2> -->
       <div class="column is-four-fifths is-pulled-right">
         <section>
           <template v-for="(value, index) in entitiesTotal">
@@ -143,14 +138,9 @@
       </div>
     </div>
     <div>
-      <ul
-        id="test"
-        v-for="(c, i) in data"
-        v-bind:key="c.cid"
-        style="color:#2C5671"
-      >
+      <ul v-for="(c, i) in data" v-bind:key="c.cid" style="color:#2C5671">
         <li
-          id="test2"
+          id="be-results-list"
           v-for="(q, j) in c.questions"
           v-bind:key="q.qid"
           :class="
@@ -477,7 +467,7 @@ em {
   border-color: #2C5671;
   background-color: #d0e9f9;
 }
-#test2 {
+#be-results-list {
   list-style: none;
 }
 /* div{

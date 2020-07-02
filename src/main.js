@@ -1,9 +1,7 @@
 import Vue from "vue";
 import App from "./App.vue";
-
 import i18n from "./i18n";
 import Buefy from "buefy";
-
 import UIkit from "uikit"; //remove later
 import Icons from "uikit/dist/js/uikit-icons"; //remove later
 import { library } from "@fortawesome/fontawesome-svg-core";
