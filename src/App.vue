@@ -77,9 +77,11 @@ h2 {
 }
 .card .card-content {
   background-color: transparent;
-  padding: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0rem;
+  padding-bottom: 1rem;
   height: 320px;
-  overflow-y: auto;
 }
 .card .content .be-nonprofit-list {
   margin-top: 6px;
