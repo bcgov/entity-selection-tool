@@ -107,7 +107,8 @@
                 >
                   <!-- {{ props.open ? "-" : "+" }} -->
                   <em>{{ data.entities[index][`title_${locale}`] }}</em>
-                  {{ entitiesTotal[index].total }}%
+
+                  {{ displayPercentage(entitiesTotal[index].total) }}%
 
                   <font-awesome-icon
                     class="be-carat-icon is-pulled-right"
@@ -269,6 +270,16 @@ export default {
     //Restarts business entity tool
     restartEntity(value) {
       this.$parent.started = value;
+    },
+    displayPercentage: function(value) {
+      let displayValue = value;
+      let minValue = 0;
+      if (displayValue <= -1 ){
+        return minValue;
+      }
+      else {
+        return displayValue;
+      }
     }
   }, //end methods
   watch: {
@@ -319,7 +330,8 @@ export default {
         0
       );
       return this.types[maxIndex];
-    }
+    },
+    
   }, //end computed
   created(){
     this.data= this.data["pid-59"]
