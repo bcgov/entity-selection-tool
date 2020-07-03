@@ -4,7 +4,7 @@
       <div class="container">
         <div class="columns">
           <div class="column is-three-quarters">
-            <h1>
+            <h1 class="be-modal-title">
               {{ $t("business_structures") }}
             </h1>
           </div>

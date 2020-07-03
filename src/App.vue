@@ -28,7 +28,7 @@ export default {
 };
 </script>
 <style>
-h1 {
+.be-modal-title {
   align-content: center;
   color: white;
   font-size: 30px;
@@ -134,8 +134,30 @@ h1 {
 .be-link {
   color: #2c5671;
 }
-.be-results-subtitle {
+.content .be-results-subtitle {
   color: #24465c;
   font-weight: 400;
+}
+.be-modal-print-body {
+  background-color: white;
+  padding: 2em;
+  overflow-y: auto;
+}
+.be-print-modal-head {
+  height: 75px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.be-print-modal {
+  z-index: 100;
+}
+.be-answers {
+  list-style: disc;
+  margin-left: 3%;
+  padding: 2px;
+}
+.be-selected {
+  font-weight: bolder;
+  font-style: italic;
 }
 </style>
