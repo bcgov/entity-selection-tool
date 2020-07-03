@@ -36,20 +36,30 @@
         <div class="columns">
           <div class="column auto"></div>
           <div class="column is-one-half">
-            <div class="column is-four-fifths is-pulled-right be-subtitle">
+            <div class="column is-four-fifths is-pulled-right be-subheader">
               <div v-if="started">
-                <h3>
+                <h2 class="subtitle be-subtitle is-5">
                   {{ $t("entity_title_one") }}
-                </h3>
-
-                <h2>
-                  {{ $t("entity_title_two") }}
                 </h2>
+
+                <h3 class="subtitle be-subtitle is-4">
+                  {{ $t("entity_title_two") }}
+                </h3>
               </div>
               <div v-if="!started">
-                <h3 style="visibility: hidden">Placeholder</h3>
+                <h2
+                  class="subtitle be-subtitle is-5"
+                  style="visibility: hidden"
+                >
+                  Placeholder
+                </h2>
 
-                <h2 style="visibility: hidden">Placeholder</h2>
+                <h3
+                  class="subtitle be-subtitle is-4"
+                  style="visibility: hidden"
+                >
+                  Placeholder
+                </h3>
               </div>
             </div>
           </div>
@@ -61,56 +71,57 @@
         <BaseCard class="question box">
           <template v-slot:headertext> </template>
           <template v-slot:bodytext>
-            <p>
-              Which of these statements best describes the main purpose of your
-              new organization?
-            </p>
-            <br />
-            <b-radio
-              type="is-info"
-              @click.native="start()"
-              id="profit"
-              name="purpose"
-              native-value="profit"
-              v-model="radioButton"
-            >
-              Generate a profit for owners
-            </b-radio>
-            <br />
-            <b-radio
-              type="is-info"
-              @click.native="start()"
-              id="services"
-              name="purpose"
-              native-value="services"
-              v-model="radioButton"
-            >
-              Provide services as a licensed professional
-            </b-radio>
-            <br />
-            <b-radio
-              type="is-info"
-              @click.native="showNonProfit()"
-              id="charitable"
-              name="purpose"
-              native-value="charitable"
-              v-model="radioButton"
-            >
-              Charitable cause or public benefit
-            </b-radio>
-            <br />
-            <b-radio
-              type="is-info"
-              @click.native="showNonProfit()"
-              id="cooperative"
-              name="purpose"
-              native-value="cooperative"
-              v-model="radioButton"
-            >
-              Provide shared benefit for members through a cooperative
-              association
-            </b-radio>
-            <br />
+            <fieldset>
+              <legend>
+                Which of these statements best describes the main purpose of
+                your new organization?
+              </legend>
+              <br />
+              <b-radio
+                type="is-info"
+                @click.native="start()"
+                id="profit"
+                name="purpose"
+                native-value="profit"
+                v-model="radioButton"
+              >
+                Generate a profit for owners
+              </b-radio>
+              <br />
+              <b-radio
+                type="is-info"
+                @click.native="start()"
+                id="services"
+                name="purpose"
+                native-value="services"
+                v-model="radioButton"
+              >
+                Provide services as a licensed professional
+              </b-radio>
+              <br />
+              <b-radio
+                type="is-info"
+                @click.native="showNonProfit()"
+                id="charitable"
+                name="purpose"
+                native-value="charitable"
+                v-model="radioButton"
+              >
+                Charitable cause or public benefit
+              </b-radio>
+              <br />
+              <b-radio
+                type="is-info"
+                @click.native="showNonProfit()"
+                id="cooperative"
+                name="purpose"
+                native-value="cooperative"
+                v-model="radioButton"
+              >
+                Provide shared benefit for members through a cooperative
+                association
+              </b-radio>
+            </fieldset>
           </template>
           <template v-slot:footertext>
             <section class="be-context">
@@ -129,7 +140,16 @@
       </div>
     </div>
     <footer class="modal-card-foot">
-      <p class="is-pulled-right">Powered by BizPaL</p>
+      <p class="is-pulled-right">
+        Powered by
+        <a
+          class="be-link"
+          target="_blank"
+          rel="noopener"
+          :href="$t('bizpal_link')"
+          >Bizpal</a
+        >
+      </p>
     </footer>
   </div>
 </template>

@@ -61,15 +61,11 @@ h1 {
   top: 80px;
   left: 10px;
 }
-h3 {
+.subtitle.be-subtitle {
   color: white;
-  font-size: 16px;
+  margin-bottom: 0px;
 }
-h2 {
-  color: white;
-  font-size: 22px;
-}
-.be-subtitle {
+.be-subheader {
   padding-bottom: 0px;
 }
 .card .custom-header {
@@ -95,6 +91,7 @@ h2 {
   height: 80px;
   overflow-y: auto;
 }
+
 .be-context {
   padding-top: 4px;
   color: #2c5671;
@@ -105,6 +102,9 @@ h2 {
 }
 .be-question-text {
   height: 48px;
+  margin-top: 16px;
+  margin-bottom: 0px;
+  color: #2c5671;
 }
 .be-question-form {
   height: 140px;
@@ -128,5 +128,14 @@ h2 {
 .be-question-title {
   font-weight: 50;
   color: #2c5671;
+  margin-bottom: 16px;
+  margin-top: 16px;
+}
+.be-link {
+  color: #2c5671;
+}
+.be-results-subtitle {
+  color: #24465c;
+  font-weight: 400;
 }
 </style>

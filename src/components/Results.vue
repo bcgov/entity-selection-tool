@@ -3,21 +3,25 @@
     <div class="column is-half">
       <BaseCard class="question box">
         <template v-slot:headertext>
-          <p class="title be-question-title is-4">
+          <h2 class="title be-question-title is-4">
             {{ title }}
-          </p>
+          </h2>
         </template>
         <template v-slot:bodytext>
           <p class="be-results-text">{{ body }}</p>
           <div>
-            <h6>{{ $t("advantages") }}</h6>
+            <h3 class="subtitle be-results-subtitle is-5">
+              {{ $t("advantages") }}
+            </h3>
             <ul class="be-results-text">
               <span v-html="advantages"></span>
             </ul>
           </div>
           <br />
           <div>
-            <h6>{{ $t("disadvantages") }}</h6>
+            <h3 class="subtitle be-results-subtitle is-5">
+              {{ $t("disadvantages") }}
+            </h3>
             <ul class="be-results-text">
               <span v-html="disadvantages"></span>
             </ul>

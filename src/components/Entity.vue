@@ -10,42 +10,46 @@
     {{ locale == "en" ? "Francais" : "English" }}
     </b-button> -->
         <template v-slot:headertext>
-          <p class="title be-question-title is-4">
+          <h2 class="title be-question-title is-4">
             QUESTION {{ currentCategoryIndex }} of {{ totalCategories }}
-          </p>
+          </h2>
         </template>
         <template v-slot:bodytext>
-          <section class="be-question-text">
-            <p>
+          <fieldset class="be-card-content">
+            <legend class="be-question-text">
               {{
                 data.collection[`cat-${currentCategoryIndex}`][
                   `question_${locale}`
                 ]
               }}
               <strong><sup class="be-sup">1</sup></strong>
-            </p>
-          </section>
-          <br />
-          <form class="be-question-form">
-            <template v-for="(value, index) in current">
-              <div v-bind:key="`${index}${currentCategoryIndex}`" class="field">
-                <b-radio
-                  type="is-info"
-                  name="questions"
-                  v-model="radioButton"
-                  :id="index"
-                  :native-value="
-                    index ===
-                      userSelectedAnswer[`cat-${currentCategoryIndex}`]
-                        .answerIndex
-                  "
-                  @click.native="onSelect(value, index)"
+            </legend>
+
+            <br />
+            <form class="be-question-form">
+              <template v-for="(value, index) in current">
+                <div
+                  v-bind:key="`${index}${currentCategoryIndex}`"
+                  class="field"
                 >
-                  {{ value[`title_${locale}`] }}
-                </b-radio>
-              </div>
-            </template>
-          </form>
+                  <b-radio
+                    type="is-info"
+                    name="questions"
+                    v-model="radioButton"
+                    :id="index"
+                    :native-value="
+                      index ===
+                        userSelectedAnswer[`cat-${currentCategoryIndex}`]
+                          .answerIndex
+                    "
+                    @click.native="onSelect(value, index)"
+                  >
+                    {{ value[`title_${locale}`] }}
+                  </b-radio>
+                </div>
+              </template>
+            </form>
+          </fieldset>
           <br />
           <div class="buttons">
             <b-button
