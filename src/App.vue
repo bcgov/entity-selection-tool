@@ -117,7 +117,8 @@ export default {
   width: 30%;
 }
 .be-nav-button {
-  width: 80px;
+  width: 45%;
+  margin-left: 8px;
 }
 .be-carat-icon {
   color: #2c5671;

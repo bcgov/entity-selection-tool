@@ -8,29 +8,29 @@
               {{ $t("business_structures") }}
             </h1>
           </div>
-          <div v-if="started" class="column is-one-eigth">
+          <div class="column auto">
             <b-button
               class="be-nav-button is-pulled-right"
               outlined
-              type="is-light is-small"
-              :aria-label="$t('restart')"
-              @click="reset()"
-            >
-              <font-awesome-icon :icon="['fas', 'undo']" />
-              Restart
-            </b-button>
-          </div>
-          <div class="column is-one-eigth">
-            <b-button
-              class="be-nav-button is-pulled-right"
-              outlined
-              type="is-light is-small"
+              type="is-light"
               :aria-label="$t('close')"
               @click="$parent.close()"
             >
               <font-awesome-icon :icon="['fas', 'times']" />
               {{ $t("close") }}
             </b-button>
+            <div v-if="started">
+              <b-button
+                class="be-nav-button is-pulled-right"
+                outlined
+                type="is-light"
+                :aria-label="$t('restart')"
+                @click="reset()"
+              >
+                <font-awesome-icon :icon="['fas', 'undo']" />
+                Restart
+              </b-button>
+            </div>
           </div>
         </div>
         <div class="columns">
