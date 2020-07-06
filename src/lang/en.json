@@ -1,4 +1,5 @@
 {
+    "bizpal_link": "https://services.bizpal-perle.ca/",
     "business_structures" : "Business Structures Wizard",
     "entity_title_one" : "Suggested",
     "entity_title_two" : "Business Structure",
@@ -6,8 +7,8 @@
     "start" : "Start",
     "restart": "Restart",
     "submit": "Submit",
-    "advantages": "Advantages",
-    "disadvantages": "Disadvantages",
+    "advantages": "Advantages:",
+    "disadvantages": "Disadvantages:",
     "Category_1": "Geographic Reach",
     "Category_2": "Risk level of industry",
     "Category_3": "Risks to owners",

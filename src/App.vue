@@ -48,14 +48,14 @@ export default {
         component: ModalHome,
         hasModalCard: true,
         customClass: "bet-modal",
-        canCancel: false
+        canCancel: ["escape"]
       });
     }
   }
 };
 </script>
 <style>
-h1 {
+.be-modal-title {
   align-content: center;
   color: white;
   font-size: 30px;
@@ -88,13 +88,11 @@ h1 {
   top: 80px;
   left: 10px;
 }
-h3 {
-  font-size: 16px;
+.subtitle.be-subtitle {
+  color: white;
+  margin-bottom: 0px;
 }
-h2 {
-  font-size: 22px;
-}
-.be-subtitle {
+.be-subheader {
   padding-bottom: 0px;
 }
 .card .custom-header {
@@ -102,7 +100,10 @@ h2 {
 }
 .card .card-content {
   background-color: transparent;
-  padding: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0rem;
+  padding-bottom: 1rem;
   height: 320px;
   overflow-y: auto;
 }
@@ -117,7 +118,9 @@ h2 {
   height: 80px;
   overflow-y: auto;
 }
+
 .be-context {
+  padding-top: 4px;
   color: #2c5671;
   font-size: 14px;
 }
@@ -126,6 +129,9 @@ h2 {
 }
 .be-question-text {
   height: 48px;
+  margin-top: 16px;
+  margin-bottom: 0px;
+  color: #2c5671;
 }
 .be-question-form {
   height: 140px;
@@ -134,7 +140,52 @@ h2 {
   height: 60px;
   justify-content: center;
 }
-.be-button {
+.be-form-button {
   width: 30%;
+}
+.be-nav-button {
+  width: 45%;
+  margin-left: 8px;
+}
+.be-carat-icon {
+  color: #2c5671;
+}
+.be-sup {
+  color: #24465c;
+}
+.be-question-title {
+  font-weight: 50;
+  color: #2c5671;
+  margin-bottom: 16px;
+  margin-top: 16px;
+}
+.be-link {
+  color: #2c5671;
+}
+.content .be-results-subtitle {
+  color: #24465c;
+  font-weight: 400;
+}
+.be-modal-print-body {
+  background-color: white;
+  padding: 2em;
+  overflow-y: auto;
+}
+.be-print-modal-head {
+  height: 75px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.be-print-modal {
+  z-index: 100;
+}
+.be-answers {
+  list-style: disc;
+  margin-left: 3%;
+  padding: 2px;
+}
+.be-selected {
+  font-weight: bolder;
+  font-style: italic;
 }
 </style>

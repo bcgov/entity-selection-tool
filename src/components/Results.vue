@@ -3,21 +3,25 @@
     <div class="column is-half">
       <BaseCard class="question box">
         <template v-slot:headertext>
-          <h2>
+          <h2 class="title be-question-title is-4">
             {{ title }}
           </h2>
         </template>
         <template v-slot:bodytext>
           <p class="be-results-text">{{ body }}</p>
           <div>
-            <h6>{{ $t("advantages") }}</h6>
+            <h3 class="subtitle be-results-subtitle is-5">
+              {{ $t("advantages") }}
+            </h3>
             <ul class="be-results-text">
               <span v-html="advantages"></span>
             </ul>
           </div>
           <br />
           <div>
-            <h6>{{ $t("disadvantages") }}</h6>
+            <h3 class="subtitle be-results-subtitle is-5">
+              {{ $t("disadvantages") }}
+            </h3>
             <ul class="be-results-text">
               <span v-html="disadvantages"></span>
             </ul>
@@ -30,7 +34,7 @@
           <a href="#" class="card-footer-item" @click="printEntity">
             Print Results</a
           >
-          <a href="#" class="card-footer-item">Print All Entity Summaries</a>
+          <a href="#" class="card-footer-item">Print All Summaries</a>
         </template>
       </BaseCard>
     </div>
@@ -39,6 +43,7 @@
     <!-- modal for print view -->
     <b-modal
       :active.sync="isCardModalActive"
+      :can-cancel="canCancel"
       full-screen
       aria-role="dialog"
       aria-modal
@@ -46,38 +51,39 @@
     >
       <div class="modal-card" style="width: auto">
         <header class="modal-card-head be-print-modal-head">
-          <span class="modal-card-title be-print-modal-title"
-            >Results - Print View</span
-          >
+          <span class="be-modal-title">Results - Print View</span>
         </header>
-        <section id="printBody" ref="PrintBody" class="modal-card-body">
+        <section id="printBody" ref="PrintBody" class="be-modal-print-body">
           <div>
-            <h1 class="title">Suggested Business Structure</h1>
-            <h2 class="subtitle has-text-weight-bold">
+            <h1 class="subtitle is-3">Suggested Business Structure:</h1>
+            <h2 class="subtitle is-4">
               {{ title }}
             </h2>
             <div>
               <p>{{ body }}</p>
+              <br />
             </div>
             <div>
-              <h2 class="has-text-weight-bold">{{ $t("advantages") }}</h2>
+              <h3 class="subtitle is-5">{{ $t("advantages") }}</h3>
               <ul>
                 <span v-html="advantages"></span>
               </ul>
+              <br />
             </div>
             <div>
-              <h2 class="has-text-weight-bold">{{ $t("disadvantages") }}</h2>
+              <h3 class="subtitle is-5">{{ $t("disadvantages") }}</h3>
               <ul>
                 <span v-html="disadvantages"></span>
               </ul>
+              <br />
             </div>
           </div>
           <div>
-            <h1 class="title">Questions/Anwers</h1>
-            <h2 class="subtitle">
+            <h1 class="subtitle is-3">Questions/Anwers:</h1>
+            <h2 class="subtitle is-4">
               Your answers are in
               <span class="has-text-weight-bold is-italic">
-                bold and italic </span
+                bold and italic</span
               >.
             </h2>
             <ul>
@@ -94,13 +100,14 @@
                     >
                       {{ answer[`title_${lang}`] }}
                     </li>
+                    <br />
                   </ul>
                 </li>
               </template>
             </ul>
           </div>
         </section>
-        <footer class="be-print-modal-foot">
+        <footer class="modal-card-foot">
           <button class="button" type="button" @click="print()">
             Print
           </button>
@@ -134,7 +141,13 @@ export default {
     return {
       entity: {},
       lang: "en",
-      isCardModalActive: false
+      isCardModalActive: false,
+      canCancel: false,
+      css: `.be-selected {
+              font-weight: bolder;
+              font-style: italic;
+            }
+        `
     };
   },
   created: function() {
@@ -165,7 +178,7 @@ export default {
     },
     print: function() {
       const d = new Printd();
-      d.print(this.$refs.PrintBody);
+      d.print(this.$refs.PrintBody, [this.css]);
     },
     onClickButton() {
       this.tempValue = false;
@@ -174,37 +187,4 @@ export default {
   }
 };
 </script>
-<style scoped>
-.be-print-modal {
-  z-index: 100000;
-}
-.be-print-modal-head {
-  height: 75px !important;
-  padding-top: 5px !important;
-  padding-bottom: 5px !important;
-}
-.be-print-modal-title {
-  color: white !important;
-  padding-bottom: 0 !important;
-  margin-bottom: 0 !important;
-}
-.be-print-modal-foot {
-  padding-top: 10px !important;
-  padding-bottom: 10px !important;
-  padding-left: 10px !important;
-}
-.be-answers {
-  list-style: disc;
-  margin-left: 3%;
-  padding: 2px;
-}
-.be-selected {
-  font-weight: bolder;
-  font-style: italic;
-}
-h1,
-h2 {
-  margin-bottom: 0.3em;
-  margin-top: 0.3em;
-}
-</style>
+<style scoped></style>
