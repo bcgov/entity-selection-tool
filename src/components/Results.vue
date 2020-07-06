@@ -39,7 +39,6 @@
       </BaseCard>
     </div>
     <div class="column is-half"></div>
-
     <!-- modal for results print view -->
     <b-modal
       :active.sync="isCardModalActive"
@@ -183,7 +182,7 @@ export default {
   data: function() {
     return {
       entity: {},
-      lang: "fr",
+      lang: "en",
       isCardModalActive: false,
       canCancel: false,
       css: `.be-selected {
@@ -192,14 +191,14 @@ export default {
             }
         `
     };
-  },
+  }, // end data
   created: function() {
     // get top Entity from data
     this.entity = this.data.entities[this.entityId] || {};
-  },
+  }, // end created
   mounted: function() {
     this.$i18n.locale = this.lang;
-  },
+  }, // end mounted
   computed: {
     title: function() {
       return this.entity[`title_${this.lang}`] || "N/A";
@@ -213,7 +212,7 @@ export default {
     disadvantages: function() {
       return this.entity[`disadvantage_${this.lang}`] || "N/A";
     }
-  },
+  }, // end computed
   methods: {
     printEntity: function() {
       this.isCardModalActive = true;
@@ -226,11 +225,11 @@ export default {
       const d = new Printd();
       d.print(this.$refs.PrintBody, [this.css]);
     },
-    onClickButton() {
+    onClickButton: function() {
       this.tempValue = false;
       this.$emit("clicked", this.tempValue);
     }
-  }
-};
+  } // end methods
+}; // end export default
 </script>
 <style scoped></style>

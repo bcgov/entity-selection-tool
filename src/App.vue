@@ -91,7 +91,6 @@ export default {
   height: 80px;
   overflow-y: auto;
 }
-
 .be-context {
   padding-top: 4px;
   color: #2c5671;
