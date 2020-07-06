@@ -142,7 +142,12 @@ export default {
       entity: {},
       lang: "en",
       isCardModalActive: false,
-      canCancel: false
+      canCancel: false,
+      css: `.be-selected {
+              font-weight: bolder;
+              font-style: italic;
+            }
+        `
     };
   },
   created: function() {
@@ -173,7 +178,7 @@ export default {
     },
     print: function() {
       const d = new Printd();
-      d.print(this.$refs.PrintBody);
+      d.print(this.$refs.PrintBody, [this.css]);
     },
     onClickButton() {
       this.tempValue = false;
