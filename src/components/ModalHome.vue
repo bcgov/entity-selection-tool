@@ -147,7 +147,7 @@
           target="_blank"
           rel="noopener"
           :href="$t('bizpal_link')"
-          >BizPal</a
+          >BizPaL</a
         >
       </p>
     </footer>
