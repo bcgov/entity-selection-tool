@@ -32,15 +32,15 @@
             $t("restart")
           }}</a>
           <a href="#" class="card-footer-item" @click="printEntity">
-            Print Results</a
+            {{ $t("print_results") }}</a
           >
-          <a href="#" class="card-footer-item">Print All Summaries</a>
+          <a href="#" class="card-footer-item">{{ $t("print_summaries") }}</a>
         </template>
       </BaseCard>
     </div>
     <div class="column is-half"></div>
 
-    <!-- modal for print view -->
+    <!-- modal for results print view -->
     <b-modal
       :active.sync="isCardModalActive"
       :can-cancel="canCancel"
@@ -51,11 +51,11 @@
     >
       <div class="modal-card" style="width: auto">
         <header class="modal-card-head be-print-modal-head">
-          <span class="be-modal-title">Results - Print View</span>
+          <span class="be-modal-title">{{ $t("results") }}</span>
         </header>
         <section id="printBody" ref="PrintBody" class="be-modal-print-body">
           <div>
-            <h1 class="subtitle is-3">Suggested Business Structure:</h1>
+            <h1 class="subtitle is-3">{{ $t("business_structure") }}</h1>
             <h2 class="subtitle is-4">
               {{ title }}
             </h2>
@@ -79,13 +79,14 @@
             </div>
           </div>
           <div>
-            <h1 class="subtitle is-3">Questions/Anwers:</h1>
-            <h2 class="subtitle is-4">
-              Your answers are in
-              <span class="has-text-weight-bold is-italic">
-                bold and italic</span
-              >.
-            </h2>
+            <h1 class="subtitle is-3">{{ $t("questions_answers") }}</h1>
+            <i18n path="text_answers" tag="h2" class="subtitle is-4">
+              <template v-slot:format>
+                <span class="has-text-weight-bold is-italic">{{
+                  $t("bold_italic")
+                }}</span>
+              </template>
+            </i18n>
             <ul>
               <template v-for="(value, index) in data.collection">
                 <li v-bind:key="index">
@@ -109,14 +110,14 @@
         </section>
         <footer class="modal-card-foot">
           <button class="button" type="button" @click="print()">
-            Print
+            {{ $t("print") }}
           </button>
           <button
             class="button"
             type="button"
             @click="isCardModalActive = false"
           >
-            Close
+            {{ $t("close") }}
           </button>
         </footer>
       </div>
@@ -124,13 +125,55 @@
   </div>
 </template>
 <script>
+import Vue from "vue";
 import BaseCard from "@/components/base-components/BaseCard.vue";
 import Printd from "printd";
+import VueI18nResults from "vue-i18n";
+
+Vue.use(VueI18nResults);
+
+// Create VueI18n instance with options
+export const i18n = new VueI18nResults({
+  locale: "en"
+});
 
 export default {
   name: "Results",
   components: {
     BaseCard
+  },
+  i18n: {
+    locale: "en",
+    messages: {
+      en: {
+        advantages: "Advantages:",
+        disadvantages: "Disadvantages:",
+        restart: `Restart`,
+        print_results: `Print Results`,
+        print_summaries: `Print All Summaries`,
+        results: `Results - Print View`,
+        business_structure: `Suggested Business Structure:`,
+        questions_answers: `Questions/Anwers:`,
+        bold_italic: `bold and italic`,
+        text_answers: `Your answers are in {format}.`,
+        print: `Print`,
+        close: `Close`
+      },
+      fr: {
+        advantages: "Avantages :",
+        disadvantages: "Désavantages :",
+        restart: `Redémarrer`,
+        print_results: `Imprimer les résultats`,
+        print_summaries: `Imprimer tous les sommaires`,
+        results: `Résultats - Aperçu avant impression`,
+        business_structure: `Structure d'entreprise suggérée :`,
+        questions_answers: `Questions/Réponses :`,
+        bold_italic: `gras et italique`,
+        text_answers: `Vos réponses sont en {format}.`,
+        print: `Imprimer`,
+        close: `Fermer`
+      }
+    }
   },
   props: {
     data: Object,
@@ -140,7 +183,7 @@ export default {
   data: function() {
     return {
       entity: {},
-      lang: "en",
+      lang: "fr",
       isCardModalActive: false,
       canCancel: false,
       css: `.be-selected {
@@ -153,6 +196,9 @@ export default {
   created: function() {
     // get top Entity from data
     this.entity = this.data.entities[this.entityId] || {};
+  },
+  mounted: function() {
+    this.$i18n.locale = this.lang;
   },
   computed: {
     title: function() {
