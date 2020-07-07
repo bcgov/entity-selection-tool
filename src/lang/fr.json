@@ -1,12 +1,4 @@
 {
-    "bizpal_link": "https://services.perle-bizpal.ca/",
-    "business_structures": "Structures D'Entreprise",
-    "entity_title_one" : "Structures d'entreprise",
-    "entity_title_two" : "suggérée",
-    "close": "Fermer",
-    "start": "Démarrer",
-    "restart": "Redémarrer",
-    "submit": "Envoyer",
     "Category_1": "Geographic Reach_FR",
     "Category_2": "Risk level of industry_fr",
     "Category_3": "Risks to owners_fr",
