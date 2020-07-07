@@ -251,7 +251,7 @@ export default {
     }
   }, // end created
   mounted: function() {
-    this.$i18n.locale = "fr";
+    this.$i18n.locale = "en";
   }, // end mounted
   computed: {
     getTotal: function(entityKey) {
