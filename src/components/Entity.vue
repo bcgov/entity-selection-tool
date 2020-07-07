@@ -24,6 +24,7 @@
                 ]
               }}
             </legend>
+
             <br />
             <form class="be-question-form">
               <template v-for="(value, index) in current">
@@ -49,9 +50,15 @@
               </template>
             </form>
           </fieldset>
-          <br />
+
+          <section class="be-context">
+            <p v-if="!isHidden">
+              {{ getQuestionContext }}
+            </p>
+          </section>
+          <!-- 
           <div class="buttons">
-            <b-button
+             <b-button
               class="be-form-button"
               size="is-medium"
               @click="previous()"
@@ -74,15 +81,38 @@
               @click="showResults()"
             >
               {{ $t("submit") }}
-            </b-button>
-          </div>
+            </b-button> 
+           
+          </div>-->
         </template>
         <template v-slot:footertext>
-          <section class="be-context">
-            <p v-if="!isHidden">
-              {{ getQuestionContext }}
-            </p>
-          </section>
+          <span class="card-footer-item">
+            <b-button
+              class="be-form-button "
+              :disabled="disabledPreviousButton"
+              @click="previous()"
+            >
+              {{ $t("previous") }}</b-button
+            >
+          </span>
+          <span class="card-footer-item">
+            <b-button
+              class="be-form-button"
+              :disabled="disabledNextButton"
+              @click="next()"
+            >
+              {{ $t("next") }}
+            </b-button>
+          </span>
+          <span class="card-footer-item">
+            <b-button
+              class="be-form-button"
+              :disabled="disabledSubmitButton"
+              @click="showResults()"
+            >
+              {{ $t("submit") }}</b-button
+            >
+          </span>
         </template>
       </BaseCard>
     </div>

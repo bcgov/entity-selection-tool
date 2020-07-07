@@ -77,7 +77,7 @@ export default {
   padding-right: 1rem;
   padding-top: 0rem;
   padding-bottom: 1rem;
-  height: 320px;
+  height: 340px;
   overflow-y: auto;
 }
 .card .content .be-nonprofit-list {
@@ -87,10 +87,7 @@ export default {
 .card-footer-item {
   color: #2c5671;
 }
-.card .card-footer {
-  height: 80px;
-  overflow-y: auto;
-}
+
 .be-context {
   padding-top: 4px;
   color: #2c5671;
@@ -100,23 +97,18 @@ export default {
   font-size: 14px;
 }
 .be-question-text {
-  height: 48px;
   margin-top: 16px;
   margin-bottom: 0px;
-  color: #2c5671;
-}
-.be-question-form {
-  height: 140px;
 }
 .buttons {
   height: 60px;
   justify-content: center;
 }
-.be-form-button {
+.be-button {
   width: 30%;
 }
-.be-form-button:focus,
-.be-form-button.is-focused {
+.be-button:focus,
+.be-button.is-focused {
   border-color: hsl(217, 71%, 53%);
   box-shadow: 0 0 0 0.125em hsl(217, 71%, 85%);
   color: #363636;
@@ -168,6 +160,28 @@ export default {
 }
 .be-intro-text {
   font-size: 14px;
+}
+.be-card-content {
+  padding-bottom: 20px;
+}
+.be-form-button {
+  width: 100%;
+  height: 100%;
+  display: block;
+  background-color: transparent;
+  border-color: transparent;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  text-decoration: none;
   color: #2c5671;
+}
+.be-form-button:hover,
+.be-form-button.is-hovered,
+.be-form-button:focus,
+.be-form-button.is-focused,
+.be-form-button:active {
+  box-shadow: 0, 0, 0, 0;
+  border: none;
+  color: #363636;
 }
 </style>

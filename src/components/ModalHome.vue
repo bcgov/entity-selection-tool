@@ -78,16 +78,7 @@
               <p class="be-intro-text">{{ $t("intro_2") }}</p>
               <p class="be-intro-text">{{ $t("intro_3") }}</p>
               <p class="be-intro-text">{{ $t("intro_4") }}</p>
-
-              <div class="buttons">
-                <b-button
-                  class="be-form-button"
-                  size="is-medium"
-                  @click="showIntroGate()"
-                >
-                  Start
-                </b-button>
-              </div>
+              <p class="be-intro-text">{{ $t("intro_disclaimer") }}</p>
             </div>
             <div v-if="introGate">
               <fieldset>
@@ -149,9 +140,14 @@
             </div>
           </template>
           <template v-slot:footertext>
-            <section class="be-context">
-              <p v-if="!introGate">{{ $t("intro_disclaimer") }}</p>
-              <p v-if="introGate">
+            <span v-if="!introGate" class="card-footer-item">
+              <b-button class="be-form-button" @click="showIntroGate()">
+                {{ $t("start") }}</b-button
+              >
+            </span>
+
+            <section v-if="introGate" class="be-context">
+              <p>
                 {{ $t("disclaimer") }}
               </p>
             </section>
@@ -211,6 +207,7 @@ export default {
         business_structures: "Business Structures Wizard",
         close: "Close",
         restart: "Restart",
+        start: "Start",
         entity_title_one: "Suggested",
         entity_title_two: "Business Structure",
         start_question:
@@ -239,6 +236,7 @@ export default {
         business_structures: "Structures d'entreprise",
         close: "Fermer",
         restart: "Redémarrer",
+        start: "Start FR",
         entity_title_one: "Structure d'entreprise",
         entity_title_two: "suggérée",
         start_question:

@@ -28,13 +28,21 @@
           </div>
         </template>
         <template v-slot:footertext>
-          <a href="#" class="card-footer-item" @click="onClickButton">{{
-            $t("restart")
-          }}</a>
-          <a href="#" class="card-footer-item" @click="printEntity">
-            {{ $t("print_results") }}</a
-          >
-          <a href="#" class="card-footer-item">{{ $t("print_summaries") }}</a>
+          <span class="card-footer-item">
+            <b-button class="be-form-button " @click="onClickButton">{{
+              $t("restart")
+            }}</b-button>
+          </span>
+          <span class="card-footer-item">
+            <b-button class="be-form-button" @click="printEntity">
+              {{ $t("print_results") }}
+            </b-button>
+          </span>
+          <span class="card-footer-item">
+            <b-button class="be-form-button">
+              {{ $t("print_summaries") }}
+            </b-button>
+          </span>
         </template>
       </BaseCard>
     </div>
