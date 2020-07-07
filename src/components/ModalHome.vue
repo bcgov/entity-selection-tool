@@ -214,7 +214,7 @@ export default {
         bizpal: "PerLE"
       }
     }
-  },
+  }, // end i18n
   data: function() {
     return {
       radioButton: "",

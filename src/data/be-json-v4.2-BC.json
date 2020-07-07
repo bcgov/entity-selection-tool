@@ -2,7 +2,7 @@
    "pid-59":{
         "pid": 59,
         "prov_name_en": "British Columbia",
-        "prov_name_fr": "Colombie Britannique",
+        "prov_name_fr": "Colombie-Britannique",
         "be_title_en":"Business Entity Tool",
         "be_title_fr":"Business Entity Tool(FR)",
         "disclaimer_en":"Please note that this tool is intended as general guidance only and not as legal or financial advice. Please consider seeking the services of a lawyer and accountant before making a final decision.",
@@ -46,7 +46,7 @@
                 "a3":{
                     "id": "a3",
                     "title_en":"British Columbia only.",
-                    "title_fr":"Colombie Britannique seulment.",
+                    "title_fr":"Colombie-Britannique seulement.",
                     "impact": {
 					"e1":12,
 					"e2":12,

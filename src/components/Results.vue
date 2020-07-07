@@ -173,7 +173,7 @@ export default {
         close: `Fermer`
       }
     }
-  },
+  }, // end i18n
   props: {
     data: Object,
     entityId: String,

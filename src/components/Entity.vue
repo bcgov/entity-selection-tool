@@ -11,7 +11,8 @@
     </b-button> -->
         <template v-slot:headertext>
           <h2 class="title be-question-title is-4">
-            QUESTION {{ currentCategoryIndex }} of {{ totalCategories }}
+            QUESTION {{ currentCategoryIndex }} {{ $t("of") }}
+            {{ totalCategories }}
           </h2>
         </template>
         <template v-slot:bodytext>
@@ -23,7 +24,6 @@
                 ]
               }}
             </legend>
-
             <br />
             <form class="be-question-form">
               <template v-for="(value, index) in current">
@@ -57,7 +57,7 @@
               @click="previous()"
               :disabled="disabledPreviousButton"
             >
-              Previous
+              {{ $t("previous") }}
             </b-button>
             <b-button
               class="be-form-button"
@@ -65,7 +65,7 @@
               @click="next()"
               :disabled="disabledNextButton"
             >
-              Next
+              {{ $t("next") }}
             </b-button>
             <b-button
               class="be-form-button"
@@ -109,9 +109,7 @@
                 >
                   <!-- {{ props.open ? "-" : "+" }} -->
                   <em>{{ data.entities[index][`title_${locale}`] }}</em>
-
                   {{ displayPercentage(entitiesTotal[index].total) }}%
-
                   <font-awesome-icon
                     class="be-carat-icon is-pulled-right"
                     :icon="
@@ -120,14 +118,12 @@
                   >
                   </font-awesome-icon>
                 </div>
-
                 <div class="notification">
                   <div class="content">
                     <p>{{ entitiesTotal[index][`summary_${locale}`] }}</p>
                   </div>
                 </div>
               </b-collapse>
-
               <b-progress
                 size="is-small"
                 type="is-info"
@@ -160,8 +156,15 @@ import Vue from "vue";
 import json from "@/data/be-json-v4.2-BC.json";
 import Results from "@/components/Results.vue";
 import BaseCard from "@/components/base-components/BaseCard.vue";
-// import i18n from "@/i18n";
+import VueI18nEntity from "vue-i18n";
 /* eslint-disable */ 
+
+Vue.use(VueI18nEntity);
+
+// Create VueI18n instance with options
+export const i18n = new VueI18nEntity({
+  locale: "en"
+});
 
 export default {
   name: "Entity",
@@ -169,6 +172,23 @@ export default {
     BaseCard,
     Results
   },
+  i18n: {
+    locale: "en",
+    messages: {
+      en: {
+        of: "of",
+        previous: "Previous",
+        next: "Next",
+        submit: "Submit"
+      },
+      fr: {
+        of: "de",
+        previous: "Précédent",
+        next: "Suivant",
+        submit: "Soumettre"
+      }
+    }
+  }, // end i18n
   data: function() {
     return {
       radioButton: "",
@@ -176,11 +196,11 @@ export default {
       disabledSubmitButton: true,
       disabledPreviousButton: true,
       resultsShow: false,
-      bestEntity:"",
+      bestEntity: "",
       // this will be dynamicallly created
-      userSelectedAnswer:{},
-      entitiesTotal:{},
-      totalCategories:0,
+      userSelectedAnswer: {},
+      entitiesTotal: {},
+      totalCategories: 0,
       data: json,
       currentCategoryIndex: 1,
       navElement: "",
@@ -206,32 +226,35 @@ export default {
       ]
     };
   }, // end data
-  created: function(){
-    this.data= this.data["pid-59"]
-    this.totalCategories = Object.keys(this.data.collection).length
+  created: function() {
+    this.data = this.data["pid-59"];
+    this.totalCategories = Object.keys(this.data.collection).length;
     // here all the variables that are needed to be created via the json file.
 
-      // to track user selection
-     for (let [key, value] of Object.entries(this.data.collection)){
-        // use set to make it  reactive 
-        Vue.set(this.userSelectedAnswer, key, {
-         answerIndex:"notset",
-         impact:[]
-       })
-     }
-     // to track entities total and added summary for quick access to it
-     for (let [key, value] of Object.entries(this.data.entities)){
-        // use set to make it  reactive 
-        Vue.set(this.entitiesTotal, key, {
-          total:0,
-          summary_en:value["summary_en"] || "",
-          summary_fr:value["summary_fr"] || ""
-       })   
-     }
-  }, //end created
+    // to track user selection
+    for (let [key, value] of Object.entries(this.data.collection)) {
+      // use set to make it  reactive 
+      Vue.set(this.userSelectedAnswer, key, {
+        answerIndex:"notset",
+        impact:[]
+      })
+    }
+    // to track entities total and added summary for quick access to it
+    for (let [key, value] of Object.entries(this.data.entities)) {
+      // use set to make it  reactive 
+      Vue.set(this.entitiesTotal, key, {
+        total: 0,
+        summary_en: value["summary_en"] || "",
+        summary_fr: value["summary_fr"] || ""
+      })   
+    }
+  }, // end created
+  mounted: function() {
+    this.$i18n.locale = "en";
+  }, // end mounted
   computed: {
     getTotal: function(entityKey) {
-      return (this.entitiesTotal[entityKey]) ? this.entitiesTotal[entityKey].total:0;
+      return (this.entitiesTotal[entityKey]) ? this.entitiesTotal[entityKey].total : 0;
     },
     // returns The data for the current question
     current: function() {
@@ -346,7 +369,7 @@ export default {
     displayPercentage: function(value) {
       let displayValue = value;
       let minValue = 0;
-      if (displayValue <= -1 ){
+      if (displayValue <= -1 ) {
         return minValue;
       }
       else {
