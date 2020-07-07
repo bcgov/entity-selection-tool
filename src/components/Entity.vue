@@ -207,107 +207,39 @@ export default {
         "Name Protection"
       ]
     };
-  },
-  methods: {
-   showResults: function() {
-        this.resultsShow = true;
-         // re-order to show from higher to lower for structure resultbundleRenderer.renderToStream
-    
-       let myEntities=this.entitiesTotal;
-       let keysSorted = Object.keys(this.entitiesTotal).sort(function(a,b){
-         return myEntities[b]["total"]-myEntities[a]["total"]
-         })
+  }, // end data
+  created: function(){
+    this.data= this.data["pid-59"]
+    this.totalCategories = Object.keys(this.data.collection).length
+    // here all the variables that are needed to be created via the json file.
 
-       let sortedEntities = {}
-       let gotTopEntity = false;
-       let bestEntitySelectionId = "";
-       keysSorted.map(function(key){
-             if(!gotTopEntity){
-               bestEntitySelectionId = key;
-               gotTopEntity = true;
-               
-             }
-             sortedEntities[key]= myEntities[key];
+      // to track user selection
+     for (let [key, value] of Object.entries(this.data.collection)){
+        // use set to make it  reactive 
+        Vue.set(this.userSelectedAnswer, key, {
+         answerIndex:"notset",
+         impact:[]
        })
-       this.bestEntity = bestEntitySelectionId;
-      this.entitiesTotal = sortedEntities;
-
-   },
-    // Advances to the next question
-    next: function() {
-       if(this.currentCategoryIndex < this.totalCategories){
-           this.currentCategoryIndex++;
-       }
-    },
-    // Goes back to the previous question
-    previous: function() {
-      if(this.currentCategoryIndex>1) this.currentCategoryIndex--
-    },
-    //Saves the selected question option param {number} answer 
-    //The index of the selected option
-    onSelect: function(answer,answerIndex) {
-        this.disabledNextButton = (this.currentCategoryIndex == 9) ? true : false;
-        if(this.currentCategoryIndex == 9) this.disabledSubmitButton = false;
- 
-      // record user answer index and impact to variable 
-      this.userSelectedAnswer[`cat-${this.currentCategoryIndex}`].answerIndex = answerIndex;
-      this.userSelectedAnswer[`cat-${this.currentCategoryIndex}`].impact = answer.impact;
-
-    for (let [entityKey, value] of Object.entries(this.data.entities)){
-
-      let totalImpact=0;
-
-         // go throught all recoreded answers to find impact for that Entity
-          for (let [key, answerValue] of Object.entries(this.userSelectedAnswer)){
-            if(value.answerIndex !="notset"){
-              let impactValue = answerValue.impact[entityKey] || 0;
-               totalImpact = totalImpact + impactValue;
-            }
-          }
-       this.entitiesTotal[entityKey].total = totalImpact;
      }
-    },
-    //Toggles display language
-    toggleLocale: function() {
-      this.$i18n.locale = this.locale == "en" ? "fr" : "en";
-    },
-    //Restarts business entity tool
-    restartEntity(value) {
-      this.$parent.started = value;
-    },
-    displayPercentage: function(value) {
-      let displayValue = value;
-      let minValue = 0;
-      if (displayValue <= -1 ){
-        return minValue;
-      }
-      else {
-        return displayValue;
-      }
-    }
-  }, //end methods
-  watch: {
-    currentCategoryIndex: function(val) {
-      if(val==9){
-        this.disabledNextButton = true;
-      }else {
-        // check if questions already answered
-        let question = this.userSelectedAnswer[`cat-${val}`];
-
-       this.disabledNextButton = (question.answerIndex=="notset") ? true : false;
-      }
-      this.disabledPreviousButton=(val==1) ? true : false
-    }
-  }, //end watch
+     // to track entities total and added summary for quick access to it
+     for (let [key, value] of Object.entries(this.data.entities)){
+        // use set to make it  reactive 
+        Vue.set(this.entitiesTotal, key, {
+          total:0,
+          summary_en:value["summary_en"] || "",
+          summary_fr:value["summary_fr"] || ""
+       })   
+     }
+  }, //end created
   computed: {
-    getTotal: function(entityKey){
+    getTotal: function(entityKey) {
       return (this.entitiesTotal[entityKey]) ? this.entitiesTotal[entityKey].total:0;
     },
     // returns The data for the current question
     current: function() {
       return this.data.collection[`cat-${this.currentCategoryIndex}`].answers;
     },
-    getQuestionContext: function(){
+    getQuestionContext: function() {
       return this.data.collection[`cat-${this.currentCategoryIndex}`][`context_${this.locale}`] || "";
     },
     // returns The current language
@@ -334,36 +266,99 @@ export default {
         0
       );
       return this.types[maxIndex];
-    },
-    
+    }
   }, //end computed
-  created(){
-    this.data= this.data["pid-59"]
-    this.totalCategories = Object.keys(this.data.collection).length
-    // here all the variables that are needed to be created via the json file.
+  watch: {
+    currentCategoryIndex: function(val) {
+      if (val == 9) {
+        this.disabledNextButton = true;
+      } else {
+        // check if questions already answered
+        let question = this.userSelectedAnswer[`cat-${val}`];
+        this.disabledNextButton = (question.answerIndex=="notset") ? true : false;
+      }
+      this.disabledPreviousButton=(val==1) ? true : false;
+    } // end currentCategoryIndex
+  }, // end watch
+  methods: {
+    showResults: function() {
+      this.resultsShow = true;
+      // re-order to show from higher to lower for structure resultbundleRenderer.renderToStream
+    
+      let myEntities=this.entitiesTotal;
+      let keysSorted = Object.keys(this.entitiesTotal).sort(function(a,b) {
+        return myEntities[b]["total"]-myEntities[a]["total"]
+      });
+      let sortedEntities = {};
+      let gotTopEntity = false;
+      let bestEntitySelectionId = "";
+      keysSorted.map(function(key) {
+        if (!gotTopEntity) {
+          bestEntitySelectionId = key;
+          gotTopEntity = true;
+        }
+        sortedEntities[key]= myEntities[key];
+      });
+      this.bestEntity = bestEntitySelectionId;
+      this.entitiesTotal = sortedEntities;
+    }, // end showResults
+    // Advances to the next question
+    next: function() {
+      if (this.currentCategoryIndex < this.totalCategories) {
+        this.currentCategoryIndex++;
+      }
+    }, // end next
+    // Goes back to the previous question
+    previous: function() {
+      if (this.currentCategoryIndex>1) {
+        this.currentCategoryIndex--;
+      }
+    }, // end previous
+    //Saves the selected question option param {number} answer 
+    //The index of the selected option
+    onSelect: function(answer,answerIndex) {
+      this.disabledNextButton = (this.currentCategoryIndex == 9) ? true : false;
+      if (this.currentCategoryIndex == 9) {
+        this.disabledSubmitButton = false;
+      }
+      // record user answer index and impact to variable 
+      this.userSelectedAnswer[`cat-${this.currentCategoryIndex}`].answerIndex = answerIndex;
+      this.userSelectedAnswer[`cat-${this.currentCategoryIndex}`].impact = answer.impact;
 
-      // to track user selection
-     for (let [key, value] of Object.entries(this.data.collection)){
-        // use set to make it  reactive 
-        Vue.set(this.userSelectedAnswer, key, {
-         answerIndex:"notset",
-         impact:[]
-       })
-     }
-     // to track entities total and added summary for quick access to it
-     for (let [key, value] of Object.entries(this.data.entities)){
-        // use set to make it  reactive 
-        Vue.set(this.entitiesTotal, key, {
-          total:0,
-          summary_en:value["summary_en"] || "",
-          summary_fr:value["summary_fr"] || ""
-       })   
-     }
-  }, //end created
+      for (let [entityKey, value] of Object.entries(this.data.entities)) {
+        let totalImpact=0;
+        // go throught all recoreded answers to find impact for that Entity
+        for (let [key, answerValue] of Object.entries(this.userSelectedAnswer)) {
+          if (value.answerIndex != "notset") {
+            let impactValue = answerValue.impact[entityKey] || 0;
+            totalImpact = totalImpact + impactValue;
+          }
+        }
+        this.entitiesTotal[entityKey].total = totalImpact;
+      }
+    }, // end onSelect
+    //Toggles display language
+    toggleLocale: function() {
+      this.$i18n.locale = this.locale == "en" ? "fr" : "en";
+    },
+    //Restarts business entity tool
+    restartEntity: function(value) {
+      this.$parent.started = value;
+    },
+    displayPercentage: function(value) {
+      let displayValue = value;
+      let minValue = 0;
+      if (displayValue <= -1 ){
+        return minValue;
+      }
+      else {
+        return displayValue;
+      }
+    } // end displayPercentage
+  } // end methods
 };
 </script>
 <style scoped>
-
 em {
   color:#2C5671;
 }
