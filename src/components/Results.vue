@@ -133,7 +133,8 @@ Vue.use(VueI18nResults);
 
 // Create VueI18n instance with options
 export const i18n = new VueI18nResults({
-  locale: "en"
+  locale: process.env.VUE_APP_I18N_LOCALE || "en",
+  fallbackLocale: process.env.VUE_APP_I18N_FALLBACK_LOCALE || "en"
 });
 
 export default {
@@ -147,30 +148,30 @@ export default {
       en: {
         advantages: "Advantages:",
         disadvantages: "Disadvantages:",
-        restart: `Restart`,
-        print_results: `Print Results`,
-        print_summaries: `Print All Summaries`,
-        results: `Results - Print View`,
-        business_structure: `Suggested Business Structure:`,
-        questions_answers: `Questions/Anwers:`,
-        bold_italic: `bold and italic`,
-        text_answers: `Your answers are in {format}.`,
-        print: `Print`,
-        close: `Close`
+        restart: "Restart",
+        print_results: "Print Results",
+        print_summaries: "Print All Summaries",
+        results: "Results - Print View",
+        business_structure: "Suggested Business Structure:",
+        questions_answers: "Questions/Anwers:",
+        bold_italic: "bold and italic",
+        text_answers: "Your answers are in {format}.",
+        print: "Print",
+        close: "Close"
       },
       fr: {
         advantages: "Avantages :",
         disadvantages: "Désavantages :",
-        restart: `Redémarrer`,
-        print_results: `Imprimer les résultats`,
-        print_summaries: `Imprimer tous les sommaires`,
-        results: `Résultats - Aperçu avant impression`,
-        business_structure: `Structure d'entreprise suggérée :`,
-        questions_answers: `Questions/Réponses :`,
-        bold_italic: `gras et italique`,
-        text_answers: `Vos réponses sont en {format}.`,
-        print: `Imprimer`,
-        close: `Fermer`
+        restart: "Redémarrer",
+        print_results: "Imprimer les résultats",
+        print_summaries: "Imprimer tous les sommaires",
+        results: "Résultats - Aperçu avant impression",
+        business_structure: "Structure d'entreprise suggérée :",
+        questions_answers: "Questions/Réponses :",
+        bold_italic: "gras et italique",
+        text_answers: "Vos réponses sont en {format}.",
+        print: "Imprimer",
+        close: "Fermer"
       }
     }
   }, // end i18n

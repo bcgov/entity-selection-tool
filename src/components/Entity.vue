@@ -163,7 +163,8 @@ Vue.use(VueI18nEntity);
 
 // Create VueI18n instance with options
 export const i18n = new VueI18nEntity({
-  locale: "en"
+  locale: process.env.VUE_APP_I18N_LOCALE || "en",
+  fallbackLocale: process.env.VUE_APP_I18N_FALLBACK_LOCALE || "en"
 });
 
 export default {
@@ -250,7 +251,7 @@ export default {
     }
   }, // end created
   mounted: function() {
-    this.$i18n.locale = "en";
+    this.$i18n.locale = "fr";
   }, // end mounted
   computed: {
     getTotal: function(entityKey) {
