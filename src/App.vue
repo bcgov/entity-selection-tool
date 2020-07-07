@@ -115,6 +115,12 @@ export default {
 .be-form-button {
   width: 30%;
 }
+.be-form-button:focus,
+.be-form-button.is-focused {
+  border-color: hsl(217, 71%, 53%);
+  box-shadow: 0 0 0 0.125em hsl(217, 71%, 85%);
+  color: #363636;
+}
 .be-nav-button {
   width: 45%;
   margin-left: 8px;

@@ -22,7 +22,6 @@
                   `question_${locale}`
                 ]
               }}
-              <strong><sup class="be-sup">1</sup></strong>
             </legend>
 
             <br />
@@ -81,7 +80,6 @@
         <template v-slot:footertext>
           <section class="be-context">
             <p v-if="!isHidden">
-              <strong><sup class="be-sup">1</sup></strong>
               {{ getQuestionContext }}
             </p>
           </section>
