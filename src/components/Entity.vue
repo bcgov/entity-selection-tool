@@ -53,34 +53,6 @@
               {{ getQuestionContext }}
             </p>
           </section>
-          <!-- 
-          <div class="buttons">
-             <b-button
-              class="be-form-button"
-              size="is-medium"
-              @click="previous()"
-              :disabled="disabledPreviousButton"
-            >
-              {{ $t("previous") }}
-            </b-button>
-            <b-button
-              class="be-form-button"
-              size="is-medium"
-              @click="next()"
-              :disabled="disabledNextButton"
-            >
-              {{ $t("next") }}
-            </b-button>
-            <b-button
-              class="be-form-button"
-              :disabled="disabledSubmitButton"
-              size="is-medium"
-              @click="showResults()"
-            >
-              {{ $t("submit") }}
-            </b-button> 
-           
-          </div>-->
         </template>
         <template v-slot:footertext>
           <span class="card-footer-item">

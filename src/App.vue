@@ -100,13 +100,7 @@ export default {
   margin-top: 16px;
   margin-bottom: 0px;
 }
-.buttons {
-  height: 60px;
-  justify-content: center;
-}
-.be-button {
-  width: 30%;
-}
+
 .be-button:focus,
 .be-button.is-focused {
   border-color: hsl(217, 71%, 53%);
@@ -163,6 +157,9 @@ export default {
 }
 .be-card-content {
   padding-bottom: 20px;
+}
+.be-question-form {
+  margin-left: 12px;
 }
 .be-form-button {
   width: 100%;
