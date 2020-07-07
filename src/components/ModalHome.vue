@@ -155,7 +155,7 @@
         </BaseCard>
       </div>
       <div v-if="started">
-        <Entity></Entity>
+        <Entity :lang="this.langLocal"></Entity>
       </div>
       <div v-if="nonProfit">
         <NonProfit @clicked="restartNonProfit"></NonProfit>
@@ -263,17 +263,23 @@ export default {
       }
     }
   }, // end i18n
+  props: {
+    lang: {
+      type: String,
+      default: "en"
+    }
+  },
   data: function() {
     return {
       radioButton: "",
       started: false,
       nonProfit: false,
-      lang: "en",
+      langLocal: this.lang,
       introGate: false
     };
   },
   mounted: function() {
-    this.$i18n.locale = this.lang;
+    this.$i18n.locale = this.langLocal;
   },
   methods: {
     start: function() {

@@ -186,12 +186,16 @@ export default {
   props: {
     data: Object,
     entityId: String,
-    userAnswers: Object
+    userAnswers: Object,
+    lang: {
+      type: String,
+      default: "en"
+    }
   },
   data: function() {
     return {
       entity: {},
-      lang: "en",
+      langLocal: this.lang,
       isCardModalActive: false,
       canCancel: false,
       css: `.be-selected {
@@ -206,20 +210,23 @@ export default {
     this.entity = this.data.entities[this.entityId] || {};
   }, // end created
   mounted: function() {
-    this.$i18n.locale = this.lang;
+    this.$i18n.locale = this.langLocal;
+
+    // send event for Top Entity
+    this.$emit("updateResult", this.entity[`title_${this.langLocal}`] || "");
   }, // end mounted
   computed: {
     title: function() {
-      return this.entity[`title_${this.lang}`] || "N/A";
+      return this.entity[`title_${this.langLocal}`] || "N/A";
     },
     body: function() {
-      return this.entity[`summary_${this.lang}`] || "N/A";
+      return this.entity[`summary_${this.langLocal}`] || "N/A";
     },
     advantages: function() {
-      return this.entity[`advantage_${this.lang}`] || "N/A";
+      return this.entity[`advantage_${this.langLocal}`] || "N/A";
     },
     disadvantages: function() {
-      return this.entity[`disadvantage_${this.lang}`] || "N/A";
+      return this.entity[`disadvantage_${this.langLocal}`] || "N/A";
     }
   }, // end computed
   methods: {
