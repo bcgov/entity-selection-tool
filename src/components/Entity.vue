@@ -37,12 +37,9 @@
                     name="questions"
                     v-model="radioButton"
                     :id="index"
-                    :native-value="
-                      index ===
-                        userSelectedAnswer[`cat-${currentCategoryIndex}`]
-                          .answerIndex
-                    "
+                    :native-value="index"
                     @click.native="onSelect(value, index)"
+                    v-on:keyup.enter="onSelect(value, index)"
                   >
                     {{ value[`title_${locale}`] }}
                   </b-radio>
@@ -322,14 +319,22 @@ export default {
   }, //end computed
   watch: {
     currentCategoryIndex: function(val) {
+        // retrieved user answer for thequestion
+      let question = this.userSelectedAnswer[`cat-${val}`];
+
       if (val == 9) {
         this.disabledNextButton = true;
       } else {
-        // check if questions already answered
-        let question = this.userSelectedAnswer[`cat-${val}`];
+        // disabeld next button if necessary
         this.disabledNextButton = (question.answerIndex=="notset") ? true : false;
+        
       }
       this.disabledPreviousButton=(val==1) ? true : false;
+      
+      // set inital radio value  from user answer  
+      this.radioButton = (question.answerIndex=="notset") ? "" : question.answerIndex;
+
+
     } // end currentCategoryIndex
   }, // end watch
   methods: {
