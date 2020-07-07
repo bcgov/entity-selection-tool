@@ -76,13 +76,19 @@ export default {
       }
     }
   }, // end i18n
+  props: {
+    lang: {
+      type: String,
+      default: "en"
+    }
+  },
   data: function() {
     return {
-      lang: "en"
+      langLocal: this.lang
     };
   }, // end data
   mounted: function() {
-    this.$i18n.locale = this.lang;
+    this.$i18n.locale = this.langLocal;
   }, // end mounted
   methods: {
     onClickButton: function() {

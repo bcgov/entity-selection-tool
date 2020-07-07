@@ -14,10 +14,22 @@ import "buefy/dist/buefy.css";
 Vue.use(Buefy);
 export default {
   name: "App",
+  props: {
+    lang: {
+      type: String,
+      default: "fr"
+    }
+  },
+  data: function() {
+    return {
+      langLocal: this.lang
+    };
+  }, // end data
   methods: {
     homeModal: function() {
       this.$buefy.modal.open({
         parent: this,
+        props: { lang: this.langLocal },
         component: ModalHome,
         hasModalCard: true,
         customClass: "bet-modal",

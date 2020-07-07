@@ -89,6 +89,7 @@
         :entity-id="bestEntity"
         :user-answers="userSelectedAnswer"
         @clicked="restartEntity"
+        :lang="this.locale"
       ></Results>
     </div>
     <!-- end left side -->
@@ -187,8 +188,15 @@ export default {
       }
     }
   }, // end i18n
+   props: {
+    lang: {
+      type: String,
+      default: "en"
+    }
+  }, 
   data: function() {
     return {
+      langLocal:this.lang,
       radioButton: "",
       disabledNextButton: true,
       disabledSubmitButton: true,
@@ -248,7 +256,7 @@ export default {
     }
   }, // end created
   mounted: function() {
-    this.$i18n.locale = "en";
+    this.$i18n.locale = this.langLocal;
   }, // end mounted
   computed: {
     getTotal: function(entityKey) {
@@ -263,7 +271,7 @@ export default {
     },
     // returns The current language
     locale: function() {
-      return this.$i18n.locale;
+      return this.langLocal;
     },
     //returns percentage completed
     progress: function() {
@@ -364,10 +372,6 @@ export default {
         this.entitiesTotal[entityKey].total = totalImpact;
       }
     }, // end onSelect
-    //Toggles display language
-    toggleLocale: function() {
-      this.$i18n.locale = this.locale == "en" ? "fr" : "en";
-    },
     //Restarts business entity tool
     restartEntity: function(value) {
       this.$parent.started = value;
