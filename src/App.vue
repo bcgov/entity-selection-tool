@@ -17,7 +17,7 @@ export default {
   props: {
     lang: {
       type: String,
-      default: "fr"
+      default: "en"
     }
   },
   data: function() {
