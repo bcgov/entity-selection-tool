@@ -162,7 +162,8 @@ Vue.use(VueI18nHome);
 
 // Create VueI18n instance with options
 export const i18n = new VueI18nHome({
-  locale: "en"
+  locale: process.env.VUE_APP_I18N_LOCALE || "en",
+  fallbackLocale: process.env.VUE_APP_I18N_FALLBACK_LOCALE || "en"
 });
 
 export default {

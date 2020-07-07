@@ -1,6 +1,5 @@
 import Vue from "vue";
 import App from "./App.vue";
-import i18n from "./i18n";
 import Buefy from "buefy";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
@@ -22,6 +21,5 @@ Vue.use(Buefy, {
 Vue.config.productionTip = false;
 
 new Vue({
-  i18n,
   render: h => h(App)
 }).$mount("#app");
