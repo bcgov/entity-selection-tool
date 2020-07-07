@@ -166,4 +166,8 @@ export default {
   font-weight: bolder;
   font-style: italic;
 }
+.be-intro-text {
+  font-size: 14px;
+  color: #2c5671;
+}
 </style>
