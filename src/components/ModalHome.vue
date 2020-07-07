@@ -3,7 +3,7 @@
     <div class="modal-card-head">
       <div class="container">
         <div class="columns">
-          <div class="column is-three-quarters">
+          <div class="column is-two-thirds">
             <h1 class="be-modal-title">
               {{ $t("business_structures") }}
             </h1>
@@ -220,7 +220,7 @@ export default {
       radioButton: "",
       started: false,
       nonProfit: false,
-      lang: "en"
+      lang: "fr"
     };
   },
   mounted: function() {
