@@ -61,6 +61,14 @@ export default {
   top: 80px;
   left: 10px;
 }
+.summary.box {
+  width: 712px;
+  height: 480px;
+  z-index: 50;
+  position: absolute;
+  top: 80px;
+  left: 10px;
+}
 .subtitle.be-subtitle {
   color: white;
   margin-bottom: 0px;
@@ -83,7 +91,16 @@ export default {
 .card .content .be-nonprofit-list {
   margin-top: 6px;
   margin-bottom: 6px;
+  list-style: none;
+  margin-left: 0em;
 }
+.content .be-nonprofit-subtitle {
+  color: #24465c;
+  font-weight: 400;
+  margin-top: 24px;
+  margin-bottom: 12px;
+}
+
 .card-footer-item {
   color: #2c5671;
 }

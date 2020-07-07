@@ -1,25 +1,20 @@
 <template>
   <div class="columns">
     <div class="column is-half">
-      <BaseCard class="question box">
+      <BaseCard class="summary box">
         <template v-slot:headertext>
-          <p>{{ $t("header_text") }}</p>
+          <h2 class="title be-question-title is-4">
+            {{ $t("header_text") }}
+          </h2>
         </template>
         <template v-slot:bodytext>
-          <h6>{{ $t("cooperative") }}</h6>
           <ul class="be-nonprofit-list">
-            <li>1</li>
-            <li>2</li>
-          </ul>
-          <h6>{{ $t("incorporated") }}</h6>
-          <ul class="be-nonprofit-list">
-            <li>1</li>
-            <li>2</li>
-          </ul>
-          <h6>{{ $t("non_registered") }}</h6>
-          <ul class="be-nonprofit-list">
-            <li>1</li>
-            <li>2</li>
+            <li v-for="(item, index) in data" v-bind:key="index">
+              <h3 class="subtitle be-nonprofit-subtitle  is-5">
+                {{ item.title_en }}
+              </h3>
+              <p class="be-results-text">{{ item.summary_en }}</p>
+            </li>
           </ul>
         </template>
         <template v-slot:footertext>
@@ -37,6 +32,7 @@
 
 <script>
 import Vue from "vue";
+import json from "@/data/be-json-v1-BC-NonProfit.json";
 import BaseCard from "@/components/base-components/BaseCard.vue";
 import VueI18nNonProfit from "vue-i18n";
 
@@ -57,7 +53,7 @@ export default {
     locale: "en",
     messages: {
       en: {
-        header_text: "This is the Non Profit Summary Page",
+        header_text: "Non Profit Summary Page",
         cooperative: "Cooperative Association",
         incorporated: "Incorporated Society",
         non_registered: "Non-Registered Society",
@@ -66,7 +62,7 @@ export default {
         print_summaries: "Print All Summaries"
       },
       fr: {
-        header_text: "This is the Non Profit Summary Page (fr)",
+        header_text: "Non Profit Summary Page (fr)",
         cooperative: "Cooperative Association (fr)",
         incorporated: "Incorporated Society (fr)",
         non_registered: "Non-Registered Society (fr)",
@@ -78,12 +74,24 @@ export default {
   }, // end i18n
   data: function() {
     return {
-      lang: "en"
+      lang: "en",
+      data: json
     };
   }, // end data
+  created: function() {
+    this.data = this.data["non-profit-entities"];
+  }, // end created
   mounted: function() {
     this.$i18n.locale = this.lang;
   }, // end mounted
+  computed: {
+    title: function() {
+      return this.item[`title_${this.lang}`] || "N/A";
+    },
+    body: function() {
+      return this.item[`summary_${this.lang}`] || "N/A";
+    }
+  }, // end computed
   methods: {
     onClickButton: function() {
       this.tempValue = false;
