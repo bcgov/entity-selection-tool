@@ -221,7 +221,7 @@ export default {
       radioButton: "",
       started: false,
       nonProfit: false,
-      lang: "fr"
+      lang: "en"
     };
   },
   mounted: function() {
