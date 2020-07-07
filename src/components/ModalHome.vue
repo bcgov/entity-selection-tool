@@ -65,108 +65,107 @@
       </div>
     </div>
     <div class="modal-card-body">
-      <div class="columns">
-        <div v-if="!started && !nonProfit" class="column is-half">
-          <BaseCard class="question box">
-            <template v-slot:headertext>
-              <h2 v-if="!introGate" class="title be-question-title is-4">
-                WELCOME
-              </h2></template
-            >
-            <template v-slot:bodytext>
-              <div v-if="!introGate">
-                <p class="be-intro-text">{{ $t("intro_1") }}</p>
-                <p class="be-intro-text">{{ $t("intro_2") }}</p>
-                <p class="be-intro-text">{{ $t("intro_3") }}</p>
-                <p class="be-intro-text">{{ $t("intro_4") }}</p>
+      <div v-if="!started && !nonProfit">
+        <BaseCard class="question box">
+          <template v-slot:headertext>
+            <h2 v-if="!introGate" class="title be-question-title is-4">
+              WELCOME
+            </h2></template
+          >
+          <template v-slot:bodytext>
+            <div v-if="!introGate">
+              <p class="be-intro-text">{{ $t("intro_1") }}</p>
+              <p class="be-intro-text">{{ $t("intro_2") }}</p>
+              <p class="be-intro-text">{{ $t("intro_3") }}</p>
+              <p class="be-intro-text">{{ $t("intro_4") }}</p>
 
-                <div class="buttons">
-                  <b-button
-                    class="be-form-button"
-                    size="is-medium"
-                    @click="showIntroGate()"
-                  >
-                    Start
-                  </b-button>
-                </div>
+              <div class="buttons">
+                <b-button
+                  class="be-form-button"
+                  size="is-medium"
+                  @click="showIntroGate()"
+                >
+                  Start
+                </b-button>
               </div>
-              <div v-if="introGate">
-                <fieldset>
-                  <legend>
-                    {{ $t("start_question") }}
-                  </legend>
-                  <br />
-                  <form class="be-question-form">
-                    <div class="field">
-                      <b-radio
-                        type="is-info"
-                        @click.native="start()"
-                        id="profit"
-                        name="purpose"
-                        native-value="profit"
-                        v-model="radioButton"
-                      >
-                        {{ $t("start_question_opt1") }}
-                      </b-radio>
-                    </div>
-                    <div class="field">
-                      <b-radio
-                        type="is-info"
-                        @click.native="start()"
-                        id="services"
-                        name="purpose"
-                        native-value="services"
-                        v-model="radioButton"
-                      >
-                        {{ $t("start_question_opt2") }}
-                      </b-radio>
-                    </div>
-                    <div class="field">
-                      <b-radio
-                        type="is-info"
-                        @click.native="showNonProfit()"
-                        id="charitable"
-                        name="purpose"
-                        native-value="charitable"
-                        v-model="radioButton"
-                      >
-                        {{ $t("start_question_opt3") }}
-                      </b-radio>
-                    </div>
-                    <div class="field">
-                      <b-radio
-                        type="is-info"
-                        @click.native="showNonProfit()"
-                        id="cooperative"
-                        name="purpose"
-                        native-value="cooperative"
-                        v-model="radioButton"
-                      >
-                        {{ $t("start_question_opt4") }}
-                      </b-radio>
-                    </div>
-                  </form>
-                </fieldset>
-              </div>
-            </template>
-            <template v-slot:footertext>
-              <section class="be-context">
-                <p v-if="!introGate">{{ $t("intro_disclaimer") }}</p>
-                <p v-if="introGate">
-                  {{ $t("disclaimer") }}
-                </p>
-              </section>
-            </template>
-          </BaseCard>
-        </div>
-        <div v-if="started">
-          <Entity></Entity>
-        </div>
-        <div v-if="nonProfit">
-          <NonProfit @clicked="restartNonProfit"></NonProfit>
-        </div>
+            </div>
+            <div v-if="introGate">
+              <fieldset>
+                <legend>
+                  {{ $t("start_question") }}
+                </legend>
+                <br />
+                <form class="be-question-form">
+                  <div class="field">
+                    <b-radio
+                      type="is-info"
+                      @click.native="start()"
+                      id="profit"
+                      name="purpose"
+                      native-value="profit"
+                      v-model="radioButton"
+                    >
+                      {{ $t("start_question_opt1") }}
+                    </b-radio>
+                  </div>
+                  <div class="field">
+                    <b-radio
+                      type="is-info"
+                      @click.native="start()"
+                      id="services"
+                      name="purpose"
+                      native-value="services"
+                      v-model="radioButton"
+                    >
+                      {{ $t("start_question_opt2") }}
+                    </b-radio>
+                  </div>
+                  <div class="field">
+                    <b-radio
+                      type="is-info"
+                      @click.native="showNonProfit()"
+                      id="charitable"
+                      name="purpose"
+                      native-value="charitable"
+                      v-model="radioButton"
+                    >
+                      {{ $t("start_question_opt3") }}
+                    </b-radio>
+                  </div>
+                  <div class="field">
+                    <b-radio
+                      type="is-info"
+                      @click.native="showNonProfit()"
+                      id="cooperative"
+                      name="purpose"
+                      native-value="cooperative"
+                      v-model="radioButton"
+                    >
+                      {{ $t("start_question_opt4") }}
+                    </b-radio>
+                  </div>
+                </form>
+              </fieldset>
+            </div>
+          </template>
+          <template v-slot:footertext>
+            <section class="be-context">
+              <p v-if="!introGate">{{ $t("intro_disclaimer") }}</p>
+              <p v-if="introGate">
+                {{ $t("disclaimer") }}
+              </p>
+            </section>
+          </template>
+        </BaseCard>
+      </div>
+      <div v-if="started">
+        <Entity></Entity>
+      </div>
+      <div v-if="nonProfit">
+        <NonProfit @clicked="restartNonProfit"></NonProfit>
       </div>
     </div>
+
     <footer class="modal-card-foot">
       <p class="is-pulled-right">
         {{ $t("powered") }}
