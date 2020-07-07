@@ -72,17 +72,27 @@ export default {
       }
     }
   }, // end i18n
+  props: {
+    lang: {
+      type: String,
+      default: "en"
+    }
+  },
   data: function() {
     return {
+<<<<<<< HEAD
       lang: "en",
       data: json
+=======
+      langLocal: this.lang
+>>>>>>> 647be8c68d6943a484ba17e94d099056171f2227
     };
   }, // end data
   created: function() {
     this.data = this.data["non-profit-entities"];
   }, // end created
   mounted: function() {
-    this.$i18n.locale = this.lang;
+    this.$i18n.locale = this.langLocal;
   }, // end mounted
   computed: {
     title: function() {
