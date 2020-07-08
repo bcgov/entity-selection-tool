@@ -119,6 +119,11 @@
           <button class="button" type="button" @click="print()">
             {{ $t("print") }}
           </button>
+          <button class="button" type="is-link">
+            <a href="#" target="_blank">
+              {{ $t("download") }}
+            </a>
+          </button>
           <button
             class="button"
             type="button"

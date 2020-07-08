@@ -98,7 +98,7 @@ export default {
     body: function() {
       return this.item[`summary_${this.langLocal}`] || "N/A";
     }
-   */ 
+   */
   }, // end computed
   methods: {
     onClickButton: function() {
