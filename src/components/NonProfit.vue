@@ -32,7 +32,7 @@
 
 <script>
 import Vue from "vue";
-import json from "@/data/be-json-v1-BC-NonProfit.json";
+import json from "@/data/be-json-v4.2-BC.json";
 import BaseCard from "@/components/base-components/BaseCard.vue";
 import VueI18nNonProfit from "vue-i18n";
 
@@ -54,21 +54,15 @@ export default {
     messages: {
       en: {
         header_text: "Non Profit Summary Page",
-        cooperative: "Cooperative Association",
-        incorporated: "Incorporated Society",
-        non_registered: "Non-Registered Society",
         restart: "Restart",
-        print_results: "Print Results",
-        print_summaries: "Print All Summaries"
+        print_results: "Results",
+        print_summaries: "All Summaries"
       },
       fr: {
         header_text: "Non Profit Summary Page (fr)",
-        cooperative: "Cooperative Association (fr)",
-        incorporated: "Incorporated Society (fr)",
-        non_registered: "Non-Registered Society (fr)",
         restart: "Redémarrer",
-        print_results: "Imprimer les résultats",
-        print_summaries: "Imprimer tous les sommaires"
+        print_results: "Les résultats",
+        print_summaries: "Tous les sommaires"
       }
     }
   }, // end i18n
