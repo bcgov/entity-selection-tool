@@ -67,7 +67,7 @@ export default {
 }
 .question.box {
   width: 520px;
-  height: 480px;
+  height: 478px;
   z-index: 50;
   position: absolute;
   top: 80px;
@@ -115,6 +115,7 @@ export default {
 
 .card-footer-item {
   color: #2c5671;
+  padding: 0;
 }
 
 .be-context {
@@ -128,6 +129,7 @@ export default {
 .be-question-text {
   margin-top: 16px;
   margin-bottom: 0px;
+  width: 433px;
 }
 
 .be-button:focus,
@@ -186,6 +188,8 @@ export default {
 }
 .be-card-content {
   padding-bottom: 20px;
+  padding-left: 0px;
+  padding-right: 0px;
 }
 .be-question-form {
   margin-left: 12px;
@@ -196,10 +200,19 @@ export default {
   display: block;
   background-color: transparent;
   border-color: transparent;
+  border-radius: 0%;
   -webkit-box-shadow: none;
   box-shadow: none;
   text-decoration: none;
   color: #2c5671;
+  line-height: 3;
+  padding: 0;
+}
+.be-form-button:disabled {
+  background-color: transparent;
+  border: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 .be-form-button:hover,
 .be-form-button.is-hovered,
@@ -208,6 +221,11 @@ export default {
 .be-form-button:active {
   box-shadow: 0, 0, 0, 0;
   border: none;
+  border-radius: 0%;
   color: #363636;
+  width: 100%;
+  height: 100%;
+  background-color: #c8ddea;
+  display: block;
 }
 </style>
