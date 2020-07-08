@@ -119,10 +119,8 @@
           <b-button class="be-button" outlined @click="print()">
             {{ $t("print") }}
           </b-button>
-          <b-button class="be-button" outlined @click="downloadPDF()">>
-            
-              {{ $t("download") }}
-           
+          <b-button class="be-button" outlined @click="downloadPDF()">
+            {{ $t("download") }}
           </b-button>
           <b-button
             class="be-button"

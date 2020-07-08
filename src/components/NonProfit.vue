@@ -77,10 +77,8 @@
           <b-button class="be-button" outlined @click="print()">
             {{ $t("print") }}
           </b-button>
-          <b-button class="be-button" outlined>
-            <a class="be-link-button" href="#" target="_blank">
-              {{ $t("download") }}
-            </a>
+          <b-button class="be-button" outlined @click="downloadPDF()">
+            {{ $t("download") }}
           </b-button>
           <b-button
             class="be-button"
@@ -101,6 +99,7 @@ import json from "@/data/be-json-v4.2-BC.json";
 import BaseCard from "@/components/base-components/BaseCard.vue";
 import VueI18nNonProfit from "vue-i18n";
 import Printd from "printd";
+import jsPDF from "jspdf";
 
 Vue.use(VueI18nNonProfit);
 
@@ -121,6 +120,7 @@ export default {
       en: {
         close: "Close",
         download: "Download",
+        download_name: "non-profit-entities",
         header_text: "Non Profit Summary Page",
         restart: "Restart",
         print: "Print",
@@ -131,7 +131,7 @@ export default {
       fr: {
         close: "Fermer",
         download: "Télécharger",
-
+        download_name: "non-profit-entities",
         header_text: "Non Profit Summary Page (fr)",
         restart: "Redémarrer",
         print: "Imprimer",
@@ -173,6 +173,20 @@ export default {
     onClickButton: function() {
       this.tempValue = false;
       this.$emit("clicked", this.tempValue);
+    },
+    downloadPDF: function() {
+      let today = new Date();
+      let date =
+        today.getFullYear() +
+        "-" +
+        (today.getMonth() + 1) +
+        "-" +
+        today.getDate();
+      let doc = new jsPDF();
+      doc.fromHTML(this.$refs.PrintBody, 15, 15, {
+        width: 170
+      });
+      doc.save(this.$t("download_name") + `-${date}.pdf`);
     },
     printEntity: function() {
       this.isCardModalActive = true;
