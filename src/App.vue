@@ -131,12 +131,35 @@ export default {
   margin-bottom: 0px;
   width: 433px;
 }
+.be-link-button {
+  color: #2c5671;
+}
+.be-link-button:hover,
+.be-link-button.is-hovered,
+.be-link-button:focus,
+.be-link-button.is-focused,
+.be-link-button:active {
+  color: white;
+}
+.be-button {
+  color: #2c5671;
+  border-color: #2c5671;
+}
 
 .be-button:focus,
-.be-button.is-focused {
-  border-color: hsl(217, 71%, 53%);
-  box-shadow: 0 0 0 0.125em hsl(217, 71%, 85%);
-  color: #363636;
+.be-button.is-focused,
+.be-button:active {
+  background-color: #2c5671;
+  border-color: #2c5671;
+  box-shadow: 0 0 0 0.125em hsl(203, 44%, 80%);
+  color: white;
+}
+.be-button:hover,
+.be-button.is-hovered {
+  background-color: #2c5671;
+  border-color: #2c5671;
+
+  color: white;
 }
 .be-nav-button {
   width: 45%;
