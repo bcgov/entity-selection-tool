@@ -67,7 +67,7 @@ export default {
 }
 .question.box {
   width: 520px;
-  height: 480px;
+  height: 478px;
   z-index: 50;
   position: absolute;
   top: 80px;
@@ -115,6 +115,7 @@ export default {
 
 .card-footer-item {
   color: #2c5671;
+  padding: 0;
 }
 
 .be-context {
@@ -128,13 +129,37 @@ export default {
 .be-question-text {
   margin-top: 16px;
   margin-bottom: 0px;
+  width: 433px;
+}
+.be-link-button {
+  color: #2c5671;
+}
+.be-link-button:hover,
+.be-link-button.is-hovered,
+.be-link-button:focus,
+.be-link-button.is-focused,
+.be-link-button:active {
+  color: white;
+}
+.be-button {
+  color: #2c5671;
+  border-color: #2c5671;
 }
 
 .be-button:focus,
-.be-button.is-focused {
-  border-color: hsl(217, 71%, 53%);
-  box-shadow: 0 0 0 0.125em hsl(217, 71%, 85%);
-  color: #363636;
+.be-button.is-focused,
+.be-button:active {
+  background-color: #2c5671;
+  border-color: #2c5671;
+  box-shadow: 0 0 0 0.125em hsl(203, 44%, 80%);
+  color: white;
+}
+.be-button:hover,
+.be-button.is-hovered {
+  background-color: #2c5671;
+  border-color: #2c5671;
+
+  color: white;
 }
 .be-nav-button {
   width: 45%;
@@ -186,6 +211,8 @@ export default {
 }
 .be-card-content {
   padding-bottom: 20px;
+  padding-left: 0px;
+  padding-right: 0px;
 }
 .be-question-form {
   margin-left: 12px;
@@ -196,10 +223,19 @@ export default {
   display: block;
   background-color: transparent;
   border-color: transparent;
+  border-radius: 0%;
   -webkit-box-shadow: none;
   box-shadow: none;
   text-decoration: none;
   color: #2c5671;
+  line-height: 3;
+  padding: 0;
+}
+.be-form-button:disabled {
+  background-color: transparent;
+  border: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 .be-form-button:hover,
 .be-form-button.is-hovered,
@@ -208,6 +244,11 @@ export default {
 .be-form-button:active {
   box-shadow: 0, 0, 0, 0;
   border: none;
+  border-radius: 0%;
   color: #363636;
+  width: 100%;
+  height: 100%;
+  background-color: #c8ddea;
+  display: block;
 }
 </style>

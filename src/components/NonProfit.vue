@@ -18,13 +18,26 @@
           </ul>
         </template>
         <template v-slot:footertext>
-          <a href="#" class="card-footer-item" @click="onClickButton">{{
-            $t("restart")
-          }}</a>
-          <a href="#" class="card-footer-item" @click="printEntity">{{
-            $t("print_results")
-          }}</a>
-          <a href="#" class="card-footer-item">{{ $t("print_summaries") }}</a>
+          <span class="card-footer-item">
+            <b-button class="be-form-button " @click="onClickButton">{{
+              $t("restart")
+            }}</b-button>
+          </span>
+          <!-- disabled until there are non-profit results to display -->
+          <span class="card-footer-item">
+            <b-button
+              class="be-form-button"
+              disabled="true"
+              @click="printEntity"
+            >
+              {{ $t("print_results") }}
+            </b-button>
+          </span>
+          <span class="card-footer-item">
+            <b-button class="be-form-button" @click="printSummaries">
+              {{ $t("print_summaries") }}
+            </b-button>
+          </span>
         </template>
       </BaseCard>
     </div>
@@ -61,21 +74,21 @@
           </div>
         </section>
         <footer class="modal-card-foot">
-          <button class="button" type="button" @click="print()">
+          <b-button class="be-button" outlined @click="print()">
             {{ $t("print") }}
-          </button>
-          <button class="button" type="is-link">
-            <a href="#" target="_blank">
+          </b-button>
+          <b-button class="be-button" outlined>
+            <a class="be-link-button" href="#" target="_blank">
               {{ $t("download") }}
             </a>
-          </button>
-          <button
-            class="button"
-            type="button"
+          </b-button>
+          <b-button
+            class="be-button"
+            outlined
             @click="isCardModalActive = false"
           >
             {{ $t("close") }}
-          </button>
+          </b-button>
         </footer>
       </div>
     </b-modal>
@@ -155,22 +168,16 @@ export default {
   mounted: function() {
     this.$i18n.locale = this.langLocal;
   }, // end mounted
-  computed: {
-    /*  not sure, not being used right now and this.item is undefined as is.
-    title: function() {
-      return this.item[`title_${this.langLocal}`] || "N/A";
-    },
-    body: function() {
-      return this.item[`summary_${this.langLocal}`] || "N/A";
-    }
-   */
-  }, // end computed
+
   methods: {
     onClickButton: function() {
       this.tempValue = false;
       this.$emit("clicked", this.tempValue);
     },
     printEntity: function() {
+      this.isCardModalActive = true;
+    },
+    printSummaries: function() {
       this.isCardModalActive = true;
     },
     print: function() {

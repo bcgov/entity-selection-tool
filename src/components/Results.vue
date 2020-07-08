@@ -116,19 +116,21 @@
           </div>
         </section>
         <footer class="modal-card-foot">
-          <button class="button" type="button" @click="print()">
+          <b-button class="be-button" outlined @click="print()">
             {{ $t("print") }}
-          </button>
-          <button class="button" type="is-link" @click="downloadPDF()">
-            {{ $t("download") }}
-          </button>
-          <button
-            class="button"
-            type="button"
+          </b-button>
+          <b-button class="be-button" outlined @click="downloadPDF()">>
+            
+              {{ $t("download") }}
+           
+          </b-button>
+          <b-button
+            class="be-button"
+            outlined
             @click="isCardModalActive = false"
           >
             {{ $t("close") }}
-          </button>
+          </b-button>
         </footer>
       </div>
     </b-modal>
@@ -644,24 +646,25 @@
           </div>
         </section>
         <footer class="modal-card-foot">
-          <button class="button" type="button" @click="print()">
+          <b-button class="be-button" outlined @click="print()">
             {{ $t("print") }}
-          </button>
-          <button class="button" type="is-link">
+          </b-button>
+          <b-button class="be-button" outlined>
             <a
+              class="be-link-button"
               href="assets/EntityTypeLongDescriptionsFor-Profit.pdf"
               target="_blank"
             >
               {{ $t("download") }}
             </a>
-          </button>
-          <button
-            class="button"
-            type="button"
+          </b-button>
+          <b-button
+            class="be-button"
+            outlined
             @click="isSummariesModalActive = false"
           >
             {{ $t("close") }}
-          </button>
+          </b-button>
         </footer>
       </div>
     </b-modal>

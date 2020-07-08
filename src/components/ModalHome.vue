@@ -81,8 +81,8 @@
               <p class="be-intro-text">{{ $t("intro_disclaimer") }}</p>
             </div>
             <div v-if="introGate">
-              <fieldset>
-                <legend>
+              <fieldset class="be-card-content">
+                <legend class="be-question-text">
                   {{ $t("start_question") }}
                 </legend>
                 <br />
