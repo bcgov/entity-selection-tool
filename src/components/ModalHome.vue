@@ -158,7 +158,7 @@
         <Entity :lang="this.langLocal"></Entity>
       </div>
       <div v-if="nonProfit">
-        <NonProfit @clicked="restartNonProfit"></NonProfit>
+        <NonProfit @clicked="restartNonProfit" :lang="this.langLocal"></NonProfit>
       </div>
     </div>
 
