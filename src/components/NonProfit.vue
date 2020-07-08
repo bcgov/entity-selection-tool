@@ -21,12 +21,64 @@
           <a href="#" class="card-footer-item" @click="onClickButton">{{
             $t("restart")
           }}</a>
-          <a href="#" class="card-footer-item">{{ $t("print_results") }}</a>
+          <a href="#" class="card-footer-item" @click="printEntity">{{
+            $t("print_results")
+          }}</a>
           <a href="#" class="card-footer-item">{{ $t("print_summaries") }}</a>
         </template>
       </BaseCard>
     </div>
     <div class="column is-half"></div>
+
+    <!-- modal for results print view -->
+    <b-modal
+      :active.sync="isCardModalActive"
+      :can-cancel="canCancel"
+      full-screen
+      aria-role="dialog"
+      aria-modal
+      class="be-print-modal"
+    >
+      <div class="modal-card" style="width: auto">
+        <header class="modal-card-head be-print-modal-head">
+          <span class="be-modal-title">{{ $t("results") }}</span>
+        </header>
+        <section id="printBody" ref="PrintBody" class="be-modal-print-body">
+          <div class="content">
+            <h2 class="title be-question-title is-4">
+              {{ $t("header_text") }}
+            </h2>
+            <ul class="be-nonprofit-list">
+              <li v-for="(item, index) in data" v-bind:key="index">
+                <h3 class="subtitle be-nonprofit-subtitle  is-5">
+                  {{ item[`title_${langLocal}`] }}
+                </h3>
+                <p class="be-results-text">
+                  {{ item[`summary_${langLocal}`] }}
+                </p>
+              </li>
+            </ul>
+          </div>
+        </section>
+        <footer class="modal-card-foot">
+          <button class="button" type="button" @click="print()">
+            {{ $t("print") }}
+          </button>
+          <button class="button" type="is-link">
+            <a href="#" target="_blank">
+              {{ $t("download") }}
+            </a>
+          </button>
+          <button
+            class="button"
+            type="button"
+            @click="isCardModalActive = false"
+          >
+            {{ $t("close") }}
+          </button>
+        </footer>
+      </div>
+    </b-modal>
   </div>
 </template>
 
@@ -35,6 +87,7 @@ import Vue from "vue";
 import json from "@/data/be-json-v4.2-BC.json";
 import BaseCard from "@/components/base-components/BaseCard.vue";
 import VueI18nNonProfit from "vue-i18n";
+import Printd from "printd";
 
 Vue.use(VueI18nNonProfit);
 
@@ -53,16 +106,25 @@ export default {
     locale: "en",
     messages: {
       en: {
+        close: "Close",
+        download: "Download",
         header_text: "Non Profit Summary Page",
         restart: "Restart",
+        print: "Print",
         print_results: "Results",
-        print_summaries: "All Summaries"
+        print_summaries: "All Summaries",
+        results: "Results - Print View"
       },
       fr: {
+        close: "Fermer",
+        download: "Télécharger",
+
         header_text: "Non Profit Summary Page (fr)",
         restart: "Redémarrer",
+        print: "Imprimer",
         print_results: "Les résultats",
-        print_summaries: "Tous les sommaires"
+        print_summaries: "Tous les sommaires",
+        results: "Résultats - Aperçu avant impression"
       }
     }
   }, // end i18n
@@ -74,7 +136,16 @@ export default {
   },
   data: function() {
     return {
+      canCancel: false,
+      css: `.be-nonprofit-subtitle {
+              color: #24465c;
+              font-weight: 400;
+              margin-top: 24px;
+              margin-bottom: 12px;
+            }
+        `,
       data: json,
+      isCardModalActive: false,
       langLocal: this.lang
     };
   }, // end data
@@ -98,6 +169,13 @@ export default {
     onClickButton: function() {
       this.tempValue = false;
       this.$emit("clicked", this.tempValue);
+    },
+    printEntity: function() {
+      this.isCardModalActive = true;
+    },
+    print: function() {
+      const d = new Printd();
+      d.print(this.$refs.PrintBody, [this.css]);
     }
   } // end methods
 }; // end export default
