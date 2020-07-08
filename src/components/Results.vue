@@ -39,7 +39,7 @@
             </b-button>
           </span>
           <span class="card-footer-item">
-            <b-button class="be-form-button">
+            <b-button class="be-form-button" @click="printSummaries">
               {{ $t("print_summaries") }}
             </b-button>
           </span>
@@ -134,6 +134,7 @@
 <script>
 import Vue from "vue";
 import BaseCard from "@/components/base-components/BaseCard.vue";
+import ModalSummaries from "./ModalSummaries.vue";
 import Printd from "printd";
 import VueI18nResults from "vue-i18n";
 
@@ -157,14 +158,15 @@ export default {
         advantages: "Advantages:",
         disadvantages: "Disadvantages:",
         restart: "Restart",
-        print_results: "Print Results",
-        print_summaries: "Print All Summaries",
+        print_results: "Results",
+        print_summaries: "All Summaries",
         results: "Results - Print View",
         business_structure: "Suggested Business Structure:",
         questions_answers: "Questions/Anwers:",
         bold_italic: "bold and italic",
         text_answers: "Your answers are in {format}.",
         print: "Print",
+        download: "Download",
         close: "Close"
       },
       fr: {
@@ -179,6 +181,7 @@ export default {
         bold_italic: "gras et italique",
         text_answers: "Vos réponses sont en {format}.",
         print: "Imprimer",
+        download: "Télécharger",
         close: "Fermer"
       }
     }
@@ -232,6 +235,15 @@ export default {
   methods: {
     printEntity: function() {
       this.isCardModalActive = true;
+    },
+    printSummaries: function() {
+      this.$buefy.modal.open({
+        props: { lang: this.langLocal },
+        parent: this,
+        component: ModalSummaries,
+        hasModalCard: true,
+        fullScreen: true
+      });
     },
     checkAnswer: function(questionIndex, answerIndex) {
       let userAnswerIndex = this.userAnswers[questionIndex].answerIndex;
