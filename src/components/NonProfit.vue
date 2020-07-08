@@ -11,9 +11,9 @@
           <ul class="be-nonprofit-list">
             <li v-for="(item, index) in data" v-bind:key="index">
               <h3 class="subtitle be-nonprofit-subtitle  is-5">
-                {{ item.title_en }}
+                {{ item[`title_${langLocal}`] }}
               </h3>
-              <p class="be-results-text">{{ item.summary_en }}</p>
+              <p class="be-results-text">{{ item[`summary_${langLocal}`] }}</p>
             </li>
           </ul>
         </template>
@@ -80,12 +80,8 @@ export default {
   },
   data: function() {
     return {
-<<<<<<< HEAD
-      lang: "en",
-      data: json
-=======
+      data: json,
       langLocal: this.lang
->>>>>>> 647be8c68d6943a484ba17e94d099056171f2227
     };
   }, // end data
   created: function() {
@@ -95,12 +91,14 @@ export default {
     this.$i18n.locale = this.langLocal;
   }, // end mounted
   computed: {
+    /*  not sure, not being used right now and this.item is undefined as is.
     title: function() {
-      return this.item[`title_${this.lang}`] || "N/A";
+      return this.item[`title_${this.langLocal}`] || "N/A";
     },
     body: function() {
-      return this.item[`summary_${this.lang}`] || "N/A";
+      return this.item[`summary_${this.langLocal}`] || "N/A";
     }
+   */ 
   }, // end computed
   methods: {
     onClickButton: function() {
