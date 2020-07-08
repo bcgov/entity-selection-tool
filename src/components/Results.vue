@@ -119,10 +119,8 @@
           <button class="button" type="button" @click="print()">
             {{ $t("print") }}
           </button>
-          <button class="button" type="is-link">
-            <a href="#" target="_blank">
-              {{ $t("download") }}
-            </a>
+          <button class="button" type="is-link" @click="downloadPDF()">
+            {{ $t("download") }}
           </button>
           <button
             class="button"
@@ -673,6 +671,8 @@
 import Vue from "vue";
 import BaseCard from "@/components/base-components/BaseCard.vue";
 import Printd from "printd";
+import jsPDF from "jspdf";
+
 import VueI18nResults from "vue-i18n";
 
 Vue.use(VueI18nResults);
@@ -694,6 +694,7 @@ export default {
       en: {
         advantages: "Advantages:",
         disadvantages: "Disadvantages:",
+        download_name: "entity-result",
         restart: "Restart",
         print_results: "Results",
         print_summaries: "All Summaries",
@@ -711,6 +712,7 @@ export default {
       fr: {
         advantages: "Avantages :",
         disadvantages: "Désavantages :",
+        download_name: "résultat-structure",
         restart: "Redémarrer",
         print_results: "Imprimer les résultats",
         print_summaries: "Imprimer tous les sommaires",
@@ -775,6 +777,20 @@ export default {
     }
   }, // end computed
   methods: {
+    downloadPDF: function() {
+      let today = new Date();
+      let date =
+        today.getFullYear() +
+        "-" +
+        (today.getMonth() + 1) +
+        "-" +
+        today.getDate();
+      let doc = new jsPDF();
+      doc.fromHTML(this.$refs.PrintBody, 15, 15, {
+        width: 170
+      });
+      doc.save(this.$t("download_name") + `-${date}.pdf`);
+    },
     printEntity: function() {
       this.isCardModalActive = true;
     },
