@@ -283,7 +283,7 @@ export default {
       for (let i = 0; i < this.data.length; i++) {
         tally += this.categoryCompletion(i);
       }
-      return tally * (100 / 9);
+      return tally * (100 / 10);
     },
     //Whether the submit button should be showing - returns True if done, False otherwise
     allAnswered: function() {
@@ -304,7 +304,7 @@ export default {
         // retrieved user answer for thequestion
       let question = this.userSelectedAnswer[`cat-${val}`];
 
-      if (val == 9) {
+      if (val == 10) {
         this.disabledNextButton = true;
       } else {
         // disabeld next button if necessary
@@ -356,8 +356,8 @@ export default {
     //Saves the selected question option param {number} answer 
     //The index of the selected option
     onSelect: function(answer,answerIndex) {
-      this.disabledNextButton = (this.currentCategoryIndex == 9) ? true : false;
-      if (this.currentCategoryIndex == 9) {
+      this.disabledNextButton = (this.currentCategoryIndex == 10) ? true : false;
+      if (this.currentCategoryIndex == 10) {
         this.disabledSubmitButton = false;
       }
       // record user answer index and impact to variable 
