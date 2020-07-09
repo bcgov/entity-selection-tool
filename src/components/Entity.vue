@@ -213,27 +213,6 @@ export default {
       currentCategoryIndex: 1,
       navElement: "",
       isHidden: false,
-      types: [
-        "sole_proprietorship",
-        "gen_partnership",
-        "bc_corporation",
-        "fed_corporation",
-        "lim_partnership",
-        "lim_liability_partnership",
-        "ben_company"
-      ],
-      weights: [
-        "Geographic Reach",
-        "Industry/Professional Risk",
-        "Personal Risk",
-        "Number of owners",
-        "Number of employees",
-        "Financing method",
-        "Setup/Admin costs",
-        "Forecast profitability",
-        "Public Benefit",
-        "Name Protection"
-      ]
     };
   }, // end data
   created: function() {
@@ -276,27 +255,6 @@ export default {
     // returns The current language
     locale: function() {
       return this.langLocal;
-    },
-    //returns percentage completed
-    progress: function() {
-      let tally = 0;
-      for (let i = 0; i < this.data.length; i++) {
-        tally += this.categoryCompletion(i);
-      }
-      return tally * (100 / 10);
-    },
-    //Whether the submit button should be showing - returns True if done, False otherwise
-    allAnswered: function() {
-      return this.progress >= 100;
-    },
-    //returns The category the most full
-    maxCheck: function() {
-      let a = this.total;
-      let maxIndex = a.reduce(
-        (iMax, x, i, arr) => (x > arr[iMax] ? i : iMax),
-        0
-      );
-      return this.types[maxIndex];
     }
   }, //end computed
   watch: {
@@ -304,7 +262,7 @@ export default {
         // retrieved user answer for thequestion
       let question = this.userSelectedAnswer[`cat-${val}`];
 
-      if (val == 10) {
+      if (val == this.totalCategories) {
         this.disabledNextButton = true;
       } else {
         // disabeld next button if necessary
@@ -356,8 +314,8 @@ export default {
     //Saves the selected question option param {number} answer 
     //The index of the selected option
     onSelect: function(answer,answerIndex) {
-      this.disabledNextButton = (this.currentCategoryIndex == 10) ? true : false;
-      if (this.currentCategoryIndex == 10) {
+      this.disabledNextButton = (this.currentCategoryIndex == this.totalCategories) ? true : false;
+      if (this.currentCategoryIndex == this.totalCategories) {
         this.disabledSubmitButton = false;
       }
       // record user answer index and impact to variable 
