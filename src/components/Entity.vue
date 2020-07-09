@@ -100,7 +100,7 @@
         <section>
           <template v-for="(value, index) in entitiesTotal">
             <div class="be-entitywrap" v-bind:key="index">
-              <b-collapse :open="false" :aria-id="`contentIdFor${index}`">
+              <b-collapse :open="false" :aria-id="`contentIdFor${index}`" animation="slide">
                 <div
                   slot="trigger"
                   slot-scope="props"
