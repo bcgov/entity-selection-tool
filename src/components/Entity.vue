@@ -55,39 +55,29 @@
           </section>
         </template>
         <template v-slot:footertext>
-          <span class="card-footer-item">
-            <b-button
-              class="be-form-button "
-              :disabled="disabledPreviousButton"
-              @click="previous()"
-            >
-              {{ $t("previous") }}</b-button
-            >
-          </span>
-          <span class="card-footer-item">
-             <template v-if="showNextButton" >
-            <b-button
-              class="be-form-button"
-           
-              @click="next()"
-            >
-              {{ $t("next") }}
-            </b-button>
-            </template>
-          </span>
-        
-          <span class="card-footer-item" >
-              <template v-if="showFinishButton" >
-            <b-button
-              class="be-form-button"
-              @click="showResults()"
-            >
-              {{ $t("submit") }}</b-button
-             
-            >
-            </template>
-          </span>
-          
+          <template v-if="showPreviousButton">
+            <span class="card-footer-item">
+              <b-button class="be-form-button " @click="previous()">
+                {{ $t("previous") }}</b-button
+              >
+            </span>
+          </template>
+
+          <template v-if="showNextButton">
+            <span class="card-footer-item">
+              <b-button class="be-form-button" @click="next()">
+                {{ $t("next") }}
+              </b-button>
+            </span>
+          </template>
+
+          <template v-if="showFinishButton">
+            <span class="card-footer-item">
+              <b-button class="be-form-button" @click="showResults()">
+                {{ $t("submit") }}</b-button
+              >
+            </span>
+          </template>
         </template>
       </BaseCard>
     </div>
@@ -106,7 +96,11 @@
         <section>
           <template v-for="(value, index) in entitiesTotal">
             <div class="be-entitywrap" v-bind:key="index">
-              <b-collapse :open="false" :aria-id="`contentIdFor${index}`" animation="slide">
+              <b-collapse
+                :open="false"
+                :aria-id="`contentIdFor${index}`"
+                animation="slide"
+              >
                 <div
                   slot="trigger"
                   slot-scope="props"
@@ -198,7 +192,7 @@ export default {
       radioButton: "",
       showNextButton: false,
       showFinishButton: false,
-      disabledPreviousButton: true,
+      showPreviousButton: false,
       resultsShow: false,
       bestEntity: "",
       // this will be dynamicallly created
@@ -265,7 +259,7 @@ export default {
         this.showNextButton = (question.answerIndex=="notset") ? false : true;
         
       }
-      this.disabledPreviousButton=(val==1) ? true : false;
+      this.showPreviousButton=(val==1) ? false : true;
       
       // set inital radio value  from user answer  
       this.radioButton = (question.answerIndex=="notset") ? "" : question.answerIndex;
