@@ -62,23 +62,20 @@
         </header>
         <section id="printBody" ref="PrintBody" class="be-modal-print-body">
           <div>
-            <h1 class="subtitle is-3">{{ $t("business_structure") }}</h1>
-            <h2 class="subtitle is-4">
-              {{ title }}
-            </h2>
+            <h1 class="subtitle is-3">{{ $t("business_structure", {entity:title}) }}</h1>
             <div>
               <p>{{ body }}</p>
               <br />
             </div>
             <div>
-              <h3 class="subtitle is-5">{{ $t("advantages") }}</h3>
+              <h2 class="subtitle is-4">{{ $t("advantages") }}</h2>
               <ul>
                 <span v-html="advantages"></span>
               </ul>
               <br />
             </div>
             <div>
-              <h3 class="subtitle is-5">{{ $t("disadvantages") }}</h3>
+              <h2 class="subtitle is-4">{{ $t("disadvantages") }}</h2>
               <ul>
                 <span v-html="disadvantages"></span>
               </ul>
@@ -113,6 +110,9 @@
                 </li>
               </template>
             </ul>
+          <div>
+            {{$t("powerby")}}
+          </div>
           </div>
         </section>
         <footer class="modal-card-foot">
@@ -700,7 +700,7 @@ export default {
         print_results: "Results",
         print_summaries: "All Summaries",
         results: "Results - Print View",
-        business_structure: "Suggested Business Structure:",
+        business_structure: "Your answers indicate that a {entity} is your best match.",
         questions_answers: "Questions/Anwers:",
         bold_italic: "bold and italic",
         text_answers: "Your answers are in {format}.",
@@ -708,7 +708,8 @@ export default {
         title: "Entity Type Long Descriptions (For-Profit)",
         print: "Print",
         download: "Download",
-        close: "Close"
+        close: "Close",
+        powerby: " Power by BC Registry and BizPaL"
       },
       fr: {
         advantages: "Avantages :",
@@ -718,7 +719,7 @@ export default {
         print_results: "Imprimer les résultats",
         print_summaries: "Imprimer tous les sommaires",
         results: "Résultats - Aperçu avant impression",
-        business_structure: "Structure d'entreprise suggérée :",
+        business_structure: "Your answers indicate that a {entity} is your best match. (FR)",
         questions_answers: "Questions/Réponses :",
         bold_italic: "gras et italique",
         text_answers: "Vos réponses sont en {format}.",
@@ -726,7 +727,9 @@ export default {
         title: "Entity Type Long Descriptions (For-Profit) FR",
         print: "Imprimer",
         download: "Télécharger",
-        close: "Fermer"
+        close: "Fermer",
+        powerby: " Power by BC Registry and BizPaL (FR)"
+
       }
     }
   }, // end i18n
