@@ -65,23 +65,29 @@
             >
           </span>
           <span class="card-footer-item">
+             <template v-if="showNextButton" >
             <b-button
               class="be-form-button"
-              :disabled="disabledNextButton"
+           
               @click="next()"
             >
               {{ $t("next") }}
             </b-button>
+            </template>
           </span>
-          <span class="card-footer-item">
+        
+          <span class="card-footer-item" >
+              <template v-if="showFinishButton" >
             <b-button
               class="be-form-button"
-              :disabled="disabledSubmitButton"
               @click="showResults()"
             >
               {{ $t("submit") }}</b-button
+             
             >
+            </template>
           </span>
+          
         </template>
       </BaseCard>
     </div>
@@ -170,13 +176,13 @@ export default {
         of: "of",
         previous: "Previous",
         next: "Next",
-        submit: "Submit"
+        submit: "Finish"
       },
       fr: {
         of: "de",
         previous: "Précédent",
         next: "Suivant",
-        submit: "Soumettre"
+        submit: "Terminer"
       }
     }
   }, // end i18n
@@ -190,8 +196,8 @@ export default {
     return {
       langLocal:this.lang,
       radioButton: "",
-      disabledNextButton: true,
-      disabledSubmitButton: true,
+      showNextButton: false,
+      showFinishButton: false,
       disabledPreviousButton: true,
       resultsShow: false,
       bestEntity: "",
@@ -253,10 +259,10 @@ export default {
       let question = this.userSelectedAnswer[`cat-${val}`];
 
       if (val == this.totalCategories) {
-        this.disabledNextButton = true;
+        this.showNextButton = false;
       } else {
         // disabeld next button if necessary
-        this.disabledNextButton = (question.answerIndex=="notset") ? true : false;
+        this.showNextButton = (question.answerIndex=="notset") ? false : true;
         
       }
       this.disabledPreviousButton=(val==1) ? true : false;
@@ -304,9 +310,9 @@ export default {
     //Saves the selected question option param {number} answer 
     //The index of the selected option
     onSelect: function(answer,answerIndex) {
-      this.disabledNextButton = (this.currentCategoryIndex == this.totalCategories) ? true : false;
+      this.showNextButton = (this.currentCategoryIndex == this.totalCategories) ? false : true;
       if (this.currentCategoryIndex == this.totalCategories) {
-        this.disabledSubmitButton = false;
+        this.showFinishButton = true;
       }
       // record user answer index and impact to variable 
       this.userSelectedAnswer[`cat-${this.currentCategoryIndex}`].answerIndex = answerIndex;
