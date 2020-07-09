@@ -87,7 +87,7 @@
         :entity-id="bestEntity"
         :user-answers="userSelectedAnswer"
         @clicked="restartEntity"
-        :lang="this.locale"
+        :lang="locale"
       ></Results>
     </div>
     <!-- end left side -->
