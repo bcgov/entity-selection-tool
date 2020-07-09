@@ -55,29 +55,33 @@
           </section>
         </template>
         <template v-slot:footertext>
-          <template v-if="showPreviousButton">
-            <span class="card-footer-item">
-              <b-button class="be-form-button " @click="previous()">
-                {{ $t("previous") }}</b-button
-              >
-            </span>
-          </template>
+          <span class="card-footer-item">
+            <b-button
+              class="be-form-button "
+              :disabled="!showPreviousButton"
+              @click="previous()"
+            >
+              {{ $t("previous") }}</b-button
+            >
+          </span>
 
-          <template v-if="showNextButton">
-            <span class="card-footer-item">
-              <b-button class="be-form-button" @click="next()">
-                {{ $t("next") }}
-              </b-button>
-            </span>
-          </template>
-
-          <template v-if="showFinishButton">
-            <span class="card-footer-item">
-              <b-button class="be-form-button" @click="showResults()">
-                {{ $t("submit") }}</b-button
-              >
-            </span>
-          </template>
+          <span class="card-footer-item">
+            <b-button
+              v-if="showFinishButton"
+              class="be-form-button"
+              @click="showResults()"
+            >
+              {{ $t("submit") }}</b-button
+            >
+            <b-button
+              v-else
+              class="be-form-button"
+              :disabled="!showNextButton"
+              @click="next()"
+            >
+              {{ $t("next") }}
+            </b-button>
+          </span>
         </template>
       </BaseCard>
     </div>
@@ -107,7 +111,6 @@
                   role="button"
                   :aria-controls="`contentIdFor${index}`"
                 >
-                  <!-- {{ props.open ? "-" : "+" }} -->
                   <em
                     >{{ data.entities[index][`title_${locale}`] }}
                     {{ displayPercentage(entitiesTotal[index].total) }}%</em

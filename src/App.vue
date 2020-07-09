@@ -193,8 +193,7 @@ export default {
   font-weight: bolder;
   font-style: italic;
 }
-.be-gate-text {
-}
+
 .be-card-content {
   padding-bottom: 10px;
   padding-left: 0px;
