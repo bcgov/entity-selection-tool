@@ -65,9 +65,11 @@ export default {
 }
 .question.box {
   padding: 0.5rem;
+  margin-top: 1rem;
 }
 .summary.box {
   padding: 0.5rem;
+  margin-top: 1rem;
 }
 .subtitle.be-subtitle {
   color: white;
@@ -150,7 +152,9 @@ export default {
 }
 .be-nav-button {
   width: 45%;
+  min-width: 120px;
   margin-left: 8px;
+  margin-bottom: 4px;
 }
 .be-carat-icon {
   color: #2c5671;
@@ -242,6 +246,7 @@ export default {
 .be-progress-box {
   padding-bottom: 0px;
   padding-top: 0px;
+  width: 100%;
 }
 .be-progress-wrapper {
   padding-bottom: 2px;
@@ -249,6 +254,11 @@ export default {
 }
 /* for desktop */
 @media screen and (min-width: 920px) and (min-height: 620px) {
+  .be-progress-box {
+    padding-bottom: 0px;
+    padding-top: 0px;
+    width: auto;
+  }
   .be-modal-title {
     align-content: center;
     color: white;
@@ -283,6 +293,7 @@ export default {
     top: 80px;
     left: 10px;
     padding: 20px;
+    margin-top: 0rem;
   }
   .summary.box {
     width: 712px;
@@ -292,6 +303,7 @@ export default {
     top: 82px;
     left: 10px;
     padding: 20px;
+    margin-top: 0rem;
   }
   .subtitle.be-subtitle {
     color: white;
@@ -371,11 +383,11 @@ export default {
     border-color: #2c5671;
 
     color: white;
-  } */
+  } 
   .be-nav-button {
     width: 45%;
     margin-left: 8px;
-  }
+  }*/
   .be-nav-button-group {
     padding-top: 0px;
   }
