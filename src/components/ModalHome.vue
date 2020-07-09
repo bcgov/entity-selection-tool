@@ -66,7 +66,7 @@
     </div>
     <div class="modal-card-body">
       <div v-if="!started && !nonProfit">
-        <BaseCard class="question box">
+        <BaseCard class="summary box">
           <template v-slot:headertext>
             <h2 v-if="!introGate" class="title be-question-title is-4">
               WELCOME
@@ -74,15 +74,15 @@
           >
           <template v-slot:bodytext>
             <div v-if="!introGate">
-              <p class="be-intro-text">{{ $t("intro_1") }}</p>
-              <p class="be-intro-text">{{ $t("intro_2") }}</p>
-              <p class="be-intro-text">{{ $t("intro_3") }}</p>
-              <p class="be-intro-text">{{ $t("intro_4") }}</p>
-              <p class="be-intro-text">{{ $t("intro_disclaimer") }}</p>
+              <p>{{ $t("intro_1") }}</p>
+              <p>{{ $t("intro_2") }}</p>
+              <p>{{ $t("intro_3") }}</p>
+              <p>{{ $t("intro_4") }}</p>
+              <p>{{ $t("intro_disclaimer") }}</p>
             </div>
             <div v-if="introGate">
               <fieldset class="be-card-content">
-                <legend class="be-question-text">
+                <legend class="be-gate-text">
                   {{ $t("start_question") }}
                 </legend>
                 <br />

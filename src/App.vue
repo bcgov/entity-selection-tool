@@ -193,8 +193,7 @@ export default {
   font-weight: bolder;
   font-style: italic;
 }
-.be-intro-text {
-  font-size: 14px;
+.be-gate-text {
 }
 .be-card-content {
   padding-bottom: 10px;
@@ -293,6 +292,7 @@ export default {
     position: absolute;
     top: 82px;
     left: 10px;
+    padding: 20px;
   }
   .subtitle.be-subtitle {
     color: white;
@@ -333,7 +333,7 @@ export default {
   }
 
   .be-context {
-    padding-top: 4px;
+    padding-top: 14px;
     color: #2c5671;
     font-size: 14px;
   }
