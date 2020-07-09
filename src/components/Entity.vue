@@ -91,7 +91,7 @@
         :entity-id="bestEntity"
         :user-answers="userSelectedAnswer"
         @clicked="restartEntity"
-        :lang="this.locale"
+        :lang="locale"
       ></Results>
     </div>
     <!-- end left side -->
@@ -100,7 +100,11 @@
         <section>
           <template v-for="(value, index) in entitiesTotal">
             <div class="be-entitywrap" v-bind:key="index">
-              <b-collapse :open="false" :aria-id="`contentIdFor${index}`" animation="slide">
+              <b-collapse
+                :open="false"
+                :aria-id="`contentIdFor${index}`"
+                animation="slide"
+              >
                 <div
                   slot="trigger"
                   slot-scope="props"
