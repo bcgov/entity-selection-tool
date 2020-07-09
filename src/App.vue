@@ -61,11 +61,13 @@ export default {
   padding-bottom: 10px;
   padding-top: 10px;
   justify-content: flex-end;
+  border-top: none;
 }
 .question.box {
   padding: 0.5rem;
 }
 .summary.box {
+  padding: 0.5rem;
 }
 .subtitle.be-subtitle {
   color: white;
@@ -236,8 +238,19 @@ export default {
   background-color: #c8ddea;
   display: block;
 }
+.be-progress-title {
+  font-size: 14px;
+}
+.be-progress-box {
+  padding-bottom: 0px;
+  padding-top: 0px;
+}
+.be-progress-wrapper {
+  padding-bottom: 2px;
+  padding-top: 24px;
+}
 /* for desktop */
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 920px) and (min-height: 620px) {
   .be-modal-title {
     align-content: center;
     color: white;
@@ -245,27 +258,28 @@ export default {
   }
   .modal-card {
     width: 900px;
+    height: 600px;
   }
   .modal-card-head {
     background-color: #274f6e;
+    padding-top: 12px;
     padding-bottom: 6px;
-    height: 160px;
+    height: 144px;
   }
   .modal-card-body {
     background-color: rgb(207, 232, 252);
-    height: 360px;
-    padding-bottom: 0px;
-    padding-top: 0px;
+    height: 388px;
   }
   .modal-card-foot {
     background-color: rgb(207, 232, 252);
     padding-bottom: 10px;
     padding-top: 10px;
     justify-content: flex-end;
+    border-top: none;
   }
   .question.box {
     width: 520px;
-    height: 478px;
+    height: 490px;
     z-index: 50;
     position: absolute;
     top: 80px;
@@ -274,10 +288,10 @@ export default {
   }
   .summary.box {
     width: 712px;
-    height: 480px;
+    height: 490px;
     z-index: 50;
     position: absolute;
-    top: 80px;
+    top: 82px;
     left: 10px;
   }
   .subtitle.be-subtitle {
@@ -286,6 +300,7 @@ export default {
   }
   .be-subheader {
     padding-bottom: 0px;
+    padding-top: 0px;
   }
   .card .custom-header {
     height: 40px;
@@ -294,9 +309,9 @@ export default {
     background-color: transparent;
     padding-left: 1rem;
     padding-right: 1rem;
-    padding-top: 0rem;
+    padding-top: 1rem;
     padding-bottom: 1rem;
-    height: 340px;
+    height: 360px;
     overflow-y: auto;
   }
   .card .content .be-nonprofit-list {
@@ -326,8 +341,6 @@ export default {
     font-size: 14px;
   }
   .be-question-text {
-    margin-top: 16px;
-    margin-bottom: 0px;
     width: 433px;
   }
   /* .be-link-button {
@@ -364,6 +377,9 @@ export default {
     width: 45%;
     margin-left: 8px;
   }
+  .be-nav-button-group {
+    padding-top: 0px;
+  }
   /* .be-carat-icon {
     color: #2c5671;
   }
@@ -374,7 +390,7 @@ export default {
     font-weight: 50;
     color: #2c5671;
     margin-bottom: 16px;
-    margin-top: 16px;
+    margin-top: 6px;
   }
   /* .be-link {
     color: #2c5671;

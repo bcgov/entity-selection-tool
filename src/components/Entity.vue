@@ -95,8 +95,8 @@
       ></Results>
     </div>
     <!-- end left side -->
-    <div class="column is-half">
-      <div class="column is-four-fifths is-pulled-right">
+    <div class="column is-half be-progress-wrapper">
+      <div class="column is-four-fifths is-pulled-right be-progress-box">
         <section>
           <template v-for="(value, index) in entitiesTotal">
             <div class="be-entitywrap" v-bind:key="index">
@@ -108,8 +108,10 @@
                   :aria-controls="`contentIdFor${index}`"
                 >
                   <!-- {{ props.open ? "-" : "+" }} -->
-                  <em>{{ data.entities[index][`title_${locale}`] }}</em>
-                  {{ displayPercentage(entitiesTotal[index].total) }}%
+                  <em
+                    >{{ data.entities[index][`title_${locale}`] }}
+                    {{ displayPercentage(entitiesTotal[index].total) }}%</em
+                  >
                   <font-awesome-icon
                     class="be-carat-icon is-pulled-right"
                     :icon="

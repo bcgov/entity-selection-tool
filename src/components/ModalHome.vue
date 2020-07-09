@@ -8,7 +8,7 @@
               {{ $t("business_structures") }}
             </h1>
           </div>
-          <div class="column auto">
+          <div class="column auto be-nav-button-group">
             <b-button
               class="be-nav-button is-pulled-right"
               outlined
@@ -33,10 +33,10 @@
             </div>
           </div>
         </div>
-        <div class="columns is-mobile">
+        <div class="columns is-mobile ">
           <div class="column auto"></div>
-          <div class="column is-one-half">
-            <div class="column is-four-fifths is-pulled-right be-subheader">
+          <div class="column is-one-half be-subheader">
+            <div class="column be-subheader is-four-fifths is-pulled-right ">
               <div v-if="started">
                 <h2 class="subtitle be-subtitle is-5">
                   {{ $t("entity_title_one") }}
