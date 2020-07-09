@@ -592,7 +592,7 @@
                 "advantage_fr":"",
                 "disadvantage_en":"<li>Unlimited liability (if you have business debts, claims can be made against your personal assets to pay them off), Income is taxable at your personal rate, can be difficult to raise capital on your own.</li>",
                 "disadvantage_fr":"",
-                "summury_desc":{
+                "summary_desc":{
                     "s1":{
                         "id":"s1",
                         "header_en":"What is it?",
@@ -647,7 +647,7 @@
                 "advantage_fr":"",
                 "disadvantage_en":"<li>No legal difference between you and your business, unlimited liability (if you have business debts, personal assets can be used to pay off the debt)</li><ul><li>An unlimited liability only applies to general partnerships. Limited partnerships do not have an unlimited liability.</li></ul>",
                 "disadvantage_fr":"",
-                "summury_desc":{
+                "summary_desc":{
                     "s1":{
                         "id":"s1",
                         "header_en":"What is it?",
@@ -702,7 +702,7 @@
                 "advantage_fr":"",
                 "disadvantage_en":"<li>A corporation is closely regulated, more expensive to set up a corporation than other business forms, possible conflict between shareholders and directors.</li>",
                 "disadvantage_fr":"",
-                "summury_desc":{
+                "summary_desc":{
                     "s1":{
                         "id":"s1",
                         "header_en":"What is it?",
@@ -771,7 +771,7 @@
                 "advantage_fr":"",
                 "disadvantage_en":"<li>A corporation is closely regulated, more expensive to set up a corporation than other business forms, possible conflict between shareholders and directors.</li>",
                 "disadvantage_fr":"",
-                "summury_desc":{
+                "summary_desc":{
                     "s1":{
                         "id":"s1",
                         "header_en":"What is it?",
@@ -840,7 +840,7 @@
                 "advantage_fr":"",
                 "disadvantage_en":"<li>benefir.</li>",
                 "disadvantage_fr":"",
-                "summury_desc":{
+                "summary_desc":{
                     "s1":{
                         "id":"s1",
                         "header_en":"What is it?",
@@ -895,7 +895,7 @@
                 "advantage_fr":"",
                 "disadvantage_en":"<li>A corporation is closely regulated, more expensive to set up a corporation than other business forms, possible conflict between shareholders and directors.</li>",
                 "disadvantage_fr":"",
-                "summury_desc":{
+                "summary_desc":{
                     "s1":{
                         "id":"s1",
                         "header_en":"What is it?",
@@ -971,7 +971,7 @@
                 "advantage_fr":"",
                 "disadvantage_en":"<li>A corporation is closely regulated, more expensive to set up a corporation than other business forms, possible conflict between shareholders and directors.</li>",
                 "disadvantage_fr":"",
-                "summury_desc":{
+                "summary_desc":{
                     "s1":{
                         "id":"s1",
                         "header_en":"What is it?",

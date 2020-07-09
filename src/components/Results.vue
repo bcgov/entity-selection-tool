@@ -151,7 +151,7 @@
           class="be-modal-print-body"
         >
           <h1 class="subtitle is-3">{{ $t("title") }}</h1>
-          <div v-html="displaySummuries()"></div>
+          <div v-html="displaySummaries()"></div>
         </section>
         <footer class="modal-card-foot">
           <b-button class="be-button" outlined @click="print()">
@@ -323,8 +323,8 @@ export default {
       this.tempValue = false;
       this.$emit("clicked", this.tempValue);
     },
-    displaySummuries: function() {
-      //function to display summuries info
+    displaySummaries: function() {
+      //function to display summaries info
       var layout = "";
 
       for (var index in this.data.entities) {
@@ -332,16 +332,16 @@ export default {
           '<h2 class="subtitle is-4">' +
           this.data.entities[index][`title_${this.langLocal}`] +
           "</h2>";
-        for (var sindex in this.data.entities[index][`summury_desc`]) {
+        for (var sindex in this.data.entities[index][`summary_desc`]) {
           layout +=
             '<h3 class="subtitle be-subtitle-summaries is-5">' +
-            this.data.entities[index][`summury_desc`][sindex][
+            this.data.entities[index][`summary_desc`][sindex][
               `header_${this.langLocal}`
             ] +
             "</h3>";
           layout +=
             "<p>" +
-            this.data.entities[index][`summury_desc`][sindex][
+            this.data.entities[index][`summary_desc`][sindex][
               `subtitle_${this.langLocal}`
             ] +
             "</p><br />";
