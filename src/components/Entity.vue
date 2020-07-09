@@ -219,17 +219,19 @@ export default {
         "bc_corporation",
         "fed_corporation",
         "lim_partnership",
-        "lim_liability_partnership"
+        "lim_liability_partnership",
+        "ben_company"
       ],
       weights: [
         "Geographic Reach",
-        "Risk level of industry",
-        "Risks to owners",
+        "Industry/Professional Risk",
+        "Personal Risk",
         "Number of owners",
         "Number of employees",
-        "Financing wants/needs",
-        "Set-up and ongoing costs",
-        "Anticipated profits",
+        "Financing method",
+        "Setup/Admin costs",
+        "Forecast profitability",
+        "Public Benefit",
         "Name Protection"
       ]
     };
