@@ -2,7 +2,7 @@
   <div class="modal-card" scroll="keep">
     <div class="modal-card-head">
       <div class="container">
-        <div class="columns">
+        <div class="columns is-mobile">
           <div class="column is-two-thirds">
             <h1 class="be-modal-title">
               {{ $t("business_structures") }}
@@ -33,7 +33,7 @@
             </div>
           </div>
         </div>
-        <div class="columns">
+        <div class="columns is-mobile">
           <div class="column auto"></div>
           <div class="column is-one-half">
             <div class="column is-four-fifths is-pulled-right be-subheader">
