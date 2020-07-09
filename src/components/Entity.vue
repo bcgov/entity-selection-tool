@@ -136,18 +136,6 @@
         </section>
       </div>
     </div>
-    <div>
-      <ul v-for="(c, i) in data" v-bind:key="c.cid" style="color:#2C5671">
-        <li
-          id="be-results-list"
-          v-for="(q, j) in c.questions"
-          v-bind:key="q.qid"
-          :class="
-            currentCategoryIndex == i && currentQuestionIndex == j ? '' : ''
-          "
-        ></li>
-      </ul>
-    </div>
   </div>
 </template>
 
