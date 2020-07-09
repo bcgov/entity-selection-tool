@@ -153,7 +153,7 @@
 
 <script>
 import Vue from "vue";
-import json from "@/data/be-json-v4.2-BC.json";
+import json from "@/data/be-json-v5.0.json";
 import Results from "@/components/Results.vue";
 import BaseCard from "@/components/base-components/BaseCard.vue";
 import VueI18nEntity from "vue-i18n";
