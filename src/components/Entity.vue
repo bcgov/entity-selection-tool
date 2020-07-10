@@ -101,6 +101,12 @@
     </div>
     <!-- end left side -->
     <div class="column is-half be-progress-wrapper">
+      <h2 class="subtitle be-progress-subtitle is-5">
+        {{ $t("entity_title_one") }}
+      </h2>
+      <h2 class="subtitle be-progress-subtitle is-4">
+        {{ $t("entity_title_two") }}
+      </h2>
       <div class="column is-four-fifths is-pulled-right be-progress-box">
         <section>
           <template v-for="(value, index) in entitiesTotal">
@@ -179,14 +185,20 @@ export default {
         previous: "Previous",
         next: "Next",
         submit: "Finish",
-restart: "Restart",
+        restart: "Restart",
+        entity_title: "Suggested Business Structure",
+        entity_title_one: "Suggested",
+        entity_title_two: "Business Structure",
       },
       fr: {
         of: "de",
         previous: "Précédent",
         next: "Suivant",
         submit: "Terminer",
-        restart: "Redémarrer"
+        restart: "Redémarrer",
+        entity_title: "Structure d'entreprise suggérée",
+        entity_title_one: "Structure d'entreprise",
+        entity_title_two: "suggérée"
         
       }
     }

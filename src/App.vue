@@ -44,7 +44,7 @@ export default {
   align-content: center;
   color: white;
   font-size: 24px;
-  margin-top: 12px;
+  size: inherit;
 }
 
 .modal-card-head {
@@ -157,8 +157,11 @@ export default {
   color: white;
 }
 .be-nav-button {
-  margin-bottom: 4px;
-  margin-top: 12px;
+  margin-top: 6px;
+}
+.button.is-light.is-outlined.be-nav-button:hover,
+.button.is-light.is-outlined.be-nav-button.is-hovered {
+  color: #2c5671;
 }
 .be-carat-icon {
   color: #2c5671;
@@ -171,6 +174,16 @@ export default {
   color: #2c5671;
   margin-bottom: 16px;
   margin-top: 16px;
+}
+.subtitle.be-progress-subtitle.is-5 {
+  font-weight: 50;
+  color: #2c5671;
+  margin-bottom: 0px;
+}
+.subtitle.be-progress-subtitle.is-4 {
+  font-weight: 50;
+  color: #2c5671;
+  margin-bottom: 24px;
 }
 .be-link {
   color: #2c5671;
@@ -365,6 +378,16 @@ export default {
   }
   .be-question-text {
     width: 433px;
+  }
+  .subtitle.be-progress-subtitle.is-5 {
+    visibility: hidden;
+    height: 0px;
+    margin-bottom: 0px;
+  }
+  .subtitle.be-progress-subtitle.is-4 {
+    visibility: hidden;
+    height: 0px;
+    margin-bottom: 0px;
   }
   /* .be-link-button {
     color: #2c5671;
