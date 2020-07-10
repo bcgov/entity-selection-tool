@@ -99,7 +99,7 @@
                       {{ $t("start_question_opt2") }}
                     </b-radio>
                   </div>
-                 <div class="field">
+                  <div class="field">
                     <b-radio
                       type="is-info"
                       @click.native="start()"
@@ -110,7 +110,7 @@
                     >
                       {{ $t("start_question_opt3") }}
                     </b-radio>
-                  </div>                  
+                  </div>
                   <div class="field">
                     <b-radio
                       type="is-info"
@@ -217,7 +217,8 @@ export default {
         start_question:
           "Which of these statements best describes the main purpose of your new organization?",
         start_question_opt1: "Generate a profit for owners",
-        start_question_opt2: "Generate a profit for owners combined with a public benefit",
+        start_question_opt2:
+          "Generate a profit for owners combined with a public benefit",
         start_question_opt3: "Provide services as a licensed professional",
         start_question_opt4: "Support a charitable cause or public benefit",
         start_question_opt5:
@@ -248,9 +249,11 @@ export default {
         start_question:
           "Which of these statements best describes the main purpose of your new organization? (fr)",
         start_question_opt1: "Generate a profit for owners (fr)",
-        start_question_opt2: "Generate a profit for owners combined with a public benefit (fr)",
+        start_question_opt2:
+          "Generate a profit for owners combined with a public benefit (fr)",
         start_question_opt3: "Provide services as a licensed professional (fr)",
-        start_question_opt4: "Support a charitable cause or public benefit (fr)",
+        start_question_opt4:
+          "Support a charitable cause or public benefit (fr)",
         start_question_opt5:
           "Provide shared benefit for members through a cooperative association (fr)",
         disclaimer:
