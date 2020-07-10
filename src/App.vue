@@ -124,10 +124,7 @@ export default {
   color: #2c5671;
 }
 .be-link-button:hover,
-.be-link-button.is-hovered,
-.be-link-button:focus,
-.be-link-button.is-focused,
-.be-link-button:active {
+.be-link-button.is-hovered {
   color: white;
 }
 .be-button {
