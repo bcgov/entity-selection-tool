@@ -209,7 +209,7 @@ export default {
         disadvantages: "Disadvantages:",
         download_name: "entity-result",
         restart: "Restart",
-        print_results: "Results",
+        print_results: "Print/Download",
         print_summaries: "All Summaries",
         results: "Results - Print View",
         business_structure:
@@ -229,7 +229,7 @@ export default {
         disadvantages: "Désavantages :",
         download_name: "resultat-entite",
         restart: "Redémarrer",
-        print_results: "Résultats",
+        print_results: "Imprimer/Télécharger",
         print_summaries: "Tous les sommaires",
         results: "Résultats - Aperçu avant impression",
         business_structure:
