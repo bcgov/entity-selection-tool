@@ -69,7 +69,7 @@
         <BaseCard class="summary box">
           <template v-slot:headertext>
             <h2 v-if="!introGate" class="title be-question-title is-4">
-              WELCOME
+              {{ $t("welcome") }}
             </h2></template
           >
           <template v-slot:bodytext>
@@ -208,6 +208,7 @@ export default {
     messages: {
       en: {
         business_structures: "Business Structures Wizard",
+        welcome: "WELCOME",
         close: "Close",
         restart: "Restart",
         start: "Start",
@@ -237,9 +238,10 @@ export default {
       },
       fr: {
         business_structures: "Structures d'entreprise",
+        welcome: "BIENVENUE",
         close: "Fermer",
         restart: "Redémarrer",
-        start: "Start FR",
+        start: "Commencer",
         entity_title_one: "Structure d'entreprise",
         entity_title_two: "suggérée",
         start_question:

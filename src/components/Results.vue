@@ -219,12 +219,12 @@ export default {
         print: "Print",
         download: "Download",
         close: "Close",
-        powerby: " Power by BC Registry and BizPaL"
+        powerby: "Power by BC Registry and BizPaL"
       },
       fr: {
         advantages: "Avantages :",
         disadvantages: "Désavantages :",
-        download_name: "résultat-structure",
+        download_name: "resultat-entite",
         restart: "Redémarrer",
         print_results: "Résultats",
         print_summaries: "Tous les sommaires",
@@ -238,7 +238,7 @@ export default {
         print: "Imprimer",
         download: "Télécharger",
         close: "Fermer",
-        powerby: " Power by BC Registry and BizPaL (FR)"
+        powerby: "Proposé par BC Registry et PerLE"
 
       }
     }
