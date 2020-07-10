@@ -44,11 +44,14 @@ export default {
   align-content: center;
   color: white;
   font-size: 24px;
+  margin-top: 12px;
 }
 
 .modal-card-head {
   background-color: #274f6e;
+
   padding-bottom: 6px;
+  height: 120px;
 }
 .modal-card-body {
   background-color: rgb(207, 232, 252);
@@ -77,6 +80,12 @@ export default {
 }
 .be-subheader {
   padding-bottom: 0px;
+  visibility: hidden;
+  height: 0px;
+}
+.be-secondary-header {
+  visibility: hidden;
+  height: 0px;
 }
 /* .card .custom-header {
   height: 40px;
@@ -148,8 +157,8 @@ export default {
   color: white;
 }
 .be-nav-button {
-  margin-left: 8px;
   margin-bottom: 4px;
+  margin-top: 12px;
 }
 .be-carat-icon {
   color: #2c5671;
@@ -258,6 +267,7 @@ export default {
     align-content: center;
     color: white;
     font-size: 30px;
+    margin-top: 0px;
   }
   .modal-card {
     width: 900px;
@@ -307,6 +317,13 @@ export default {
   .be-subheader {
     padding-bottom: 0px;
     padding-top: 0px;
+    padding-left: 0px;
+    visibility: visible;
+    height: auto;
+  }
+  .be-secondary-header {
+    visibility: visible;
+    height: auto;
   }
   .card .custom-header {
     height: 40px;
@@ -378,14 +395,11 @@ export default {
     border-color: #2c5671;
 
     color: white;
-  } 
+  } */
   .be-nav-button {
-    width: 45%;
-    margin-left: 8px;
-  }*/
-  .be-nav-button-group {
-    padding-top: 0px;
+    margin-top: 0px;
   }
+
   /* .be-carat-icon {
     color: #2c5671;
   }

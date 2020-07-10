@@ -8,7 +8,7 @@
               {{ $t("business_structures") }}
             </h1>
           </div>
-          <div class="column is-one-quarter">
+          <div class="column  is-one-quarter">
             <b-button
               class="be-nav-button is-pulled-right"
               outlined
@@ -33,9 +33,9 @@
             </div>-->
           </div>
         </div>
-        <div v-if="!isMobile" class="columns">
+        <div class="columns be-subheader">
           <div class="column auto"></div>
-          <div class="column is-one-half be-subheader">
+          <div class="column is-one-half be-secondary-header">
             <div class="column be-subheader is-four-fifths is-pulled-right ">
               <div v-if="started">
                 <h2 class="subtitle be-subtitle is-5">
@@ -280,23 +280,24 @@ export default {
       started: false,
       nonProfit: false,
       langLocal: this.lang,
-      introGate: false,
-      isMobile: false
+      introGate: false
     };
   },
   mounted: function() {
     this.$i18n.locale = this.langLocal;
   },
   methods: {
-    detectMobile: function() {
+    /*   isMobile() {
       if (
-        /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+        /Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
           navigator.userAgent
         )
       ) {
-        this.isMobile = true;
+        return true;
+      } else {
+        return false;
       }
-    },
+    }, */
     start: function() {
       this.started = true;
     },
