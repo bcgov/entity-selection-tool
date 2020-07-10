@@ -269,6 +269,29 @@ export default {
   padding-bottom: 2px;
   padding-top: 24px;
 }
+em.be-emphasis {
+  color: #2c5671;
+}
+.be-progress {
+  margin-bottom: 5px;
+  margin-top: 5px;
+  margin-right: 20px;
+  margin-left: 20px;
+}
+.be-entitywrap {
+  border-bottom-style: solid;
+  border-bottom-color: #edf3f7;
+  padding-top: 5px;
+}
+#be-results-list {
+  list-style: none;
+}
+#be-nonprofit-list {
+  list-style: none;
+}
+.notification.be-notification {
+  padding: 1.25rem 1.25rem 1.25rem 1.25rem;
+}
 /* for desktop */
 @media screen and (min-width: 920px) and (min-height: 620px) {
   .be-progress-box {

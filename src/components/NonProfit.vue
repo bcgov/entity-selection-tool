@@ -61,7 +61,7 @@
             <h2 class="title be-question-title is-4">
               {{ $t("header_text") }}
             </h2>
-            <ul class="be-nonprofit-list">
+            <ul id="be-nonprofit-list">
               <li v-for="(item, index) in data" v-bind:key="index">
                 <h3 class="subtitle be-nonprofit-subtitle  is-5">
                   {{ item[`title_${langLocal}`] }}

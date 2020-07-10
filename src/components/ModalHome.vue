@@ -19,23 +19,11 @@
               <font-awesome-icon :icon="['fas', 'times']" />
               {{ $t("close") }}
             </b-button>
-            <!--  <div v-if="started">
-              <b-button
-                class="be-nav-button is-pulled-right"
-                outlined
-                type="is-light"
-                :aria-label="$t('restart')"
-                @click="reset()"
-              >
-                <font-awesome-icon :icon="['fas', 'undo']" />
-                {{ $t("restart") }}
-              </b-button> 
-            </div>-->
           </div>
         </div>
         <div class="columns be-subheader">
           <div class="column auto"></div>
-          <div class="column is-one-half be-secondary-header">
+          <div class="column is-one-half">
             <div class="column be-subheader is-four-fifths is-pulled-right ">
               <div v-if="started">
                 <h2 class="subtitle be-subtitle is-5">
@@ -287,17 +275,6 @@ export default {
     this.$i18n.locale = this.langLocal;
   },
   methods: {
-    /*   isMobile() {
-      if (
-        /Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-          navigator.userAgent
-        )
-      ) {
-        return true;
-      } else {
-        return false;
-      }
-    }, */
     start: function() {
       this.started = true;
     },

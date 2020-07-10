@@ -1,14 +1,7 @@
 <template>
   <div class="columns">
-    <div v-if="!resultsShow" class="column is-half">
+    <div v-if="!resultsShow" class="column is-three-fifths">
       <BaseCard class="question box">
-        <!-- <b-button
-      @click="toggleLocale()"
-      size="is-small"
-      style="background-color:pink"
-    >
-    {{ locale == "en" ? "Francais" : "English" }}
-    </b-button> -->
         <template v-slot:headertext>
           <h2 class="title be-question-title is-4">
             QUESTION {{ currentCategoryIndex }} {{ $t("of") }}
@@ -100,14 +93,14 @@
       ></Results>
     </div>
     <!-- end left side -->
-    <div class="column is-half be-progress-wrapper">
-      <h2 class="subtitle be-progress-subtitle is-5">
-        {{ $t("entity_title_one") }}
-      </h2>
-      <h2 class="subtitle be-progress-subtitle is-4">
-        {{ $t("entity_title_two") }}
-      </h2>
-      <div class="column is-four-fifths is-pulled-right be-progress-box">
+    <div class="column is-two-fifths be-progress-wrapper">
+      <div class="column be-progress-box">
+        <h2 class="subtitle be-progress-subtitle is-5">
+          {{ $t("entity_title_one") }}
+        </h2>
+        <h2 class="subtitle be-progress-subtitle is-4">
+          {{ $t("entity_title_two") }}
+        </h2>
         <section>
           <template v-for="(value, index) in entitiesTotal">
             <div class="be-entitywrap" v-bind:key="index">
@@ -122,7 +115,7 @@
                   role="button"
                   :aria-controls="`contentIdFor${index}`"
                 >
-                  <em
+                  <em class="be-emphasis"
                     >{{ data.entities[index][`title_${locale}`] }}
                     {{ displayPercentage(entitiesTotal[index].total) }}%</em
                   >
@@ -134,7 +127,7 @@
                   >
                   </font-awesome-icon>
                 </div>
-                <div class="notification">
+                <div class="notification be-notification">
                   <div class="content">
                     <p>{{ entitiesTotal[index][`summary_${locale}`] }}</p>
                   </div>
@@ -288,7 +281,6 @@ export default {
       // set inital radio value  from user answer  
       this.radioButton = (question.answerIndex=="notset") ? "" : question.answerIndex;
 
-
     } // end currentCategoryIndex
   }, // end watch
   methods: {
@@ -322,9 +314,6 @@ export default {
       if (this.currentCategoryIndex < this.totalCategories) {
         this.currentCategoryIndex++;
       }
-        
-       
-      
     }, // end next
     // Goes back to the previous question
     previous: function() {
@@ -374,21 +363,5 @@ export default {
 };
 </script>
 <style scoped>
-em {
-  color:#2C5671;
-}
-.be-progress {
-  margin-bottom: 5px;
-  margin-top: 5px;
-  margin-right: 20px;
-  margin-left: 20px;
-}
-.be-entitywrap{
-  border-bottom-style: solid;
-  border-bottom-color: #edf3f7;
-  padding-top: 5px;
-}
-#be-results-list {
-  list-style: none;
-}
+
 </style>
