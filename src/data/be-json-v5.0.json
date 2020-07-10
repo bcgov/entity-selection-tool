@@ -19,8 +19,8 @@
                 "answers":{
                     "a1":{
                         "id":"a1",
-                        "title_en":"Across Canada and/or internationally.",
-                        "title_fr":"Across Canada and/or internationally.(FR).",
+                        "title_en":"Across Canada and/or internationally",
+                        "title_fr":"Across Canada and/or internationally.(FR)",
                         "impact": {
 					        "e1":3.5,
 					        "e2":3.5,
@@ -33,7 +33,7 @@
                     },
                     "a2":{
                         "id": "a2",
-                        "title_en":"Primarily British Columbia, but we may expand nationally or internationally.",
+                        "title_en":"Primarily British Columbia, but we may expand nationally or internationally",
                         "title_fr":"Primarily British Columbia, but we may expand nationally or internationally.(FR)",
 					    "impact": {
 					        "e1":7,
@@ -47,8 +47,8 @@
                     },
                     "a3":{
                         "id": "a3",
-                        "title_en":"British Columbia only.",
-                        "title_fr":"Colombie-Britannique seulement.",
+                        "title_en":"British Columbia only",
+                        "title_fr":"Colombie-Britannique seulement",
                         "impact": {
 					        "e1":10.5,
 					        "e2":10.5,
@@ -72,8 +72,8 @@
                 "answers":{
                     "a1":{
                         "id":"a1",
-                        "title_en":"High Risk.",
-                        "title_fr":"High Risk. (FR)",
+                        "title_en":"High Risk",
+                        "title_fr":"High Risk(FR)",
                         "impact": {
 					        "e1":0,
 					        "e2":0,
@@ -86,8 +86,8 @@
                     },
                     "a2":{
                         "id": "a2",
-                        "title_en":"Moderate risk.",
-                        "title_fr":"Moderate risk.(FR)",
+                        "title_en":"Moderate risk",
+                        "title_fr":"Moderate risk(FR)",
                         "impact": {
 					        "e1":3,
 					        "e2":3,
@@ -100,8 +100,8 @@
                     },
                     "a3":{
                         "id": "a3",
-                        "title_en":"Some risk.",
-                        "title_fr":"Some risk.(FR)",
+                        "title_en":"Some risk",
+                        "title_fr":"Some risk(FR)",
                         "impact": {
 					        "e1":6,
 					        "e2":6,
@@ -114,8 +114,8 @@
                     },
                     "a4":{
                         "id": "a4",
-                        "title_en":"Low risk.",
-                        "title_fr":"Low risk.(FR)",
+                        "title_en":"Low risk",
+                        "title_fr":"Low risk(FR)",
                         "impact": {
 					        "e1":9,
 					        "e2":9,
@@ -134,13 +134,13 @@
                 "category_name_fr":"Personal Risk(FR)",
                 "question_en":"How do you feel about personal risk?",
                 "question_fr":"How do you feel about personal risk?(FR)",
-                "context_en":"Personal risk in a business is the chance that legal action might be taken against you personally, and that you might suffer personal financial losses. If you are concerened about personal risk, or have a lot of personal assets, a corporation or limited liability partnership may make the most sense.",
-                "context_fr":"Personal risk in a business is the chance that legal action might be taken against you personally, and that you might suffer personal financial losses. If you are concerened about personal risk, or have a lot of personal assets, a corporation or limited liability partnership may make the most sense.(FR)",
+                "context_en":"Personal risk in a business is the chance that legal action might be taken against you personally, and that you might suffer personal financial losses. If you are concerned about personal risk, or have a lot of personal assets, a corporation or limited liability partnership may make the most sense.",
+                "context_fr":"Personal risk in a business is the chance that legal action might be taken against you personally, and that you might suffer personal financial losses. If you are concerned about personal risk, or have a lot of personal assets, a corporation or limited liability partnership may make the most sense.(FR)",
                 "answers":{
                     "a1":{
                         "id":"a1",
-                        "title_en":"Very concerned.",
-                        "title_fr":"Very concerned.(FR)",
+                        "title_en":"Very concerned",
+                        "title_fr":"Very concerned(FR)",
 					    "impact": {
 					        "e1":0,
 					        "e2":0,
@@ -153,8 +153,8 @@
                     },
                     "a2":{
                         "id": "a2",
-                        "title_en":"Somewhat concerned.",
-                        "title_fr":"Somewhat concerned.(FR)",
+                        "title_en":"Somewhat concerned",
+                        "title_fr":"Somewhat concerned(FR)",
 					    "impact": {
 					        "e1":5,
 					        "e2":5,
@@ -167,8 +167,8 @@
                     },
                     "a3":{
                         "id": "a3",
-                        "title_en":"Not concerned.",
-                        "title_fr":"Not concerned.(FR)",
+                        "title_en":"Not concerned",
+                        "title_fr":"Not concerned(FR)",
 					    "impact": {
 					        "e1":10,
 					        "e2":10,
@@ -183,8 +183,8 @@
             },
             "cat-4":{
                 "category": 4,
-                "category_name_en":"Number of owners.",
-                "category_name_fr":"Number of owners.(FR)",
+                "category_name_en":"Number of owners",
+                "category_name_fr":"Number of owners(FR)",
                 "question_en":"How many owners will there be?",
                 "question_fr":"How many owners will there be?(FR)",
                 "context_en":"The number determines your organization type options. Sole proprietorships have only one owner, and partnerships must have at least 2 owners, while a corporation can have any number of owners.",
@@ -192,8 +192,8 @@
                 "answers":{
                     "a1":{
                         "id":"a1",
-                        "title_en":"1.",
-                        "title_fr":"1.(FR)",
+                        "title_en":"1",
+                        "title_fr":"1(FR)",
                         "impact": {
 					        "e1":12.5,
 					        "e2":0,
@@ -206,8 +206,8 @@
                     },
                     "a2":{
                         "id": "a2",
-                        "title_en":"2-9.",
-                        "title_fr":"2-9.(FR)",
+                        "title_en":"2-9",
+                        "title_fr":"2-9(FR)",
                         "impact": {
 					        "e1":0,
 					        "e2":7.5,
@@ -220,8 +220,8 @@
                     },
                     "a3":{
                         "id": "a3",
-                        "title_en":"10-99.",
-                        "title_fr":"10-99.(FR)",
+                        "title_en":"10-99",
+                        "title_fr":"10-99(FR)",
                         "impact": {
 					        "e1":0,
 					        "e2":7.5,
@@ -234,8 +234,8 @@
                     },
                     "a4":{
                         "id": "a4",
-                        "title_en":"100+.",
-                        "title_fr":"100+.(FR)",
+                        "title_en":"100+",
+                        "title_fr":"100+(FR)",
                         "impact": {
 					        "e1":0,
 					        "e2":2.5,
@@ -254,13 +254,13 @@
                 "category_name_fr":"Number of employees.(FR)",
                 "question_en":"Including yourself, how many employees will you have?",
                 "question_fr":"Including yourself, how many employees will you have?(FR)",
-                "context_en":"The number of employees indicates how complex your business may be.It's generally better to incorporate if you will have a large number of employees.",
-                "context_fr":"The number of employees indicates how complex your business may be.It's generally better to incorporate if you will have a large number of employees.(FR)",
+                "context_en":"The number of employees indicates how complex your business may be. It's generally better to incorporate if you will have a large number of employees.",
+                "context_fr":"The number of employees indicates how complex your business may be. It's generally better to incorporate if you will have a large number of employees.(FR)",
                 "answers":{
                     "a1":{
                         "id":"a1",
-                        "title_en":"1.",
-                        "title_fr":"1.(FR)",
+                        "title_en":"1",
+                        "title_fr":"1(FR)",
 					    "impact": {
 					        "e1":10,
 					        "e2":0,
@@ -273,8 +273,8 @@
                     },
                     "a2":{
                         "id": "a2",
-                        "title_en":"2-9.",
-                        "title_fr":"2-9.(FR)",
+                        "title_en":"2-9",
+                        "title_fr":"2-9(FR)",
                         "impact": {
 					        "e1":6,
 					        "e2":6,
@@ -287,8 +287,8 @@
                     },
                     "a3":{
                         "id": "a3",
-                        "title_en":"10-99.",
-                        "title_fr":"10-99.(FR)",
+                        "title_en":"10-99",
+                        "title_fr":"10-99(FR)",
                         "impact": {
 					        "e1":4,
 					        "e2":4,
@@ -301,8 +301,8 @@
                     },
                     "a4":{
                         "id": "a4",
-                        "title_en":"100+.",
-                        "title_fr":"100+.(FR)",
+                        "title_en":"100+",
+                        "title_fr":"100+(FR)",
                         "impact": {
 					        "e1":0,
 					        "e2":0,
@@ -317,8 +317,8 @@
             },
             "cat-6":{
                 "category": 6,
-                "category_name_en":"Financing methods.",
-                "category_name_fr":"Financing methods.(FR)",
+                "category_name_en":"Financing methods",
+                "category_name_fr":"Financing methods(FR)",
                 "question_en":"How will you finance your organization?",
                 "question_fr":"How will you finance your organization?(FR)",
                 "context_en":"Banks and other investors usually require a business to be incorporated to receive loans or investments.",
@@ -326,8 +326,8 @@
                 "answers":{
                     "a1":{
                         "id":"a1",
-                        "title_en":"Profits from the business- no external funding required.",
-                        "title_fr":"Profits from the business- no external funding required.(FR)",
+                        "title_en":"Profits from the business- no external funding required",
+                        "title_fr":"Profits from the business- no external funding required(FR)",
 					    "impact": {
 					        "e1":8,
 					        "e2":8,
@@ -340,8 +340,8 @@
                     },
                     "a2":{
                         "id": "a2",
-                        "title_en":"Personal lines of credit, personal loans, and/or personal savings.",
-                        "title_fr":"Personal lines of credit, personal loans, and/or personal savings.(FR)",
+                        "title_en":"Personal lines of credit, personal loans, and/or personal savings",
+                        "title_fr":"Personal lines of credit, personal loans, and/or personal savings(FR)",
 					    "impact": {
 					        "e1":10,
 					        "e2":10,
@@ -354,8 +354,8 @@
                     },
                     "a3":{
                         "id": "a3",
-                        "title_en":"Corporate line of credit, corporate bank loans, stock offerings, and/or reinvested profits.",
-                        "title_fr":"Corporate line of credit, corporate bank loans, stock offerings, and/or reinvested profits.(FR)",
+                        "title_en":"Corporate line of credit, corporate bank loans, stock offerings, and/or reinvested profits",
+                        "title_fr":"Corporate line of credit, corporate bank loans, stock offerings, and/or reinvested profits(FR)",
 					    "impact": {
 					        "e1":0,
 					        "e2":0,
@@ -370,17 +370,17 @@
             },
             "cat-7":{
                 "category": 7,
-                "category_name_en":"Setup/Admin Costs.",
-                "category_name_fr":"Setup/Admin Costs.(FR)",
+                "category_name_en":"Setup/Admin Costs",
+                "category_name_fr":"Setup/Admin Costs(FR)",
                 "question_en":"How do you feel about setup and administrative costs for the first few years?",
                 "question_fr":"How do you feel about setup and administrative costs for the first few years?(FR)",
-                "context_en":"These costs include legal fees, accounting fees, tax return preparation, bookkeeping, and provincial and federal filling fees. Propietorships and general partnerships have the lowest setup and ongoing costs. Other entity types are more costly to set up, and more costly to maintain.",
-                "context_fr":"These costs include legal fees, accounting fees, tax return preparation, bookkeeping, and provincial and federal filling fees. Propietorships and general partnerships have the lowest setup and ongoing costs. Other entity types are more costly to set up, and more costly to maintain.(FR)",
+                "context_en":"These costs include legal fees, accounting fees, tax return preparation, bookkeeping, and provincial and federal filling fees. Proprietorships and general partnerships have the lowest setup and ongoing costs. Other entity types are more costly to set up, and more costly to maintain.",
+                "context_fr":"These costs include legal fees, accounting fees, tax return preparation, bookkeeping, and provincial and federal filling fees. Proprietorships and general partnerships have the lowest setup and ongoing costs. Other entity types are more costly to set up, and more costly to maintain.(FR)",
                 "answers":{
                     "a1":{
                         "id":"a1",
-                        "title_en":"Not concerned, willing to pay what's necessary to get the right entity type.",
-                        "title_fr":"Not concerned, willing to pay what's necessary to get the right entity type.(FR)",
+                        "title_en":"Not concerned, willing to pay what's necessary to get the right entity type",
+                        "title_fr":"Not concerned, willing to pay what's necessary to get the right entity type(FR)",
 					    "impact": {
 					        "e1":3,
 					        "e2":3,
@@ -393,8 +393,8 @@
                     },
                     "a2":{
                         "id": "a2",
-                        "title_en":"Somewhat concerned, would want costs to be less than $3000 in total.",
-                        "title_fr":"Somewhat concerned, would want costs to be less than $3000 in total.(FR)",
+                        "title_en":"Somewhat concerned, would want costs to be less than $3000 in total",
+                        "title_fr":"Somewhat concerned, would want costs to be less than $3000 in total(FR)",
 					    "impact": {
 					        "e1":4.5,
 					        "e2":4.5,
@@ -407,8 +407,8 @@
                     },
                     "a3":{
                         "id": "a3",
-                        "title_en":"Very concerned, would want costs to be less than $1000.",
-                        "title_fr":"Very concerned, would want costs to be less than $1000.(FR)",
+                        "title_en":"Very concerned, would want costs to be less than $1000 in total",
+                        "title_fr":"Very concerned, would want costs to be less than $1000 in total(FR)",
 					    "impact": {
 					        "e1":7.5,
 					        "e2":7.5,
@@ -423,8 +423,8 @@
             },
             "cat-8":{
                 "category": 8,
-                "category_name_en":"Forecast profitiability.",
-                "category_name_fr":"Forecast profitiability.(FR)",
+                "category_name_en":"Forecast profitiability",
+                "category_name_fr":"Forecast profitiability(FR)",
                 "question_en":"What's your financial forecast for your organization?",
                 "question_fr":"How do you feel about setup and administrative costs?(FR)",
                 "context_en":"If you choose proprietorship or partnership you might be able to use losses from the business to offset other income, and therefore pay less personal income tax.",
@@ -432,8 +432,8 @@
                 "answers":{
                     "a1":{
                         "id":"a1",
-                        "title_en":"Expect to operate at a loss for the first few years.",
-                        "title_fr":"Expect to operate at a loss for the first few years.(FR)",
+                        "title_en":"Expect to operate at a loss for the first few years",
+                        "title_fr":"Expect to operate at a loss for the first few years(FR)",
 					    "impact": {
 					        "e1":5,
 					        "e2":5,
@@ -446,8 +446,8 @@
                     },
                     "a2":{
                         "id": "a2",
-                        "title_en":"Expected to be profitable in a year or two.",
-                        "title_fr":"Expected to be profitable in a year or two.(FR)",
+                        "title_en":"Expected to be profitable in a year or two",
+                        "title_fr":"Expected to be profitable in a year or two(FR)",
 					    "impact": {
 					        "e1":3,
 					        "e2":3,
@@ -460,8 +460,8 @@
                     },
                     "a3":{
                         "id": "a3",
-                        "title_en":"Expect to be profitable right away, or soon after start-up.",
-                        "title_fr":"Expect to be profitable right away, or soon after start-up.(FR)",
+                        "title_en":"Expect to be profitable right away, or soon after start-up",
+                        "title_fr":"Expect to be profitable right away, or soon after start-up(FR)",
 					    "impact": {
 					        "e1":1,
 					        "e2":1,
@@ -476,8 +476,8 @@
             },
 			"cat-9":{
                 "category": 9,
-                "category_name_en":"Public Benefit.",
-                "category_name_fr":"Public Benefit.(FR)",
+                "category_name_en":"Public Benefit",
+                "category_name_fr":"Public Benefit(FR)",
                 "question_en":"Do you intent to invest time and costs to formally promote a public benefit, and report on your success in delivering that public benefit annually?",
                 "question_fr":"Do you intent to invest time and costs to formally promote a public benefit, and report on your success in delivering that public benefit annually?(FR)",
                 "context_en":"A benefit company acts for both shareholders and the public. It promotes an artistic, cultural, educational, environmental, medical, religious, scientific, or technological benefit. If you choose this type it might lead to higher levels of employee motivation and engagement, and enhance the company's reputation among customers and in the community at large.",
@@ -485,8 +485,8 @@
                 "answers":{
                     "a1":{
                         "id":"a1",
-                        "title_en":"No.",
-                        "title_fr":"No.(FR)",
+                        "title_en":"No",
+                        "title_fr":"N(FR)",
 					    "impact": {
 					        "e1":6,
 					        "e2":6,
@@ -499,8 +499,8 @@
                     },
                     "a2":{
                         "id": "a2",
-                        "title_en":"Possibly.",
-                        "title_fr":"Possibly.(FR)",
+                        "title_en":"Possibly",
+                        "title_fr":"Possibly(FR)",
 					    "impact": {
 					        "e1":4.5,
 					        "e2":4.5,
@@ -513,8 +513,8 @@
                     },
                     "a3":{
                         "id": "a3",
-                        "title_en":"Very likely.",
-                        "title_fr":"Very likely.(FR)",
+                        "title_en":"Very likely",
+                        "title_fr":"Very likely(FR)",
 					    "impact": {
 					        "e1":3,
 					        "e2":3,
@@ -529,17 +529,17 @@
             },
             "cat-10":{
                 "category": 10,
-                "category_name_en":"Name Protection.",
-                "category_name_fr":"Name Protection.(FR)",
+                "category_name_en":"Name Protection",
+                "category_name_fr":"Name Protection(FR)",
                 "question_en":"How important is protecting your organization's name?",
                 "question_fr":"How important is protecting your organization's name?(FR)",
-                "context_en":"Incorporation provides a higher level of name protection than other entity types. If you are a sole proprietorship - or parnership - and someone incorporates using your business name, they will have the rights to the name. Sole proprietorships and partnerships have no name protection in this area.",
-                "context_fr":"Incorporation provides a higher level of name protection than other entity types. If you are a sole proprietorship - or parnership - and someone incorporates using your business name, they will have the rights to the name. Sole proprietorships and partnerships have no name protection in this area.(FR)",
+                "context_en":"Incorporation provides a higher level of name protection than other entity types. If you are a sole proprietorship - or partnership - and someone incorporates using your business name, they will have the rights to the name. Sole proprietorships and partnerships have no name protection in this area.",
+                "context_fr":"Incorporation provides a higher level of name protection than other entity types. If you are a sole proprietorship - or partnership - and someone incorporates using your business name, they will have the rights to the name. Sole proprietorships and partnerships have no name protection in this area.(FR)",
                 "answers":{
                     "a1":{
                         "id":"a1",
-                        "title_en":"Not important.",
-                        "title_fr":"Not important.(FR)",
+                        "title_en":"Not important",
+                        "title_fr":"Not important(FR)",
 					    "impact": {
 					        "e1":2.5,
 					        "e2":2.5,
@@ -552,8 +552,8 @@
                     },
                     "a2":{
                         "id": "a2",
-                        "title_en":"Somewhat important.",
-                        "title_fr":"Somewhat important.(FR)",
+                        "title_en":"Somewhat important",
+                        "title_fr":"Somewhat important(FR)",
 					    "impact": {
 					        "e1":1.5,
 					        "e2":1.5,
@@ -566,8 +566,8 @@
                     },
                     "a3":{
                         "id": "a3",
-                        "title_en":"Very important.",
-                        "title_fr":"Very important.(FR)",
+                        "title_en":"Very important",
+                        "title_fr":"Very important(FR)",
 					    "impact": {
 					        "e1":0,
 					        "e2":0,
@@ -1077,7 +1077,7 @@
             "id": "n4",
             "title_en":"Community Contribution Company (CCC):",
             "title_fr":"Community Contribution Company (CCC) :(FR)",
-            "summary_en":"A Community Contribution Corporation ('CCC' or 'CCC') is a hybrid entity that bridges the gap between for-profit and non-profit organizations. A CCC is similar to a BC corporation, with a Board of Directors and shareholders. Like a regular corporation it is a legal entity, separate and distinct from its owners. It can, for example, own real estate, acquire assets, go into debt, and enter into contracts. Similar to a non-profit, a CCC is set up to achieve a social purpose. It must allocate at least 60% of its profit toward that purpose, and can pay out up to 40% of profits to investors. There are several advantages to a CCC: it provides an opportunity for investors to receive a return while fulfilling a social purpose; it benefits from lower tax rates than a sole proprietorship or partnership; it's easier to raise capital for a CCC than for a sole proprietorship, partnership or non-profit; shares can be transferred; and it enjoys name protection. There are disadvantages as well: CCCs are more closely regulated with more reporting requirements than proprietorships, partnerships and regular corporations; CCCs are more complex and costly to set up and run than a proprietorship, partnership, or regular corporation; salaries paid to management and staff are restricted; potential returns to shareholders are restricted; and CCCs are not eligible for grants, donations or income tax exemptions and do not have the ability to issue tax receipts.",
+            "summary_en":"A Community Contribution Corporation ('CCC', also known as a 'C3') is a hybrid entity that bridges the gap between for-profit and non-profit organizations. A CCC is similar to a BC corporation, with a Board of Directors and shareholders. Like a regular corporation it is a legal entity, separate and distinct from its owners. It can, for example, own real estate, acquire assets, go into debt, and enter into contracts. Similar to a non-profit, a CCC is set up to achieve a social purpose. It must allocate at least 60% of its profit toward that purpose, and can pay out up to 40% of profits to investors. There are several advantages to a CCC: it provides an opportunity for investors to receive a return while fulfilling a social purpose; it benefits from lower tax rates than a sole proprietorship or partnership; it's easier to raise capital for a CCC than for a sole proprietorship, partnership or non-profit; shares can be transferred; and it enjoys name protection. There are disadvantages as well: CCCs are more closely regulated with more reporting requirements than proprietorships, partnerships and regular corporations; CCCs are more complex and costly to set up and run than a proprietorship, partnership, or regular corporation; salaries paid to management and staff are restricted; potential returns to shareholders are restricted; and CCCs are not eligible for grants, donations or income tax exemptions and do not have the ability to issue tax receipts.",
             "summary_fr":" Summary1(FR)",
             "advantage_en":"<li></li>",
             "advantage_fr":"",
