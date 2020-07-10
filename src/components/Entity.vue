@@ -74,7 +74,7 @@
               {{ $t("submit") }}</b-button
             >
             <b-button
-              v-else
+              v-if="!showFinishButton"
               class="be-form-button"
               :disabled="!showNextButton"
               @click="next()"
@@ -255,8 +255,9 @@ export default {
         // retrieved user answer for thequestion
       let question = this.userSelectedAnswer[`cat-${val}`];
 
-      if (val == this.totalCategories) {
+      if ((val == this.totalCategories) &&(question.answerIndex!="notset")) {
         this.showNextButton = false;
+        this.showFinishButton = true;
       } else {
         // disabeld next button if necessary
         this.showNextButton = (question.answerIndex=="notset") ? false : true;
@@ -297,11 +298,15 @@ export default {
       if (this.currentCategoryIndex < this.totalCategories) {
         this.currentCategoryIndex++;
       }
+        
+       
+      
     }, // end next
     // Goes back to the previous question
     previous: function() {
       if (this.currentCategoryIndex>1) {
         this.currentCategoryIndex--;
+        this.showFinishButton = false;
       }
     }, // end previous
     //Saves the selected question option param {number} answer 
