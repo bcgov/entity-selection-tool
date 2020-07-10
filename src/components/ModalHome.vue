@@ -99,6 +99,18 @@
                       {{ $t("start_question_opt2") }}
                     </b-radio>
                   </div>
+                 <div class="field">
+                    <b-radio
+                      type="is-info"
+                      @click.native="start()"
+                      id="services"
+                      name="purpose"
+                      native-value="services"
+                      v-model="radioButton"
+                    >
+                      {{ $t("start_question_opt3") }}
+                    </b-radio>
+                  </div>                  
                   <div class="field">
                     <b-radio
                       type="is-info"
@@ -108,7 +120,7 @@
                       native-value="charitable"
                       v-model="radioButton"
                     >
-                      {{ $t("start_question_opt3") }}
+                      {{ $t("start_question_opt4") }}
                     </b-radio>
                   </div>
                   <div class="field">
@@ -120,7 +132,7 @@
                       native-value="cooperative"
                       v-model="radioButton"
                     >
-                      {{ $t("start_question_opt4") }}
+                      {{ $t("start_question_opt5") }}
                     </b-radio>
                   </div>
                 </form>
@@ -205,12 +217,13 @@ export default {
         start_question:
           "Which of these statements best describes the main purpose of your new organization?",
         start_question_opt1: "Generate a profit for owners",
-        start_question_opt2: "Provide services as a licensed professional",
-        start_question_opt3: "Charitable cause or public benefit",
-        start_question_opt4:
+        start_question_opt2: "Generate a profit for owners combined with a public benefit",
+        start_question_opt3: "Provide services as a licensed professional",
+        start_question_opt4: "Support a charitable cause or public benefit",
+        start_question_opt5:
           "Provide shared benefit for members through a cooperative association",
         disclaimer:
-          "Please note that this tool is intended as general guidance and not as legal or financial advice. Please seek the services of a lawyer and accountant before making a decision.",
+          "*Please note that this tool is intended as general guidance and not as legal or financial advice. Please seek the services of a lawyer and accountant before making a decision.",
         powered: "Powered by",
         bizpal_link: "https://services.bizpal-perle.ca/",
         bizpal: "BizPaL",
@@ -235,9 +248,10 @@ export default {
         start_question:
           "Which of these statements best describes the main purpose of your new organization? (fr)",
         start_question_opt1: "Generate a profit for owners (fr)",
-        start_question_opt2: "Provide services as a licensed professional (fr)",
-        start_question_opt3: "Charitable cause or public benefit (fr)",
-        start_question_opt4:
+        start_question_opt2: "Generate a profit for owners combined with a public benefit (fr)",
+        start_question_opt3: "Provide services as a licensed professional (fr)",
+        start_question_opt4: "Support a charitable cause or public benefit (fr)",
+        start_question_opt5:
           "Provide shared benefit for members through a cooperative association (fr)",
         disclaimer:
           "Please note that this tool is intended as general guidance and not as legal or financial advice. Please seek the services of a lawyer and accountant before making a decision. (fr)",
