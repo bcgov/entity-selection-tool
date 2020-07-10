@@ -62,7 +62,9 @@
         </header>
         <section id="printBody" ref="PrintBody" class="be-modal-print-body">
           <div>
-            <h1 class="subtitle is-3">{{ $t("business_structure", {entity:title}) }}</h1>
+            <h1 class="subtitle is-3">
+              {{ $t("business_structure", { entity: title }) }}
+            </h1>
             <div>
               <p>{{ body }}</p>
               <br />
@@ -110,9 +112,9 @@
                 </li>
               </template>
             </ul>
-          <div>
-            {{$t("powerby")}}
-          </div>
+            <div>
+              {{ $t("powerby") }}
+            </div>
           </div>
         </section>
         <footer class="modal-card-foot">
@@ -210,7 +212,8 @@ export default {
         print_results: "Results",
         print_summaries: "All Summaries",
         results: "Results - Print View",
-        business_structure: "Your answers indicate that a {entity} is your best match.",
+        business_structure:
+          "Your answers indicate that a {entity} is your best match.",
         questions_answers: "Questions/Anwers:",
         bold_italic: "bold and italic",
         text_answers: "Your answers are in {format}.",
@@ -229,7 +232,8 @@ export default {
         print_results: "Résultats",
         print_summaries: "Tous les sommaires",
         results: "Résultats - Aperçu avant impression",
-        business_structure: "Your answers indicate that a {entity} is your best match. (FR)",
+        business_structure:
+          "Your answers indicate that a {entity} is your best match. (FR)",
         questions_answers: "Questions/Réponses :",
         bold_italic: "gras et italique",
         text_answers: "Vos réponses sont en {format}.",
@@ -239,7 +243,6 @@ export default {
         download: "Télécharger",
         close: "Fermer",
         powerby: "Proposé par BC Registry et PerLE"
-
       }
     }
   }, // end i18n
