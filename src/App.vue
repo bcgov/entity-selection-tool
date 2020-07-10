@@ -148,8 +148,6 @@ export default {
   color: white;
 }
 .be-nav-button {
-  width: 45%;
-  min-width: 120px;
   margin-left: 8px;
   margin-bottom: 4px;
 }

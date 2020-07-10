@@ -3,12 +3,12 @@
     <div class="modal-card-head">
       <div class="container">
         <div class="columns is-mobile">
-          <div class="column is-two-thirds">
+          <div class="column is-three-quarters">
             <h1 class="be-modal-title">
               {{ $t("business_structures") }}
             </h1>
           </div>
-          <div class="column is-one-third be-nav-button-group">
+          <div class="column is-one-quarter">
             <b-button
               class="be-nav-button is-pulled-right"
               outlined
@@ -19,7 +19,7 @@
               <font-awesome-icon :icon="['fas', 'times']" />
               {{ $t("close") }}
             </b-button>
-            <div v-if="started">
+            <!--  <div v-if="started">
               <b-button
                 class="be-nav-button is-pulled-right"
                 outlined
@@ -29,8 +29,8 @@
               >
                 <font-awesome-icon :icon="['fas', 'undo']" />
                 {{ $t("restart") }}
-              </b-button>
-            </div>
+              </b-button> 
+            </div>-->
           </div>
         </div>
         <div v-if="!isMobile" class="columns">
@@ -155,7 +155,7 @@
         </BaseCard>
       </div>
       <div v-if="started">
-        <Entity :lang="this.langLocal"></Entity>
+        <Entity @clicked="restartEntity" :lang="this.langLocal"></Entity>
       </div>
       <div v-if="nonProfit">
         <NonProfit
@@ -314,6 +314,10 @@ export default {
     // restart from non-profit card
     restartNonProfit(value) {
       this.nonProfit = value;
+    },
+    // restart from entity card
+    restartEntity(value) {
+      this.started = value;
     }
   } //end methods
 };

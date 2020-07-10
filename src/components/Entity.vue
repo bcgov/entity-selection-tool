@@ -56,6 +56,11 @@
         </template>
         <template v-slot:footertext>
           <span class="card-footer-item">
+            <b-button class="be-form-button " @click="onClickButton">{{
+              $t("restart")
+            }}</b-button>
+          </span>
+          <span class="card-footer-item">
             <b-button
               class="be-form-button "
               :disabled="!showPreviousButton"
@@ -173,13 +178,16 @@ export default {
         of: "of",
         previous: "Previous",
         next: "Next",
-        submit: "Finish"
+        submit: "Finish",
+restart: "Restart",
       },
       fr: {
         of: "de",
         previous: "Précédent",
         next: "Suivant",
-        submit: "Terminer"
+        submit: "Terminer",
+        restart: "Redémarrer"
+        
       }
     }
   }, // end i18n
@@ -255,7 +263,7 @@ export default {
         // retrieved user answer for thequestion
       let question = this.userSelectedAnswer[`cat-${val}`];
 
-      if ((val == this.totalCategories) &&(question.answerIndex!="notset")) {
+      if (val == this.totalCategories && question.answerIndex!="notset")  {
         this.showNextButton = false;
         this.showFinishButton = true;
       } else {
@@ -272,6 +280,10 @@ export default {
     } // end currentCategoryIndex
   }, // end watch
   methods: {
+    onClickButton: function() {
+      this.tempValue = false;
+      this.$emit("clicked", this.tempValue);
+    },
     showResults: function() {
       this.resultsShow = true;
       // re-order to show from higher to lower for structure resultbundleRenderer.renderToStream
