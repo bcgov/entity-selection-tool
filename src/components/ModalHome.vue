@@ -62,10 +62,10 @@
           >
           <template v-slot:bodytext>
             <div v-if="!introGate">
-              <p style="margin-bottom: 14px;">{{ $t("intro_1") }}</p>
-              <p style="margin-bottom: 14px;">{{ $t("intro_2") }}</p>
-              <p style="margin-bottom: 14px;">{{ $t("intro_3") }}</p>
-              <p style="margin-bottom: 14px;">{{ $t("intro_4") }}</p>
+              <p>{{ $t("intro_1") }}</p>
+              <p>{{ $t("intro_2") }}</p>
+              <p>{{ $t("intro_3") }}</p>
+              <p>{{ $t("intro_4") }}</p>
               <p style="margin-bottom: 0px;">{{ $t("intro_disclaimer") }}</p>
               <!--  <b-button class="be-form-button" @click="showIntroGate()">
                 {{ $t("start") }}</b-button
@@ -150,9 +150,7 @@
             </span>
 
             <section v-if="introGate" class="be-context">
-              <p>
-                {{ $t("disclaimer") }}
-              </p>
+              <p>*{{ $t("disclaimer") }}</p>
             </section>
           </template>
         </BaseCard>
@@ -232,7 +230,7 @@ export default {
           "Provide shared benefit for members through a cooperative association",
         disclaimer_title: "Disclaimer",
         disclaimer:
-          "*Please note that this tool is intended as general guidance and not as legal or financial advice. Please seek the services of a lawyer and accountant before making a decision.",
+          "Please note that this tool is intended as general guidance and not as legal or financial advice. Please seek the services of a lawyer and accountant before making a decision.",
         powered: "Powered by",
         bizpal_link: "https://services.bizpal-perle.ca/",
         bizpal: "BizPaL",

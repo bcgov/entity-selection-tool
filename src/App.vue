@@ -102,6 +102,9 @@ export default {
   background-color: #274f6e;
   z-index: 55;
 }
+.b-tooltip.is-multiline:after {
+  text-align: left;
+}
 /* White Content Card */
 .question.box {
   padding: 0.5rem;
