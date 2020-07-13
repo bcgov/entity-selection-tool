@@ -113,6 +113,24 @@
               </template>
             </ul>
             <div>
+              <h1 class="subtitle is-3">{{ $t("print_result_header") }}</h1>
+              <ul class="be-answers">
+                <template v-for="(value, index) in entitiesTotal">
+                  <li v-bind:key="index">
+                    {{ data.entities[index][`title_${langLocal}`] }} ({{
+                      value[`total`]
+                    }}%)
+                  </li>
+                </template>
+              </ul>
+            </div>
+            <div class="be-context">
+              <p>
+                <em>*{{ disclaimer }}</em>
+              </p>
+              <br />
+            </div>
+            <div>
               {{ $t("powerby") }}
             </div>
           </div>
@@ -211,6 +229,7 @@ export default {
         restart: "Restart",
         print_results: "Print/Download",
         print_summaries: "All Summaries",
+        print_result_header: "Suggested Business Entity Result:",
         results: "Results - Print View",
         business_structure:
           "Your answers indicate that a {entity} is your best match.",
@@ -230,6 +249,7 @@ export default {
         download_name: "resultat-entite",
         restart: "Redémarrer",
         print_results: "Imprimer/Télécharger",
+        print_result_header: "Structure d'entreprise suggérée : ",
         print_summaries: "Tous les sommaires",
         results: "Résultats - Aperçu avant impression",
         business_structure:
@@ -250,6 +270,7 @@ export default {
     data: Object,
     entityId: String,
     userAnswers: Object,
+    entitiesTotal: Object,
     lang: {
       type: String,
       default: "en"
@@ -291,6 +312,10 @@ export default {
     },
     disadvantages: function() {
       return this.entity[`disadvantage_${this.langLocal}`] || "N/A";
+    },
+    disclaimer: function() {
+      let data = this.data;
+      return data[`disclaimer_${this.langLocal}`] || "";
     }
   }, // end computed
   methods: {
