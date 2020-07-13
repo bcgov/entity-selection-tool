@@ -112,6 +112,12 @@
                 </li>
               </template>
             </ul>
+            <div class="be-context">
+              <p>
+                <em>*{{ disclaimer }}</em>
+              </p>
+              <br />
+           </div>
             <div>
               {{ $t("powerby") }}
             </div>
@@ -291,6 +297,10 @@ export default {
     },
     disadvantages: function() {
       return this.entity[`disadvantage_${this.langLocal}`] || "N/A";
+    },
+    disclaimer: function() {
+      let data = this.data;
+      return data[`disclaimer_${this.langLocal}`] || "";
     }
   }, // end computed
   methods: {
