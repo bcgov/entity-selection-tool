@@ -62,11 +62,14 @@
           >
           <template v-slot:bodytext>
             <div v-if="!introGate">
-              <p>{{ $t("intro_1") }}</p>
-              <p>{{ $t("intro_2") }}</p>
-              <p>{{ $t("intro_3") }}</p>
-              <p>{{ $t("intro_4") }}</p>
-              <p>{{ $t("intro_disclaimer") }}</p>
+              <p style="margin-bottom: 14px;">{{ $t("intro_1") }}</p>
+              <p style="margin-bottom: 14px;">{{ $t("intro_2") }}</p>
+              <p style="margin-bottom: 14px;">{{ $t("intro_3") }}</p>
+              <p style="margin-bottom: 14px;">{{ $t("intro_4") }}</p>
+              <p style="margin-bottom: 0px;">{{ $t("intro_disclaimer") }}</p>
+              <b-button class="be-form-button" @click="showIntroGate()">
+                {{ $t("start") }}</b-button
+              >
             </div>
             <div v-if="introGate">
               <fieldset class="be-card-content">
@@ -140,13 +143,13 @@
             </div>
           </template>
           <template v-slot:footertext>
-            <span v-if="!introGate" class="card-footer-item">
+            <!--  <span v-if="!introGate" class="card-footer-item">
               <b-button class="be-form-button" @click="showIntroGate()">
                 {{ $t("start") }}</b-button
               >
-            </span>
+            </span> -->
 
-            <section v-if="introGate" class="be-context">
+            <section class="be-context">
               <p>
                 {{ $t("disclaimer") }}
               </p>
@@ -167,6 +170,15 @@
 
     <footer class="modal-card-foot">
       <p class="is-pulled-right">
+        <b-tooltip
+          class="be-tooltip"
+          v-if="started"
+          :label="$t('disclaimer')"
+          multilined
+        >
+          {{ $t("disclaimer_title") }} |
+        </b-tooltip>
+
         {{ $t("powered") }}
         <a
           class="be-link"
@@ -223,6 +235,7 @@ export default {
         start_question_opt4: "Support a charitable cause or public benefit",
         start_question_opt5:
           "Provide shared benefit for members through a cooperative association",
+        disclaimer_title: "Disclaimer",
         disclaimer:
           "*Please note that this tool is intended as general guidance and not as legal or financial advice. Please seek the services of a lawyer and accountant before making a decision.",
         powered: "Powered by",
@@ -256,6 +269,7 @@ export default {
           "Support a charitable cause or public benefit (fr)",
         start_question_opt5:
           "Provide shared benefit for members through a cooperative association (fr)",
+        disclaimer_title: "Disclaimer (fr)",
         disclaimer:
           "Please note that this tool is intended as general guidance and not as legal or financial advice. Please seek the services of a lawyer and accountant before making a decision. (fr)",
         powered: "Proposé par",

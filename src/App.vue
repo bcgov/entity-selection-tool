@@ -92,6 +92,15 @@ export default {
 .be-link-button {
   color: #2c5671;
 }
+.be-tooltip {
+  color: #2c5671;
+}
+.b-tooltip.is-top.is-primary:before {
+  border-top: 5px solid #274f6e;
+}
+.be-tooltip.is-primary:after {
+  background-color: #274f6e;
+}
 /* White Content Card */
 .question.box {
   padding: 0.5rem;
