@@ -1,6 +1,6 @@
 <template>
   <div class="columns">
-    <div class="column is-half">
+    <div class="column is-three-fifths">
       <BaseCard class="question box">
         <template v-slot:headertext>
           <h2 class="title be-question-title is-4">

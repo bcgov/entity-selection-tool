@@ -83,7 +83,7 @@
         </template>
       </BaseCard>
     </div>
-    <div v-if="resultsShow" class="column is-half">
+    <div v-if="resultsShow" class="column is-three-fifths">
       <Results
         :data="data"
         :entity-id="bestEntity"
