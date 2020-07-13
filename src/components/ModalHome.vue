@@ -67,9 +67,9 @@
               <p style="margin-bottom: 14px;">{{ $t("intro_3") }}</p>
               <p style="margin-bottom: 14px;">{{ $t("intro_4") }}</p>
               <p style="margin-bottom: 0px;">{{ $t("intro_disclaimer") }}</p>
-              <b-button class="be-form-button" @click="showIntroGate()">
+              <!--  <b-button class="be-form-button" @click="showIntroGate()">
                 {{ $t("start") }}</b-button
-              >
+              > -->
             </div>
             <div v-if="introGate">
               <fieldset class="be-card-content">
@@ -143,13 +143,13 @@
             </div>
           </template>
           <template v-slot:footertext>
-            <!--  <span v-if="!introGate" class="card-footer-item">
+            <span v-if="!introGate" class="card-footer-item">
               <b-button class="be-form-button" @click="showIntroGate()">
                 {{ $t("start") }}</b-button
               >
-            </span> -->
+            </span>
 
-            <section class="be-context">
+            <section v-if="introGate" class="be-context">
               <p>
                 {{ $t("disclaimer") }}
               </p>
@@ -170,12 +170,7 @@
 
     <footer class="modal-card-foot">
       <p class="is-pulled-right">
-        <b-tooltip
-          class="be-tooltip"
-          v-if="started"
-          :label="$t('disclaimer')"
-          multilined
-        >
+        <b-tooltip class="be-tooltip" :label="$t('disclaimer')" multilined>
           {{ $t("disclaimer_title") }} |
         </b-tooltip>
 

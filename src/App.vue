@@ -100,6 +100,7 @@ export default {
 }
 .be-tooltip.is-primary:after {
   background-color: #274f6e;
+  z-index: 55;
 }
 /* White Content Card */
 .question.box {
@@ -339,7 +340,7 @@ em.be-emphasis {
     margin-top: 0rem;
   }
   .summary.box {
-    width: 712px;
+    width: 620px;
     height: 490px;
     z-index: 50;
     position: absolute;
