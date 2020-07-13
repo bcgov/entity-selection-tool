@@ -87,6 +87,7 @@
       <Results
         :data="data"
         :entity-id="bestEntity"
+        :entities-total="entitiesTotal"
         :user-answers="userSelectedAnswer"
         @clicked="restartEntity"
         :lang="locale"
