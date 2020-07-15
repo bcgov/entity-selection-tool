@@ -129,7 +129,7 @@
                   <div class="field">
                     <b-radio
                       type="is-info"
-                      @click.native="showNonProfit()"
+                      @click.native="showNonProfit('n3')"
                       id="cooperative"
                       name="purpose"
                       native-value="cooperative"
@@ -162,6 +162,7 @@
         <NonProfit
           @clicked="restartNonProfit"
           :lang="this.langLocal"
+          :entity-id="this.radioButton"
         ></NonProfit>
       </div>
     </div>
@@ -307,7 +308,8 @@ export default {
       this.started = false;
       this.nonProfit = false;
     },
-    showNonProfit: function() {
+    showNonProfit: function(type) {
+      this.radioButton = type;
       this.nonProfit = true;
     },
     showIntroGate: function() {

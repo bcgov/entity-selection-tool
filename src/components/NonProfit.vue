@@ -145,6 +145,10 @@ export default {
     lang: {
       type: String,
       default: "en"
+    },
+    entityId: {
+      type: String,
+      default: ""
     }
   },
   data: function() {
@@ -167,6 +171,21 @@ export default {
   }, // end created
   mounted: function() {
     this.$i18n.locale = this.langLocal;
+
+    // check if if it's associative , if yes, move to
+
+    if (this.entityId == "n3") {
+      let temp = {};
+      let self = this;
+      let objKeys = Object.keys(this.data);
+      temp["n3"] = this.data["n3"];
+      objKeys.forEach(function(value) {
+        if (value != "n3") {
+          temp[value] = self.data[value];
+        }
+      });
+      this.data = temp;
+    }
   }, // end mounted
 
   methods: {
