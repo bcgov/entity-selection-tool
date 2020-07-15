@@ -63,29 +63,35 @@
           <span class="be-modal-title">{{ $t("results") }}</span>
         </header>
         <section id="printBody" ref="PrintBody" class="be-modal-print-body">
-          <div>
-            <h1 class="subtitle is-3">
-              {{ $t("business_structure", { entity: title }) }}
-            </h1>
-            <div>
-              <p>{{ body }}</p>
+              <h1 class="subtitle is-3">
+                {{ getHeaderTitles(entities) }}
+              </h1>
+          <template v-for="(value, index) in entities">
+            <div v-bind:key="index">
+              <div>
+                <h2 class="subtitle is-4">{{ title(value) }}</h2>
+              </div>
               <br />
+              <div>
+                <p>{{ body(value) }}</p>
+                <br />
+              </div>
+              <div>
+                <h2 class="subtitle is-4">{{ $t("advantages") }}</h2>
+                <ul>
+                  <span v-html="advantages(value)"></span>
+                </ul>
+                <br />
+              </div>
+              <div>
+                <h2 class="subtitle is-4">{{ $t("disadvantages") }}</h2>
+                <ul>
+                  <span v-html="disadvantages(value)"></span>
+                </ul>
+                <br />
+              </div>
             </div>
-            <div>
-              <h2 class="subtitle is-4">{{ $t("advantages") }}</h2>
-              <ul>
-                <span v-html="advantages"></span>
-              </ul>
-              <br />
-            </div>
-            <div>
-              <h2 class="subtitle is-4">{{ $t("disadvantages") }}</h2>
-              <ul>
-                <span v-html="disadvantages"></span>
-              </ul>
-              <br />
-            </div>
-          </div>
+          </template>
           <div>
             <h1 class="subtitle is-3">{{ $t("questions_answers") }}</h1>
             <i18n path="text_answers" tag="h2" class="subtitle is-4">
@@ -128,7 +134,7 @@
             </div>
             <div class="be-context">
               <p>
-                <em>*{{ disclaimer }}</em>
+                <em>*{{ disclaimer() }}</em>
               </p>
               <br />
             </div>
@@ -231,10 +237,11 @@ export default {
         restart: "Restart",
         print_results: "Print/Download",
         print_summaries: "All Summaries",
-        print_result_header: "Suggested Business Entity Result:",
-        results: "Results - Print View",
+        print_result_header: "Suggested Business Entity Result",
+        results: "Business Structures Wizard",
         business_structure:
-          "Your answers indicate that a {entity} is your best match.",
+          "Based on your answers, your best match is {entity} is your best match. | Based on your answers, your best match is  {entity} or {entity2}.",
+
         questions_answers: "Questions/Anwers:",
         bold_italic: "bold and italic",
         text_answers: "Your answers are in {format}.",
@@ -243,7 +250,7 @@ export default {
         print: "Print",
         download: "Download",
         close: "Close",
-        powerby: "Power by BC Registry and BizPaL"
+        powerby: "Power by BizPaL"
       },
       fr: {
         advantages: "Avantages :",
@@ -251,9 +258,9 @@ export default {
         download_name: "resultat-entite",
         restart: "Redémarrer",
         print_results: "Imprimer/Télécharger",
-        print_result_header: "Structure d'entreprise suggérée : ",
+        print_result_header: "Suggested Business Entity Result (FR)",
         print_summaries: "Tous les sommaires",
-        results: "Résultats - Aperçu avant impression",
+        results: "Business Structures Wizard (FR)",
         business_structure:
           "Your answers indicate that a {entity} is your best match. (FR)",
         questions_answers: "Questions/Réponses :",
@@ -264,7 +271,7 @@ export default {
         print: "Imprimer",
         download: "Télécharger",
         close: "Fermer",
-        powerby: "Proposé par BC Registry et PerLE"
+        powerby: "Proposé par PerLE"
       }
     }
   }, // end i18n
@@ -329,6 +336,20 @@ export default {
     disclaimer: function() {
       let data = this.data;
       return data[`disclaimer_${this.langLocal}`] || "";
+    },
+    getHeaderTitles: function(entities) {
+      let entity1Title =
+        entities[this.entitiesId[0]][`title_${this.langLocal}`];
+      if (this.entitiesId.length > 1) {
+        let entity2Title =
+          entities[this.entitiesId[1]][`title_${this.langLocal}`];
+        return this.$tc("business_structure", 2, {
+          entity: entity1Title,
+          entity2: entity2Title
+        });
+      } else {
+        return this.$tc("business_structure", 1, { entity: entity1Title });
+      }
     },
     downloadPDF: function() {
       let today = new Date();
