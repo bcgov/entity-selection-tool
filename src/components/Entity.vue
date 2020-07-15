@@ -305,6 +305,7 @@ export default {
         if (!gotTopEntity) {
           //bestEntitySelectionId = key;
           topEntitiesId.push(key)
+          topEntitiesId.push("e1") // to testing
           gotTopEntity = true;
         }
         sortedEntities[key]= myEntities[key];

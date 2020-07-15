@@ -1,52 +1,54 @@
 <template>
   <div class="columns">
     <div class="column is-three-fifths">
-      <template v-for="(value, index) in entities">
-        <BaseCard class="question box" v-bind:key="index">
-          <template v-slot:headertext>
-            <h2 class="title be-question-title is-4">
-              {{ title(value) }}
-            </h2>
-          </template>
-          <template v-slot:bodytext>
-            <p class="be-results-text">{{ body(value) }}</p>
-            <div>
-              <h3 class="subtitle be-results-subtitle is-5">
-                {{ $t("advantages") }}
-              </h3>
-              <ul class="be-results-text">
-                <span v-html="advantages(value)"></span>
-              </ul>
+      <BaseCard class="question box">
+        <template v-slot:headertext>
+          <h2 class="title be-question-title is-4">
+            {{ getHeaderTitles(entities) }}
+          </h2>
+        </template>
+        <template v-slot:bodytext>
+          <template v-for="(value, index) in entities">
+            <div v-bind:key="index">
+              <p class="be-results-text">{{ body(value) }}</p>
+              <div>
+                <h3 class="subtitle be-results-subtitle is-5">
+                  {{ $t("advantages") }}
+                </h3>
+                <ul class="be-results-text">
+                  <span v-html="advantages(value)"></span>
+                </ul>
+              </div>
+              <br />
+              <div>
+                <h3 class="subtitle be-results-subtitle is-5">
+                  {{ $t("disadvantages") }}
+                </h3>
+                <ul class="be-results-text">
+                  <span v-html="disadvantages(value)"></span>
+                </ul>
+              </div>
             </div>
-            <br />
-            <div>
-              <h3 class="subtitle be-results-subtitle is-5">
-                {{ $t("disadvantages") }}
-              </h3>
-              <ul class="be-results-text">
-                <span v-html="disadvantages(value)"></span>
-              </ul>
-            </div>
           </template>
-          <template v-slot:footertext>
-            <span class="card-footer-item">
-              <b-button class="be-form-button " @click="onClickButton">{{
-                $t("restart")
-              }}</b-button>
-            </span>
-            <span class="card-footer-item">
-              <b-button class="be-form-button" @click="printEntity">
-                {{ $t("print_results") }}
-              </b-button>
-            </span>
-            <span class="card-footer-item">
-              <b-button class="be-form-button" @click="printSummaries">
-                {{ $t("print_summaries") }}
-              </b-button>
-            </span>
-          </template>
-        </BaseCard>
-      </template>
+        </template>
+        <template v-slot:footertext>
+          <span class="card-footer-item">
+            <b-button class="be-form-button " @click="onClickButton">{{
+              $t("restart")
+            }}</b-button>
+          </span>
+          <span class="card-footer-item">
+            <b-button class="be-form-button" @click="printEntity">
+              {{ $t("print_results") }}
+            </b-button>
+          </span>
+          <span class="card-footer-item">
+            <b-button class="be-form-button" @click="printSummaries">
+              {{ $t("print_summaries") }}
+            </b-button>
+          </span>
+        </template>
+      </BaseCard>
     </div>
     <div class="column is-half"></div>
     <!-- modal for results print view -->
@@ -63,9 +65,9 @@
           <span class="be-modal-title">{{ $t("results") }}</span>
         </header>
         <section id="printBody" ref="PrintBody" class="be-modal-print-body">
-              <h1 class="subtitle is-3">
-                {{ getHeaderTitles(entities) }}
-              </h1>
+          <h1 class="subtitle is-3">
+            {{ getHeaderTitles(entities) }}
+          </h1>
           <template v-for="(value, index) in entities">
             <div v-bind:key="index">
               <div>
@@ -240,7 +242,7 @@ export default {
         print_result_header: "Suggested Business Entity Result",
         results: "Business Structures Wizard",
         business_structure:
-          "Based on your answers, your best match is {entity} is your best match. | Based on your answers, your best match is  {entity} or {entity2}.",
+          "Based on your answers, your best match is {entity}. | Based on your answers, your best match is  {entity} or {entity2}.",
 
         questions_answers: "Questions/Anwers:",
         bold_italic: "bold and italic",
@@ -249,7 +251,7 @@ export default {
         title: "Entity Type Long Descriptions (For-Profit)",
         print: "Print",
         download: "Download",
-        close: "Close",
+        close: "Back",
         powerby: "Power by BizPaL"
       },
       fr: {
@@ -270,7 +272,7 @@ export default {
         title: "Entity Type Long Descriptions (For-Profit) FR",
         print: "Imprimer",
         download: "Télécharger",
-        close: "Fermer",
+        close: "Arrière",
         powerby: "Proposé par PerLE"
       }
     }
