@@ -86,7 +86,7 @@
     <div v-if="resultsShow" class="column is-three-fifths">
       <Results
         :data="data"
-        :entity-id="bestEntity"
+        :entities-id="bestEntitiesId"
         :entities-total="entitiesTotal"
         :user-answers="userSelectedAnswer"
         @clicked="restartEntity"
@@ -211,7 +211,7 @@ export default {
       showFinishButton: false,
       showPreviousButton: false,
       resultsShow: false,
-      bestEntity: "",
+      bestEntitiesId: [],
       // this will be dynamicallly created
       userSelectedAnswer: {},
       entitiesTotal: {},
@@ -298,16 +298,18 @@ export default {
         return myEntities[b]["total"]-myEntities[a]["total"]
       });
       let sortedEntities = {};
+      let topEntitiesId = [];
       let gotTopEntity = false;
-      let bestEntitySelectionId = "";
+      //let bestEntitySelectionId = "";
       keysSorted.map(function(key) {
         if (!gotTopEntity) {
-          bestEntitySelectionId = key;
+          //bestEntitySelectionId = key;
+          topEntitiesId.push(key)
           gotTopEntity = true;
         }
         sortedEntities[key]= myEntities[key];
       });
-      this.bestEntity = bestEntitySelectionId;
+      this.bestEntitiesId = topEntitiesId;
       this.entitiesTotal = sortedEntities;
     }, // end showResults
     // Advances to the next question

@@ -1,50 +1,52 @@
 <template>
   <div class="columns">
     <div class="column is-three-fifths">
-      <BaseCard class="question box">
-        <template v-slot:headertext>
-          <h2 class="title be-question-title is-4">
-            {{ title }}
-          </h2>
-        </template>
-        <template v-slot:bodytext>
-          <p class="be-results-text">{{ body }}</p>
-          <div>
-            <h3 class="subtitle be-results-subtitle is-5">
-              {{ $t("advantages") }}
-            </h3>
-            <ul class="be-results-text">
-              <span v-html="advantages"></span>
-            </ul>
-          </div>
-          <br />
-          <div>
-            <h3 class="subtitle be-results-subtitle is-5">
-              {{ $t("disadvantages") }}
-            </h3>
-            <ul class="be-results-text">
-              <span v-html="disadvantages"></span>
-            </ul>
-          </div>
-        </template>
-        <template v-slot:footertext>
-          <span class="card-footer-item">
-            <b-button class="be-form-button " @click="onClickButton">{{
-              $t("restart")
-            }}</b-button>
-          </span>
-          <span class="card-footer-item">
-            <b-button class="be-form-button" @click="printEntity">
-              {{ $t("print_results") }}
-            </b-button>
-          </span>
-          <span class="card-footer-item">
-            <b-button class="be-form-button" @click="printSummaries">
-              {{ $t("print_summaries") }}
-            </b-button>
-          </span>
-        </template>
-      </BaseCard>
+      <template v-for="(value, index) in entities">
+        <BaseCard class="question box" v-bind:key="index">
+          <template v-slot:headertext>
+            <h2 class="title be-question-title is-4">
+              {{ title(value) }}
+            </h2>
+          </template>
+          <template v-slot:bodytext>
+            <p class="be-results-text">{{ body(value) }}</p>
+            <div>
+              <h3 class="subtitle be-results-subtitle is-5">
+                {{ $t("advantages") }}
+              </h3>
+              <ul class="be-results-text">
+                <span v-html="advantages(value)"></span>
+              </ul>
+            </div>
+            <br />
+            <div>
+              <h3 class="subtitle be-results-subtitle is-5">
+                {{ $t("disadvantages") }}
+              </h3>
+              <ul class="be-results-text">
+                <span v-html="disadvantages(value)"></span>
+              </ul>
+            </div>
+          </template>
+          <template v-slot:footertext>
+            <span class="card-footer-item">
+              <b-button class="be-form-button " @click="onClickButton">{{
+                $t("restart")
+              }}</b-button>
+            </span>
+            <span class="card-footer-item">
+              <b-button class="be-form-button" @click="printEntity">
+                {{ $t("print_results") }}
+              </b-button>
+            </span>
+            <span class="card-footer-item">
+              <b-button class="be-form-button" @click="printSummaries">
+                {{ $t("print_summaries") }}
+              </b-button>
+            </span>
+          </template>
+        </BaseCard>
+      </template>
     </div>
     <div class="column is-half"></div>
     <!-- modal for results print view -->
@@ -268,7 +270,7 @@ export default {
   }, // end i18n
   props: {
     data: Object,
-    entityId: String,
+    entitiesId: Array,
     userAnswers: Object,
     entitiesTotal: Object,
     lang: {
@@ -280,6 +282,7 @@ export default {
     return {
       entity: {},
       langLocal: this.lang,
+      entities: {},
       isCardModalActive: false,
       isSummariesModalActive: false,
       canCancel: false,
@@ -292,7 +295,16 @@ export default {
   }, // end data
   created: function() {
     // get top Entity from data
-    this.entity = this.data.entities[this.entityId] || {};
+    //this.entity = this.data.entities[this.entityId] || {};
+
+    let temp = {};
+    let self = this;
+    //let objKeys = Object.keys(this.entitiesId);
+
+    this.entitiesId.forEach(function(value) {
+      temp[value] = self.data.entities[value];
+    });
+    this.entities = temp;
   }, // end created
   mounted: function() {
     this.$i18n.locale = this.langLocal;
@@ -300,25 +312,24 @@ export default {
     // send event for Top Entity
     this.$emit("updateResult", this.entity[`title_${this.langLocal}`] || "");
   }, // end mounted
-  computed: {
-    title: function() {
-      return this.entity[`title_${this.langLocal}`] || "N/A";
+  computed: {}, // end computed
+  methods: {
+    title: function(entity) {
+      return entity[`title_${this.langLocal}`] || "N/A";
     },
-    body: function() {
-      return this.entity[`summary_${this.langLocal}`] || "N/A";
+    body: function(entity) {
+      return entity[`summary_${this.langLocal}`] || "N/A";
     },
-    advantages: function() {
-      return this.entity[`advantage_${this.langLocal}`] || "N/A";
+    advantages: function(entity) {
+      return entity[`advantage_${this.langLocal}`] || "N/A";
     },
-    disadvantages: function() {
-      return this.entity[`disadvantage_${this.langLocal}`] || "N/A";
+    disadvantages: function(entity) {
+      return entity[`disadvantage_${this.langLocal}`] || "N/A";
     },
     disclaimer: function() {
       let data = this.data;
       return data[`disclaimer_${this.langLocal}`] || "";
-    }
-  }, // end computed
-  methods: {
+    },
     downloadPDF: function() {
       let today = new Date();
       let date =
