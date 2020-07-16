@@ -143,6 +143,11 @@ export default {
   color: #2c5671;
   font-size: 14px;
 }
+.be-disclaimer {
+  padding-top: 4px;
+  color: #2c5671;
+  font-size: 13px;
+}
 .be-results-text {
   font-size: 14px;
 }
@@ -344,6 +349,16 @@ em.be-emphasis {
   }
   .summary.box {
     width: 620px;
+    height: 490px;
+    z-index: 50;
+    position: absolute;
+    top: 82px;
+    left: 10px;
+    padding: 20px;
+    margin-top: 0rem;
+  }
+  .welcome.box {
+    width: 712px;
     height: 490px;
     z-index: 50;
     position: absolute;

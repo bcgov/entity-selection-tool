@@ -56,7 +56,7 @@
       <div v-if="!started && !nonProfit">
         <BaseCard class="summary box">
           <template v-slot:headertext>
-            <h2 v-if="!introGate" class="title be-question-title is-4">
+            <h2 v-if="welcomeGate" class="title be-question-title is-4">
               {{ $t("welcome") }}
             </h2></template
           >
@@ -66,10 +66,10 @@
               <p>{{ $t("intro_2") }}</p>
               <p>{{ $t("intro_3") }}</p>
               <p>{{ $t("intro_4") }}</p>
-              <p style="margin-bottom: 0px;">{{ $t("intro_disclaimer") }}</p>
-              <!--  <b-button class="be-form-button" @click="showIntroGate()">
+              <!--  <p style="margin-bottom: 0px;">{{ $t("intro_disclaimer") }}</p> -->
+              <b-button class="be-form-button" @click="showIntroGate()">
                 {{ $t("start") }}</b-button
-              > -->
+              >
             </div>
             <div v-if="introGate">
               <fieldset class="be-card-content">
@@ -143,14 +143,14 @@
             </div>
           </template>
           <template v-slot:footertext>
-            <span v-if="!introGate" class="card-footer-item">
+            <!--  <span v-if="!introGate" class="card-footer-item">
               <b-button class="be-form-button" @click="showIntroGate()">
                 {{ $t("start") }}</b-button
               >
-            </span>
+            </span> -->
 
-            <section v-if="introGate" class="be-context">
-              <p>*{{ $t("disclaimer") }}</p>
+            <section v-if="welcomeGate" class="be-disclaimer">
+              <p>*{{ $t("disclaimer") }} {{ $t("intro_disclaimer") }}</p>
             </section>
           </template>
         </BaseCard>
@@ -169,7 +169,12 @@
 
     <footer class="modal-card-foot">
       <p class="is-pulled-right">
-        <b-tooltip class="be-tooltip" :label="$t('disclaimer')" multilined>
+        <b-tooltip
+          v-if="!welcomeGate"
+          class="be-tooltip"
+          :label="$t('disclaimer')"
+          multilined
+        >
           {{ $t("disclaimer_title") }} |
         </b-tooltip>
 
@@ -243,7 +248,7 @@ export default {
           "This tool helps you decide among the most common types: proprietorships, partnerships, corporations, benefit companies, co-operatives, and non-profit societies.",
         intro_4: "Pick the answers that best fit your situation.",
         intro_disclaimer:
-          "Please note that no personal information will be requested or collected through the use of this tool."
+          "No personal information will be requested or collected through the use of this tool."
       },
       fr: {
         business_structures: "Structures d'entreprise",
@@ -277,7 +282,7 @@ export default {
           "This tool helps you decide among the most common types: proprietorships, partnerships, corporations, benefit companies, co-operatives, and non-profit societies. FR",
         intro_4: "Pick the answers that best fit your situation.FR",
         intro_disclaimer:
-          "Please note that no personal information will be requested or collected through the use of this tool. FR"
+          "No personal information will be requested or collected through the use of this tool. FR"
       }
     }
   }, // end i18n
@@ -293,7 +298,8 @@ export default {
       started: false,
       nonProfit: false,
       langLocal: this.lang,
-      introGate: false
+      introGate: false,
+      welcomeGate: true
     };
   },
   mounted: function() {
@@ -314,6 +320,7 @@ export default {
     },
     showIntroGate: function() {
       this.introGate = true;
+      this.welcomeGate = false;
     },
     // restart from non-profit card
     restartNonProfit(value) {
