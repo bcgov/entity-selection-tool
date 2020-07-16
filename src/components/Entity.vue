@@ -118,7 +118,7 @@
                 >
                   <em class="be-emphasis"
                     >{{ data.entities[index][`title_${locale}`] }}
-                    {{ displayPercentage(entitiesTotal[index].total) }}%</em
+                    {{ displayPercentage(entitiesTotal[index].total) }}</em
                   >
                   <font-awesome-icon
                     class="be-carat-icon is-pulled-right"

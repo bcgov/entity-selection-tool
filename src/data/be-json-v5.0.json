@@ -187,8 +187,8 @@
                 "category_name_fr":"Number of owners(FR)",
                 "question_en":"How many owners will there be?",
                 "question_fr":"How many owners will there be?(FR)",
-                "context_en":"The number determines your organization type options. Sole proprietorships have only one owner, and partnerships must have at least 2 owners, while a corporation can have any number of owners.",
-                "context_fr":"The number determines your organization type options. Sole proprietorships have only one owner, and partnerships must have at least 2 owners, while a corporation can have any number of owners.(FR)",
+                "context_en":"The number determines your organization type options. Sole proprietorships have only one owner, and partnerships must have at least two owners, while a corporation can have any number of owners.",
+                "context_fr":"The number determines your organization type options. Sole proprietorships have only one owner, and partnerships must have at least two owners, while a corporation can have any number of owners.(FR)",
                 "answers":{
                     "a1":{
                         "id":"a1",
@@ -374,13 +374,13 @@
                 "category_name_fr":"Setup/Admin Costs(FR)",
                 "question_en":"How do you feel about setup and administrative costs for the first few years?",
                 "question_fr":"How do you feel about setup and administrative costs for the first few years?(FR)",
-                "context_en":"These costs include legal fees, accounting fees, tax return preparation, bookkeeping, and provincial and federal filling fees. Proprietorships and general partnerships have the lowest setup and ongoing costs. Other entity types are more costly to set up, and more costly to maintain.",
-                "context_fr":"These costs include legal fees, accounting fees, tax return preparation, bookkeeping, and provincial and federal filling fees. Proprietorships and general partnerships have the lowest setup and ongoing costs. Other entity types are more costly to set up, and more costly to maintain.(FR)",
+                "context_en":"These costs include legal fees, accounting fees, tax return preparation, bookkeeping, and provincial and federal filling fees. Proprietorships and general partnerships have the lowest setup and ongoing costs. Other business structures are more costly to set up, and more costly to maintain.",
+                "context_fr":"These costs include legal fees, accounting fees, tax return preparation, bookkeeping, and provincial and federal filling fees. Proprietorships and general partnerships have the lowest setup and ongoing costs. Other business structures types are more costly to set up, and more costly to maintain.(FR)",
                 "answers":{
                     "a1":{
                         "id":"a1",
-                        "title_en":"Not concerned, willing to pay what's necessary to get the right entity type",
-                        "title_fr":"Not concerned, willing to pay what's necessary to get the right entity type(FR)",
+                        "title_en":"Not concerned, willing to pay what's necessary to get the right business structures",
+                        "title_fr":"Not concerned, willing to pay what's necessary to get the right business structures(FR)",
 					    "impact": {
 					        "e1":3,
 					        "e2":3,
@@ -533,8 +533,8 @@
                 "category_name_fr":"Name Protection(FR)",
                 "question_en":"How important is protecting your organization's name?",
                 "question_fr":"How important is protecting your organization's name?(FR)",
-                "context_en":"Incorporation provides a higher level of name protection than other entity types. If you are a sole proprietorship - or partnership - and someone incorporates using your business name, they will have the rights to the name. Sole proprietorships and partnerships have no name protection in this area.",
-                "context_fr":"Incorporation provides a higher level of name protection than other entity types. If you are a sole proprietorship - or partnership - and someone incorporates using your business name, they will have the rights to the name. Sole proprietorships and partnerships have no name protection in this area.(FR)",
+                "context_en":"Incorporation provides a higher level of name protection than other business structures. If you are a sole proprietorship - or partnership - and someone incorporates using your business name, they will have the rights to the name. Sole proprietorships and partnerships have no name protection in this area.",
+                "context_fr":"Incorporation provides a higher level of name protection than other business structures. If you are a sole proprietorship - or partnership - and someone incorporates using your business name, they will have the rights to the name. Sole proprietorships and partnerships have no name protection in this area.(FR)",
                 "answers":{
                     "a1":{
                         "id":"a1",
@@ -586,7 +586,7 @@
 		        "id": "e1",
 		        "title_en":"Sole Proprietorship",
 		        "title_fr":"Sole Proprietorship (FR)",
-		        "summary_en":"A sole proprietorship is the simplest form of a business, in which you and your company are considered a single entity. As a sole proprietor, you do whatever is required for successful operation of your business. You make decisions, receive all profits, and claim all losses. Although you may hire employees to assist you, you usually manage the business yourself. Among its advantages a sole proprietorship is simple and inexpensive to set up, and simple from a tax standpoint—it’s part of your personal taxes. There are disadvantages to a sole proprietorship. Most importantly, you have unlimited personal liability—you are personally responsible for the business’ financial and legal liabilities. Profits will be taxed at your personal income tax rate, which is typically higher than a corporate tax rate. And if you need to raise capital you will need to rely solely on your personal resources and credit-worthiness.",
+		        "summary_en":"A sole proprietorship is the simplest form of a business, in which you and your company are considered a single business structure. As a sole proprietor, you do whatever is required for successful operation of your business. You make decisions, receive all profits, and claim all losses. Although you may hire employees to assist you, you usually manage the business yourself. Among its advantages a sole proprietorship is simple and inexpensive to set up, and simple from a tax standpoint—it’s part of your personal taxes. There are disadvantages to a sole proprietorship. Most importantly, you have unlimited personal liability—you are personally responsible for the business’ financial and legal liabilities. Profits will be taxed at your personal income tax rate, which is typically higher than a corporate tax rate. And if you need to raise capital you will need to rely solely on your personal resources and credit-worthiness.",
                 "summary_fr":"Summary1(FR)",
                 "advantage_en":"<li>Easy and inexpensive to register, direct control of decision making, minimal working capital required for start-up, all profits go to you directly.</li>",
                 "advantage_fr":"",
@@ -597,7 +597,7 @@
                         "id":"s1",
                         "header_en":"What is it?",
                         "header_fr":"What is it? FR",
-                        "subtitle_en":"A sole proprietorship is the simplest form of a business, in which you and the company are considered a single entity. As a sole proprietor, you do whatever is required for successful operation of your business. You make decisions, receive all profits, and claim all losses. Although you may hire employees to assist you, you usually manage the business yourself.",
+                        "subtitle_en":"A sole proprietorship is the simplest form of a business, in which you and the company are considered a single business structure. As a sole proprietor, you do whatever is required for successful operation of your business. You make decisions, receive all profits, and claim all losses. Although you may hire employees to assist you, you usually manage the business yourself.",
                         "subtitle_fr":""
                     },
                     "s2":{
@@ -889,7 +889,7 @@
 		        "id": "e6",
 		        "title_en":"BC Corporation",
 		        "title_fr":"BC Corporation (FR)",
-		        "summary_en":"A BC corporation is a legal entity, separate and distinct from its owners. When a company is incorporated, it acquires many of the legal powers of an individual. It can, for example, own real estate, hold investments, acquire assets, go into debt, enter into contracts, sue or be sued. If incorporation makes sense, and you do not have plans for employees or locations outside the province, incorporating as a BC corporation is probably your best choice. There are several advantages to incorporation: as a shareholder your liability is limited; corporations generally benefit from lower tax rates than the rates applied to sole proprietors or partners; it's easier to raise capital for a corporation than for other entity types; and there are tax advantages. There are some disadvantages as well: corporations are more closely regulated than sole proprietorships and partnerships; losses in a corporation cannot be claimed by shareholders and can only be offset against earnings in the corporation; and a corporation is more complex and costly to set up and run than a sole proprietorship or partnership.",
+		        "summary_en":"A BC corporation is a legal business structure, separate and distinct from its owners. When a company is incorporated, it acquires many of the legal powers of an individual. It can, for example, own real estate, hold investments, acquire assets, go into debt, enter into contracts, sue or be sued. If incorporation makes sense, and you do not have plans for employees or locations outside the province, incorporating as a BC corporation is probably your best choice. There are several advantages to incorporation: as a shareholder your liability is limited; corporations generally benefit from lower tax rates than the rates applied to sole proprietors or partners; it's easier to raise capital for a corporation than for other business structures; and there are tax advantages. There are some disadvantages as well: corporations are more closely regulated than sole proprietorships and partnerships; losses in a corporation cannot be claimed by shareholders and can only be offset against earnings in the corporation; and a corporation is more complex and costly to set up and run than a sole proprietorship or partnership.",
                 "summary_fr":"Summary5(FR) ",
                 "advantage_en":"<li>Limited liability, ownership is transferable, easier to raise capital than it might be with other business structures.</li>",
                 "advantage_fr":"",
@@ -900,7 +900,7 @@
                         "id":"s1",
                         "header_en":"What is it?",
                         "header_fr":"What is it? FR",
-                        "subtitle_en":"A BC corporation is a legal entity, separate and distinct from its owners. When a company is incorporated, it acquires many of the legal powers of an individual. It can, for example, own real estate, hold investments, acquire assets, go into debt, enter into contracts, sue or be sued. If incorporation makes sense for you, and you do not have plans for employees or locations outside the province, incorporating as a BC corporation is probably your best choice.",
+                        "subtitle_en":"A BC corporation is a legal business structure, separate and distinct from its owners. When a company is incorporated, it acquires many of the legal powers of an individual. It can, for example, own real estate, hold investments, acquire assets, go into debt, enter into contracts, sue or be sued. If incorporation makes sense for you, and you do not have plans for employees or locations outside the province, incorporating as a BC corporation is probably your best choice.",
                         "subtitle_fr":""
                     },
                     "s2":{
@@ -935,7 +935,7 @@
                         "id":"s6",
                         "header_en":"How long can a corporation exist?",
                         "header_fr":"How long can a corporation exist? FR",
-                        "subtitle_en":"Because the corporation is a separate legal entity, its existence does not depend on any shareholder’s continued ownership. A corporation will continue to exist even if its shareholders die or leave the business, or if the ownership of the business changes. A corporation therefore has a potentially unlimited life expectancy.",
+                        "subtitle_en":"Because the corporation is a separate legal business structure, its existence does not depend on any shareholder’s continued ownership. A corporation will continue to exist even if its shareholders die or leave the business, or if the ownership of the business changes. A corporation therefore has a potentially unlimited life expectancy.",
                         "subtitle_fr":""
                     },
                     "s7":{
@@ -949,7 +949,7 @@
                         "id":"s8",
                         "header_en":"What are the main advantages of a corporation?",
                         "header_fr":"What are the main advantages of a corporation? FR",
-                        "subtitle_en":"There are several:<br />&ndash; as a shareholder your liability is limited;<br />&ndash; corporations generally benefit from lower tax rates than the rates applied to sole proprietors or partners;<br />&ndash; corporations provide tax advantages like income splitting, tax deferral, small business tax credits and capital gains exemption;<br />&ndash; it’s easier to raise capital for a corporation than for a proprietorship, partnership and other entity types;<br />&ndash; corporate ownership is easily transferable; and<br />&ndash; a corporation enjoys protection of its name.",
+                        "subtitle_en":"There are several:<br />&ndash; as a shareholder your liability is limited;<br />&ndash; corporations generally benefit from lower tax rates than the rates applied to sole proprietors or partners;<br />&ndash; corporations provide tax advantages like income splitting, tax deferral, small business tax credits and capital gains exemption;<br />&ndash; it’s easier to raise capital for a corporation than for a proprietorship, partnership and other business structures;<br />&ndash; corporate ownership is easily transferable; and<br />&ndash; a corporation enjoys protection of its name.",
                         "subtitle_fr":""
                     },
                     "s9":{
@@ -965,7 +965,7 @@
 		        "id": "e7",
 		        "title_en":"Federal Corporation",
 		        "title_fr":"Federal Corporation (FR)",
-		        "summary_en":"A federal corporation is a legal entity, separate and distinct from its owners. When a company is incorporated, it acquires many of the legal powers of an individual. It can, for example, own real estate, hold investments, acquire assets, go into debt, enter into contracts, sue or be sued. If incorporation makes sense, and you expect to have employees or locations outside British Columbia, incorporating federally is probably your best choice. There are several advantages to incorporation: as a shareholder your liability is limited; corporations generally benefit from lower tax rates than the rates applied to sole proprietors or partners; it's easier to raise capital for a corporation than for other entity types; and there are tax advantages. There are some disadvantages as well: corporations are more closely regulated than sole proprietorships and partnerships; losses in a corporation cannot be claimed by shareholders and can only be offset against earnings in the corporation; and a corporation is more complex and costly to set up and run than a sole proprietorship or partnership.",
+		        "summary_en":"A federal corporation is a legal business structure, separate and distinct from its owners. When a company is incorporated, it acquires many of the legal powers of an individual. It can, for example, own real estate, hold investments, acquire assets, go into debt, enter into contracts, sue or be sued. If incorporation makes sense, and you expect to have employees or locations outside British Columbia, incorporating federally is probably your best choice. There are several advantages to incorporation: as a shareholder your liability is limited; corporations generally benefit from lower tax rates than the rates applied to sole proprietors or partners; it's easier to raise capital for a corporation than for other business structures; and there are tax advantages. There are some disadvantages as well: corporations are more closely regulated than sole proprietorships and partnerships; losses in a corporation cannot be claimed by shareholders and can only be offset against earnings in the corporation; and a corporation is more complex and costly to set up and run than a sole proprietorship or partnership.",
                 "summary_fr":"Summary6(FR) ",
                 "advantage_en":"<li>Limited liability, ownership is transferable, easier to raise capital than it might be with other business structures.</li>",
                 "advantage_fr":"",
@@ -976,7 +976,7 @@
                         "id":"s1",
                         "header_en":"What is it?",
                         "header_fr":"What is it? FR",
-                        "subtitle_en":"A federal corporation is a legal entity, separate and distinct from its owners. When a company is incorporated, it acquires many of the legal powers of an individual. It can, for example, own real estate, hold investments, acquire assets, go into debt, enter into contracts, sue or be sued. If incorporation makes sense for you, and you expect to have employees or locations outside British Columbia, incorporating as a federal corporation is probably your best choice.",
+                        "subtitle_en":"A federal corporation is a legal business structure, separate and distinct from its owners. When a company is incorporated, it acquires many of the legal powers of an individual. It can, for example, own real estate, hold investments, acquire assets, go into debt, enter into contracts, sue or be sued. If incorporation makes sense for you, and you expect to have employees or locations outside British Columbia, incorporating as a federal corporation is probably your best choice.",
                         "subtitle_fr":""
                     },
                     "s2":{
@@ -1011,7 +1011,7 @@
                         "id":"s6",
                         "header_en":"How long can a corporation exist?",
                         "header_fr":"How long can a corporation exist? FR",
-                        "subtitle_en":"Because the corporation is a separate legal entity, its existence does not depend on any shareholder’s continued ownership. A corporation will continue to exist even if its shareholders die or leave the business, or if the ownership of the business changes. A corporation therefore has a potentially unlimited life expectancy.",
+                        "subtitle_en":"Because the corporation is a separate legal business structure, its existence does not depend on any shareholder’s continued ownership. A corporation will continue to exist even if its shareholders die or leave the business, or if the ownership of the business changes. A corporation therefore has a potentially unlimited life expectancy.",
                         "subtitle_fr":""
                     },
                     "s7":{
@@ -1025,7 +1025,7 @@
                         "id":"s8",
                         "header_en":"What are the main advantages of a corporation?",
                         "header_fr":"What are the main advantages of a corporation? FR",
-                        "subtitle_en":"There are several:<br />&ndash; as a shareholder your liability is limited;<br />&ndash; corporations generally benefit from lower tax rates than the rates applied to sole proprietors or partners;<br />&ndash; corporations provide tax advantages like income splitting, tax deferral, small business tax credits and capital gains exemption;<br />&ndash; it’s easier to raise capital for a corporation than for a proprietorship, partnership and other entity types;<br />&ndash; corporate ownership is easily transferable; and<br />&ndash; a corporation enjoys protection of its name.",
+                        "subtitle_en":"There are several:<br />&ndash; as a shareholder your liability is limited;<br />&ndash; corporations generally benefit from lower tax rates than the rates applied to sole proprietors or partners;<br />&ndash; corporations provide tax advantages like income splitting, tax deferral, small business tax credits and capital gains exemption;<br />&ndash; it’s easier to raise capital for a corporation than for a proprietorship, partnership and other business structures;<br />&ndash; corporate ownership is easily transferable; and<br />&ndash; a corporation enjoys protection of its name.",
                         "subtitle_fr":""
                     },
                     "s9":{
@@ -1066,7 +1066,7 @@
             "id": "n3",
             "title_en":"Cooperative Association:",
             "title_fr":"Cooperative Association :(FR)",
-            "summary_en":"In B.C., a cooperative association (co-op) is an incorporated membership organization owned and operated by the people who use and benefit from its services. Co-ops create jobs and support communities by offering a variety of products and services including food, housing, and health care. Once incorporated, a co-op gains independent legal status separate from its members. As a legal entity, a co-op can enter into contracts or take on debt in its own name with legal rights and obligations similar to those of an individual. Incorporating limits the liability of a co-op's members. There are several advantages to a co-op structure: members provide multiple sources of investment capital; managerial and operational duties are shared; there are potential cost savings for members; and a co-op can build a sense of community through shared purpose. The main disadvantages are that it is often more complex and costly to set-up than a corporation, decision-making can sometimes be slow or challenging, and it can be difficult to raise large amounts of capital.",
+            "summary_en":"In B.C., a cooperative association (co-op) is an incorporated membership organization owned and operated by the people who use and benefit from its services. Co-ops create jobs and support communities by offering a variety of products and services including food, housing, and health care. Once incorporated, a co-op gains independent legal status separate from its members. As a legal business structure, a co-op can enter into contracts or take on debt in its own name with legal rights and obligations similar to those of an individual. Incorporating limits the liability of a co-op's members. There are several advantages to a co-op structure: members provide multiple sources of investment capital; managerial and operational duties are shared; there are potential cost savings for members; and a co-op can build a sense of community through shared purpose. The main disadvantages are that it is often more complex and costly to set-up than a corporation, decision-making can sometimes be slow or challenging, and it can be difficult to raise large amounts of capital.",
             "summary_fr":" Summary1(FR)",
             "advantage_en":"<li></li>",
             "advantage_fr":"",
