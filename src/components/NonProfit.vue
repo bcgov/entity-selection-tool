@@ -25,12 +25,8 @@
           </span>
           <!-- disabled until there are non-profit results to display -->
           <span class="card-footer-item">
-            <b-button
-              class="be-form-button"
-              disabled="true"
-              @click="printEntity"
-            >
-              {{ $t("print_results") }}
+            <b-button class="be-form-button" @click="onClickButton">
+              {{ $t("previous") }}
             </b-button>
           </span>
           <span class="card-footer-item">
@@ -123,6 +119,7 @@ export default {
         download_name: "non-profit-entities",
         header_text: "Non Profit Summary Page",
         restart: "Restart",
+        previous: "Previous",
         print: "Print",
         print_results: "Results",
         print_summaries: "All Summaries",
@@ -134,6 +131,7 @@ export default {
         download_name: "non-profit-entities",
         header_text: "Non Profit Summary Page (fr)",
         restart: "Redémarrer",
+        previous: "Précédent",
         print: "Imprimer",
         print_results: "Les résultats",
         print_summaries: "Tous les sommaires",
