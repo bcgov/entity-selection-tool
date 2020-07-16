@@ -299,16 +299,28 @@ export default {
       });
       let sortedEntities = {};
       let topEntitiesId = [];
+      let topEntitiesTotal = [];
       let gotTopEntity = false;
+      let iteration = 1;
       //let bestEntitySelectionId = "";
       keysSorted.map(function(key) {
         if (!gotTopEntity) {
           //bestEntitySelectionId = key;
           topEntitiesId.push(key)
-          topEntitiesId.push("e1") // to testing
+          //topEntitiesId.push("e1") // to testing
+          topEntitiesTotal.push(myEntities[key]["total"])
           gotTopEntity = true;
         }
         sortedEntities[key]= myEntities[key];
+        //check if we have tie for top entity suggestion
+        if(iteration > 1){
+               if(topEntitiesTotal.pop() == myEntities[key]["total"]){
+                  topEntitiesId.push(key);
+
+               }
+        }
+         iteration++;
+         
       });
       this.bestEntitiesId = topEntitiesId;
       this.entitiesTotal = sortedEntities;

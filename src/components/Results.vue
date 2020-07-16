@@ -10,6 +10,11 @@
         <template v-slot:bodytext>
           <template v-for="(value, index) in entities">
             <div v-bind:key="index">
+              <div v-if="entitiesId.length > 1">
+                <h3 class="subtitle be-results-subtitle is-5">
+                  {{ title(value) }}
+                </h3>
+              </div>
               <p class="be-results-text">{{ body(value) }}</p>
               <div>
                 <h3 class="subtitle be-results-subtitle is-5">
@@ -28,6 +33,7 @@
                   <span v-html="disadvantages(value)"></span>
                 </ul>
               </div>
+              <br />
             </div>
           </template>
         </template>
@@ -70,7 +76,7 @@
           </h1>
           <template v-for="(value, index) in entities">
             <div v-bind:key="index">
-              <div>
+              <div v-if="entitiesId.length > 1">
                 <h2 class="subtitle is-4">{{ title(value) }}</h2>
               </div>
               <br />
