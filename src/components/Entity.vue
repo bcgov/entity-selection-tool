@@ -364,6 +364,7 @@ export default {
     //Restarts business entity tool
     restartEntity: function(value) {
       this.$parent.started = value;
+      this.$parent.welcomeGate = true;
     },
     displayPercentage: function(value) {
       let displayValue = value;
