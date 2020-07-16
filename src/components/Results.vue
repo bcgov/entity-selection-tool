@@ -3,40 +3,65 @@
     <div class="column is-three-fifths">
       <BaseCard class="question box">
         <template v-slot:headertext>
-          <h2 class="title be-question-title is-4">
+          <h2 v-if="!nextSteps" class="title be-question-title is-4">
             {{ getHeaderTitles(entities) }}
+          </h2>
+          <h2 v-if="nextSteps" class="title be-question-title is-4">
+            {{ $t("next_steps") }}
           </h2>
         </template>
         <template v-slot:bodytext>
-          <template v-for="(value, index) in entities">
-            <div v-bind:key="index">
-              <div v-if="entitiesId.length > 1">
-                <h3 class="subtitle be-results-subtitle is-5">
-                  {{ title(value) }}
-                </h3>
+          <div v-if="!nextSteps">
+            <template v-for="(value, index) in entities">
+              <div v-bind:key="index">
+                <div v-if="entitiesId.length > 1">
+                  <h3 class="subtitle be-results-subtitle is-5">
+                    {{ title(value) }}
+                  </h3>
+                </div>
+                <p class="be-results-text">{{ body(value) }}</p>
+                <div>
+                  <h3 class="subtitle be-results-subtitle is-5">
+                    {{ $t("advantages") }}
+                  </h3>
+                  <ul class="be-results-text">
+                    <span v-html="advantages(value)"></span>
+                  </ul>
+                </div>
+                <br />
+                <div>
+                  <h3 class="subtitle be-results-subtitle is-5">
+                    {{ $t("disadvantages") }}
+                  </h3>
+                  <ul class="be-results-text">
+                    <span v-html="disadvantages(value)"></span>
+                  </ul>
+                </div>
+                <br />
               </div>
-              <p class="be-results-text">{{ body(value) }}</p>
-              <div>
-                <h3 class="subtitle be-results-subtitle is-5">
-                  {{ $t("advantages") }}
-                </h3>
-                <ul class="be-results-text">
-                  <span v-html="advantages(value)"></span>
-                </ul>
+            </template>
+            <b-button class="be-form-button" @click="nextStepsClick()">
+              {{ $t("next_steps") }}</b-button
+            >
+          </div>
+          <div v-if="nextSteps">
+            <template v-for="(value, index) in entities">
+              <div v-bind:key="index">
+                <div v-if="entitiesId.length > 1">
+                  <h3 class="subtitle be-results-subtitle is-5">
+                    {{ title(value) }}
+                  </h3>
+                </div>
+                <p class="be-results-text">There Will Be Next Steps Here...</p>
+
+                <br />
+                <p class="be-results-text">With Links...</p>
+                <br />
               </div>
-              <br />
-              <div>
-                <h3 class="subtitle be-results-subtitle is-5">
-                  {{ $t("disadvantages") }}
-                </h3>
-                <ul class="be-results-text">
-                  <span v-html="disadvantages(value)"></span>
-                </ul>
-              </div>
-              <br />
-            </div>
-          </template>
+            </template>
+          </div>
         </template>
+
         <template v-slot:footertext>
           <span class="card-footer-item">
             <b-button class="be-form-button " @click="onClickButton">{{
@@ -277,7 +302,8 @@ export default {
         print: "Print",
         download: "Download",
         close: "Back",
-        powerby: "Power by BizPaL"
+        powerby: "Power by BizPaL",
+        next_steps: "What's Next?"
       },
       fr: {
         advantages: "Avantages :",
@@ -299,7 +325,8 @@ export default {
         print: "Imprimer",
         download: "Télécharger",
         close: "Arrière",
-        powerby: "Proposé par PerLE"
+        powerby: "Proposé par PerLE",
+        next_steps: "What's Next? (fr)"
       }
     }
   }, // end i18n
@@ -321,6 +348,7 @@ export default {
       isCardModalActive: false,
       isSummariesModalActive: false,
       canCancel: false,
+      nextSteps: false,
       css: `.be-selected {
               font-weight: bolder;
               font-style: italic;
@@ -378,6 +406,9 @@ export default {
       } else {
         return this.$tc("business_structure", 1, { entity: entity1Title });
       }
+    },
+    nextStepsClick: function() {
+      this.nextSteps = true;
     },
     downloadPDF: function() {
       let today = new Date();

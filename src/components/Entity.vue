@@ -118,7 +118,7 @@
                 >
                   <em class="be-emphasis"
                     >{{ data.entities[index][`title_${locale}`] }}
-                    {{ displayPercentage(entitiesTotal[index].total) }}%</em
+                    {{ displayPercentage(entitiesTotal[index].total) }}</em
                   >
                   <font-awesome-icon
                     class="be-carat-icon is-pulled-right"
@@ -364,6 +364,7 @@ export default {
     //Restarts business entity tool
     restartEntity: function(value) {
       this.$parent.started = value;
+      this.$parent.welcomeGate = true;
     },
     displayPercentage: function(value) {
       let displayValue = value;

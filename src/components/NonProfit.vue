@@ -6,6 +6,9 @@
           <h2 class="title be-question-title is-4">
             {{ $t("header_text") }}
           </h2>
+          <p>            
+            {{ $t("explanation_intro") }}
+          </p>
         </template>
         <template v-slot:bodytext>
           <ul class="be-nonprofit-list">
@@ -117,24 +120,26 @@ export default {
         close: "Close",
         download: "Download",
         download_name: "non-profit-entities",
-        header_text: "Non Profit Summary Page",
+        header_text: "Non-Profit Summary Page",
+        explanation_intro:"Based on your answer, you are interested in a non-profit structure. The non-profit structures in BC are:",
         restart: "Restart",
         previous: "Previous",
         print: "Print",
         print_results: "Results",
-        print_summaries: "All Summaries",
+        print_summaries: "Print/Download",
         results: "Results - Print View"
       },
       fr: {
         close: "Fermer",
         download: "Télécharger",
         download_name: "non-profit-entities",
-        header_text: "Non Profit Summary Page (fr)",
+        header_text: "Non-Profit Summary Page (fr)",
+        explanation_intro:"Vouz avez selectionez un (fr)",
         restart: "Redémarrer",
         previous: "Précédent",
         print: "Imprimer",
         print_results: "Les résultats",
-        print_summaries: "Tous les sommaires",
+        print_summaries: "Imprimer/Telecharger",
         results: "Résultats - Aperçu avant impression"
       }
     }
