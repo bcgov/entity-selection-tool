@@ -187,7 +187,25 @@
           class="be-modal-print-body"
         >
           <h1 class="subtitle is-3">{{ $t("title") }}</h1>
-          <div v-html="displaySummaries()"></div>
+          <div>
+            <ul>
+              <template v-for="(value, index) in data.entities">
+                <li v-bind:key="index">
+                  <a href="#name">{{ value[`title_${langLocal}`] }} </a>
+                </li>
+              </template>
+            </ul>
+            <br />
+          </div>
+
+          <div v-for="(value, index) in data.entities" v-bind:key="index">
+            <template>
+              <h2 class="subtitle is-4">{{ value[`title_${langLocal}`] }}</h2>
+
+              <p>{{ value[`summary_${langLocal}`] }}</p>
+              <br />
+            </template>
+          </div>
         </section>
         <footer class="modal-card-foot">
           <b-button class="be-button" outlined @click="print()">
@@ -254,7 +272,8 @@ export default {
         bold_italic: "bold and italic",
         text_answers: "Your answers are in {format}.",
         summaries: "Summary of Business Structures",
-        title: "Entity Type Long Descriptions (For-Profit)",
+        title:
+          "This page provides a summary of all for-profit business structures in BC",
         print: "Print",
         download: "Download",
         close: "Back",
@@ -275,7 +294,8 @@ export default {
         bold_italic: "gras et italique",
         text_answers: "Vos réponses sont en {format}.",
         summaries: "Summary of Business Structures (FR)",
-        title: "Entity Type Long Descriptions (For-Profit) FR",
+        title:
+          "This page provides a summary of all for-profit business structures in BC",
         print: "Imprimer",
         download: "Télécharger",
         close: "Arrière",
