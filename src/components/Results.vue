@@ -4,7 +4,7 @@
       <BaseCard class="question box">
         <template v-slot:headertext>
           <h2 v-if="!nextSteps" class="title be-question-title is-4">
-            {{ getHeaderTitles(entities) }}
+            {{ $t("results_headers") }}
           </h2>
           <h2 v-if="nextSteps" class="title be-question-title is-4">
             {{ $t("next_steps") }}
@@ -12,6 +12,9 @@
         </template>
         <template v-slot:bodytext>
           <div v-if="!nextSteps">
+            <h3 class="subtitle be-results-subtitle is-5">
+              {{ getHeaderTitles(entities) }}
+            </h3>
             <template v-for="(value, index) in entities">
               <div v-bind:key="index">
                 <div v-if="entitiesId.length > 1">
@@ -160,7 +163,7 @@
                   <li v-bind:key="index">
                     {{ data.entities[index][`title_${langLocal}`] }} ({{
                       value[`total`]
-                    }}%)
+                    }})
                   </li>
                 </template>
               </ul>
@@ -314,6 +317,7 @@ export default {
         print_summaries: "All Structures",
         print_result_header: "Suggested Business Entity Result",
         results: "Business Structures Wizard",
+        results_headers: " Results",
         business_structure:
           "Based on your answers, your best match is {entity}. | Based on your answers, your best match is  {entity} or {entity2}.",
 
@@ -338,6 +342,7 @@ export default {
         print_result_header: "Suggested Business Entity Result (FR)",
         print_summaries: "Tous les structures",
         results: "Business Structures Wizard (FR)",
+        results_headers: "Résultats",
         business_structure:
           "Your answers indicate that a {entity} is your best match. (FR)",
         questions_answers: "Questions/Réponses :",

@@ -6,11 +6,11 @@
           <h2 class="title be-question-title is-4">
             {{ $t("header_text") }}
           </h2>
-          <p>            
-            {{ $t("explanation_intro") }}
-          </p>
         </template>
         <template v-slot:bodytext>
+                  <p>            
+            {{ $t("explanation_intro") }}
+          </p>
           <ul class="be-nonprofit-list">
             <li v-for="(item, index) in data" v-bind:key="index">
               <h3 class="subtitle be-nonprofit-subtitle  is-5">
@@ -60,6 +60,9 @@
             <h2 class="title be-question-title is-4">
               {{ $t("header_text") }}
             </h2>
+                              <p>            
+            {{ $t("explanation_intro") }}
+          </p>
             <ul id="be-nonprofit-list">
               <li v-for="(item, index) in data" v-bind:key="index">
                 <h3 class="subtitle be-nonprofit-subtitle  is-5">
@@ -117,17 +120,17 @@ export default {
     locale: "en",
     messages: {
       en: {
-        close: "Close",
+        close: "Back",
         download: "Download",
         download_name: "non-profit-entities",
         header_text: "Non-Profit Summary Page",
-        explanation_intro:"Based on your answer, you are interested in a non-profit structure. The non-profit structures in BC are:",
+        explanation_intro: "Based on your answer, you are interested in a non-profit structure. The non-profit structures in BC are:",
         restart: "Restart",
         previous: "Previous",
         print: "Print",
         print_results: "Results",
         print_summaries: "Print/Download",
-        results: "Results - Print View"
+        results: "Business Structures Wizard – Your Results"
       },
       fr: {
         close: "Fermer",
@@ -140,7 +143,7 @@ export default {
         print: "Imprimer",
         print_results: "Les résultats",
         print_summaries: "Imprimer/Telecharger",
-        results: "Résultats - Aperçu avant impression"
+        results: "Business Structures Wizard – Your Results (FR)"
       }
     }
   }, // end i18n
@@ -170,7 +173,7 @@ export default {
     };
   }, // end data
   created: function() {
-    this.data = this.data["non-profit-entities"];
+    this.data = this.data["pid-59"]["non-profit-entities"];
   }, // end created
   mounted: function() {
     this.$i18n.locale = this.langLocal;
