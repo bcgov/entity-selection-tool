@@ -216,7 +216,17 @@
             <ul>
               <template v-for="(value, index) in data.entities">
                 <li v-bind:key="index">
-                  <a href="#name">{{ value[`title_${langLocal}`] }} </a>
+                  <a v-bind:href="`#${index}`"
+                    >{{ value[`title_${langLocal}`] }}
+                  </a>
+                </li>
+              </template>
+
+              <template v-for="(value, index) in data['non-active-entities']">
+                <li v-bind:key="index">
+                  <a v-bind:href="`#${index}`"
+                    >{{ value[`title_${langLocal}`] }}
+                  </a>
                 </li>
               </template>
             </ul>
@@ -225,6 +235,20 @@
 
           <div v-for="(value, index) in data.entities" v-bind:key="index">
             <template>
+              <a :name="index"></a>
+              <h2 class="subtitle is-4">{{ value[`title_${langLocal}`] }}</h2>
+
+              <p>{{ value[`summary_${langLocal}`] }}</p>
+              <br />
+            </template>
+          </div>
+
+          <div
+            v-for="(value, index) in data['non-active-entities']"
+            v-bind:key="index"
+          >
+            <template>
+              <a :name="index"></a>
               <h2 class="subtitle is-4">{{ value[`title_${langLocal}`] }}</h2>
 
               <p>{{ value[`summary_${langLocal}`] }}</p>
