@@ -148,10 +148,6 @@
                 {{ $t("start") }}</b-button
               >
             </span>
-
-            <section v-if="introGate" class="be-context">
-              <p>*{{ $t("disclaimer") }}</p>
-            </section>
           </template>
         </BaseCard>
       </div>
