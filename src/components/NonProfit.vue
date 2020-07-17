@@ -135,7 +135,7 @@ export default {
         print_results: "Results",
         print_summaries: "Print/Download",
         powerby: "Power by BizPaL",
-        results: "Business Structures Wizard – Your Results"
+        results: "Business Structures Wizard"
       },
       fr: {
         close: "Fermer",
@@ -149,7 +149,7 @@ export default {
         print_results: "Les résultats",
         print_summaries: "Imprimer/Telecharger",
         powerby: "Proposé par PerLE",
-        results: "Business Structures Wizard – Your Results (FR)"
+        results: "Business Structures Wizard"
       }
     }
   }, // end i18n
