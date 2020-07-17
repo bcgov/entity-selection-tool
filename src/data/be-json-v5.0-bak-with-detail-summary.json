@@ -586,23 +586,111 @@
                  "id": "e1",
                  "title_en":"Sole Proprietorship",
                  "title_fr":"Sole Proprietorship (FR)",
-                 "summary_en":"A sole proprietorship is the simplest form of a business, in which you and your company are considered a single business structure. As a sole proprietor, you do whatever is required for successful operation of your business. You make decisions, receive all profits, and claim all losses. Although you may hire employees to assist you, you usually manage the business yourself. Among its advantages a sole proprietorship is simple and inexpensive to set up, and simple from a tax standpoint-it's part of your personal taxes. There are disadvantages to a sole proprietorship. Most importantly, you have unlimited personal liability-you are personally responsible for the business' financial and legal liabilities. Profits will be taxed at your personal income tax rate, which is typically higher than a corporate tax rate. And if you need to raise capital you will need to rely solely on your personal resources and credit-worthiness.",
+                 "summary_en":"A sole proprietorship is the simplest form of a business, in which you and your company are considered a single business structure. As a sole proprietor, you do whatever is required for successful operation of your business. You make decisions, receive all profits, and claim all losses. Although you may hire employees to assist you, you usually manage the business yourself. Among its advantages a sole proprietorship is simple and inexpensive to set up, and simple from a tax standpoint—it’s part of your personal taxes. There are disadvantages to a sole proprietorship. Most importantly, you have unlimited personal liability—you are personally responsible for the business’ financial and legal liabilities. Profits will be taxed at your personal income tax rate, which is typically higher than a corporate tax rate. And if you need to raise capital you will need to rely solely on your personal resources and credit-worthiness.",
                  "summary_fr":"Summary1(FR)",
                  "advantage_en":"<li>Easy and inexpensive to register, direct control of decision making, minimal working capital required for start-up, all profits go to you directly.</li>",
                  "advantage_fr":"",
                  "disadvantage_en":"<li>Unlimited liability (if you have business debts, claims can be made against your personal assets to pay them off), Income is taxable at your personal rate, can be difficult to raise capital on your own.</li>",
-                 "disadvantage_fr":""
+                 "disadvantage_fr":"",
+                 "summary_desc":{
+                     "s1":{
+                         "id":"s1",
+                         "header_en":"What is it?",
+                         "header_fr":"What is it? FR",
+                         "subtitle_en":"A sole proprietorship is the simplest form of a business, in which you and the company are considered a single business structure. As a sole proprietor, you do whatever is required for successful operation of your business. You make decisions, receive all profits, and claim all losses. Although you may hire employees to assist you, you usually manage the business yourself.",
+                         "subtitle_fr":""
+                     },
+                     "s2":{
+                         "id":"s2",
+                         "header_en":"How do I start one?",
+                         "header_fr":"How do I start one? FR",
+                         "subtitle_en":"A proprietor does not have to register the business. The only legal requirement in establishing a sole proprietorship is to obtain licences which may be required for certain types of business; for example, provincial and federal sales tax accounts, or municipal permits. If you plan to operate your sole proprietorship under a business name other than your own, it’s best to register it with the province. You may also want to conduct a search of your proposed business name. If the name you want to use is identical or similar to another business name, a search could help you avoid potential lawsuits.",
+                         "subtitle_fr":""
+                     },
+                     "s3":{
+                         "id":"s3",
+                         "header_en":"What are the risks?",
+                         "header_fr":"What are the risks? FR",
+                         "subtitle_en":"Your sole proprietorship is not legally separate from you, its owner. If you are a sole proprietor, you are personally responsible for all debts and obligations related to your business.  A creditor with a claim against you would normally have a right against all of your assets, whether business or personal. Furthermore, if a person should be harmed by your product or service, or while on your premises, you could be sued personally for damages. This is known as unlimited liability.",
+                         "subtitle_fr":""
+                     },
+                     "s4":{
+                         "id":"s4",
+                         "header_en":"How will I be taxed?",
+                         "header_fr":"How will I be taxed? FR",
+                         "subtitle_en":"If you are a sole proprietor, you pay personal income tax on the net income generated by your business. You’re required to report the business's financial details in a separate section of the personal income tax form. If your business experiences a loss, you can deduct that loss from your other income.",
+                         "subtitle_fr":""
+                     },
+                     "s5":{
+                         "id":"s5",
+                         "header_en":"What are the advantages of a sole proprietorship?",
+                         "header_fr":"What are the advantages of a sole proprietorship? FR",
+                         "subtitle_en":"A sole proprietorship is simple and inexpensive to set up, in most cases free of regulatory and reporting requirements, and simple from a tax standpoint as it's part of your personal taxes. As the sole owner you have direct control over all decision making, all profits go to you, and you can claim business losses against other sources of personal income.",
+                         "subtitle_fr":""
+                     },
+                     "s6":{
+                         "id":"s6",
+                         "header_en":"What are the main disadvantages?",
+                         "header_fr":"What are the main disadvantages? FR",
+                         "subtitle_en":"As a sole proprietor you have unlimited personal liability—you are personally responsible for the business' financial and legal liabilities. There are fewer options for raising capital; you will therefore need to rely solely on your personal resources and credit-worthiness. Profits will be taxed at the owner's personal income tax rate, which is typically higher than a corporate tax rate. And you cannot split income with family members through distribution of profits (dividends).",
+                         "subtitle_fr":""
+                     }
+                 }
              },
              "e2":{
                  "id": "e2",
                  "title_en":"General Partnership",
                  "title_fr":"General Partnership (FR)",
-                 "summary_en":"In a general partnership you combine your resources with others to make a profit. Each partner contributes money, property, or skills. The profits or losses are divided among the partners based on each partner's share. Partners are usually active in business operations, and they may employ others who are not partners to help run the business. A general partnership is more time consuming and expensive to set up and run than a sole proprietorship, but easier and less costly than a corporation. It also has a simpler tax structure-partners report income and expenses on their personal tax returns. The main disadvantage of a general partnership is that partners have unlimited personal liability-they are personally responsible for all of the business' financial and legal liabilities, and partners can legally bind one another without prior approval. Profits are taxed at the personal rate, which is typically higher than a corporate tax rate. There are also fewer options for raising capital than a corporation; the partnership will need to rely on partners' personal resources and credit-worthiness.",
+                 "summary_en":"In a general partnership you combine your resources with others to make a profit. Each partner contributes money, property, or skills. The profits or losses are divided among the partners based on each partner’s share. Partners are usually active in business operations, and they may employ others who are not partners to help run the business. A general partnership is more time consuming and expensive to set up and run than a sole proprietorship, but easier and less costly than a corporation. It also has a simpler tax structure—partners report income and expenses on their personal tax returns. The main disadvantage of a general partnership is that partners have unlimited personal liability—they are personally responsible for all of the business’ financial and legal liabilities, and partners can legally bind one another without prior approval. Profits are taxed at the personal rate, which is typically higher than a corporate tax rate. There are also fewer options for raising capital than a corporation; the partnership will need to rely on partners’ personal resources and credit-worthiness.",
                  "summary_fr":"Summary2(FR) ",
                  "advantage_en":"<li>Easy and inexpensive to form a partnership, start-up costs are shared equally with you and your partner(s), equal share in the management, profits and assets</li>",
                  "advantage_fr":"",
                  "disadvantage_en":"<li>No legal difference between you and your business, unlimited liability (if you have business debts, personal assets can be used to pay off the debt)</li><ul><li>An unlimited liability only applies to general partnerships. Limited partnerships do not have an unlimited liability.</li></ul>",
-                 "disadvantage_fr":""
+                 "disadvantage_fr":"",
+                 "summary_desc":{
+                     "s1":{
+                         "id":"s1",
+                         "header_en":"What is it?",
+                         "header_fr":"What is it? FR",
+                         "subtitle_en":"In a general partnership you combine your resources with one or more others to make a profit. Each partner contributes money, property, or skills to the partnership. The profits or losses are divided among the partners based on each partner’s share. Although partners are usually active in business operations, they may employ others who are not partners to help run the business.",
+                         "subtitle_fr":""
+                     },
+                     "s2":{
+                         "id":"s2",
+                         "header_en":"How do I start one?",
+                         "header_fr":"How do I start one? FR",
+                         "subtitle_en":"A partnership is relatively easy to form. In fact, a simple oral agreement is enough. However, partners usually have a written agreement that outlines sharing of revenues, expenses, how to split profits, and how to cover losses.",
+                         "subtitle_fr":""
+                     },
+                     "s3":{
+                         "id":"s3",
+                         "header_en":"What about liabilities (risks)?",
+                         "header_fr":"What about liabilities (risks)? FR",
+                         "subtitle_en":"In a general partnership each partner is responsible for all liabilities of the partnership. This means that each partner is responsible for the actions of the other partner(s), and has unlimited liability.",
+                         "subtitle_fr":""
+                     },
+                     "s4":{
+                         "id":"s4",
+                         "header_en":"Are partnerships regulated?",
+                         "header_fr":"Are partnerships regulated? FR",
+                         "subtitle_en":"Although there are no formal filing requirements for general partnerships, they are governed by provincial legislation which sets out rules governing partner obligations.",
+                         "subtitle_fr":""
+                     },
+                     "s5":{
+                         "id":"s5",
+                         "header_en":"What else will I need to know?",
+                         "header_fr":"What else will I need to know? FR",
+                         "subtitle_en":"Partnerships may have to obtain certain licences which may be required for certain types of business; for example, provincial and federal sales tax accounts, or municipal permits. If you plan to operate your partnership under a business name other than the exact names of the partners, it's best to conduct a search of your proposed business name and register it with the province.",
+                         "subtitle_fr":""
+                     },
+                     "s6":{
+                         "id":"s6",
+                         "header_en":"What are the advantages of a general partnership?",
+                         "header_fr":"What are the advantages of a general partnership? FR",
+                         "subtitle_en":"Although more time consuming and usually more expensive to set up than a sole proprietorship, a general partnership is easier and less expensive to set up and run than a corporation. A general partnership also has a simpler tax structure—partners report income and expenses on their personal tax returns, in proportion to their ownership stake. Because you report income on your personal return you have the opportunity to claim losses against other sources of income.",
+                         "subtitle_fr":""
+                     }
+                 }
              },
              "e3":{
                  "id": "e3",
@@ -613,7 +701,65 @@
                  "advantage_en":"<li>Limited liability, ownership is transferable, easier to raise capital than it might be with other business structures.</li>",
                  "advantage_fr":"",
                  "disadvantage_en":"<li>A corporation is closely regulated, more expensive to set up a corporation than other business forms, possible conflict between shareholders and directors.</li>",
-                 "disadvantage_fr":""
+                 "disadvantage_fr":"",
+                 "summary_desc":{
+                     "s1":{
+                         "id":"s1",
+                         "header_en":"What is it?",
+                         "header_fr":"What is it? FR",
+                         "subtitle_en":"Limited partnerships are formed by two or more individuals or corporations. Each partner contributes money, property, or skills to the partnership. The profits or losses are divided among the partners based on each partner's share, with general partners usually earning a larger share. The partners may employ others who are not partners.",
+                         "subtitle_fr":""
+                     },
+                     "s2":{
+                         "id":"s2",
+                         "header_en":"How do I start one?",
+                         "header_fr":"How do I start one? FR",
+                         "subtitle_en":"A limited partnership is more complex and expensive to set up than a general partnership. It requires a written agreement that outlines sharing of revenues, expenses, how to split profits, and how to cover losses. You will need to consult a lawyer if you plan to form a limited partnership.",
+                         "subtitle_fr":""
+                     },
+                     "s3":{
+                         "id":"s3",
+                         "header_en":"What about liabilities (risks)?",
+                         "header_fr":"What about liabilities (risks)? FR",
+                         "subtitle_en":"A limited partnership has legal status separate from its partners. There are two types of partner in a limited partnership—general and limited. The general partner manages day to day operations, and has unlimited liability. The limited partners are typically investors without day-to-day management responsibilities. Their financial and legal liability is limited to the amount invested. Limited partnerships usually have a finite life, and are often used in real estate development and in the film industry.",
+                         "subtitle_fr":""
+                     },
+                     "s4":{
+                         "id":"s4",
+                         "header_en":"How is the partnership taxed?",
+                         "header_fr":"How is the partnership taxed? FR",
+                         "subtitle_en":"The partnership itself is not taxed. Instead, profits or losses flow through to the partners. When preparing their taxes, partners apply their ownership percentages to income and expenses.",
+                         "subtitle_fr":""
+                     },
+                     "s5":{
+                         "id":"s5",
+                         "header_en":"Are limited partnerships regulated?",
+                         "header_fr":"Are limited partnerships regulated? FR",
+                         "subtitle_en":"Limited partnerships are governed by provincial legislation which sets out rules governing partnership obligations in relation to third parties and between the partners themselves.",
+                         "subtitle_fr":""
+                     },
+                     "s6":{
+                         "id":"s6",
+                         "header_en":"What else will I need to know?",
+                         "header_fr":"What else will I need to know? FR",
+                         "subtitle_en":"A \"Partnership Declaration\" must be filed to establish the Limited Partnership. You will also need to obtain certain licences which are required for your type of business.",
+                         "subtitle_fr":""
+                     },
+                     "s7":{
+                         "id":"s7",
+                         "header_en":"What are the advantages of a limited partnership?",
+                         "header_fr":"What are the advantages of a limited partnership? FR",
+                         "subtitle_en":"The main advantage of a limited partnership over a general partnership is that the liability of limited partners is capped. And, unlike a general partnership, limited partner ownership interests can be transferred, similar to shares in a corporation. Partners report income and expenses on their own tax returns. Because partners report income on their own returns they have the opportunity to claim losses against other sources of income.",
+                         "subtitle_fr":""
+                     },
+                     "s8":{
+                         "id":"s8",
+                         "header_en":"What are the main disadvantages?",
+                         "header_fr":"What are the main disadvantages? FR",
+                         "subtitle_en":"The general partners in a limited partnership have unlimited personal liability: they are personally responsible for all of the business' financial and legal liabilities. Secondly, a limited partnership is more time consuming and expensive to set up than a general partnership, as a detailed partnership agreement is required.",
+                         "subtitle_fr":""
+                     }
+                 }
              },
              "e4":{
                  "id": "e4",
@@ -624,7 +770,65 @@
                  "advantage_en":"<li>Limited liability, ownership is transferable, easier to raise capital than it might be with other business structures.</li>",
                  "advantage_fr":"",
                  "disadvantage_en":"<li>A corporation is closely regulated, more expensive to set up a corporation than other business forms, possible conflict between shareholders and directors.</li>",
-                 "disadvantage_fr":""   
+                 "disadvantage_fr":"",
+                 "summary_desc":{
+                     "s1":{
+                         "id":"s1",
+                         "header_en":"What is it?",
+                         "header_fr":"What is it? FR",
+                         "subtitle_en":"Limited liability partnerships (LLPs) are formed by two or more individuals or corporations. Each partner contributes money, property, or skills to the partnership. The profits or losses are divided among the partners based on each partner's share. The partners may employ others who are not partners.",
+                         "subtitle_fr":""
+                     },
+                     "s2":{
+                         "id":"s2",
+                         "header_en":"How do I start one?",
+                         "header_fr":"How do I start one? FR",
+                         "subtitle_en":"An <abbr title=\"Limited Liability Partnership\">LLP</abbr> is more complex and expensive to set up than a general partnership. It requires a written agreement that outlines sharing of revenues, expenses, how to split profits, and how to cover losses. You will need to consult a lawyer if you plan to form an <abbr title=\"Limited Liability Partnership\">LLP</abbr>.",
+                         "subtitle_fr":""
+                     },
+                     "s3":{
+                         "id":"s3",
+                         "header_en":"What about liabilities (risks)?",
+                         "header_fr":"What about liabilities (risks)? FR",
+                         "subtitle_en":"An <abbr title=\"Limited Liability Partnership\">LLP</abbr> has legal status separate from its partners. There are two types of partner in a <abbr title=\"Limited Liability Partnership\">LLP</abbr>—<em>general</em> and <em>limited</em>. The general partner manages day to day operations, and has unlimited liability. The limited partners are typically professionals like doctors, dentists, lawyers or accountants without day-to-day management responsibilities. Their financial and legal liability is limited to the amount invested.",
+                         "subtitle_fr":""
+                     },
+                     "s4":{
+                         "id":"s4",
+                         "header_en":"How is the partnership taxed?",
+                         "header_fr":"How is the partnership taxed? FR",
+                         "subtitle_en":"The partnership itself is not taxed. Instead profits or losses flow through to the partners. When preparing their taxes, partners apply their ownership percentages to income and expenses.",
+                         "subtitle_fr":""
+                     },
+                     "s5":{
+                         "id":"s5",
+                         "header_en":"Are <abbr title=\"Limited Liability Partnerships\">LLPs</abbr> regulated?",
+                         "header_fr":"Are <abbr title=\"Limited Liability Partnerships\">LLPs</abbr> regulated? FR",
+                         "subtitle_en":"Limited liability partnerships are governed by provincial legislation which sets out rules governing partnership obligations in relation to third parties and between the partners themselves.",
+                         "subtitle_fr":""
+                     },
+                     "s6":{
+                         "id":"s6",
+                         "header_en":"What else will I need to know?",
+                         "header_fr":"What else will I need to know? FR",
+                         "subtitle_en":"A “Partnership Declaration” must be filed to establish the <abbr title=\"Limited Liability Partnership\">LLP</abbr>. You will also need to obtain certain licences which are required for your type of business.",
+                         "subtitle_fr":""
+                     },
+                     "s7":{
+                         "id":"s7",
+                         "header_en":"What are the advantages of a limited partnership?",
+                         "header_fr":"What are the advantages of a limited partnership? FR",
+                         "subtitle_en":"The main advantage of an <abbr title=\"Limited Liability Partnership\">LLP</abbr> over a general partnership is that the liability of limited partners is capped. And, unlike a general partnership, limited partner ownership interests can be transferred, similar to shares in a corporation. Partners report income and expenses on their own tax returns. Because partners report income on their own returns they have the opportunity to claim losses against other sources of income.",
+                         "subtitle_fr":""
+                     },
+                     "s8":{
+                         "id":"s8",
+                         "header_en":"What are the main disadvantages?",
+                         "header_fr":"What are the main disadvantages? FR",
+                         "subtitle_en":"The general partners in an <abbr title=\"Limited Liability Partnership\">LLP</abbr> have unlimited personal liability: they are personally responsible for all of the business' financial and legal liabilities. Secondly, an <abbr title=\"Limited Liability Partnership\">LLP</abbr> is more time consuming and expensive to set up than a general partnership, as a detailed partnership agreement is required.",
+                         "subtitle_fr":""
+                     }
+                 }          
              },
              "e6":{
                  "id": "e6",
@@ -635,7 +839,72 @@
                  "advantage_en":"<li>Limited liability, ownership is transferable, easier to raise capital than it might be with other business structures.</li>",
                  "advantage_fr":"",
                  "disadvantage_en":"<li>A corporation is closely regulated, more expensive to set up a corporation than other business forms, possible conflict between shareholders and directors.</li>",
-                 "disadvantage_fr":""
+                 "disadvantage_fr":"",
+                 "summary_desc":{
+                     "s1":{
+                         "id":"s1",
+                         "header_en":"What is it?",
+                         "header_fr":"What is it? FR",
+                         "subtitle_en":"A BC corporation is a legal business structure, separate and distinct from its owners. When a company is incorporated, it acquires many of the legal powers of an individual. It can, for example, own real estate, hold investments, acquire assets, go into debt, enter into contracts, sue or be sued. If incorporation makes sense for you, and you do not have plans for employees or locations outside the province, incorporating as a BC corporation is probably your best choice.",
+                         "subtitle_fr":""
+                     },
+                     "s2":{
+                         "id":"s2",
+                         "header_en":"How do I start one?",
+                         "header_fr":"How do I start one? FR",
+                         "subtitle_en":"You set up a corporation by completing articles of incorporation—usually done with a lawyer—and sending the documents to the appropriate government authority. Owners then transfer money, property, or services to the corporation in exchange for ownership shares.",
+                         "subtitle_fr":""
+                     },
+                     "s3":{
+                         "id":"s3",
+                         "header_en":"What else will I need to do?",
+                         "header_fr":"What else will I need to do? FR",
+                         "subtitle_en":"When you incorporate you and any other shareholders will appoint or elect directors. The directors make important decisions regarding the operation of the corporation, including the appointment of officers who manage the corporation's day to day operations. If there is only one shareholder that individual can also serve as the corporation’s one director.",
+                         "subtitle_fr":""
+                     },
+                     "s4":{
+                         "id":"s4",
+                         "header_en":"How can I raise money for the corporation?",
+                         "header_fr":"How can I raise money for the corporation? FR",
+                         "subtitle_en":"You can raise money by issuing and selling shares, an important advantage over proprietorships or partnerships, which generally rely on capital supplied by their owners. Your corporation can also borrow money, just like an individual.",
+                         "subtitle_fr":""
+                     },
+                     "s5":{
+                         "id":"s5",
+                         "header_en":"How will shareholders get their money?",
+                         "header_fr":"How will shareholders get their money? FR",
+                         "subtitle_en":"Shareholders can receive distributions of corporate profits in the form of dividends, and may benefit from an increase in the value of their shares when they sell them. Provided you can find a buyer, shares may be sold at any time. Shareholders who work in the corporation are usually paid as employees.",
+                         "subtitle_fr":""
+                     },
+                     "s6":{
+                         "id":"s6",
+                         "header_en":"How long can a corporation exist?",
+                         "header_fr":"How long can a corporation exist? FR",
+                         "subtitle_en":"Because the corporation is a separate legal business structure, its existence does not depend on any shareholder’s continued ownership. A corporation will continue to exist even if its shareholders die or leave the business, or if the ownership of the business changes. A corporation therefore has a potentially unlimited life expectancy.",
+                         "subtitle_fr":""
+                     },
+                     "s7":{
+                         "id":"s7",
+                         "header_en":"What about liabilities?",
+                         "header_fr":"What about liabilities? FR",
+                         "subtitle_en":"Unlike a partnership or sole proprietorship, owners of a corporation are not normally held personally liable for the debts, obligations, or acts of the corporation beyond the amount of their invested share capital. This means that you and the other shareholders are theoretically not responsible for the corporation's debts. However, if the corporation needs to borrow money and the creditor asks for your guarantee that the debt will be repaid you would be personally liable for that debt. Directors may also be liable to pay amounts owed by the corporation if it has failed to deduct, withhold, remit, or pay amounts as required by various government statutes.",
+                         "subtitle_fr":""
+                     },
+                     "s8":{
+                         "id":"s8",
+                         "header_en":"What are the main advantages of a corporation?",
+                         "header_fr":"What are the main advantages of a corporation? FR",
+                         "subtitle_en":"There are several:<br />&ndash; as a shareholder your liability is limited;<br />&ndash; corporations generally benefit from lower tax rates than the rates applied to sole proprietors or partners;<br />&ndash; corporations provide tax advantages like income splitting, tax deferral, small business tax credits and capital gains exemption;<br />&ndash; it’s easier to raise capital for a corporation than for a proprietorship, partnership and other business structures;<br />&ndash; corporate ownership is easily transferable; and<br />&ndash; a corporation enjoys protection of its name.",
+                         "subtitle_fr":""
+                     },
+                     "s9":{
+                         "id":"s9",
+                         "header_en":"What are the main disadvantages?",
+                         "header_fr":"What are the main disadvantages? FR",
+                         "subtitle_en":"Again there are several:<br />&ndash; corporations are more closely regulated than proprietorships and partnerships;<br />&ndash; the requirements for personal guarantees can undermine the limited liability advantage;<br />&ndash; corporate officers and shareholders may be held legally responsible in certain circumstances;<br />&ndash; losses in a corporation cannot be claimed by shareholders and can only be offset against earnings in the corporation, unlike proprietorship or partnership (these are called “trapped losses”); and<br />&ndash; a corporation is more complex and costly to set up and run than a proprietorship or partnership.",
+                         "subtitle_fr":""
+                     }
+                 }
              },
              "e7":{
                  "id": "e7",
@@ -646,7 +915,72 @@
                  "advantage_en":"<li>Limited liability, ownership is transferable, easier to raise capital than it might be with other business structures.</li>",
                  "advantage_fr":"",
                  "disadvantage_en":"<li>A corporation is closely regulated, more expensive to set up a corporation than other business forms, possible conflict between shareholders and directors.</li>",
-                 "disadvantage_fr":""      
+                 "disadvantage_fr":"",
+                 "summary_desc":{
+                     "s1":{
+                         "id":"s1",
+                         "header_en":"What is it?",
+                         "header_fr":"What is it? FR",
+                         "subtitle_en":"A federal corporation is a legal business structure, separate and distinct from its owners. When a company is incorporated, it acquires many of the legal powers of an individual. It can, for example, own real estate, hold investments, acquire assets, go into debt, enter into contracts, sue or be sued. If incorporation makes sense for you, and you expect to have employees or locations outside British Columbia, incorporating as a federal corporation is probably your best choice.",
+                         "subtitle_fr":""
+                     },
+                     "s2":{
+                         "id":"s2",
+                         "header_en":"How do I start one?",
+                         "header_fr":"How do I start one? FR",
+                         "subtitle_en":"You set up a corporation by completing articles of incorporation—usually done with a lawyer—and sending the documents to the appropriate government authority. Owners then transfer money, property, or services to the corporation in exchange for ownership shares.",
+                         "subtitle_fr":""
+                     },
+                     "s3":{
+                         "id":"s3",
+                         "header_en":"What else will I need to do?",
+                         "header_fr":"What else will I need to do? FR",
+                         "subtitle_en":"When you incorporate you and any other shareholders will appoint or elect directors. The directors make important decisions regarding the operation of the corporation, including the appointment of officers who manage the corporation's day to day operations. If there is only one shareholder that individual can also serve as the corporation’s one director.",
+                         "subtitle_fr":""
+                     },
+                     "s4":{
+                         "id":"s4",
+                         "header_en":"How can I raise money for the corporation?",
+                         "header_fr":"How can I raise money for the corporation? FR",
+                         "subtitle_en":"You can raise money by issuing and selling shares, an important advantage over proprietorships or partnerships, which generally rely on capital supplied by their owners. Your corporation can also borrow money, just like an individual.",
+                         "subtitle_fr":""
+                     },
+                     "s5":{
+                         "id":"s5",
+                         "header_en":"How will shareholders get their money?",
+                         "header_fr":"How will shareholders get their money? FR",
+                         "subtitle_en":"Shareholders can receive distributions of corporate profits in the form of dividends, and may benefit from an increase in the value of their shares when they sell them. Provided you can find a buyer, shares may be sold at any time. Shareholders who work in the corporation are usually paid as employees.",
+                         "subtitle_fr":""
+                     },
+                     "s6":{
+                         "id":"s6",
+                         "header_en":"How long can a corporation exist?",
+                         "header_fr":"How long can a corporation exist? FR",
+                         "subtitle_en":"Because the corporation is a separate legal business structure, its existence does not depend on any shareholder’s continued ownership. A corporation will continue to exist even if its shareholders die or leave the business, or if the ownership of the business changes. A corporation therefore has a potentially unlimited life expectancy.",
+                         "subtitle_fr":""
+                     },
+                     "s7":{
+                         "id":"s7",
+                         "header_en":"What about liabilities?",
+                         "header_fr":"What about liabilities? FR",
+                         "subtitle_en":"Unlike a partnership or sole proprietorship, owners of a corporation are not normally held personally liable for the debts, obligations, or acts of the corporation beyond the amount of their invested share capital. This means that you and the other shareholders are theoretically not responsible for the corporation's debts. However, if the corporation needs to borrow money and the creditor asks for your guarantee that the debt will be repaid you would be personally liable for that debt. Directors may also be liable to pay amounts owed by the corporation if it has failed to deduct, withhold, remit, or pay amounts as required by various government statutes.",
+                         "subtitle_fr":""
+                     },
+                     "s8":{
+                         "id":"s8",
+                         "header_en":"What are the main advantages of a corporation?",
+                         "header_fr":"What are the main advantages of a corporation? FR",
+                         "subtitle_en":"There are several:<br />&ndash; as a shareholder your liability is limited;<br />&ndash; corporations generally benefit from lower tax rates than the rates applied to sole proprietors or partners;<br />&ndash; corporations provide tax advantages like income splitting, tax deferral, small business tax credits and capital gains exemption;<br />&ndash; it’s easier to raise capital for a corporation than for a proprietorship, partnership and other business structures;<br />&ndash; corporate ownership is easily transferable; and<br />&ndash; a corporation enjoys protection of its name.",
+                         "subtitle_fr":""
+                     },
+                     "s9":{
+                         "id":"s9",
+                         "header_en":"What are the main disadvantages?",
+                         "header_fr":"What are the main disadvantages? FR",
+                         "subtitle_en":"Again there are several:<br />&ndash; corporations are more closely regulated than proprietorships and partnerships;<br />&ndash; the requirements for personal guarantees can undermine the limited liability advantage;<br />&ndash; corporate officers and shareholders may be held legally responsible in certain circumstances;<br />&ndash; losses in a corporation cannot be claimed by shareholders and can only be offset against earnings in the corporation, unlike proprietorship or partnership (these are called “trapped losses”); and<br />&ndash; a corporation is more complex and costly to set up and run than a proprietorship or partnership.",
+                         "subtitle_fr":""
+                     }
+                 }          
              },
              "e5":{
                 "id": "e5",
@@ -657,8 +991,52 @@
                 "advantage_en":"",
                 "advantage_fr":"",
                 "disadvantage_en":"",
-                "disadvantage_fr":""   
-             }   
+                "disadvantage_fr":"",
+                "summary_desc":{
+                    "s1":{
+                        "id":"s1",
+                        "header_en":"What is it?",
+                        "header_fr":"",
+                        "subtitle_en":"[text]",
+                        "subtitle_fr":""
+                    },
+                    "s2":{
+                        "id":"s2",
+                        "header_en":"How do I start one?",
+                        "header_fr":"",
+                        "subtitle_en":"[text]",
+                        "subtitle_fr":""
+                    },
+                    "s3":{
+                        "id":"s3",
+                        "header_en":"[subtitle]",
+                        "header_fr":"",
+                        "subtitle_en":"[text]",
+                        "subtitle_fr":""
+                    },
+                    "s4":{
+                        "id":"s4",
+                        "header_en":"[subtitle]",
+                        "header_fr":"",
+                        "subtitle_en":"[text]",
+                        "subtitle_fr":""
+                    },
+                    "s5":{
+                        "id":"s5",
+                        "header_en":"[subtitle]",
+                        "header_fr":"",
+                        "subtitle_en":"[text]",
+                        "subtitle_fr":""
+                    },
+                    "s6":{
+                        "id":"s6",
+                        "header_en":"[subtitle]",
+                        "header_fr":"",
+                        "subtitle_en":"[text]",
+                        "subtitle_fr":""
+                    }
+                }
+            }           
          },
      "non-active-entities":{
          "ne1":{
