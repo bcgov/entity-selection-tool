@@ -209,7 +209,7 @@ export default {
       radioButton: "",
       showNextButton: false,
       showFinishButton: false,
-      showPreviousButton: false,
+      showPreviousButton: true,
       resultsShow: false,
       bestEntitiesId: [],
       // this will be dynamicallly created
@@ -277,7 +277,7 @@ export default {
         this.showNextButton = (question.answerIndex=="notset") ? false : true;
         
       }
-      this.showPreviousButton=(val==1) ? false : true;
+      //this.showPreviousButton=(val==0) ? false : true;
       
       // set inital radio value  from user answer  
       this.radioButton = (question.answerIndex=="notset") ? "" : question.answerIndex;
@@ -287,6 +287,10 @@ export default {
   methods: {
     onClickButton: function() {
       this.tempValue = false;
+      this.$emit("clicked", this.tempValue);
+    },
+    onClickPrevious: function() {
+      this.tempValue = true;
       this.$emit("clicked", this.tempValue);
     },
     showResults: function() {
@@ -336,6 +340,10 @@ export default {
       if (this.currentCategoryIndex>1) {
         this.currentCategoryIndex--;
         this.showFinishButton = false;
+      }
+      //if on the first question, it returns to the introGate card
+      if (this.currentCategoryIndex <= 1) {
+        this.onClickPrevious();
       }
     }, // end previous
     //Saves the selected question option param {number} answer 

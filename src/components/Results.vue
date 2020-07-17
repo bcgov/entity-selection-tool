@@ -72,6 +72,11 @@
             }}</b-button>
           </span>
           <span class="card-footer-item">
+            <b-button class="be-form-button " @click="onClickButton">{{
+              $t("previous")
+            }}</b-button>
+          </span>
+          <span class="card-footer-item">
             <b-button class="be-form-button" @click="printEntity">
               {{ $t("print_results") }}
             </b-button>
@@ -331,7 +336,8 @@ export default {
         download: "Download",
         close: "Back",
         powerby: "Power by BizPaL",
-        next_steps: "What's Next?"
+        next_steps: "What's Next?",
+        previous: "Previous"
       },
       fr: {
         advantages: "Avantages :",
@@ -355,7 +361,8 @@ export default {
         download: "Télécharger",
         close: "Arrière",
         powerby: "Proposé par PerLE",
-        next_steps: "What's Next? (fr)"
+        next_steps: "What's Next? (fr)",
+        previous: "Précédent"
       }
     }
   }, // end i18n

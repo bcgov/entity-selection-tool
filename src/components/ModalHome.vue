@@ -330,9 +330,16 @@ export default {
     },
     // restart from entity card
     restartEntity(value) {
-      this.started = value;
-      this.introGate = value;
-      this.welcomeGate = true;
+      if (value == false) {
+        this.started = value;
+        this.introGate = value;
+        this.welcomeGate = true;
+      }
+      if (value == true) {
+        this.started = false;
+        this.introGate = value;
+        this.welcomeGate = false;
+      }
     }
   } //end methods
 };
