@@ -314,7 +314,7 @@ export default {
         advantages: "Advantages:",
         disadvantages: "Disadvantages:",
         download_name: "business-structures-in-{prov}",
-        restart: "Restart",
+        restart: "Reset",
         print_results: "Print/Download",
         print_summaries: "All Structures",
         print_result_header: "Suggested Business Entity Result",
@@ -334,7 +334,7 @@ export default {
         close: "Back",
         powerby: "Power by BizPaL",
         next_steps: "What's Next?",
-        previous: "Previous"
+        previous: "Back"
       },
       fr: {
         advantages: "Avantages :",
