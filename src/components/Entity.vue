@@ -291,6 +291,7 @@ export default {
     },
 
     onClickPrevious: function() {
+     
       this.tempValue = true;
       this.$emit("clicked", this.tempValue);
     },
@@ -338,14 +339,18 @@ export default {
     }, // end next
     // Goes back to the previous question
     previous: function() {
+      if (this.currentCategoryIndex <= 1 )
+      {
+        this.onClickPrevious();
+       return;
+      }
+       
       if (this.currentCategoryIndex>1) {
         this.currentCategoryIndex--;
         this.showFinishButton = false;
+         return;
       }
-      //if on the first question, it returns to the introGate card
-      if (this.currentCategoryIndex <= 1) {
-        this.onClickPrevious();
-      }
+       
     }, // end previous
     //Saves the selected question option param {number} answer 
     //The index of the selected option
