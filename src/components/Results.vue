@@ -258,19 +258,18 @@
               <br />
             </template>
           </div>
+              <div>
+              {{ $t("powerby") }}
+            </div>
         </section>
         <footer class="modal-card-foot">
           <b-button class="be-button" outlined @click="print()">
             {{ $t("print") }}
           </b-button>
-          <b-button class="be-button" outlined>
-            <a
-              class="be-link-button"
-              href="assets/EntityTypeLongDescriptionsFor-Profit.pdf"
-              target="_blank"
-            >
+          <b-button class="be-button" outlined @click="downloadPDF()">
+            
               {{ $t("download") }}
-            </a>
+            
           </b-button>
           <b-button
             class="be-button"
@@ -311,7 +310,7 @@ export default {
       en: {
         advantages: "Advantages:",
         disadvantages: "Disadvantages:",
-        download_name: "entity-result",
+        download_name: "business-structures-in-{prov}",
         restart: "Restart",
         print_results: "Print/Download",
         print_summaries: "All Structures",
@@ -336,7 +335,7 @@ export default {
       fr: {
         advantages: "Avantages :",
         disadvantages: "Désavantages :",
-        download_name: "resultat-entite",
+        download_name: "business-structures-dans-{prov}",
         restart: "Redémarrer",
         print_results: "Imprimer/Télécharger",
         print_result_header: "Suggested Business Entity Result (FR)",
@@ -451,7 +450,7 @@ export default {
       doc.fromHTML(this.$refs.PrintBody, 15, 15, {
         width: 170
       });
-      doc.save(this.$t("download_name") + `-${date}.pdf`);
+      doc.save(this.$t("download_name", { prov: "BC" }) + `-${date}.pdf`);
     },
     printEntity: function() {
       this.isCardModalActive = true;
