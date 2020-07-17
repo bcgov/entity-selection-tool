@@ -8,7 +8,7 @@
           </h2>
         </template>
         <template v-slot:bodytext>
-                  <p>            
+          <p>
             {{ $t("explanation_intro") }}
           </p>
           <ul class="be-nonprofit-list">
@@ -60,9 +60,9 @@
             <h2 class="title be-question-title is-4">
               {{ $t("header_text") }}
             </h2>
-                              <p>            
-            {{ $t("explanation_intro") }}
-          </p>
+            <p>
+              {{ $t("explanation_intro") }}
+            </p>
             <ul id="be-nonprofit-list">
               <li v-for="(item, index) in data" v-bind:key="index">
                 <h3 class="subtitle be-nonprofit-subtitle  is-5">
@@ -73,6 +73,9 @@
                 </p>
               </li>
             </ul>
+          </div>
+          <div>
+            {{ $t("powerby") }}
           </div>
         </section>
         <footer class="modal-card-foot">
@@ -124,26 +127,29 @@ export default {
         download: "Download",
         download_name: "non-profit-entities",
         header_text: "Non-Profit Summary Page",
-        explanation_intro: "Based on your answer, you are interested in a non-profit structure. The non-profit structures in BC are:",
+        explanation_intro:
+          "Based on your answer, you are interested in a non-profit structure. The non-profit structures in BC are:",
         restart: "Restart",
         previous: "Previous",
         print: "Print",
         print_results: "Results",
         print_summaries: "Print/Download",
-        results: "Business Structures Wizard – Your Results"
+        powerby: "Power by BizPaL",
+        results: "Business Structures Wizard"
       },
       fr: {
         close: "Fermer",
         download: "Télécharger",
         download_name: "non-profit-entities",
         header_text: "Non-Profit Summary Page (fr)",
-        explanation_intro:"Vouz avez selectionez un (fr)",
+        explanation_intro: "Vouz avez selectionez un (fr)",
         restart: "Redémarrer",
         previous: "Précédent",
         print: "Imprimer",
         print_results: "Les résultats",
         print_summaries: "Imprimer/Telecharger",
-        results: "Business Structures Wizard – Your Results (FR)"
+        powerby: "Proposé par PerLE",
+        results: "Business Structures Wizard"
       }
     }
   }, // end i18n
