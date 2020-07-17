@@ -180,8 +180,8 @@ export default {
   box-shadow: none;
   text-decoration: none;
   color: #2c5671;
-  line-height: 3;
-  padding: 0;
+  white-space: normal;
+  padding: 4px;
 }
 .be-form-button:disabled {
   background-color: transparent;
@@ -376,6 +376,10 @@ em.be-emphasis {
   }
   .be-question-title {
     margin-top: 6px;
+  }
+  .be-form-button {
+    padding: 2px;
+    line-height: 3;
   }
   /* Progress Bars */
   .subtitle.be-progress-subtitle.is-5 {

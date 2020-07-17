@@ -1,95 +1,93 @@
 <template>
   <div class="columns">
-    <div class="column is-three-fifths">
-      <BaseCard class="question box">
-        <template v-slot:headertext>
-          <h2 v-if="!nextSteps" class="title be-question-title is-4">
-            {{ $t("results_headers") }}
-          </h2>
-          <h2 v-if="nextSteps" class="title be-question-title is-4">
-            {{ $t("next_steps") }}
-          </h2>
-        </template>
-        <template v-slot:bodytext>
-          <div v-if="!nextSteps">
-            <h3 class="subtitle be-results-subtitle is-5">
-              {{ getHeaderTitles(entities) }}
-            </h3>
-            <template v-for="(value, index) in entities">
-              <div v-bind:key="index">
-                <div v-if="entitiesId.length > 1">
-                  <h3 class="subtitle be-results-subtitle is-5">
-                    {{ title(value) }}
-                  </h3>
-                </div>
-                <p class="be-results-text">{{ body(value) }}</p>
-                <div>
-                  <h3 class="subtitle be-results-subtitle is-5">
-                    {{ $t("advantages") }}
-                  </h3>
-                  <ul class="be-results-text">
-                    <span v-html="advantages(value)"></span>
-                  </ul>
-                </div>
-                <br />
-                <div>
-                  <h3 class="subtitle be-results-subtitle is-5">
-                    {{ $t("disadvantages") }}
-                  </h3>
-                  <ul class="be-results-text">
-                    <span v-html="disadvantages(value)"></span>
-                  </ul>
-                </div>
-                <br />
+    <BaseCard class="question box">
+      <template v-slot:headertext>
+        <h2 v-if="!nextSteps" class="title be-question-title is-4">
+          {{ $t("results_headers") }}
+        </h2>
+        <h2 v-if="nextSteps" class="title be-question-title is-4">
+          {{ $t("next_steps") }}
+        </h2>
+      </template>
+      <template v-slot:bodytext>
+        <div v-if="!nextSteps">
+          <h3 class="subtitle be-results-subtitle is-5">
+            {{ getHeaderTitles(entities) }}
+          </h3>
+          <template v-for="(value, index) in entities">
+            <div v-bind:key="index">
+              <div v-if="entitiesId.length > 1">
+                <h3 class="subtitle be-results-subtitle is-5">
+                  {{ title(value) }}
+                </h3>
               </div>
-            </template>
-            <b-button class="be-form-button" @click="nextStepsClick()">
-              {{ $t("next_steps") }}</b-button
-            >
-          </div>
-          <div v-if="nextSteps">
-            <template v-for="(value, index) in entities">
-              <div v-bind:key="index">
-                <div v-if="entitiesId.length > 1">
-                  <h3 class="subtitle be-results-subtitle is-5">
-                    {{ title(value) }}
-                  </h3>
-                </div>
-                <p class="be-results-text">There Will Be Next Steps Here...</p>
-
-                <br />
-                <p class="be-results-text">With Links...</p>
-                <br />
+              <p class="be-results-text">{{ body(value) }}</p>
+              <div>
+                <h3 class="subtitle be-results-subtitle is-5">
+                  {{ $t("advantages") }}
+                </h3>
+                <ul class="be-results-text">
+                  <span v-html="advantages(value)"></span>
+                </ul>
               </div>
-            </template>
-          </div>
-        </template>
+              <br />
+              <div>
+                <h3 class="subtitle be-results-subtitle is-5">
+                  {{ $t("disadvantages") }}
+                </h3>
+                <ul class="be-results-text">
+                  <span v-html="disadvantages(value)"></span>
+                </ul>
+              </div>
+              <br />
+            </div>
+          </template>
+          <b-button class="be-form-button" @click="nextStepsClick()">
+            {{ $t("next_steps") }}</b-button
+          >
+        </div>
+        <div v-if="nextSteps">
+          <template v-for="(value, index) in entities">
+            <div v-bind:key="index">
+              <div v-if="entitiesId.length > 1">
+                <h3 class="subtitle be-results-subtitle is-5">
+                  {{ title(value) }}
+                </h3>
+              </div>
+              <p class="be-results-text">There Will Be Next Steps Here...</p>
 
-        <template v-slot:footertext>
-          <span class="card-footer-item">
-            <b-button class="be-form-button " @click="onClickButton">{{
-              $t("restart")
-            }}</b-button>
-          </span>
-          <span class="card-footer-item">
-            <b-button class="be-form-button " @click="onClickPrevious">{{
-              $t("previous")
-            }}</b-button>
-          </span>
-          <span class="card-footer-item">
-            <b-button class="be-form-button" @click="printEntity">
-              {{ $t("print_results") }}
-            </b-button>
-          </span>
-          <span class="card-footer-item">
-            <b-button class="be-form-button" @click="printSummaries">
-              {{ $t("print_summaries") }}
-            </b-button>
-          </span>
-        </template>
-      </BaseCard>
-    </div>
-    <div class="column is-half"></div>
+              <br />
+              <p class="be-results-text">With Links...</p>
+              <br />
+            </div>
+          </template>
+        </div>
+      </template>
+
+      <template v-slot:footertext>
+        <span class="card-footer-item">
+          <b-button class="be-form-button " @click="onClickButton">{{
+            $t("restart")
+          }}</b-button>
+        </span>
+        <span class="card-footer-item">
+          <b-button class="be-form-button " @click="onClickPrevious">{{
+            $t("previous")
+          }}</b-button>
+        </span>
+        <span class="card-footer-item">
+          <b-button class="be-form-button" @click="printEntity">
+            {{ $t("print") }}/&#8203;{{ $t("download") }}
+          </b-button>
+        </span>
+        <span class="card-footer-item">
+          <b-button class="be-form-button" @click="printSummaries">
+            {{ $t("print_summaries") }}
+          </b-button>
+        </span>
+      </template>
+    </BaseCard>
+
     <!-- modal for results print view -->
     <b-modal
       :active.sync="isCardModalActive"
@@ -315,7 +313,7 @@ export default {
         disadvantages: "Disadvantages:",
         download_name: "business-structures-in-{prov}",
         restart: "Reset",
-        print_results: "Print/Download",
+        print_results: "Print / Download",
         print_summaries: "All Structures",
         print_result_header: "Suggested Business Entity Result",
         results: "Business Structures Wizard",
