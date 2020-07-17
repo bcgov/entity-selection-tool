@@ -474,8 +474,14 @@ export default {
       this.$emit("clicked", this.tempValue);
     },
     onClickPrevious: function() {
-      this.tempValue = true;
-      this.$emit("clicked", this.tempValue);
+      if (this.nextSteps == true) {
+        this.nextSteps = false;
+        return;
+      } else {
+        this.tempValue = true;
+        this.$emit("clicked", this.tempValue);
+        return;
+      }
     },
     displaySummaries: function() {
       //function to display summaries info
