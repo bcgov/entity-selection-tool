@@ -258,18 +258,16 @@
               <br />
             </template>
           </div>
-              <div>
-              {{ $t("powerby") }}
-            </div>
+          <div>
+            {{ $t("powerby") }}
+          </div>
         </section>
         <footer class="modal-card-foot">
           <b-button class="be-button" outlined @click="print()">
             {{ $t("print") }}
           </b-button>
           <b-button class="be-button" outlined @click="downloadPDF()">
-            
-              {{ $t("download") }}
-            
+            {{ $t("download") }}
           </b-button>
           <b-button
             class="be-button"
