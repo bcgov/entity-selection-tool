@@ -176,10 +176,10 @@ export default {
     messages: {
       en: {
         of: "of",
-        previous: "Previous",
+        previous: "Back",
         next: "Next",
         submit: "Finish",
-        restart: "Restart",
+        restart: "Reset",
         entity_title: "Suggested Business Structure",
         entity_title_one: "Suggested",
         entity_title_two: "Business Structure",

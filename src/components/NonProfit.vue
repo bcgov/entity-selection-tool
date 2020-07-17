@@ -129,8 +129,8 @@ export default {
         header_text: "Non-Profit Summary Page",
         explanation_intro:
           "Based on your answer, you are interested in a non-profit structure. The non-profit structures in BC are:",
-        restart: "Restart",
-        previous: "Previous",
+        restart: "Reset",
+        previous: "Back",
         print: "Print",
         print_results: "Results",
         print_summaries: "Print/Download",
