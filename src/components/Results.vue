@@ -72,7 +72,7 @@
             }}</b-button>
           </span>
           <span class="card-footer-item">
-            <b-button class="be-form-button " @click="onClickButton">{{
+            <b-button class="be-form-button " @click="onClickPrevious">{{
               $t("previous")
             }}</b-button>
           </span>
@@ -473,6 +473,10 @@ export default {
     },
     onClickButton: function() {
       this.tempValue = false;
+      this.$emit("clicked", this.tempValue);
+    },
+    onClickPrevious: function() {
+      this.tempValue = true;
       this.$emit("clicked", this.tempValue);
     },
     displaySummaries: function() {

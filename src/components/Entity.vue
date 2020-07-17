@@ -1,6 +1,6 @@
 <template>
   <div class="columns">
-    <div v-if="!resultsShow" class="column is-three-fifths">
+    <div v-if="resultsShow == false" class="column is-three-fifths">
       <BaseCard class="question box">
         <template v-slot:headertext>
           <h2 class="title be-question-title is-4">
@@ -83,7 +83,7 @@
         </template>
       </BaseCard>
     </div>
-    <div v-if="resultsShow" class="column is-three-fifths">
+    <div v-if="resultsShow == true" class="column is-three-fifths">
       <Results
         :data="data"
         :entities-id="bestEntitiesId"
@@ -289,6 +289,7 @@ export default {
       this.tempValue = false;
       this.$emit("clicked", this.tempValue);
     },
+
     onClickPrevious: function() {
       this.tempValue = true;
       this.$emit("clicked", this.tempValue);
@@ -369,12 +370,20 @@ export default {
         this.entitiesTotal[entityKey].total = totalImpact;
       }
     }, // end onSelect
-    //Restarts business entity tool
+    //If restart clicked, restart tool
     restartEntity: function(value) {
+      if (value == false) {
       this.$parent.started = value;
       this.$parent.introGate = value;
       this.$parent.welcomeGate = true;
+      }
+      //if previous clicked, close results
+      if (value == true) {
+        this.resultsShow = false;
+      }
     },
+
+    // Display percentage value on progress bar
     displayPercentage: function(value) {
       let displayValue = value;
       let minValue = 0;
