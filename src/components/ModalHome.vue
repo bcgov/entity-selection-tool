@@ -325,11 +325,13 @@ export default {
     // restart from non-profit card
     restartNonProfit(value) {
       this.nonProfit = value;
+      this.introGate = value;
       this.welcomeGate = true;
     },
     // restart from entity card
     restartEntity(value) {
       this.started = value;
+      this.introGate = value;
       this.welcomeGate = true;
     }
   } //end methods
