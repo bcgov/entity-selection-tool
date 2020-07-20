@@ -167,6 +167,8 @@ a.be-link:active,
   padding-top: 4px;
   color: #2c5671;
   font-size: 13px;
+  font-weight: 500;
+  font-style: italic;
 }
 .be-results-text {
   font-size: 14px;
@@ -223,7 +225,14 @@ a.be-link:active,
   background-color: #c8ddea;
   display: block;
 }
-
+.be-context-icon {
+  padding-right: 0px;
+  padding-left: 16px;
+  font-size: 16px;
+}
+.be-context-text {
+  padding-left: 0px;
+}
 /* Progress Bars */
 .be-carat-icon {
   color: #2c5671;
@@ -254,7 +263,7 @@ a.be-link:active,
   padding-bottom: 2px;
   padding-top: 24px;
 }
-em.be-emphasis {
+p.be-emphasis {
   color: #2c5671;
 }
 .be-progress {

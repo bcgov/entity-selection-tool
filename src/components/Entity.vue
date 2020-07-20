@@ -40,11 +40,17 @@
               </template>
             </form>
           </fieldset>
-
           <section class="be-context">
-            <p v-if="!isHidden">
-              {{ getQuestionContext }}
-            </p>
+            <div v-if="!isHidden" class="columns">
+              <div class="column is-1 be-context-icon">
+                <font-awesome-icon :icon="['fas', 'exclamation-circle']" />
+              </div>
+              <div class="column is-11 be-context-text">
+                <p>
+                  {{ getQuestionContext }}
+                </p>
+              </div>
+            </div>
           </section>
         </template>
         <template v-slot:footertext>
@@ -116,10 +122,9 @@
                   role="button"
                   :aria-controls="`contentIdFor${index}`"
                 >
-                  <em class="be-emphasis"
-                    >{{ data.entities[index][`title_${locale}`] }}
-                    {{ displayPercentage(entitiesTotal[index].total) }}</em
-                  >
+                  <p class="be-emphasis">
+                    {{ data.entities[index][`title_${locale}`] }}
+                  </p>
                   <font-awesome-icon
                     class="be-carat-icon is-pulled-right"
                     :icon="
