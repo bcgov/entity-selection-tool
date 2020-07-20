@@ -196,7 +196,7 @@ a.be-link:active,
 }
 .be-start-button {
   width: 100%;
-  height: 60px;
+  height: 48px;
   display: block;
   background-color: rgb(207, 232, 252);
   border-color: transparent;
@@ -216,7 +216,6 @@ a.be-link:active,
 .be-start-button:active {
   background-color: rgb(164, 221, 252);
   border-color: rgb(207, 232, 252);
-  color: #363636;
 }
 .be-form-button {
   width: 100%;
