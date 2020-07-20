@@ -26,9 +26,9 @@
               $t("restart")
             }}</b-button>
           </span>
-          <!-- disabled until there are non-profit results to display -->
+
           <span class="card-footer-item">
-            <b-button class="be-form-button" @click="onClickButton">
+            <b-button class="be-form-button" @click="onClickPrevious">
               {{ $t("previous") }}
             </b-button>
           </span>
@@ -36,6 +36,11 @@
             <b-button class="be-form-button" @click="printSummaries">
               {{ $t("print_summaries") }}
             </b-button>
+          </span>
+          <span class="card-footer-item">
+            <b-button class="be-form-button" disabled>
+              {{ $t("next_steps") }}</b-button
+            >
           </span>
         </template>
       </BaseCard>
@@ -135,7 +140,8 @@ export default {
         print_results: "Results",
         print_summaries: "Print/Download",
         powerby: "Power by BizPaL",
-        results: "Business Structures Wizard"
+        results: "Business Structures Wizard",
+        next_steps: "What's Next?"
       },
       fr: {
         close: "Fermer",
@@ -149,7 +155,8 @@ export default {
         print_results: "Les résultats",
         print_summaries: "Imprimer/Telecharger",
         powerby: "Proposé par PerLE",
-        results: "Business Structures Wizard"
+        results: "Business Structures Wizard (FR)",
+        next_steps: "What's Next? (FR)"
       }
     }
   }, // end i18n
@@ -203,6 +210,10 @@ export default {
   methods: {
     onClickButton: function() {
       this.tempValue = false;
+      this.$emit("clicked", this.tempValue);
+    },
+    onClickPrevious: function() {
+      this.tempValue = true;
       this.$emit("clicked", this.tempValue);
     },
     downloadPDF: function() {

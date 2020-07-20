@@ -42,9 +42,9 @@
               <br />
             </div>
           </template>
-          <b-button class="be-form-button" @click="nextStepsClick()">
+          <!--  <b-button class="be-form-button" @click="nextStepsClick()">
             {{ $t("next_steps") }}</b-button
-          >
+          > -->
         </div>
         <div v-if="nextSteps">
           <template v-for="(value, index) in entities">
@@ -75,6 +75,7 @@
             $t("previous")
           }}</b-button>
         </span>
+
         <span class="card-footer-item">
           <b-button class="be-form-button" @click="printEntity">
             {{ $t("print") }}/&#8203;{{ $t("download") }}
@@ -84,6 +85,11 @@
           <b-button class="be-form-button" @click="printSummaries">
             {{ $t("print_summaries") }}
           </b-button>
+        </span>
+        <span class="card-footer-item">
+          <b-button class="be-form-button" @click="nextStepsClick()">
+            {{ $t("next_steps") }}</b-button
+          >
         </span>
       </template>
     </BaseCard>
@@ -167,7 +173,7 @@
                   <li v-bind:key="index">
                     {{ data.entities[index][`title_${langLocal}`] }} ({{
                       value[`total`]
-                    }})
+                    }}%)
                   </li>
                 </template>
               </ul>

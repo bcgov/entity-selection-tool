@@ -296,7 +296,6 @@ export default {
     },
 
     onClickPrevious: function() {
-     
       this.tempValue = true;
       this.$emit("clicked", this.tempValue);
     },

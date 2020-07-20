@@ -67,7 +67,7 @@
               <p>{{ $t("intro_3") }}</p>
               <p>{{ $t("intro_4") }}</p>
               <!--  <p style="margin-bottom: 0px;">{{ $t("intro_disclaimer") }}</p> -->
-              <b-button class="be-form-button" @click="showIntroGate()">
+              <b-button class="be-start-button" @click="showIntroGate()">
                 {{ $t("start") }}</b-button
               >
             </div>
@@ -324,9 +324,16 @@ export default {
     },
     // restart from non-profit card
     restartNonProfit(value) {
-      this.nonProfit = value;
-      this.introGate = value;
-      this.welcomeGate = true;
+      if (value == false) {
+        this.nonProfit = value;
+        this.introGate = value;
+        this.welcomeGate = true;
+      }
+      if (value == true) {
+        this.nonProfit = false;
+        this.introGate = value;
+        this.welcomeGate = false;
+      }
     },
     // restart from entity card
     restartEntity(value) {

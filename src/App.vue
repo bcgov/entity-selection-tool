@@ -154,6 +154,9 @@ a.be-link:active,
   margin-top: 24px;
   margin-bottom: 12px;
 }
+.be-card-footer {
+  height: 60px;
+}
 .card-footer-item {
   color: #2c5671;
   padding: 0;
@@ -191,6 +194,29 @@ a.be-link:active,
 .be-question-form {
   margin-left: 12px;
 }
+.be-start-button {
+  width: 100%;
+  display: block;
+  background-color: rgb(207, 232, 252);
+  border-color: transparent;
+  border-radius: 2px;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  text-decoration: none;
+  color: #2c5671;
+  white-space: normal;
+  padding: 4px;
+  line-height: 1;
+}
+.be-start-button:hover,
+.be-start-button.is-hovered,
+.be-start-button:focus,
+.be-start-button.is-focused,
+.be-start-button:active {
+  background-color: rgb(164, 221, 252);
+  border-color: rgb(207, 232, 252);
+  color: #363636;
+}
 .be-form-button {
   width: 100%;
   height: 100%;
@@ -204,6 +230,7 @@ a.be-link:active,
   color: #2c5671;
   white-space: normal;
   padding: 4px;
+  line-height: 1;
 }
 .be-form-button:disabled {
   background-color: transparent;
@@ -222,7 +249,7 @@ a.be-link:active,
   color: #363636;
   width: 100%;
   height: 100%;
-  background-color: #c8ddea;
+  background-color: rgb(207, 232, 252);
   display: block;
 }
 .be-context-icon {
@@ -406,10 +433,7 @@ p.be-emphasis {
   .be-question-title {
     margin-top: 6px;
   }
-  .be-form-button {
-    padding: 2px;
-    line-height: 3;
-  }
+
   /* Progress Bars */
   .subtitle.be-progress-subtitle.is-5 {
     visibility: hidden;
