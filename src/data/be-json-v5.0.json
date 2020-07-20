@@ -478,8 +478,8 @@
                  "category": 9,
                  "category_name_en":"Public Benefit",
                  "category_name_fr":"Public Benefit(FR)",
-                 "question_en":"Do you intent to invest time and costs to formally promote a public benefit, and report on your success in delivering that public benefit annually?",
-                 "question_fr":"Do you intent to invest time and costs to formally promote a public benefit, and report on your success in delivering that public benefit annually?(FR)",
+                 "question_en":"Do you intend to invest time and costs to formally promote a public benefit, and report on your success in delivering that public benefit annually?",
+                 "question_fr":"Do you intend to invest time and costs to formally promote a public benefit, and report on your success in delivering that public benefit annually?(FR)",
                  "context_en":"A benefit company acts for both shareholders and the public. It promotes an artistic, charitable, cultural, economic, educational, environmental, literary, medical, religious, scientific, or technological benefit. If you choose this type it might lead to higher levels of employee motivation and engagement, and enhance the company's reputation among customers and in the community at large.",
                  "context_fr":"A benefit company acts for both shareholders and the public. It promotes an artistic, charitable, cultural, economic, educational, environmental, literary, medical, religious, scientific, or technological benefit. If you choose this type it might lead to higher levels of employee motivation and engagement, and enhance the company's reputation among customers and in the community at large.(FR)",
                  "answers":{

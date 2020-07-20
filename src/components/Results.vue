@@ -102,9 +102,10 @@
           <span class="be-modal-title">{{ $t("results") }}</span>
         </header>
         <section id="printBody" ref="PrintBody" class="be-modal-print-body">
-          <h1 class="subtitle is-3">
+          <p class="subtitle is-5">
             {{ getHeaderTitles(entities) }}
-          </h1>
+          </p>
+
           <template v-for="(value, index) in entities">
             <div v-bind:key="index">
               <div v-if="entitiesId.length > 1">
@@ -317,10 +318,10 @@ export default {
         print_summaries: "All Structures",
         print_result_header: "Suggested Business Entity Result",
         results: "Business Structures Wizard",
-        results_headers: " Results",
+        results_headers: "Your Results",
         business_structure:
           "Based on your answers, your best match is {entity}. | Based on your answers, your best match is  {entity} or {entity2}.",
-
+        business_structure_entity: "{entity} | {entity} or {entity2}",
         questions_answers: "Questions/Anwers:",
         bold_italic: "bold and italic",
         text_answers: "Your answers are in {format}.",
@@ -330,7 +331,7 @@ export default {
         print: "Print",
         download: "Download",
         close: "Back",
-        powerby: "Power by BizPaL",
+        powerby: "Powered by BizPaL",
         next_steps: "What's Next?",
         previous: "Back"
       },
@@ -343,7 +344,7 @@ export default {
         print_result_header: "Suggested Business Entity Result (FR)",
         print_summaries: "Tous les structures",
         results: "Business Structures Wizard (FR)",
-        results_headers: "Résultats",
+        results_headers: "Résultats (fr)",
         business_structure:
           "Your answers indicate that a {entity} is your best match. (FR)",
         questions_answers: "Questions/Réponses :",
