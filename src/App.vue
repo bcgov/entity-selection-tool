@@ -196,6 +196,7 @@ a.be-link:active,
 }
 .be-start-button {
   width: 100%;
+  height: 60px;
   display: block;
   background-color: rgb(207, 232, 252);
   border-color: transparent;
