@@ -87,13 +87,33 @@ export default {
   padding-top: 10px;
   justify-content: flex-end;
   border-top: none;
+  color: #595959;
 }
-.be-link,
-.be-link-button {
-  color: #2c5671;
+a.be-link,
+a.be-link-button {
+  color: #366b8c;
+}
+a.be-link:hover,
+a.be-link-button:hover,
+a.be-link.is-hovered,
+a.be-link-button.is-hovered a.be-link:focus,
+a.be-link-button:focus,
+a.be-link.is-focused,
+a.be-link-button.is-focused,
+a.be-link:active,
+.be-link-button:active {
+  color: #274f6e;
 }
 .be-tooltip {
-  color: #2c5671;
+  color: #366b8c;
+  cursor: pointer;
+}
+.be-tooltip:hover,
+.be-tooltip.is-hovered,
+.be-tooltip:focus,
+.be-tooltip.is-focused,
+.be-tooltip:active {
+  color: #274f6e;
 }
 .b-tooltip.is-top.is-primary:before {
   border-top: 5px solid #274f6e;

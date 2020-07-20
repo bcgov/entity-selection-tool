@@ -175,9 +175,9 @@
           :label="$t('disclaimer')"
           multilined
         >
-          {{ $t("disclaimer_title") }} |
+          {{ $t("disclaimer_title") }}
         </b-tooltip>
-
+        <span v-if="!welcomeGate"> | </span>
         {{ $t("powered") }}
         <a
           class="be-link"
