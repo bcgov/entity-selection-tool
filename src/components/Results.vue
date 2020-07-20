@@ -312,7 +312,7 @@ export default {
         advantages: "Advantages:",
         disadvantages: "Disadvantages:",
         download_name: "business-structures-in-{prov}",
-        restart: "Reset",
+        restart: "Restart",
         print_results: "Print / Download",
         print_summaries: "All Structures",
         print_result_header: "Suggested Business Entity Result",

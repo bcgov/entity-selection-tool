@@ -179,7 +179,7 @@ export default {
         previous: "Back",
         next: "Next",
         submit: "Finish",
-        restart: "Reset",
+        restart: "Restart",
         entity_title: "Suggested Business Structure",
         entity_title_one: "Suggested",
         entity_title_two: "Business Structure",
