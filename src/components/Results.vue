@@ -27,18 +27,18 @@
                 <h3 class="subtitle be-results-subtitle is-6">
                   {{ $t("advantages") }}
                 </h3>
-                <ul class="be-results-text">
-                  <span v-html="advantages(value)"></span>
-                </ul>
+                <p class="be-results-text">
+                  {{ advantages(value) }}
+                </p>
               </div>
               <br />
               <div>
                 <h3 class="subtitle be-results-subtitle is-6">
                   {{ $t("disadvantages") }}
                 </h3>
-                <ul class="be-results-text">
-                  <span v-html="disadvantages(value)"></span>
-                </ul>
+                <p class="be-results-text">
+                  {{ disadvantages(value) }}
+                </p>
               </div>
               <br />
             </div>

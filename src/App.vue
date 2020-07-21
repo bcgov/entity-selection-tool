@@ -174,7 +174,7 @@ a.be-link:active,
   font-style: italic;
 }
 .be-results-text {
-  font-size: 14px;
+  font-size: 16px;
 }
 .be-results-title {
   font-weight: 50;
@@ -190,7 +190,10 @@ a.be-link:active,
 p.subtitle.be-results-subtitle {
   margin-bottom: 16px;
 }
-
+h3.subtitle.be-results-subtitle {
+  margin-bottom: 8px;
+  font-size: 18px;
+}
 .be-question-text {
   margin-top: 16px;
   margin-bottom: 0px;
@@ -310,6 +313,9 @@ p.be-emphasis {
   margin-top: 5px;
   margin-right: 20px;
   margin-left: 20px;
+}
+.be-progress-summary {
+  font-size: 14px;
 }
 .be-entitywrap {
   border-bottom-style: solid;

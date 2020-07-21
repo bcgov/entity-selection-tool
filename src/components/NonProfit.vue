@@ -3,7 +3,7 @@
     <div class="column is-half">
       <BaseCard class="summary box">
         <template v-slot:headertext>
-          <h2 class="title be-question-title is-4">
+          <h2 class="title be-results-title is-4">
             {{ $t("header_text") }}
           </h2>
         </template>
@@ -105,7 +105,7 @@
 
 <script>
 import Vue from "vue";
-import json from "@/data/be-json-v5.0.json";
+import json from "@/data/be-json-v6.0.json";
 import BaseCard from "@/components/base-components/BaseCard.vue";
 import VueI18nNonProfit from "vue-i18n";
 import Printd from "printd";
