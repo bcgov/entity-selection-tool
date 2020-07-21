@@ -173,7 +173,7 @@
                 <template v-for="(value, index) in entitiesTotal">
                   <li v-bind:key="index">
                     {{ data.entities[index][`title_${langLocal}`] }} ({{
-                      value[`total`]
+                      displayPercentage(value[`total`])
                     }}%)
                   </li>
                 </template>
@@ -525,7 +525,17 @@ export default {
         }
       }
       return layout;
-    }
+    },
+    // Display percentage value on progress bar
+    displayPercentage: function(value) {
+      let displayValue = value;
+      let minValue = 0;
+      if (displayValue <= -1) {
+        return minValue;
+      } else {
+        return displayValue;
+      }
+    } // end displayPercentage
   } // end methods
 }; // end export default
 </script>
