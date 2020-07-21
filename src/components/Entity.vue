@@ -124,14 +124,15 @@
                 >
                   <p class="be-emphasis">
                     {{ data.entities[index][`title_${locale}`] }}
+
+                    <font-awesome-icon
+                      class="be-carat-icon is-pulled-right"
+                      :icon="
+                        props.open ? ['fas', 'angle-up'] : ['fas', 'angle-down']
+                      "
+                    >
+                    </font-awesome-icon>
                   </p>
-                  <font-awesome-icon
-                    class="be-carat-icon is-pulled-right"
-                    :icon="
-                      props.open ? ['fas', 'angle-up'] : ['fas', 'angle-down']
-                    "
-                  >
-                  </font-awesome-icon>
                 </div>
                 <div class="notification be-notification">
                   <div class="content">
