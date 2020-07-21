@@ -55,7 +55,7 @@
                   {{ title(value) }}
                 </h3>
               </div>
-              <p class="be-results-text">There Will Be Next Steps Here...</p>
+              <p class="be-results-text">{{ $t("next_steps_intro") }}</p>
 
               <br />
               <p class="be-results-text">With Links...</p>
@@ -327,7 +327,7 @@ export default {
         results: "Business Structures Wizard",
         results_headers: "YOUR RESULTS",
         business_structure:
-          "Based on your answers, your best match is: | Based on your answers, your best match is: ",
+          "Based on your answers, your best match is: | Based on your answers, your best matches are: ",
         business_structure_entity: "{entity} | {entity} or {entity2}",
         questions_answers: "Questions/Anwers:",
         bold_italic: "bold and italic",
@@ -340,6 +340,8 @@ export default {
         close: "Back",
         powerby: "Powered by BizPaL",
         next_steps: "What's Next?",
+        next_steps_intro:
+          "Ready to start your business? Try these next steps. Some business structures may require the services of a lawyer and accountant.",
         previous: "Back"
       },
       fr: {
@@ -353,7 +355,8 @@ export default {
         results: "Business Structures Wizard (FR)",
         results_headers: "Résultats (fr)",
         business_structure:
-          "Your answers indicate that a {entity} is your best match. (FR)",
+          "Based on your answers, your best match is: | Based on your answers, your best matches are: (FR)",
+        business_structure_entity: "{entity} | {entity} or {entity2}",
         questions_answers: "Questions/Réponses :",
         bold_italic: "gras et italique",
         text_answers: "Vos réponses sont en {format}.",
@@ -365,6 +368,8 @@ export default {
         close: "Arrière",
         powerby: "Proposé par PerLE",
         next_steps: "What's Next? (fr)",
+        next_steps_intro:
+          "Ready to start your business? Try these next steps. Some business structures may require the services of a lawyer and accountant. (FR)",
         previous: "Précédent"
       }
     }
@@ -458,6 +463,7 @@ export default {
     nextStepsClick: function() {
       this.nextSteps = true;
     },
+    getNextSteps: function() {},
     downloadPDF: function() {
       let today = new Date();
       let date =
