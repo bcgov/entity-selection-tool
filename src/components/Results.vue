@@ -2,29 +2,29 @@
   <div class="columns">
     <BaseCard class="question box">
       <template v-slot:headertext>
-        <h2 v-if="!nextSteps" class="title be-question-title is-4">
+        <h2 v-if="!nextSteps" class="title be-results-title is-4">
           {{ $t("results_headers") }}
         </h2>
-        <h2 v-if="nextSteps" class="title be-question-title is-4">
+        <h2 v-if="nextSteps" class="title be-results-title is-4">
           {{ $t("next_steps") }}
         </h2>
       </template>
       <template v-slot:bodytext>
         <div v-if="!nextSteps">
           <p>{{ getHeaderIntro(entities) }}</p>
-          <p class="subtitle be-results-subtitle is-5">
+          <p class="subtitle be-results-subtitle is-4">
             {{ getHeaderTitles(entities) }}
           </p>
           <template v-for="(value, index) in entities">
             <div v-bind:key="index">
               <div v-if="entitiesId.length > 1">
-                <h3 class="subtitle be-results-subtitle is-5">
+                <h2 class="subtitle be-results-subtitle is-5">
                   {{ title(value) }}
-                </h3>
+                </h2>
               </div>
               <p class="be-results-text">{{ body(value) }}</p>
               <div>
-                <h3 class="subtitle be-results-subtitle is-5">
+                <h3 class="subtitle be-results-subtitle is-6">
                   {{ $t("advantages") }}
                 </h3>
                 <ul class="be-results-text">
@@ -33,7 +33,7 @@
               </div>
               <br />
               <div>
-                <h3 class="subtitle be-results-subtitle is-5">
+                <h3 class="subtitle be-results-subtitle is-6">
                   {{ $t("disadvantages") }}
                 </h3>
                 <ul class="be-results-text">
@@ -325,7 +325,7 @@ export default {
         print_summaries: "All Structures",
         print_result_header: "Suggested Business Entity Result",
         results: "Business Structures Wizard",
-        results_headers: "Your Results",
+        results_headers: "YOUR RESULTS",
         business_structure:
           "Based on your answers, your best match is: | Based on your answers, your best match is: ",
         business_structure_entity: "{entity} | {entity} or {entity2}",
