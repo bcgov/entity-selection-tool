@@ -11,9 +11,10 @@
       </template>
       <template v-slot:bodytext>
         <div v-if="!nextSteps">
-          <h3 class="subtitle be-results-subtitle is-5">
+          <p>{{ getHeaderIntro(entities) }}</p>
+          <p class="subtitle be-results-subtitle is-5">
             {{ getHeaderTitles(entities) }}
-          </h3>
+          </p>
           <template v-for="(value, index) in entities">
             <div v-bind:key="index">
               <div v-if="entitiesId.length > 1">
@@ -326,7 +327,7 @@ export default {
         results: "Business Structures Wizard",
         results_headers: "Your Results",
         business_structure:
-          "Based on your answers, your best match is {entity}. | Based on your answers, your best match is  {entity} or {entity2}.",
+          "Based on your answers, your best match is: | Based on your answers, your best match is: ",
         business_structure_entity: "{entity} | {entity} or {entity2}",
         questions_answers: "Questions/Anwers:",
         bold_italic: "bold and italic",
@@ -431,18 +432,27 @@ export default {
       let data = this.data;
       return data[`disclaimer_${this.langLocal}`] || "";
     },
+    getHeaderIntro: function(entities) {
+      if (entities.length > 1) {
+        return this.$tc("business_structure", 2);
+      } else {
+        return this.$tc("business_structure", 1);
+      }
+    },
     getHeaderTitles: function(entities) {
       let entity1Title =
         entities[this.entitiesId[0]][`title_${this.langLocal}`];
       if (this.entitiesId.length > 1) {
         let entity2Title =
           entities[this.entitiesId[1]][`title_${this.langLocal}`];
-        return this.$tc("business_structure", 2, {
+        return this.$tc("business_structure_entity", 2, {
           entity: entity1Title,
           entity2: entity2Title
         });
       } else {
-        return this.$tc("business_structure", 1, { entity: entity1Title });
+        return this.$tc("business_structure_entity", 1, {
+          entity: entity1Title
+        });
       }
     },
     nextStepsClick: function() {

@@ -66,7 +66,6 @@
               <p>{{ $t("intro_2") }}</p>
               <p>{{ $t("intro_3") }}</p>
               <p>{{ $t("intro_4") }}</p>
-              <!--  <p style="margin-bottom: 0px;">{{ $t("intro_disclaimer") }}</p> -->
               <b-button class="be-start-button" @click="showIntroGate()">
                 {{ $t("start") }}</b-button
               >
