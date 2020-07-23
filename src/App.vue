@@ -176,6 +176,9 @@ a.be-link:active,
 .be-results-text {
   font-size: 16px;
 }
+.content p.be-results-header-intro {
+  margin-bottom: 0px;
+}
 .be-results-title {
   font-weight: 50;
   color: #2c5671;
@@ -187,12 +190,21 @@ a.be-link:active,
   color: #2c5671;
   font-weight: 400;
 }
-p.subtitle.be-results-subtitle {
-  margin-bottom: 16px;
+.subtitle.be-results-subtitle.is-4 {
+  font-size: 22px;
+  margin-bottom: 18px;
+  margin-top: 8px;
 }
-h3.subtitle.be-results-subtitle {
+.subtitle.be-results-subtitle.is-5 {
+  font-weight: normal;
+  font-size: 19px;
+  margin-top: 8px;
   margin-bottom: 8px;
-  font-size: 18px;
+}
+.subtitle.be-results-subtitle.is-6 {
+  font-weight: normal;
+  font-size: 17px;
+  margin-bottom: 4px;
 }
 .be-question-text {
   margin-top: 16px;
@@ -277,6 +289,9 @@ h3.subtitle.be-results-subtitle {
 }
 .be-context-text {
   padding-left: 0px;
+}
+.be-next-steps-list {
+  margin-bottom: 16px;
 }
 /* Progress Bars */
 .be-carat-icon {

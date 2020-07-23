@@ -6,36 +6,36 @@
           {{ $t("results_headers") }}
         </h2>
         <h2 v-if="nextSteps" class="title be-results-title is-4">
-          {{ $t("next_steps") }}
+          {{ $t("next_steps_title") }}
         </h2>
       </template>
       <template v-slot:bodytext>
         <div v-if="!nextSteps">
-          <p>{{ getHeaderIntro(entities) }}</p>
-          <p class="subtitle be-results-subtitle is-4">
+          <p class="be-results-header-intro">{{ getHeaderIntro(entities) }}</p>
+          <h3 class="subtitle be-results-subtitle is-4">
             {{ getHeaderTitles(entities) }}
-          </p>
+          </h3>
           <template v-for="(value, index) in entities">
             <div v-bind:key="index">
               <div v-if="entitiesId.length > 1">
-                <h2 class="subtitle be-results-subtitle is-5">
-                  {{ title(value) }}
-                </h2>
+                <h3 class="subtitle be-results-subtitle is-5">
+                  {{ title(value) }}:
+                </h3>
               </div>
               <p class="be-results-text">{{ body(value) }}</p>
               <div>
-                <h3 class="subtitle be-results-subtitle is-6">
+                <h4 class="subtitle be-results-subtitle is-6">
                   {{ $t("advantages") }}
-                </h3>
+                </h4>
                 <p class="be-results-text">
                   {{ advantages(value) }}
                 </p>
               </div>
               <br />
               <div>
-                <h3 class="subtitle be-results-subtitle is-6">
+                <h4 class="subtitle be-results-subtitle is-6">
                   {{ $t("disadvantages") }}
-                </h3>
+                </h4>
                 <p class="be-results-text">
                   {{ disadvantages(value) }}
                 </p>
@@ -50,22 +50,23 @@
         <div v-if="nextSteps">
           <p class="be-results-text">{{ $t("next_steps_intro") }}</p>
           <template v-for="(value, index) in entities">
-            <div v-bind:key="index">
-              <!--  <div v-if="entitiesId.length > 1"> -->
-              <h3 class="subtitle be-results-subtitle is-4">
-                {{ title(value) }}
+            <div class="be-next-steps-list" v-bind:key="index">
+              {{ getNextSteps(value) }}
+
+              <h3 class="subtitle be-results-subtitle is-5">
+                {{ title(value) }}:
               </h3>
-              <!--   </div> -->
-              <p>{{ getNextSteps(value) }}</p>
-              <p v-html="resource1"></p>
-              <p v-html="resource2"></p>
+              <ul v-bind:key="index" v-for="(item, index) in resources">
+                <li v-html="item"></li>
+              </ul>
             </div>
           </template>
-          <h3 class="subtitle be-results-subtitle is-4">
-            {{ $t("general_resources") }}
+          <h3 class="subtitle be-results-subtitle is-5">
+            {{ $t("general_resources") }}:
           </h3>
-          <p v-html="resource3"></p>
-          <p v-html="resource4"></p>
+          <ul v-bind:key="index" v-for="(item, index) in resourcesGeneral">
+            <li v-html="item"></li>
+          </ul>
         </div>
       </template>
 
@@ -93,7 +94,7 @@
         </span>
         <span class="card-footer-item">
           <b-button class="be-form-button" @click="nextStepsClick()">
-            {{ $t("next_steps") }}</b-button
+            {{ $t("next_steps_title") }}</b-button
           >
         </span>
       </template>
@@ -234,7 +235,7 @@
             <ul>
               <template v-for="(value, index) in data.entities">
                 <li v-bind:key="index">
-                  <a v-bind:href="`#${index}`"
+                  <a class="be-link" v-bind:href="`#${index}`"
                     >{{ value[`title_${langLocal}`] }}
                   </a>
                 </li>
@@ -242,7 +243,7 @@
 
               <template v-for="(value, index) in data['non-active-entities']">
                 <li v-bind:key="index">
-                  <a v-bind:href="`#${index}`"
+                  <a class="be-link" v-bind:href="`#${index}`"
                     >{{ value[`title_${langLocal}`] }}
                   </a>
                 </li>
@@ -343,11 +344,11 @@ export default {
         download: "Download",
         close: "Back",
         powerby: "Powered by BizPaL",
-        next_steps: "What's Next?",
+        next_steps_title: "What's Next?",
         next_steps_intro:
           "Ready to start your business? Try these next steps. Some business structures may require the services of a lawyer and accountant.",
         previous: "Back",
-        general_resources: "General Resources"
+        general_resources: "All Business Types"
       },
       fr: {
         advantages: "Avantages :",
@@ -372,11 +373,11 @@ export default {
         download: "Télécharger",
         close: "Arrière",
         powerby: "Proposé par PerLE",
-        next_steps: "What's Next? (fr)",
+        next_steps_title: "What's Next? (fr)",
         next_steps_intro:
           "Ready to start your business? Try these next steps. Some business structures may require the services of a lawyer and accountant. (FR)",
         previous: "Précédent",
-        general_resources: "General Resources (FR)"
+        general_resources: "All Business Types (FR)"
       }
     }
   }, // end i18n
@@ -471,31 +472,26 @@ export default {
     },
     // match suggested entities with next step links
     getNextSteps: function(entity) {
-      let resources = this.data.resources;
+      let resourcesList = this.data.resources;
       console.log(entity);
       let entityID = entity.id;
-      this.resource3 = resources.general_resources.g1;
-      this.resource4 = resources.general_resources.g2;
+      this.resourcesGeneral = resourcesList.general_resources;
       switch (entityID) {
         case "e1":
         case "e2":
         case "e3":
         case "e4":
-          this.resource1 = resources.r1.url_1;
-          this.resource2 = resources.r1.url_2;
+          this.resources = resourcesList.r1;
 
           break;
         case "e5":
-          this.resource1 = resources.r5.url_1;
-          this.resource2 = resources.r5.url_2;
+          this.resources = resourcesList.r5;
           break;
         case "e6":
-          this.resource1 = resources.r3.url_1;
-          this.resource2 = resources.r3.url_2;
+          this.resources = resourcesList.r3;
           break;
         case "e7":
-          this.resource1 = resources.r4.url_1;
-          this.resource2 = "";
+          this.resources = resourcesList.r4;
           break;
       }
     },
