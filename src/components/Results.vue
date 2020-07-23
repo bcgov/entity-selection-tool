@@ -48,20 +48,24 @@
           > -->
         </div>
         <div v-if="nextSteps">
+          <p class="be-results-text">{{ $t("next_steps_intro") }}</p>
           <template v-for="(value, index) in entities">
             <div v-bind:key="index">
-              <div v-if="entitiesId.length > 1">
-                <h3 class="subtitle be-results-subtitle is-5">
-                  {{ title(value) }}
-                </h3>
-              </div>
-              <p class="be-results-text">{{ $t("next_steps_intro") }}</p>
-
-              <br />
-              <p class="be-results-text">With Links...</p>
-              <br />
+              <!--  <div v-if="entitiesId.length > 1"> -->
+              <h3 class="subtitle be-results-subtitle is-4">
+                {{ title(value) }}
+              </h3>
+              <!--   </div> -->
+              <p>{{ getNextSteps(value) }}</p>
+              <p v-html="resource1"></p>
+              <p v-html="resource2"></p>
             </div>
           </template>
+          <h3 class="subtitle be-results-subtitle is-4">
+            {{ $t("general_resources") }}
+          </h3>
+          <p v-html="resource3"></p>
+          <p v-html="resource4"></p>
         </div>
       </template>
 
@@ -342,7 +346,8 @@ export default {
         next_steps: "What's Next?",
         next_steps_intro:
           "Ready to start your business? Try these next steps. Some business structures may require the services of a lawyer and accountant.",
-        previous: "Back"
+        previous: "Back",
+        general_resources: "General Resources"
       },
       fr: {
         advantages: "Avantages :",
@@ -370,7 +375,8 @@ export default {
         next_steps: "What's Next? (fr)",
         next_steps_intro:
           "Ready to start your business? Try these next steps. Some business structures may require the services of a lawyer and accountant. (FR)",
-        previous: "Précédent"
+        previous: "Précédent",
+        general_resources: "General Resources (FR)"
       }
     }
   }, // end i18n
@@ -463,7 +469,36 @@ export default {
     nextStepsClick: function() {
       this.nextSteps = true;
     },
-    getNextSteps: function() {},
+    // match suggested entities with next step links
+    getNextSteps: function(entity) {
+      let resources = this.data.resources;
+      console.log(entity);
+      let entityID = entity.id;
+      this.resource3 = resources.general_resources.g1;
+      this.resource4 = resources.general_resources.g2;
+      switch (entityID) {
+        case "e1":
+        case "e2":
+        case "e3":
+        case "e4":
+          this.resource1 = resources.r1.url_1;
+          this.resource2 = resources.r1.url_2;
+
+          break;
+        case "e5":
+          this.resource1 = resources.r5.url_1;
+          this.resource2 = resources.r5.url_2;
+          break;
+        case "e6":
+          this.resource1 = resources.r3.url_1;
+          this.resource2 = resources.r3.url_2;
+          break;
+        case "e7":
+          this.resource1 = resources.r4.url_1;
+          this.resource2 = "";
+          break;
+      }
+    },
     downloadPDF: function() {
       let today = new Date();
       let date =
