@@ -262,9 +262,22 @@
           <div v-for="(value, index) in data.entities" v-bind:key="index">
             <template>
               <a :name="index"></a>
-              <h2 class="subtitle is-4">{{ value[`title_${langLocal}`] }}</h2>
-
+              <h2 class="subtitle be-results-subtitle is-4">
+                {{ value[`title_${langLocal}`] }}
+              </h2>
               <p>{{ value[`summary_${langLocal}`] }}</p>
+              <br />
+              <h3 class="subtitle be-results-subtitle is-5">
+                {{ $t("advantages") }}
+              </h3>
+              <p>
+                {{ value[`advantage_${langLocal}`] }}
+              </p>
+              <br />
+              <h3 class="subtitle be-results-subtitle is-5">
+                {{ $t("disadvantages") }}
+              </h3>
+              <p>{{ value[`disadvantage_${langLocal}`] }}</p>
               <br />
             </template>
           </div>
