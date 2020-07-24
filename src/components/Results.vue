@@ -473,7 +473,6 @@ export default {
     // match suggested entities with next step links
     getNextSteps: function(entity) {
       let resourcesList = this.data.resources;
-      console.log(entity);
       let entityID = entity.id;
       this.resourcesGeneral = resourcesList.general_resources;
       switch (entityID) {
@@ -482,7 +481,6 @@ export default {
         case "e3":
         case "e4":
           this.resources = resourcesList.r1;
-
           break;
         case "e5":
           this.resources = resourcesList.r5;
