@@ -192,6 +192,13 @@
             </div>
             <div>
               {{ $t("powerby") }}
+              <a
+                class="be-link"
+                target="_blank"
+                rel="noopener"
+                :href="$t('bizpal_link')"
+                >{{ $t("bizpal") }}</a
+              >
             </div>
           </div>
         </section>
@@ -276,6 +283,13 @@
           </div>
           <div>
             {{ $t("powerby") }}
+            <a
+              class="be-link"
+              target="_blank"
+              rel="noopener"
+              :href="$t('bizpal_link')"
+              >{{ $t("bizpal") }}</a
+            >
           </div>
         </section>
         <footer class="modal-card-foot">
@@ -343,12 +357,14 @@ export default {
         print: "Print",
         download: "Download",
         close: "Back",
-        powerby: "Powered by BizPaL",
+        powerby: "Powered by ",
         next_steps_title: "What's Next?",
         next_steps_intro:
           "Ready to start your business? Try these next steps. Keep in mind, some business structures may require the services of a lawyer and accountant.",
         previous: "Back",
-        general_resources: "All Business Types"
+        general_resources: "All Business Types",
+        bizpal_link: "https://services.bizpal-perle.ca/",
+        bizpal: "BizPaL"
       },
       fr: {
         advantages: "Avantages :",
@@ -377,7 +393,9 @@ export default {
         next_steps_intro:
           "Ready to start your business? Try these next steps. Keep in mind, some business structures may require the services of a lawyer and accountant. (FR)",
         previous: "Précédent",
-        general_resources: "All Business Types (FR)"
+        general_resources: "All Business Types (FR)",
+        bizpal_link: "https://services.bizpal-perle.ca/",
+        bizpal: "BizPaL"
       }
     }
   }, // end i18n
