@@ -133,7 +133,7 @@ export default {
         download_name: "non-profit-entities",
         header_text: "Non-Profit Summary Page",
         explanation_intro:
-          "Based on your answer, you are interested in a non-profit structure. The non-profit structures in BC are:",
+          "Based on your answer, you are interested in a non-profit structure. This tool mainly assists people starting for-profit enterprises. To help you think about the right non-profit structure, here are the main types:",
         restart: "Restart",
         previous: "Back",
         print: "Print",
@@ -148,7 +148,8 @@ export default {
         download: "Télécharger",
         download_name: "non-profit-entities",
         header_text: "Non-Profit Summary Page (fr)",
-        explanation_intro: "Vouz avez selectionez un (fr)",
+        explanation_intro:
+          "Based on your answer, you are interested in a non-profit structure. This tool mainly assists people starting for-profit enterprises. To help you think about the right non-profit structure, here are the main types: (FR)",
         restart: "Redémarrer",
         previous: "Précédent",
         print: "Imprimer",

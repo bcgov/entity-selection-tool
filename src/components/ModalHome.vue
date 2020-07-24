@@ -58,8 +58,11 @@
           <template v-slot:headertext>
             <h2 v-if="welcomeGate" class="title be-question-title is-4">
               {{ $t("welcome") }}
-            </h2></template
-          >
+            </h2>
+            <p v-if="introGate" class="title be-intro-title">
+              {{ $t("intro_header") }}
+            </p>
+          </template>
           <template v-slot:bodytext>
             <div v-if="!introGate">
               <p>{{ $t("intro_1") }}</p>
@@ -229,7 +232,8 @@ export default {
         start_question_opt1: "Generate a profit for owners",
         start_question_opt2:
           "Generate a profit for owners combined with a public benefit",
-        start_question_opt3: "Provide services as a licensed professional",
+        start_question_opt3:
+          "Provide services at a profit as a licensed professional (e.g. lawyer, accountant, doctor, etc.).",
         start_question_opt4: "Support a charitable cause or public benefit",
         start_question_opt5:
           "Provide shared benefit for members through a cooperative association",
@@ -247,7 +251,9 @@ export default {
           "This tool helps you decide among the most common types: proprietorships, partnerships, corporations, benefit companies, co-operatives, and non-profit societies.",
         intro_4: "Pick the answers that best fit your situation.",
         intro_disclaimer:
-          "No personal information will be requested or collected through the use of this tool."
+          "No personal information will be requested or collected through the use of this tool.",
+        intro_header:
+          "The first thing to decide is whether you’re starting a for-profit or non-profit enterprise."
       },
       fr: {
         business_structures: "Structures d'entreprise",
@@ -262,7 +268,8 @@ export default {
         start_question_opt1: "Generate a profit for owners (fr)",
         start_question_opt2:
           "Generate a profit for owners combined with a public benefit (fr)",
-        start_question_opt3: "Provide services as a licensed professional (fr)",
+        start_question_opt3:
+          "Provide services at a profit as a licensed professional (e.g. lawyer, accountant, doctor, etc.). (fr)",
         start_question_opt4:
           "Support a charitable cause or public benefit (fr)",
         start_question_opt5:
@@ -281,7 +288,9 @@ export default {
           "This tool helps you decide among the most common types: proprietorships, partnerships, corporations, benefit companies, co-operatives, and non-profit societies. FR",
         intro_4: "Pick the answers that best fit your situation.FR",
         intro_disclaimer:
-          "No personal information will be requested or collected through the use of this tool. FR"
+          "No personal information will be requested or collected through the use of this tool. FR",
+        intro_header:
+          "The first thing to decide is whether you’re starting a for-profit or non-profit enterprise. (FR)"
       }
     }
   }, // end i18n

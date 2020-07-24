@@ -346,7 +346,7 @@ export default {
         powerby: "Powered by BizPaL",
         next_steps_title: "What's Next?",
         next_steps_intro:
-          "Ready to start your business? Try these next steps. Some business structures may require the services of a lawyer and accountant.",
+          "Ready to start your business? Try these next steps. Keep in mind, some business structures may require the services of a lawyer and accountant.",
         previous: "Back",
         general_resources: "All Business Types"
       },
@@ -375,7 +375,7 @@ export default {
         powerby: "Proposé par PerLE",
         next_steps_title: "What's Next? (fr)",
         next_steps_intro:
-          "Ready to start your business? Try these next steps. Some business structures may require the services of a lawyer and accountant. (FR)",
+          "Ready to start your business? Try these next steps. Keep in mind, some business structures may require the services of a lawyer and accountant. (FR)",
         previous: "Précédent",
         general_resources: "All Business Types (FR)"
       }

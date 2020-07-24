@@ -67,8 +67,8 @@
                  "category_name_fr":"Industry/Professional Risk(FR)",
                  "question_en":"How much risk is there in your industry or profession?",
                  "question_fr":"How much risk is there in your industry or profession?(FR)",
-                 "context_en":"In some industries or professions there is a greater chance somebody will take legal action against you or your company. They may seek compensation for personal injury, property damage, or financial loss for example. Some industries like construction, transportation, fishing, and manufacturing - and some professions like medicine and dentistry - have high risks than others. If you think your industry may have high risk you will probably want to protect yourself through a limited liability structure. (e.g., corporation or limited liability partnership.)",
-                 "context_fr":"In some industries or professions there is a greater chance somebody will take legal action against you or your company. They may seek compensation for personal injury, property damage, or financial loss for example. Some industries like construction, transportation, fishing, and manufacturing - and some professions like medicine and dentistry - have high risks than others. If you think your industry may have high risk you will probably want to protect yourself through a limited liability structure. (e.g., corporation or limited liability partnership.)(FR)",
+                 "context_en":"In some industries or professions there is a greater chance somebody will take legal action against you or your company. They may seek compensation for personal injury, property damage, or financial loss for example. Some industries like construction, transportation, fishing, forestry, mining, and manufacturing - and some professions like medicine and dentistry - have higher risks than others. If you think your industry may have high risk you will probably want to protect yourself through a limited liability structure. (e.g., corporation or limited liability partnership.)",
+                 "context_fr":"In some industries or professions there is a greater chance somebody will take legal action against you or your company. They may seek compensation for personal injury, property damage, or financial loss for example. Some industries like construction, transportation, fishing, forestry, mining, and manufacturing - and some professions like medicine and dentistry - have higher risks than others. If you think your industry may have high risk you will probably want to protect yourself through a limited liability structure. (e.g., corporation or limited liability partnership.)(FR)",
                  "answers":{
                      "a1":{
                          "id":"a1",
@@ -196,9 +196,9 @@
                          "title_fr":"1(FR)",
                          "impact": {
                              "e1":12.5,
-                             "e2":0,
-                             "e3":0,
-                             "e4":0,
+                             "e2":-100,
+                             "e3":-100,
+                             "e4":-100,
                              "e5":7.5,
                              "e6":7.5,
                              "e7":5
@@ -252,14 +252,14 @@
                  "category": 5,
                  "category_name_en":"Number of employees.",
                  "category_name_fr":"Number of employees.(FR)",
-                 "question_en":"Including yourself, how many employees will you have?",
-                 "question_fr":"Including yourself, how many employees will you have?(FR)",
+                 "question_en":"Excluding yourself and any other owners, how many employees will you have?",
+                 "question_fr":"Excluding yourself and any other owners, how many employees will you have?(FR)",
                  "context_en":"The number of employees indicates how complex your business may be. It's generally better to incorporate if you will have a large number of employees.",
                  "context_fr":"The number of employees indicates how complex your business may be. It's generally better to incorporate if you will have a large number of employees.(FR)",
                  "answers":{
                      "a1":{
                          "id":"a1",
-                         "title_en":"1",
+                         "title_en":"0-1",
                          "title_fr":"1(FR)",
                          "impact": {
                              "e1":10,
@@ -425,8 +425,8 @@
                  "category": 8,
                  "category_name_en":"Forecast profitiability",
                  "category_name_fr":"Forecast profitiability(FR)",
-                 "question_en":"What's your financial forecast for your organization?",
-                 "question_fr":"How do you feel about setup and administrative costs?(FR)",
+                 "question_en":"What's your financial forecast for your business?",
+                 "question_fr":"What's your financial forecast for your business?(FR)",
                  "context_en":"If you choose proprietorship or partnership you might be able to use losses from the business to offset other income, and therefore pay less personal income tax.",
                  "context_fr":"If you choose proprietorship or partnership you might be able to use losses from the business to offset other income, and therefore pay less personal income tax.(FR)",
                  "answers":{
@@ -531,8 +531,8 @@
                  "category": 10,
                  "category_name_en":"Name Protection",
                  "category_name_fr":"Name Protection(FR)",
-                 "question_en":"How important is protecting your organization's name?",
-                 "question_fr":"How important is protecting your organization's name?(FR)",
+                 "question_en":"How important is protecting your business name?",
+                 "question_fr":"How important is protecting your business name?(FR)",
                  "context_en":"Incorporation provides a higher level of name protection than other business structures. If you are a sole proprietorship - or partnership - and someone incorporates using your business name, they will have the rights to the name. Sole proprietorships and partnerships have no name protection in this area.",
                  "context_fr":"Incorporation provides a higher level of name protection than other business structures. If you are a sole proprietorship - or partnership - and someone incorporates using your business name, they will have the rights to the name. Sole proprietorships and partnerships have no name protection in this area.(FR)",
                  "answers":{

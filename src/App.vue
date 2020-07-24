@@ -186,6 +186,14 @@ a.be-link:active,
   margin-bottom: 16px;
   margin-top: 16px;
 }
+.be-intro-title {
+  font-size: 20px;
+  font-weight: 50;
+  color: #2c5671;
+
+  margin-bottom: 16px;
+  margin-top: 0px;
+}
 .subtitle.be-results-subtitle {
   color: #2c5671;
   font-weight: 400;
@@ -207,6 +215,11 @@ a.be-link:active,
   margin-bottom: 4px;
 }
 .be-question-text {
+  margin-top: 16px;
+  margin-bottom: 0px;
+}
+.be-gate-text {
+  padding-top: 16px;
   margin-top: 16px;
   margin-bottom: 0px;
 }
@@ -298,12 +311,12 @@ a.be-link:active,
   color: #2c5671;
 }
 .subtitle.be-progress-subtitle.is-5 {
-  font-weight: 50;
+  font-weight: 500;
   color: #2c5671;
   margin-bottom: 0px;
 }
 .subtitle.be-progress-subtitle.is-4 {
-  font-weight: 50;
+  font-weight: 500;
   color: #2c5671;
   margin-bottom: 24px;
 }
@@ -428,30 +441,30 @@ p.be-emphasis {
   /* White Content Card */
   .question.box {
     width: 520px;
-    height: 490px;
+    height: 500px;
     z-index: 50;
     position: absolute;
-    top: 80px;
+    top: 72px;
     left: 10px;
     padding: 20px;
     margin-top: 0rem;
   }
   .summary.box {
     width: 620px;
-    height: 490px;
+    height: 500px;
     z-index: 50;
     position: absolute;
-    top: 82px;
+    top: 72px;
     left: 10px;
     padding: 20px;
     margin-top: 0rem;
   }
   .welcome.box {
     width: 712px;
-    height: 490px;
+    height: 500px;
     z-index: 50;
     position: absolute;
-    top: 82px;
+    top: 72px;
     left: 10px;
     padding: 20px;
     margin-top: 0rem;
@@ -463,6 +476,7 @@ p.be-emphasis {
   .be-question-text {
     width: 433px;
   }
+
   .be-question-title {
     margin-top: 6px;
   }
