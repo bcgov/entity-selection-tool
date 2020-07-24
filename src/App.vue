@@ -219,7 +219,7 @@ a.be-link:active,
   margin-bottom: 0px;
 }
 .be-gate-text {
-  padding-top: 16px;
+  /*  padding-top: 16px; */
   margin-top: 16px;
   margin-bottom: 0px;
 }

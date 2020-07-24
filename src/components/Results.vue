@@ -347,6 +347,8 @@ export default {
         results_headers: "YOUR RESULTS",
         business_structure:
           "Based on your answers, your best match is: | Based on your answers, your best matches are: ",
+        business_structure_2:
+          "Based on your answers, there is more than one structure that may fit your situation. Be sure to consult with a business adviser, accountant or lawyer before finalizing your choice. Of these top-ranked choices your best match is:",
         business_structure_entity: "{entity} | {entity} or {entity2}",
         questions_answers: "Questions/Anwers:",
         bold_italic: "bold and italic",
@@ -466,6 +468,13 @@ export default {
       if (entities.length > 1) {
         return this.$tc("business_structure", 2);
       } else {
+        let myEntities = this.entitiesTotal;
+        let keysSorted = Object.keys(this.entitiesTotal).sort(function(a, b) {
+          myEntities[b]["total"] - myEntities[a]["total"];
+        });
+        let entity1 = keysSorted[0];
+        let entity2 = keysSorted[1];
+        console.log(entity1, entity2);
         return this.$tc("business_structure", 1);
       }
     },

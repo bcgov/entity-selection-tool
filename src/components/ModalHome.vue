@@ -59,9 +59,12 @@
             <h2 v-if="welcomeGate" class="title be-question-title is-4">
               {{ $t("welcome") }}
             </h2>
-            <p v-if="introGate" class="title be-intro-title">
+            <h2 v-if="introGate" class="title be-question-title is-4">
+              {{ $t("intro_title") }}
+            </h2>
+            <!-- <p v-if="introGate" class="title be-intro-title">
               {{ $t("intro_header") }}
-            </p>
+            </p> -->
           </template>
           <template v-slot:bodytext>
             <div v-if="!introGate">
@@ -76,7 +79,7 @@
             <div v-if="introGate">
               <fieldset class="be-card-content">
                 <legend class="be-gate-text">
-                  {{ $t("start_question") }}
+                  {{ $t("intro_header") }} {{ $t("start_question") }}
                 </legend>
                 <br />
                 <form class="be-question-form">
@@ -253,7 +256,8 @@ export default {
         intro_disclaimer:
           "No personal information will be requested or collected through the use of this tool.",
         intro_header:
-          "The first thing to decide is whether you’re starting a for-profit or non-profit enterprise."
+          "The first thing to decide is whether you’re starting a for-profit or non-profit enterprise.",
+        intro_title: "YOUR ENTERPRISE TYPE"
       },
       fr: {
         business_structures: "Structures d'entreprise",
@@ -290,7 +294,8 @@ export default {
         intro_disclaimer:
           "No personal information will be requested or collected through the use of this tool. FR",
         intro_header:
-          "The first thing to decide is whether you’re starting a for-profit or non-profit enterprise. (FR)"
+          "The first thing to decide is whether you’re starting a for-profit or non-profit enterprise. (FR)",
+        intro_title: "YOUR ENTPRISE TYPE"
       }
     }
   }, // end i18n
