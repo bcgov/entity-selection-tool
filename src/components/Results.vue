@@ -468,13 +468,6 @@ export default {
       if (entities.length > 1) {
         return this.$tc("business_structure", 2);
       } else {
-        let myEntities = this.entitiesTotal;
-        let keysSorted = Object.keys(this.entitiesTotal).sort(function(a, b) {
-          myEntities[b]["total"] - myEntities[a]["total"];
-        });
-        let entity1 = keysSorted[0];
-        let entity2 = keysSorted[1];
-        console.log(entity1, entity2);
         return this.$tc("business_structure", 1);
       }
     },
