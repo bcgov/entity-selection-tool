@@ -11,7 +11,7 @@
       </template>
       <template v-slot:bodytext>
         <div v-if="!nextSteps">
-          <p class="be-results-header-intro">{{ getHeaderIntro(entities) }}</p>
+          <p class="be-results-header-intro">{{ getHeaderIntro() }}</p>
           <h3 class="subtitle be-results-subtitle is-4">
             {{ getHeaderTitles(entities) }}
           </h3>
@@ -490,11 +490,42 @@ export default {
       let data = this.data;
       return data[`disclaimer_${this.langLocal}`] || "";
     },
-    getHeaderIntro: function(entities) {
-      if (entities.length > 1) {
+    getHeaderIntro: function() {
+      if (this.entitiesId.length > 1) {
         return this.$tc("business_structure", 2);
       } else {
-        return this.$tc("business_structure", 1);
+        let myEntities = this.entitiesTotal;
+        let keysSorted = Object.keys(this.entitiesTotal).sort(function(a, b) {
+          return myEntities[b]["total"] - myEntities[a]["total"];
+        });
+        let sortedEntities = {};
+        let topEntitiesId = [];
+        let topEntitiesTotal = [];
+        let gotTopEntity = false;
+        let iteration = 1;
+        //let bestEntitySelectionId = "";
+        keysSorted.map(function(key) {
+          if (!gotTopEntity) {
+            //bestEntitySelectionId = key;
+            topEntitiesId.push(key);
+            //topEntitiesId.push("e1") // to testing
+            topEntitiesTotal.push(myEntities[key]["total"]);
+            gotTopEntity = true;
+          }
+          sortedEntities[key] = myEntities[key];
+          //check if the second best entity is within 8% for top entity suggestion
+          if (iteration > 1) {
+            if (topEntitiesTotal.pop() - 8 <= myEntities[key]["total"]) {
+              topEntitiesId.push(key);
+            }
+          }
+          iteration++;
+        });
+        if (topEntitiesId.length > 1) {
+          return this.$tc("business_structure_2");
+        } else {
+          return this.$tc("business_structure", 1);
+        }
       }
     },
     getHeaderTitles: function(entities) {
