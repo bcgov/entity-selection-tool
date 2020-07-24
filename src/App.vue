@@ -167,11 +167,12 @@ a.be-link:active,
   font-size: 14px;
 }
 .be-disclaimer {
-  padding-top: 4px;
+  padding-top: 2px;
   color: #2c5671;
   font-size: 13px;
   font-weight: 500;
   font-style: italic;
+  overflow-y: auto;
 }
 .be-results-text {
   font-size: 16px;
