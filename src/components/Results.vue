@@ -114,9 +114,9 @@
           <span class="be-modal-title">{{ $t("results") }}</span>
         </header>
         <section id="printBody" ref="PrintBody" class="be-modal-print-body">
-          <p class="subtitle is-5">
+          <h1 class="subtitle is-3">
             {{ getHeaderTitles(entities) }}
-          </p>
+          </h1>
 
           <template v-for="(value, index) in entities">
             <div v-bind:key="index">
