@@ -295,14 +295,6 @@ a.be-link:active,
   background-color: rgb(207, 232, 252);
   display: block;
 }
-.be-context-icon {
-  padding-right: 0px;
-  padding-left: 16px;
-  font-size: 16px;
-}
-.be-context-text {
-  padding-left: 0px;
-}
 .be-next-steps-list {
   margin-bottom: 16px;
 }
@@ -485,6 +477,14 @@ p.be-emphasis {
     font-weight: 400;
     font-size: 24px;
     margin-top: 6px;
+  }
+  .be-context-icon {
+    padding-right: 0px;
+    padding-left: 16px;
+    font-size: 16px;
+  }
+  .be-context-text {
+    padding-left: 0px;
   }
   /* Progress Bars */
   .subtitle.be-progress-subtitle.is-5 {

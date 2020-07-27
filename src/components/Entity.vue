@@ -41,7 +41,7 @@
             </form>
           </fieldset>
           <section class="be-context">
-            <div v-if="!isHidden" class="columns">
+            <div v-if="!isHidden" class="columns is-mobile">
               <div class="column is-1 be-context-icon">
                 <font-awesome-icon :icon="['fas', 'exclamation-circle']" />
               </div>
