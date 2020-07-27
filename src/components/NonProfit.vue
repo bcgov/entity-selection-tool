@@ -112,7 +112,7 @@
 
 <script>
 import Vue from "vue";
-import json from "@/data/be-json-v6.0.json";
+import json from "@/data/be-data.json";
 import BaseCard from "@/components/base-components/BaseCard.vue";
 import VueI18nNonProfit from "vue-i18n";
 import Printd from "printd";
