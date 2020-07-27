@@ -285,7 +285,7 @@ a.be-link:active,
   text-decoration: none;
   color: #2c5671;
   white-space: normal;
-  padding: 4px;
+  padding: 2px;
   line-height: 1;
 }
 .be-form-button:disabled {
@@ -498,6 +498,9 @@ p.be-emphasis {
   }
   .be-context-text {
     padding-left: 0px;
+  }
+  .be-form-button {
+    padding: 4px;
   }
   /* Progress Bars */
   .subtitle.be-progress-subtitle.is-5 {
