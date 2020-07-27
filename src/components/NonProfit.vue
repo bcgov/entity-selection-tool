@@ -81,13 +81,6 @@
           </div>
           <div>
             {{ $t("powerby") }}
-            <a
-              class="be-link"
-              target="_blank"
-              rel="noopener"
-              :href="$t('bizpal_link')"
-              >{{ $t("bizpal") }}</a
-            >
           </div>
         </section>
         <footer class="modal-card-foot">
@@ -146,9 +139,7 @@ export default {
         print: "Print",
         print_results: "Results",
         print_summaries: "Print/Download",
-        powerby: "Powered by ",
-        bizpal_link: "https://services.bizpal-perle.ca/",
-        bizpal: "BizPaL",
+        powerby: "Powered by BizPaL",
         results: "Business Structures Wizard",
         next_steps: "What's Next?"
       },
@@ -164,9 +155,7 @@ export default {
         print: "Imprimer",
         print_results: "Les résultats",
         print_summaries: "Imprimer/Telecharger",
-        powerby: "Proposé par (fr)",
-        bizpal_link: "https://services.perle-bizpal.ca/",
-        bizpal: "PerLE",
+        powerby: "Proposé par PerLE",
         results: "Business Structures Wizard (FR)",
         next_steps: "What's Next? (FR)"
       }

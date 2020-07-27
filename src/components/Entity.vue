@@ -209,8 +209,17 @@ export default {
     lang: {
       type: String,
       default: "en"
+    },
+    sgc: {
+      type: String,
+      default: "59"
     }
   }, 
+  // generic error capture for the component
+   errorCaptured(err,vm,info) {
+    console.log(`Error in Entity.vue: ${err.toString()}\ninfo: ${info}`); 
+     return false;
+  },
   data: function() {
     return {
       langLocal:this.lang,
@@ -228,30 +237,38 @@ export default {
       currentCategoryIndex: 1,
       navElement: "",
       isHidden: false,
+      sgcLocal:this.sgc
     };
   }, // end data
   created: function() {
-    this.data = this.data["pid-59"];
-    this.totalCategories = Object.keys(this.data.collection).length;
-    // here all the variables that are needed to be created via the json file.
+    this.data = this.data[`pid-${this.sgcLocal}`];
 
-    // to track user selection
-    for (let [key, value] of Object.entries(this.data.collection)) {
-      // use set to make it  reactive 
-      Vue.set(this.userSelectedAnswer, key, {
-        answerIndex:"notset",
-        impact:[]
-      })
-    }
-    // to track entities total and added summary for quick access to it
-    for (let [key, value] of Object.entries(this.data.entities)) {
-      // use set to make it  reactive 
-      Vue.set(this.entitiesTotal, key, {
-        total: 0,
-        summary_en: value["summary_en"] || "",
-        summary_fr: value["summary_fr"] || ""
-      })   
-    }
+    try {
+      this.totalCategories = Object.keys(this.data.collection).length;
+      // here all the variables that are needed to be created via the json file.
+
+      // to track user selection
+      for (let [key, value] of Object.entries(this.data.collection)) {
+        // use set to make it  reactive 
+        Vue.set(this.userSelectedAnswer, key, {
+          answerIndex:"notset",
+          impact:[]
+        })
+      }
+      // to track entities total and added summary for quick access to it
+      for (let [key, value] of Object.entries(this.data.entities)) {
+        // use set to make it  reactive 
+        Vue.set(this.entitiesTotal, key, {
+          total: 0,
+          summary_en: value["summary_en"] || "",
+          summary_fr: value["summary_fr"] || ""
+        })   
+      }
+
+  }catch(e){
+   console.log("error with data structure.")
+   //return false;
+  }
   }, // end created
   mounted: function() {
     this.$i18n.locale = this.langLocal;
