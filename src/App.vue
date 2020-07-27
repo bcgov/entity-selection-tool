@@ -10,6 +10,7 @@ import ModalHome from "@/components/ModalHome.vue";
 import Vue from "vue";
 import Buefy from "buefy";
 import "buefy/dist/buefy.css";
+import json from "@/data/be-data.json";
 
 Vue.use(Buefy);
 export default {
@@ -22,19 +23,31 @@ export default {
     sgc: {
       type: String,
       default: "59"
+    },
+    data: {
+      type: {}
     }
   },
   data: function() {
     return {
       langLocal: this.lang,
-      sgcLocal: this.sgc
+      sgcLocal: this.sgc,
+      dataLocal: this.data
     };
   }, // end data
+  mounted: function() {
+    this.dataLocal = this.data ? this.data : json;
+  },
+
   methods: {
     homeModal: function() {
       this.$buefy.modal.open({
         parent: this,
-        props: { lang: this.langLocal, sgc: this.sgcLocal },
+        props: {
+          lang: this.langLocal,
+          sgc: this.sgcLocal,
+          data: this.dataLocal
+        },
         component: ModalHome,
         hasModalCard: true,
         customClass: "bet-modal",
