@@ -165,6 +165,7 @@
           @clicked="restartEntity"
           :lang="this.langLocal"
           :sgc="this.sgcLocal"
+          :data="this.dataLocal"
         ></Entity>
       </div>
       <div v-if="nonProfit">
@@ -172,6 +173,8 @@
           @clicked="restartNonProfit"
           :lang="this.langLocal"
           :entity-id="this.radioButton"
+          :data="this.dataLocal"
+
         ></NonProfit>
       </div>
     </div>
@@ -311,6 +314,9 @@ export default {
     sgc: {
       type: String,
       default: "59"
+    },
+    data: {
+      type: Object
     }
   },
   data: function() {
@@ -321,7 +327,8 @@ export default {
       langLocal: this.lang,
       introGate: false,
       welcomeGate: true,
-      sgcLocal: this.sgc
+      sgcLocal: this.sgc,
+      dataLocal: this.data
     };
   },
   mounted: function() {
