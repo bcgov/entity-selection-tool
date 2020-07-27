@@ -236,7 +236,7 @@ export default {
         start_question_opt2:
           "Generate a profit for owners combined with a public benefit",
         start_question_opt3:
-          "Provide services at a profit as a licensed professional (e.g. lawyer, accountant, doctor, etc.).",
+          "Provide services at a profit as a licensed professional (e.g. lawyer, accountant, doctor, etc.)",
         start_question_opt4: "Support a charitable cause or public benefit",
         start_question_opt5:
           "Provide shared benefit for members through a cooperative association",
