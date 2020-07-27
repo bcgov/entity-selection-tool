@@ -12,7 +12,7 @@
           <fieldset class="be-card-content">
             <legend class="be-question-text">
               {{
-                data.collection[`cat-${currentCategoryIndex}`][
+                dataLocal.collection[`cat-${currentCategoryIndex}`][
                   `question_${locale}`
                 ]
               }}
@@ -91,7 +91,7 @@
     </div>
     <div v-if="resultsShow == true" class="column is-three-fifths">
       <Results
-        :data="data"
+        :data="dataLocal"
         :entities-id="bestEntitiesId"
         :entities-total="entitiesTotal"
         :user-answers="userSelectedAnswer"
@@ -123,7 +123,7 @@
                   :aria-controls="`contentIdFor${index}`"
                 >
                   <p class="be-emphasis">
-                    {{ data.entities[index][`title_${locale}`] }}
+                    {{ dataLocal.entities[index][`title_${locale}`] }}
 
                     <font-awesome-icon
                       class="be-carat-icon is-pulled-right"
@@ -159,7 +159,6 @@
 
 <script>
 import Vue from "vue";
-import json from "@/data/be-data.json";
 import Results from "@/components/Results.vue";
 import BaseCard from "@/components/base-components/BaseCard.vue";
 import VueI18nEntity from "vue-i18n";
@@ -213,6 +212,9 @@ export default {
     sgc: {
       type: String,
       default: "59"
+    },
+    data: {
+      type: Object
     }
   }, 
   // generic error capture for the component
@@ -233,7 +235,7 @@ export default {
       userSelectedAnswer: {},
       entitiesTotal: {},
       totalCategories: 0,
-      data: json,
+      dataLocal: this.data,
       currentCategoryIndex: 1,
       navElement: "",
       isHidden: false,
@@ -241,14 +243,17 @@ export default {
     };
   }, // end data
   created: function() {
-    this.data = this.data[`pid-${this.sgcLocal}`];
+
+    
+
+    this.dataLocal = this.dataLocal[`pid-${this.sgcLocal}`];
 
     try {
-      this.totalCategories = Object.keys(this.data.collection).length;
+      this.totalCategories = Object.keys(this.dataLocal.collection).length;
       // here all the variables that are needed to be created via the json file.
 
       // to track user selection
-      for (let [key, value] of Object.entries(this.data.collection)) {
+      for (let [key, value] of Object.entries(this.dataLocal.collection)) {
         // use set to make it  reactive 
         Vue.set(this.userSelectedAnswer, key, {
           answerIndex:"notset",
@@ -256,7 +261,7 @@ export default {
         })
       }
       // to track entities total and added summary for quick access to it
-      for (let [key, value] of Object.entries(this.data.entities)) {
+      for (let [key, value] of Object.entries(this.dataLocal.entities)) {
         // use set to make it  reactive 
         Vue.set(this.entitiesTotal, key, {
           total: 0,
@@ -277,12 +282,12 @@ export default {
     getTotal: function(entityKey) {
       return (this.entitiesTotal[entityKey]) ? this.entitiesTotal[entityKey].total : 0;
     },
-    // returns The data for the current question
+    // returns The dataLocal for the current question
     current: function() {
-      return this.data.collection[`cat-${this.currentCategoryIndex}`].answers;
+      return this.dataLocal.collection[`cat-${this.currentCategoryIndex}`].answers;
     },
     getQuestionContext: function() {
-      return this.data.collection[`cat-${this.currentCategoryIndex}`][`context_${this.locale}`] || "";
+      return this.dataLocal.collection[`cat-${this.currentCategoryIndex}`][`context_${this.locale}`] || "";
     },
     // returns The current language
     locale: function() {
@@ -387,7 +392,7 @@ export default {
       this.userSelectedAnswer[`cat-${this.currentCategoryIndex}`].answerIndex = answerIndex;
       this.userSelectedAnswer[`cat-${this.currentCategoryIndex}`].impact = answer.impact;
 
-      for (let [entityKey, value] of Object.entries(this.data.entities)) {
+      for (let [entityKey, value] of Object.entries(this.dataLocal.entities)) {
         let totalImpact=0;
         // go throught all recoreded answers to find impact for that Entity
         for (let [key, answerValue] of Object.entries(this.userSelectedAnswer)) {

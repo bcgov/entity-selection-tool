@@ -12,7 +12,7 @@
             {{ $t("explanation_intro") }}
           </p>
           <ul class="be-nonprofit-list">
-            <li v-for="(item, index) in data" v-bind:key="index">
+            <li v-for="(item, index) in dataLocal" v-bind:key="index">
               <h3 class="subtitle be-nonprofit-subtitle  is-5">
                 {{ item[`title_${langLocal}`] }}
               </h3>
@@ -69,7 +69,7 @@
               {{ $t("explanation_intro") }}
             </p>
             <ul id="be-nonprofit-list">
-              <li v-for="(item, index) in data" v-bind:key="index">
+              <li v-for="(item, index) in dataLocal" v-bind:key="index">
                 <h3 class="subtitle be-nonprofit-subtitle  is-5">
                   {{ item[`title_${langLocal}`] }}
                 </h3>
@@ -112,7 +112,6 @@
 
 <script>
 import Vue from "vue";
-import json from "@/data/be-data.json";
 import BaseCard from "@/components/base-components/BaseCard.vue";
 import VueI18nNonProfit from "vue-i18n";
 import Printd from "printd";
@@ -180,6 +179,13 @@ export default {
     entityId: {
       type: String,
       default: ""
+    },
+    sgc: {
+      type: String,
+      default: "59"
+    },
+    data: {
+      type: Object
     }
   },
   data: function() {
@@ -192,13 +198,13 @@ export default {
               margin-bottom: 12px;
             }
         `,
-      data: json,
+      dataLocal: this.data,
       isCardModalActive: false,
       langLocal: this.lang
     };
   }, // end data
   created: function() {
-    this.data = this.data["pid-59"]["non-profit-entities"];
+    this.dataLocal = this.dataLocal[`pid-${this.sgc}`]["non-profit-entities"];
   }, // end created
   mounted: function() {
     this.$i18n.locale = this.langLocal;
@@ -208,14 +214,14 @@ export default {
     if (this.entityId == "n3") {
       let temp = {};
       let self = this;
-      let objKeys = Object.keys(this.data);
-      temp["n3"] = this.data["n3"];
+      let objKeys = Object.keys(this.dataLocal);
+      temp["n3"] = this.dataLocal["n3"];
       objKeys.forEach(function(value) {
         if (value != "n3") {
-          temp[value] = self.data[value];
+          temp[value] = self.dataLocal[value];
         }
       });
-      this.data = temp;
+      this.dataLocal = temp;
     }
   }, // end mounted
 
