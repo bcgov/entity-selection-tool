@@ -3,8 +3,8 @@
     <div v-if="resultsShow == false" class="column is-three-fifths">
       <BaseCard class="question box">
         <template v-slot:headertext>
-          <h2 class="title be-question-title is-4">
-            QUESTION {{ currentCategoryIndex }} {{ $t("of") }}
+          <h2 class="title be-question-title">
+            {{ $t("question") }} {{ currentCategoryIndex }} {{ $t("of") }}
             {{ totalCategories }}
           </h2>
         </template>
@@ -183,6 +183,7 @@ export default {
     locale: "en",
     messages: {
       en: {
+        question: "QUESTION",
         of: "of",
         previous: "Back",
         next: "Next",
@@ -193,6 +194,7 @@ export default {
         entity_title_two: "Business Structure",
       },
       fr: {
+        question: "QUESTION",
         of: "de",
         previous: "Précédent",
         next: "Suivant",

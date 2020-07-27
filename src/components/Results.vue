@@ -2,10 +2,10 @@
   <div class="columns">
     <BaseCard class="question box">
       <template v-slot:headertext>
-        <h2 v-if="!nextSteps" class="title be-results-title is-4">
+        <h2 v-if="!nextSteps" class="title be-results-title">
           {{ $t("results_headers") }}
         </h2>
-        <h2 v-if="nextSteps" class="title be-results-title is-4">
+        <h2 v-if="nextSteps" class="title be-results-title">
           {{ $t("next_steps_title") }}
         </h2>
       </template>
@@ -370,7 +370,7 @@ export default {
         print_summaries: "All Structures",
         print_result_header: "Suggested Business Entity Result",
         results: "Business Structures Wizard",
-        results_headers: "YOUR RESULTS",
+        results_headers: "Your Results",
         business_structure:
           "Based on your answers, your best match is: | Based on your answers, your best matches are: ",
         business_structure_2:

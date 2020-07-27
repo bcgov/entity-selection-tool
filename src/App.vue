@@ -186,19 +186,12 @@ a.be-link:active,
   margin-bottom: 0px;
 }
 .be-results-title {
-  font-weight: 50;
+  font-weight: 300;
+  font-size: 22px;
   color: #2c5671;
   text-transform: uppercase;
   margin-bottom: 16px;
   margin-top: 16px;
-}
-.be-intro-title {
-  font-size: 20px;
-  font-weight: 50;
-  color: #2c5671;
-
-  margin-bottom: 16px;
-  margin-top: 0px;
 }
 .subtitle.be-results-subtitle {
   color: #2c5671;
@@ -230,7 +223,8 @@ a.be-link:active,
   margin-bottom: 0px;
 }
 .be-question-title {
-  font-weight: 50;
+  font-weight: 300;
+  font-size: 22px;
   color: #2c5671;
   margin-bottom: 16px;
   margin-top: 16px;
@@ -482,11 +476,14 @@ p.be-emphasis {
   .be-question-text {
     width: 433px;
   }
-
   .be-question-title {
+    font-weight: 400;
+    font-size: 24px;
     margin-top: 6px;
   }
   .be-results-title {
+    font-weight: 400;
+    font-size: 24px;
     margin-top: 6px;
   }
   /* Progress Bars */

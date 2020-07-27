@@ -56,10 +56,10 @@
       <div v-if="!started && !nonProfit">
         <BaseCard class="summary box">
           <template v-slot:headertext>
-            <h2 v-if="welcomeGate" class="title be-question-title is-4">
+            <h2 v-if="welcomeGate" class="title be-results-title">
               {{ $t("welcome") }}
             </h2>
-            <h2 v-if="introGate" class="title be-question-title is-4">
+            <h2 v-if="introGate" class="title be-results-title">
               {{ $t("intro_title") }}
             </h2>
             <!-- <p v-if="introGate" class="title be-intro-title">
@@ -161,7 +161,11 @@
         </BaseCard>
       </div>
       <div v-if="started">
-        <Entity @clicked="restartEntity" :lang="this.langLocal" :sgc="this.sgcLocal"></Entity>
+        <Entity
+          @clicked="restartEntity"
+          :lang="this.langLocal"
+          :sgc="this.sgcLocal"
+        ></Entity>
       </div>
       <div v-if="nonProfit">
         <NonProfit
@@ -224,7 +228,7 @@ export default {
     messages: {
       en: {
         business_structures: "Business Structures Wizard",
-        welcome: "WELCOME",
+        welcome: "Welcome",
         close: "Close",
         restart: "Restart",
         start: "Start",
@@ -257,11 +261,11 @@ export default {
           "No personal information will be requested or collected through the use of this tool.",
         intro_header:
           "The first thing to decide is whether you’re starting a for-profit or non-profit enterprise.",
-        intro_title: "YOUR ENTERPRISE TYPE"
+        intro_title: "Your Enterprise Type"
       },
       fr: {
         business_structures: "Structures d'entreprise",
-        welcome: "BIENVENUE",
+        welcome: "Bienvenue",
         close: "Fermer",
         restart: "Redémarrer",
         start: "Commencer",
@@ -295,7 +299,7 @@ export default {
           "No personal information will be requested or collected through the use of this tool. FR",
         intro_header:
           "The first thing to decide is whether you’re starting a for-profit or non-profit enterprise. (FR)",
-        intro_title: "YOUR ENTPRISE TYPE"
+        intro_title: "Your Enterprise Type (FR)"
       }
     }
   }, // end i18n

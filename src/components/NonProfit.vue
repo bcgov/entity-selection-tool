@@ -3,7 +3,7 @@
     <div class="column is-half">
       <BaseCard class="summary box">
         <template v-slot:headertext>
-          <h2 class="title be-results-title is-4">
+          <h2 class="title be-results-title">
             {{ $t("header_text") }}
           </h2>
         </template>
@@ -62,7 +62,7 @@
         </header>
         <section id="printBody" ref="PrintBody" class="be-modal-print-body">
           <div class="content">
-            <h2 class="title be-question-title is-4">
+            <h2 class="title be-results-title">
               {{ $t("header_text") }}
             </h2>
             <p>
