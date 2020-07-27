@@ -161,7 +161,7 @@
         </BaseCard>
       </div>
       <div v-if="started">
-        <Entity @clicked="restartEntity" :lang="this.langLocal"></Entity>
+        <Entity @clicked="restartEntity" :lang="this.langLocal" :sgc="this.sgcLocal"></Entity>
       </div>
       <div v-if="nonProfit">
         <NonProfit
@@ -303,6 +303,10 @@ export default {
     lang: {
       type: String,
       default: "en"
+    },
+    sgc: {
+      type: String,
+      default: "59"
     }
   },
   data: function() {
@@ -312,7 +316,8 @@ export default {
       nonProfit: false,
       langLocal: this.lang,
       introGate: false,
-      welcomeGate: true
+      welcomeGate: true,
+      sgcLocal: this.sgc
     };
   },
   mounted: function() {

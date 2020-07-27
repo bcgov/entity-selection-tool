@@ -18,18 +18,23 @@ export default {
     lang: {
       type: String,
       default: "en"
+    },
+    sgc: {
+      type: String,
+      default: "59"
     }
   },
   data: function() {
     return {
-      langLocal: this.lang
+      langLocal: this.lang,
+      sgcLocal: this.sgc
     };
   }, // end data
   methods: {
     homeModal: function() {
       this.$buefy.modal.open({
         parent: this,
-        props: { lang: this.langLocal },
+        props: { lang: this.langLocal, sgc: this.sgcLocal },
         component: ModalHome,
         hasModalCard: true,
         customClass: "bet-modal",

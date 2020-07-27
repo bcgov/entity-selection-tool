@@ -139,7 +139,7 @@ export default {
         print: "Print",
         print_results: "Results",
         print_summaries: "Print/Download",
-        powerby: "Power by BizPaL",
+        powerby: "Powered by BizPaL",
         results: "Business Structures Wizard",
         next_steps: "What's Next?"
       },
