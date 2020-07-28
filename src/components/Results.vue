@@ -322,7 +322,7 @@
           <b-button class="be-button" outlined @click="print()">
             {{ $t("print") }}
           </b-button>
-          <b-button class="be-button" outlined @click="downloadPDF()">
+          <b-button class="be-button" outlined @click="downloadSummaryPDF()">
             {{ $t("download") }}
           </b-button>
           <b-button
@@ -342,10 +342,12 @@ import Vue from "vue";
 import BaseCard from "@/components/base-components/BaseCard.vue";
 import Printd from "printd";
 import jsPDF from "jspdf";
-
+import pdfMake from "pdfmake/build/pdfmake.js";
+import pdfFonts from "pdfmake/build/vfs_fonts.js";
 import VueI18nResults from "vue-i18n";
 
 Vue.use(VueI18nResults);
+pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 // Create VueI18n instance with options
 export const i18n = new VueI18nResults({
@@ -365,6 +367,7 @@ export default {
         advantages: "Advantages:",
         disadvantages: "Disadvantages:",
         download_name: "business-structures-in-{prov}",
+        download_name_summary: "business-structures-in-{prov}-summary",
         restart: "Restart",
         print_results: "Print / Download",
         print_summaries: "All Structures",
@@ -397,7 +400,8 @@ export default {
       fr: {
         advantages: "Avantages :",
         disadvantages: "Désavantages :",
-        download_name: "business-structures-dans-{prov}",
+        download_name: "structures-entreprises-dans-{prov}",
+        download_name_summary: "structures-entreprises-dans-{prov}-sommaire",
         restart: "Redémarrer",
         print_results: "Imprimer/Télécharger",
         print_result_header: "Suggested Business Entity Result (FR)",
@@ -583,6 +587,64 @@ export default {
         width: 170
       });
       doc.save(this.$t("download_name", { prov: "BC" }) + `-${date}.pdf`);
+    },
+    downloadSummaryPDF: function() {
+      let today = new Date();
+      let date =
+        today.getFullYear() +
+        "-" +
+        (today.getMonth() + 1) +
+        "-" +
+        today.getDate();
+      let filename = this.$t("download_name_summary", { prov: "BC" }) + `-${date}.pdf`;
+      const allEntities = this.data.entities;
+      const document = {
+        content: [{text: this.$t("title"), style: 'title'}],
+        styles: {
+          toc: {
+            fontSize: 10,
+            color: '#366b8c',
+            //decoration: 'underline'
+          },
+          title: {
+            fontSize: 16,
+            bold: true,
+            lineHeight: 1.5
+          },
+          subtitle: {
+            fontSize: 14,
+            bold: true,
+            lineHeight: 1.5,
+            color: '#2c5671'
+          },
+          header: {
+            fontSize: 12,
+            bold: true,
+            lineHeight: 1.5
+          },
+          normal: {
+            fontSize: 10,
+            lineHeight: 1.5
+          }
+        }
+      };
+
+      for (var toc in allEntities) {
+        document.content.push([
+          { text: allEntities[toc][`title_${this.langLocal}`], style: 'toc', linkToDestination: toc }
+        ]);
+      }
+      for (var index in allEntities) {
+        document.content.push([
+          { text: allEntities[index][`title_${this.langLocal}`], style: 'subtitle', id: index, margin: [0, 10, 0, 5] },
+          { text: allEntities[index][`summary_${this.langLocal}`], style: 'normal', margin: [0, 5, 0, 5] },
+          { text: this.$t("advantages"), style: 'header', margin: [0, 5, 0, 5] },
+          { text: allEntities[index][`advantage_${this.langLocal}`], style: 'normal', margin: [0, 5, 0, 5] },
+          { text: this.$t("disadvantages"), style: 'header', margin: [0, 5, 0, 5] },
+          { text: allEntities[index][`disadvantage_${this.langLocal}`], style: 'normal', margin: [0, 5, 0, 5] }
+        ]);
+      };
+      pdfMake.createPdf(document).download(filename);
     },
     printEntity: function() {
       this.isCardModalActive = true;
