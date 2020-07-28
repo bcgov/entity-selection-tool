@@ -143,7 +143,7 @@ a.be-link:active,
 .b-tooltip.is-multiline:after {
   text-align: left;
 }
-/* White Content Card */
+/* White Content Cards */
 .question.box {
   padding: 0.5rem;
   margin-top: 1rem;
@@ -152,6 +152,26 @@ a.be-link:active,
   padding: 0.5rem;
   margin-top: 1rem;
 }
+
+/*white card header */
+.be-results-title {
+  font-weight: 300;
+  font-size: 22px;
+  color: #2c5671;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  margin-top: 16px;
+  margin-left: 4px;
+}
+.be-question-title {
+  font-weight: 300;
+  font-size: 22px;
+  color: #2c5671;
+  margin-bottom: 16px;
+  margin-top: 16px;
+  margin-left: 4px;
+}
+/*white card content */
 .card .card-content {
   background-color: transparent;
   padding-left: 1rem;
@@ -172,40 +192,16 @@ a.be-link:active,
   margin-top: 24px;
   margin-bottom: 12px;
 }
-.be-card-footer {
-  height: 60px;
-}
-.card-footer-item {
-  color: #2c5671;
-  padding: 0;
-}
 .be-context {
   padding-top: 4px;
   color: #2c5671;
   font-size: 14px;
-}
-.be-disclaimer {
-  padding-top: 4px;
-  color: #2c5671;
-  font-size: 12px;
-  font-weight: 500;
-  font-style: italic;
-  overflow-y: auto;
 }
 .be-results-text {
   font-size: 16px;
 }
 .content p.be-results-header-intro {
   margin-bottom: 0px;
-}
-.be-results-title {
-  font-weight: 300;
-  font-size: 22px;
-  color: #2c5671;
-  text-transform: uppercase;
-  margin-bottom: 16px;
-  margin-top: 16px;
-  margin-left: 4px;
 }
 .subtitle.be-results-subtitle {
   color: #2c5671;
@@ -235,14 +231,6 @@ a.be-link:active,
   margin-top: 16px;
   margin-bottom: 0px;
 }
-.be-question-title {
-  font-weight: 300;
-  font-size: 22px;
-  color: #2c5671;
-  margin-bottom: 16px;
-  margin-top: 16px;
-  margin-left: 4px;
-}
 .be-card-content {
   padding-bottom: 10px;
   padding-left: 0px;
@@ -250,6 +238,9 @@ a.be-link:active,
 }
 .be-question-form {
   margin-left: 12px;
+}
+.be-next-steps-list {
+  margin-bottom: 16px;
 }
 .be-start-button {
   width: 100%;
@@ -265,6 +256,7 @@ a.be-link:active,
   white-space: normal;
   padding: 4px;
   line-height: 1;
+  margin-top: 0px;
 }
 .be-start-button:hover,
 .be-start-button.is-hovered,
@@ -273,6 +265,22 @@ a.be-link:active,
 .be-start-button:active {
   background-color: rgb(164, 221, 252);
   border-color: rgb(207, 232, 252);
+}
+/* white card footer */
+.be-card-footer {
+  height: 60px;
+}
+.card-footer-item {
+  color: #2c5671;
+  padding: 0;
+}
+.be-disclaimer {
+  padding-top: 4px;
+  color: #2c5671;
+  font-size: 12px;
+  font-weight: 500;
+  font-style: italic;
+  overflow-y: auto;
 }
 .be-form-button {
   width: 100%;
@@ -308,9 +316,6 @@ a.be-link:active,
   height: 100%;
   background-color: rgb(207, 232, 252);
   display: block;
-}
-.be-next-steps-list {
-  margin-bottom: 16px;
 }
 /* Progress Bars */
 .be-carat-icon {
@@ -464,26 +469,7 @@ p.be-emphasis {
     padding: 20px;
     margin-top: 0rem;
   }
-  .welcome.box {
-    width: 712px;
-    height: 500px;
-    z-index: 50;
-    position: absolute;
-    top: 72px;
-    left: 10px;
-    padding: 20px;
-    margin-top: 0rem;
-  }
-  .card .card-content {
-    padding-top: 1rem;
-    height: 360px;
-  }
-  .be-question-text {
-    width: 448px;
-  }
-  .be-gate-text {
-    width: 548px;
-  }
+  /* white card headers */
   .be-question-title {
     font-weight: 400;
     font-size: 24px;
@@ -496,6 +482,17 @@ p.be-emphasis {
     margin-top: 6px;
     margin-left: 0px;
   }
+  /*white card content */
+  .card .card-content {
+    padding-top: 1rem;
+    height: 360px;
+  }
+  .be-question-text {
+    width: 448px;
+  }
+  .be-gate-text {
+    width: 548px;
+  }
   .be-context-icon {
     padding-right: 0px;
     padding-left: 16px;
@@ -504,6 +501,10 @@ p.be-emphasis {
   .be-context-text {
     padding-left: 0px;
   }
+  .be-start-button {
+    margin-top: 28px;
+  }
+  /* white card footer */
   .be-form-button {
     padding: 4px;
   }
@@ -518,7 +519,6 @@ p.be-emphasis {
     height: 0px;
     margin-bottom: 0px;
   }
-
   .be-progress-box {
     width: auto;
   }
