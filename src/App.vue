@@ -479,7 +479,10 @@ p.be-emphasis {
     height: 360px;
   }
   .be-question-text {
-    width: 433px;
+    width: 448px;
+  }
+  .be-gate-text {
+    width: 548px;
   }
   .be-question-title {
     font-weight: 400;
