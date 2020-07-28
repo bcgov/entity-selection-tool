@@ -341,7 +341,7 @@
 import Vue from "vue";
 import BaseCard from "@/components/base-components/BaseCard.vue";
 import Printd from "printd";
-import jsPDF from "jspdf";
+//import jsPDF from "jspdf";
 import pdfMake from "pdfmake/build/pdfmake.js";
 import pdfFonts from "pdfmake/build/vfs_fonts.js";
 import VueI18nResults from "vue-i18n";
@@ -582,28 +582,16 @@ export default {
         (today.getMonth() + 1) +
         "-" +
         today.getDate();
-      let doc = new jsPDF();
-      doc.fromHTML(this.$refs.PrintBody, 15, 15, {
-        width: 170
-      });
-      doc.save(this.$t("download_name", { prov: "BC" }) + `-${date}.pdf`);
-    },
-    downloadSummaryPDF: function() {
-      let today = new Date();
-      let date =
-        today.getFullYear() +
-        "-" +
-        (today.getMonth() + 1) +
-        "-" +
-        today.getDate();
-      let filename = this.$t("download_name_summary", { prov: "BC" }) + `-${date}.pdf`;
-      const allEntities = this.data.entities;
+      let filename =
+        this.$t("download_name_summary", { prov: "BC" }) + `-${date}.pdf`;
       const document = {
-        content: [{text: this.$t("title"), style: 'title'}],
+        content: [
+          { text: this.getHeaderTitles(this.entities), style: "title" }
+        ],
         styles: {
           toc: {
             fontSize: 10,
-            color: '#366b8c',
+            color: "#366b8c"
             //decoration: 'underline'
           },
           title: {
@@ -615,7 +603,108 @@ export default {
             fontSize: 14,
             bold: true,
             lineHeight: 1.5,
-            color: '#2c5671'
+            color: "#2c5671"
+          },
+          header: {
+            fontSize: 12,
+            bold: true,
+            lineHeight: 1.5
+          },
+          normal: {
+            fontSize: 10,
+            lineHeight: 1.5
+          }
+        }
+      };
+
+      // display each entity
+      for (var index in this.entities) {
+        let entity = this.entities[index];
+        document.content.push([
+          {
+            text: this.title(entity),
+            style: "subtitle",
+            margin: [0, 10, 0, 5]
+          },
+
+          {
+            text: this.$t("advantages"),
+            style: "header",
+            margin: [0, 5, 0, 5]
+          },
+          {
+            text: this.advantages(entity),
+            style: "normal",
+            margin: [0, 5, 0, 5]
+          },
+          {
+            text: this.$t("disadvantages"),
+            style: "header",
+            margin: [0, 5, 0, 5]
+          },
+          {
+            text: this.disadvantages(entity),
+            style: "normal",
+            margin: [0, 5, 0, 5]
+          }
+        ]);
+      }
+
+      // list questions/anwers
+
+      for (const index in this.data.collection) {
+        let arrayList = [];
+        let question = this.data.collection[index];
+        document.content.push([
+          {
+            text: question[`question_${this.langLocal}`],
+            style: "subtitle",
+            margin: [0, 10, 0, 5]
+          } 
+        ]);
+
+        for (const answerIndex in question.answers) {
+          let answer = question.answers[answerIndex];
+          arrayList.push({
+            text: answer[`title_${this.langLocal}`],
+            bold: this.checkAnswer(index, answerIndex),
+            italics: this.checkAnswer(index, answerIndex)
+          });
+        } //end for answers
+
+        document.content.push([{ ul: arrayList }]);
+      } //endfor
+      pdfMake.createPdf(document).download(filename);
+    },
+    downloadSummaryPDF: function() {
+      let today = new Date();
+      let date =
+        today.getFullYear() +
+        "-" +
+        (today.getMonth() + 1) +
+        "-" +
+        today.getDate();
+      let filename =
+        this.$t("download_name_summary", { prov: "BC" }) + `-${date}.pdf`;
+      const allEntities = this.data.entities;
+      const document = {
+        content: [{ text: this.$t("title"), style: "title" }],
+        styles: {
+          toc: {
+            fontSize: 10,
+            color: "#366b8c"
+            //decoration: 'underline'
+          },
+          title: {
+            fontSize: 16,
+            bold: true,
+            lineHeight: 1.5
+          },
+          subtitle: {
+            fontSize: 14,
+            bold: true,
+            lineHeight: 1.5,
+            color: "#2c5671"
           },
           header: {
             fontSize: 12,
@@ -631,21 +720,57 @@ export default {
 
       for (var toc in allEntities) {
         document.content.push([
-          { text: allEntities[toc][`title_${this.langLocal}`], style: 'toc', linkToDestination: toc }
+          {
+            text: allEntities[toc][`title_${this.langLocal}`],
+            style: "toc",
+            linkToDestination: toc
+          }
         ]);
       }
       for (var index in allEntities) {
         document.content.push([
-          { text: allEntities[index][`title_${this.langLocal}`], style: 'subtitle', id: index, margin: [0, 10, 0, 5] },
-          { text: allEntities[index][`summary_${this.langLocal}`], style: 'normal', margin: [0, 5, 0, 5] },
-          { text: this.$t("advantages"), style: 'header', margin: [0, 5, 0, 5] },
-          { text: allEntities[index][`advantage_${this.langLocal}`], style: 'normal', margin: [0, 5, 0, 5] },
-          { text: this.$t("disadvantages"), style: 'header', margin: [0, 5, 0, 5] },
-          { text: allEntities[index][`disadvantage_${this.langLocal}`], style: 'normal', margin: [0, 5, 0, 5] }
+          {
+            text: allEntities[index][`title_${this.langLocal}`],
+            style: "subtitle",
+            id: index,
+            margin: [0, 10, 0, 5]
+          },
+          {
+            text: allEntities[index][`summary_${this.langLocal}`],
+            style: "normal",
+            margin: [0, 5, 0, 5]
+          },
+          {
+            text: this.$t("advantages"),
+            style: "header",
+            margin: [0, 5, 0, 5]
+          },
+          {
+            text: allEntities[index][`advantage_${this.langLocal}`],
+            style: "normal",
+            margin: [0, 5, 0, 5]
+          },
+          {
+            text: this.$t("disadvantages"),
+            style: "header",
+            margin: [0, 5, 0, 5]
+          },
+          {
+            text: allEntities[index][`disadvantage_${this.langLocal}`],
+            style: "normal",
+            margin: [0, 5, 0, 5]
+          }
         ]);
-      };
+      }
 
-      document.content.push([ { text: this.$t("powerby") + this.$t("bizpal"), style: 'normal', margin: [0, 5, 0, 5],link: this.$t("bizpal_link") }])
+      document.content.push([
+        {
+          text: this.$t("powerby") + this.$t("bizpal"),
+          style: "normal",
+          margin: [0, 5, 0, 5],
+          link: this.$t("bizpal_link")
+        }
+      ]);
       pdfMake.createPdf(document).download(filename);
     },
     printEntity: function() {
