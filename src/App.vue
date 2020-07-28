@@ -185,9 +185,9 @@ a.be-link:active,
   font-size: 14px;
 }
 .be-disclaimer {
-  padding-top: 2px;
+  padding-top: 4px;
   color: #2c5671;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 500;
   font-style: italic;
   overflow-y: auto;
@@ -205,6 +205,7 @@ a.be-link:active,
   text-transform: uppercase;
   margin-bottom: 16px;
   margin-top: 16px;
+  margin-left: 4px;
 }
 .subtitle.be-results-subtitle {
   color: #2c5671;
@@ -231,7 +232,6 @@ a.be-link:active,
   margin-bottom: 0px;
 }
 .be-gate-text {
-  /*  padding-top: 16px; */
   margin-top: 16px;
   margin-bottom: 0px;
 }
@@ -241,6 +241,7 @@ a.be-link:active,
   color: #2c5671;
   margin-bottom: 16px;
   margin-top: 16px;
+  margin-left: 4px;
 }
 .be-card-content {
   padding-bottom: 10px;
@@ -325,7 +326,6 @@ a.be-link:active,
   color: #2c5671;
   margin-bottom: 24px;
 }
-
 .be-progress-title {
   font-size: 14px;
 }
@@ -488,11 +488,13 @@ p.be-emphasis {
     font-weight: 400;
     font-size: 24px;
     margin-top: 6px;
+    margin-left: 0px;
   }
   .be-results-title {
     font-weight: 400;
     font-size: 24px;
     margin-top: 6px;
+    margin-left: 0px;
   }
   .be-context-icon {
     padding-right: 0px;
