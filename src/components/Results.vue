@@ -420,14 +420,14 @@ export default {
         print: "Imprimer",
         download: "Télécharger",
         close: "Arrière",
-        powerby: "Proposé par PerLE",
+        powerby: "Proposé par",
         next_steps_title: "What's Next? (fr)",
         next_steps_intro:
           "Ready to start your business? Try these next steps. Keep in mind, some business structures may require the services of a lawyer and accountant. (FR)",
         previous: "Précédent",
         general_resources: "All Business Types (FR)",
         bizpal_link: "https://services.bizpal-perle.ca/",
-        bizpal: "BizPaL"
+        bizpal: "PerLE"
       }
     }
   }, // end i18n
@@ -644,6 +644,8 @@ export default {
           { text: allEntities[index][`disadvantage_${this.langLocal}`], style: 'normal', margin: [0, 5, 0, 5] }
         ]);
       };
+
+      document.content.push([ { text: this.$t("powerby") + this.$t("bizpal"), style: 'normal', margin: [0, 5, 0, 5],link: this.$t("bizpal_link") }])
       pdfMake.createPdf(document).download(filename);
     },
     printEntity: function() {
