@@ -201,8 +201,7 @@ export default {
         restart: "Redémarrer",
         entity_title: "Structure d'entreprise suggérée",
         entity_title_one: "Structure d'entreprise",
-        entity_title_two: "suggérée"
-        
+        entity_title_two: "suggérée" 
       }
     }
   }, // end i18n
@@ -245,9 +244,6 @@ export default {
     };
   }, // end data
   created: function() {
-
-    
-
     this.dataLocal = this.dataLocal[`pid-${this.sgcLocal}`];
 
     try {
@@ -321,7 +317,6 @@ export default {
       this.tempValue = false;
       this.$emit("clicked", this.tempValue);
     },
-
     onClickPrevious: function() {
       this.tempValue = true;
       this.$emit("clicked", this.tempValue);
@@ -353,7 +348,6 @@ export default {
         if(iteration > 1){
                if(topEntitiesTotal.pop() == myEntities[key]["total"]){
                   topEntitiesId.push(key);
-
                }
         }
          iteration++;

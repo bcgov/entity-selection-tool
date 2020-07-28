@@ -1,7 +1,7 @@
 <template>
   <div class="card">
     <div class="custom-header">
-      <!-- slot name is all lowercase because of browser requirements -->
+      <!-- slot names are all lowercase because of browser requirements -->
       <slot name="headertext"></slot>
     </div>
     <div class="card-content">

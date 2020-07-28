@@ -62,9 +62,6 @@
             <h2 v-if="introGate" class="title be-results-title">
               {{ $t("intro_title") }}
             </h2>
-            <!-- <p v-if="introGate" class="title be-intro-title">
-              {{ $t("intro_header") }}
-            </p> -->
           </template>
           <template v-slot:bodytext>
             <div v-if="!introGate">
@@ -148,12 +145,6 @@
             </div>
           </template>
           <template v-slot:footertext>
-            <!--  <span v-if="!introGate" class="card-footer-item">
-              <b-button class="be-form-button" @click="showIntroGate()">
-                {{ $t("start") }}</b-button
-              >
-            </span> -->
-
             <section v-if="welcomeGate" class="be-disclaimer">
               <p>*{{ $t("disclaimer") }} {{ $t("intro_disclaimer") }}</p>
             </section>
@@ -174,11 +165,9 @@
           :lang="this.langLocal"
           :entity-id="this.radioButton"
           :data="this.dataLocal"
-
         ></NonProfit>
       </div>
     </div>
-
     <footer class="modal-card-foot">
       <p class="is-pulled-right">
         <b-tooltip
@@ -208,7 +197,6 @@ import Vue from "vue";
 import BaseCard from "@/components/base-components/BaseCard.vue";
 import Entity from "@/components/Entity.vue";
 import NonProfit from "@/components/NonProfit.vue";
-
 import VueI18nHome from "vue-i18n";
 
 Vue.use(VueI18nHome);

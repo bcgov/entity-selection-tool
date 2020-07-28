@@ -43,9 +43,6 @@
               <br />
             </div>
           </template>
-          <!--  <b-button class="be-form-button" @click="nextStepsClick()">
-            {{ $t("next_steps") }}</b-button
-          > -->
         </div>
         <div v-if="nextSteps">
           <p class="be-results-text">{{ $t("next_steps_intro") }}</p>
@@ -342,7 +339,6 @@ import Vue from "vue";
 import BaseCard from "@/components/base-components/BaseCard.vue";
 import Printd from "printd";
 import jsPDF from "jspdf";
-
 import VueI18nResults from "vue-i18n";
 
 Vue.use(VueI18nResults);
@@ -422,8 +418,8 @@ export default {
           "Ready to start your business? Try these next steps. Keep in mind, some business structures may require the services of a lawyer and accountant. (FR)",
         previous: "Précédent",
         general_resources: "All Business Types (FR)",
-        bizpal_link: "https://services.bizpal-perle.ca/",
-        bizpal: "BizPaL"
+        bizpal_link: "https://services.perle-bizpal.ca/",
+        bizpal: "PerLE"
       }
     }
   }, // end i18n
@@ -455,8 +451,6 @@ export default {
   }, // end data
   created: function() {
     // get top Entity from data
-    //this.entity = this.data.entities[this.entityId] || {};
-
     let temp = {};
     let self = this;
     //let objKeys = Object.keys(this.entitiesId);
@@ -503,17 +497,14 @@ export default {
         let topEntitiesTotal = [];
         let gotTopEntity = false;
         let iteration = 1;
-        //let bestEntitySelectionId = "";
         keysSorted.map(function(key) {
           if (!gotTopEntity) {
-            //bestEntitySelectionId = key;
             topEntitiesId.push(key);
-            //topEntitiesId.push("e1") // to testing
             topEntitiesTotal.push(myEntities[key]["total"]);
             gotTopEntity = true;
           }
           sortedEntities[key] = myEntities[key];
-          //check if the second best entity is within 8% for top entity suggestion
+          //check if the second best entity is within 8% of top entity suggestion
           if (iteration > 1) {
             if (topEntitiesTotal.pop() - 8 <= myEntities[key]["total"]) {
               topEntitiesId.push(key);
@@ -651,4 +642,4 @@ export default {
   } // end methods
 }; // end export default
 </script>
-<style scoped></style>
+<style></style>
