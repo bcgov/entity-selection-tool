@@ -115,9 +115,10 @@ import Vue from "vue";
 import BaseCard from "@/components/base-components/BaseCard.vue";
 import VueI18nNonProfit from "vue-i18n";
 import Printd from "printd";
-import jsPDF from "jspdf";
-
+import pdfMake from "pdfmake/build/pdfmake.js";
+import pdfFonts from "pdfmake/build/vfs_fonts.js";
 Vue.use(VueI18nNonProfit);
+pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 // Create VueI18n instance with options
 export const i18n = new VueI18nNonProfit({
@@ -242,11 +243,63 @@ export default {
         (today.getMonth() + 1) +
         "-" +
         today.getDate();
-      let doc = new jsPDF();
-      doc.fromHTML(this.$refs.PrintBody, 15, 15, {
-        width: 170
-      });
-      doc.save(this.$t("download_name") + `-${date}.pdf`);
+      let filename = this.$t("download_name", { prov: "BC" }) + `-${date}.pdf`;
+      const document = {
+        content: [
+          { text: this.$t("header_text"), style: "title" },
+          { text: this.$t("explanation_intro"), style: "header" }
+        ],
+        styles: {
+          title: {
+            fontSize: 16,
+            bold: true,
+            lineHeight: 1.5
+          },
+          header: {
+            fontSize: 10,
+            lineHeight: 1.5,
+            margin: [1, 1, 0, 5]
+          },
+          subtitle: {
+            fontSize: 14,
+            bold: true,
+            lineHeight: 1.5,
+            color: "#2c5671",
+            margin: [15, 1, 0, 1]
+          },
+          normal: {
+            fontSize: 10,
+            lineHeight: 1.5,
+            margin: [15, 1, 0, 1]
+          }
+        }
+      };
+
+      for (const index in this.dataLocal) {
+        let entity = this.dataLocal[index];
+        document.content.push([
+          {
+            text: entity[`title_${this.langLocal}`],
+            style: "subtitle"
+          },
+
+          {
+            text: entity[`summary_${this.langLocal}`],
+            style: "normal"
+          }
+        ]);
+      } //for
+
+
+      document.content.push([
+        {
+          text: this.$t("powerby") + this.$t("bizpal"),
+          style: "normal",
+          margin: [0, 5, 0, 5],
+          link: this.$t("bizpal_link")
+        }
+      ]);
+      pdfMake.createPdf(document).download(filename);
     },
     printEntity: function() {
       this.isCardModalActive = true;
