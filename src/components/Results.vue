@@ -589,9 +589,10 @@ export default {
           { text: this.getHeaderTitles(this.entities), style: "title" }
         ],
         styles: {
-          toc: {
-            fontSize: 10,
-            color: "#366b8c"
+          questions: {
+            fontSize: 12,
+            bold: true
+            // color: "#366b8c"
             //decoration: 'underline'
           },
           title: {
@@ -652,28 +653,90 @@ export default {
 
       // list questions/anwers
 
+      document.content.push([
+        {
+          text: this.$t("questions_answers"),
+          pageBreak: "before",
+          style: "subtitle",
+          margin: [0, 10, 0, 5]
+        },
+
+        {
+          text: this.$t("text_answers", { format: this.$t("bold_italic") }),
+          style: "header",
+          margin: [0, 5, 0, 5],
+          bold: true,
+          italics: true
+        }
+      ]);
+
       for (const index in this.data.collection) {
         let arrayList = [];
         let question = this.data.collection[index];
         document.content.push([
           {
             text: question[`question_${this.langLocal}`],
-            style: "subtitle",
+            style: "questions",
             margin: [0, 10, 0, 5]
-          } 
+          }
         ]);
 
+        // margin: [left, top, right, bottom]
         for (const answerIndex in question.answers) {
           let answer = question.answers[answerIndex];
           arrayList.push({
             text: answer[`title_${this.langLocal}`],
             bold: this.checkAnswer(index, answerIndex),
-            italics: this.checkAnswer(index, answerIndex)
+            italics: this.checkAnswer(index, answerIndex),
+            style: "normal",
+            margin: [15, 1, 0, 1]
           });
         } //end for answers
 
         document.content.push([{ ul: arrayList }]);
       } //endfor
+
+      // suggested resul
+
+      document.content.push([
+        {
+          text: this.$t("print_result_header"),
+          style: "subtitle",
+          margin: [0, 10, 0, 5]
+        }
+      ]);
+
+      let arrayList = [];
+      for (const resultIndex in this.entitiesTotal) {
+        let entityTotal = this.entitiesTotal[resultIndex];
+        arrayList.push({
+          text:
+            this.data.entities[resultIndex][`title_${this.langLocal}`] +
+            ` (${this.displayPercentage(entityTotal["total"])}%)`,
+          margin: [15, 1, 0, 1]
+        });
+      } //endfor
+      document.content.push([{ ul: arrayList }]);
+
+      document.content.push([
+        {
+          text: `*${this.disclaimer()}`,
+          style: "normal",
+          italics: true,
+          color: "blue",
+          margin: [0, 5, 0, 5]
+        }
+      ]);
+
+      document.content.push([
+        {
+          text: this.$t("powerby") + this.$t("bizpal"),
+          style: "normal",
+          margin: [0, 5, 0, 5],
+          link: this.$t("bizpal_link")
+        }
+      ]);
+
       pdfMake.createPdf(document).download(filename);
     },
     downloadSummaryPDF: function() {
