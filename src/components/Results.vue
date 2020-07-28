@@ -319,7 +319,7 @@
           <b-button class="be-button" outlined @click="print()">
             {{ $t("print") }}
           </b-button>
-          <b-button class="be-button" outlined @click="downloadPDF()">
+          <b-button class="be-button" outlined @click="downloadSummaryPDF()">
             {{ $t("download") }}
           </b-button>
           <b-button
@@ -338,10 +338,13 @@
 import Vue from "vue";
 import BaseCard from "@/components/base-components/BaseCard.vue";
 import Printd from "printd";
-import jsPDF from "jspdf";
+//import jsPDF from "jspdf";
+import pdfMake from "pdfmake/build/pdfmake.js";
+import pdfFonts from "pdfmake/build/vfs_fonts.js";
 import VueI18nResults from "vue-i18n";
 
 Vue.use(VueI18nResults);
+pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 // Create VueI18n instance with options
 export const i18n = new VueI18nResults({
@@ -361,6 +364,7 @@ export default {
         advantages: "Advantages:",
         disadvantages: "Disadvantages:",
         download_name: "business-structures-in-{prov}",
+        download_name_summary: "business-structures-in-{prov}-summary",
         restart: "Restart",
         print_results: "Print / Download",
         print_summaries: "All Structures",
@@ -393,7 +397,8 @@ export default {
       fr: {
         advantages: "Avantages :",
         disadvantages: "Désavantages :",
-        download_name: "business-structures-dans-{prov}",
+        download_name: "structures-entreprises-dans-{prov}",
+        download_name_summary: "structures-entreprises-dans-{prov}-sommaire",
         restart: "Redémarrer",
         print_results: "Imprimer/Télécharger",
         print_result_header: "Suggested Business Entity Result (FR)",
@@ -412,7 +417,7 @@ export default {
         print: "Imprimer",
         download: "Télécharger",
         close: "Arrière",
-        powerby: "Proposé par PerLE",
+        powerby: "Proposé par",
         next_steps_title: "What's Next? (fr)",
         next_steps_intro:
           "Ready to start your business? Try these next steps. Keep in mind, some business structures may require the services of a lawyer and accountant. (FR)",
@@ -569,11 +574,259 @@ export default {
         (today.getMonth() + 1) +
         "-" +
         today.getDate();
-      let doc = new jsPDF();
-      doc.fromHTML(this.$refs.PrintBody, 15, 15, {
-        width: 170
-      });
-      doc.save(this.$t("download_name", { prov: "BC" }) + `-${date}.pdf`);
+      let filename =
+        this.$t("download_name_summary", { prov: "BC" }) + `-${date}.pdf`;
+      const document = {
+        content: [
+          { text: this.getHeaderTitles(this.entities), style: "title" }
+        ],
+        styles: {
+          questions: {
+            fontSize: 12,
+            bold: true
+            // color: "#366b8c"
+            //decoration: 'underline'
+          },
+          title: {
+            fontSize: 16,
+            bold: true,
+            lineHeight: 1.5
+          },
+          subtitle: {
+            fontSize: 14,
+            bold: true,
+            lineHeight: 1.5,
+            color: "#2c5671"
+          },
+          header: {
+            fontSize: 12,
+            bold: true,
+            lineHeight: 1.5
+          },
+          normal: {
+            fontSize: 10,
+            lineHeight: 1.5
+          }
+        }
+      };
+
+      // display each entity
+      for (var index in this.entities) {
+        let entity = this.entities[index];
+        document.content.push([
+          {
+            text: this.title(entity),
+            style: "subtitle",
+            margin: [0, 10, 0, 5]
+          },
+
+          {
+            text: this.$t("advantages"),
+            style: "header",
+            margin: [0, 5, 0, 5]
+          },
+          {
+            text: this.advantages(entity),
+            style: "normal",
+            margin: [0, 5, 0, 5]
+          },
+          {
+            text: this.$t("disadvantages"),
+            style: "header",
+            margin: [0, 5, 0, 5]
+          },
+          {
+            text: this.disadvantages(entity),
+            style: "normal",
+            margin: [0, 5, 0, 5]
+          }
+        ]);
+      }
+
+      // list questions/anwers
+
+      document.content.push([
+        {
+          text: this.$t("questions_answers"),
+          pageBreak: "before",
+          style: "subtitle",
+          margin: [0, 10, 0, 5]
+        },
+
+        {
+          text: this.$t("text_answers", { format: this.$t("bold_italic") }),
+          style: "header",
+          margin: [0, 5, 0, 5],
+          bold: true,
+          italics: true
+        }
+      ]);
+
+      for (const index in this.data.collection) {
+        let arrayList = [];
+        let question = this.data.collection[index];
+        document.content.push([
+          {
+            text: question[`question_${this.langLocal}`],
+            style: "questions",
+            margin: [0, 10, 0, 5]
+          }
+        ]);
+
+        // margin: [left, top, right, bottom]
+        for (const answerIndex in question.answers) {
+          let answer = question.answers[answerIndex];
+          arrayList.push({
+            text: answer[`title_${this.langLocal}`],
+            bold: this.checkAnswer(index, answerIndex),
+            italics: this.checkAnswer(index, answerIndex),
+            style: "normal",
+            margin: [15, 1, 0, 1]
+          });
+        } //end for answers
+
+        document.content.push([{ ul: arrayList }]);
+      } //endfor
+
+      // suggested resul
+
+      document.content.push([
+        {
+          text: this.$t("print_result_header"),
+          style: "subtitle",
+          margin: [0, 10, 0, 5]
+        }
+      ]);
+
+      let arrayList = [];
+      for (const resultIndex in this.entitiesTotal) {
+        let entityTotal = this.entitiesTotal[resultIndex];
+        arrayList.push({
+          text:
+            this.data.entities[resultIndex][`title_${this.langLocal}`] +
+            ` (${this.displayPercentage(entityTotal["total"])}%)`,
+          margin: [15, 1, 0, 1]
+        });
+      } //endfor
+      document.content.push([{ ul: arrayList }]);
+
+      document.content.push([
+        {
+          text: `*${this.disclaimer()}`,
+          style: "normal",
+          italics: true,
+          color: "blue",
+          margin: [0, 5, 0, 5]
+        }
+      ]);
+
+      document.content.push([
+        {
+          text: this.$t("powerby") + this.$t("bizpal"),
+          style: "normal",
+          margin: [0, 5, 0, 5],
+          link: this.$t("bizpal_link")
+        }
+      ]);
+
+      pdfMake.createPdf(document).download(filename);
+    },
+    downloadSummaryPDF: function() {
+      let today = new Date();
+      let date =
+        today.getFullYear() +
+        "-" +
+        (today.getMonth() + 1) +
+        "-" +
+        today.getDate();
+      let filename =
+        this.$t("download_name_summary", { prov: "BC" }) + `-${date}.pdf`;
+      const allEntities = this.data.entities;
+      const document = {
+        content: [{ text: this.$t("title"), style: "title" }],
+        styles: {
+          toc: {
+            fontSize: 10,
+            color: "#366b8c"
+            //decoration: 'underline'
+          },
+          title: {
+            fontSize: 16,
+            bold: true,
+            lineHeight: 1.5
+          },
+          subtitle: {
+            fontSize: 14,
+            bold: true,
+            lineHeight: 1.5,
+            color: "#2c5671"
+          },
+          header: {
+            fontSize: 12,
+            bold: true,
+            lineHeight: 1.5
+          },
+          normal: {
+            fontSize: 10,
+            lineHeight: 1.5
+          }
+        }
+      };
+
+      for (var toc in allEntities) {
+        document.content.push([
+          {
+            text: allEntities[toc][`title_${this.langLocal}`],
+            style: "toc",
+            linkToDestination: toc
+          }
+        ]);
+      }
+      for (var index in allEntities) {
+        document.content.push([
+          {
+            text: allEntities[index][`title_${this.langLocal}`],
+            style: "subtitle",
+            id: index,
+            margin: [0, 10, 0, 5]
+          },
+          {
+            text: allEntities[index][`summary_${this.langLocal}`],
+            style: "normal",
+            margin: [0, 5, 0, 5]
+          },
+          {
+            text: this.$t("advantages"),
+            style: "header",
+            margin: [0, 5, 0, 5]
+          },
+          {
+            text: allEntities[index][`advantage_${this.langLocal}`],
+            style: "normal",
+            margin: [0, 5, 0, 5]
+          },
+          {
+            text: this.$t("disadvantages"),
+            style: "header",
+            margin: [0, 5, 0, 5]
+          },
+          {
+            text: allEntities[index][`disadvantage_${this.langLocal}`],
+            style: "normal",
+            margin: [0, 5, 0, 5]
+          }
+        ]);
+      }
+
+      document.content.push([
+        {
+          text: this.$t("powerby") + this.$t("bizpal"),
+          style: "normal",
+          margin: [0, 5, 0, 5],
+          link: this.$t("bizpal_link")
+        }
+      ]);
+      pdfMake.createPdf(document).download(filename);
     },
     printEntity: function() {
       this.isCardModalActive = true;
