@@ -21,29 +21,22 @@
 </i18n>
 <template>
   <div class="columns">
-    <div v-if="!resultsShow" class="column is-half">
+    <div v-if="resultsShow == false" class="column is-three-fifths">
       <BaseCard class="question box">
-        <!-- <b-button
-      @click="toggleLocale()"
-      size="is-small"
-      style="background-color:pink"
-    >
-    {{ locale == "en" ? "Francais" : "English" }}
-    </b-button> -->
         <template v-slot:headertext>
-          <h2 class="title be-question-title is-4">
-            QUESTION {{ currentCategoryIndex }} of {{ totalCategories }}
+          <h2 class="title be-question-title">
+            {{ $t("question") }} {{ currentCategoryIndex }} {{ $t("of") }}
+            {{ totalCategories }}
           </h2>
         </template>
         <template v-slot:bodytext>
           <fieldset class="be-card-content">
             <legend class="be-question-text">
               {{
-                data.collection[`cat-${currentCategoryIndex}`][
+                dataLocal.collection[`cat-${currentCategoryIndex}`][
                   `question_${locale}`
                 ]
               }}
-              <strong><sup class="be-sup">1</sup></strong>
             </legend>
 
             <br />
@@ -58,12 +51,9 @@
                     name="questions"
                     v-model="radioButton"
                     :id="index"
-                    :native-value="
-                      index ===
-                        userSelectedAnswer[`cat-${currentCategoryIndex}`]
-                          .answerIndex
-                    "
+                    :native-value="index"
                     @click.native="onSelect(value, index)"
+                    v-on:keyup.enter="onSelect(value, index)"
                   >
                     {{ value[`title_${locale}`] }}
                   </b-radio>
@@ -71,86 +61,108 @@
               </template>
             </form>
           </fieldset>
-          <br />
-          <div class="buttons">
-            <b-button
-              class="be-form-button"
-              size="is-medium"
-              @click="previous()"
-              :disabled="disabledPreviousButton"
-            >
-              Previous
-            </b-button>
-            <b-button
-              class="be-form-button"
-              size="is-medium"
-              @click="next()"
-              :disabled="disabledNextButton"
-            >
-              Next
-            </b-button>
-            <b-button
-              class="be-form-button"
-              :disabled="disabledSubmitButton"
-              size="is-medium"
-              @click="showResults()"
-            >
-              {{ $t("submit") }}
-            </b-button>
-          </div>
+          <section class="be-context">
+            <div v-if="!isHidden" class="columns is-mobile">
+              <div class="column is-1 be-context-icon">
+                <font-awesome-icon :icon="['fas', 'exclamation-circle']" />
+              </div>
+              <div class="column is-11 be-context-text">
+                <p>
+                  {{ getQuestionContext }}
+                </p>
+              </div>
+            </div>
+          </section>
         </template>
         <template v-slot:footertext>
-          <section class="be-context">
-            <p v-if="!isHidden">
-              <strong><sup class="be-sup">1</sup></strong>
-              {{ getQuestionContext }}
-            </p>
-          </section>
+          <span class="card-footer-item">
+            <b-button class="be-form-button " @click="onClickButton">{{
+              $t("restart")
+            }}</b-button>
+          </span>
+          <span class="card-footer-item">
+            <b-button
+              class="be-form-button "
+              :disabled="!showPreviousButton"
+              @click="previous()"
+            >
+              {{ $t("previous") }}</b-button
+            >
+          </span>
+
+          <span class="card-footer-item">
+            <b-button
+              v-if="showFinishButton"
+              class="be-form-button"
+              @click="showResults()"
+            >
+              {{ $t("submit") }}</b-button
+            >
+            <b-button
+              v-if="!showFinishButton"
+              class="be-form-button"
+              :disabled="!showNextButton"
+              @click="next()"
+            >
+              {{ $t("next") }}
+            </b-button>
+          </span>
         </template>
       </BaseCard>
     </div>
-    <div v-if="resultsShow" class="column is-half">
+    <div v-if="resultsShow == true" class="column is-three-fifths">
       <Results
-        :data="data"
-        :entity-id="bestEntity"
+        :data="dataLocal"
+        :entities-id="bestEntitiesId"
+        :entities-total="entitiesTotal"
         :user-answers="userSelectedAnswer"
         @clicked="restartEntity"
+        :lang="locale"
       ></Results>
     </div>
     <!-- end left side -->
-    <div class="column is-half">
-      <div class="column is-four-fifths is-pulled-right">
+    <div class="column is-two-fifths be-progress-wrapper">
+      <div class="column be-progress-box">
+        <h2 class="subtitle be-progress-subtitle is-5">
+          {{ $t("entity_title_one") }}
+        </h2>
+        <h2 class="subtitle be-progress-subtitle is-4">
+          {{ $t("entity_title_two") }}
+        </h2>
         <section>
           <template v-for="(value, index) in entitiesTotal">
             <div class="be-entitywrap" v-bind:key="index">
-              <b-collapse :open="false" :aria-id="`contentIdFor${index}`">
+              <b-collapse
+                :open="false"
+                :aria-id="`contentIdFor${index}`"
+                animation="slide"
+              >
                 <div
                   slot="trigger"
                   slot-scope="props"
                   role="button"
                   :aria-controls="`contentIdFor${index}`"
                 >
-                  <!-- {{ props.open ? "-" : "+" }} -->
-                  <em>{{ data.entities[index][`title_${locale}`] }}</em>
+                  <p class="be-emphasis">
+                    {{ dataLocal.entities[index][`title_${locale}`] }}
 
-                  {{ displayPercentage(entitiesTotal[index].total) }}%
-
-                  <font-awesome-icon
-                    class="be-carat-icon is-pulled-right"
-                    :icon="
-                      props.open ? ['fas', 'angle-up'] : ['fas', 'angle-down']
-                    "
-                  >
-                  </font-awesome-icon>
+                    <font-awesome-icon
+                      class="be-carat-icon is-pulled-right"
+                      :icon="
+                        props.open ? ['fas', 'angle-up'] : ['fas', 'angle-down']
+                      "
+                    >
+                    </font-awesome-icon>
+                  </p>
                 </div>
-
-                <div class="notification">
+                <div class="notification be-notification">
                   <div class="content">
-                    <p>{{ entitiesTotal[index][`summary_${locale}`] }}</p>
+                    <p class="be-progress-summary">
+                      {{ entitiesTotal[index][`summary_${locale}`] }}
+                    </p>
                   </div>
                 </div>
               </b-collapse>
-
               <b-progress
                 size="is-small"
                 type="is-info"
@@ -163,30 +175,25 @@
         </section>
       </div>
     </div>
-    <div>
-      <ul v-for="(c, i) in data" v-bind:key="c.cid" style="color:#2C5671">
-        <li
-          id="be-results-list"
-          v-for="(q, j) in c.questions"
-          v-bind:key="q.qid"
-          :class="
-            currentCategoryIndex == i && currentQuestionIndex == j ? '' : ''
-          "
-        ></li>
-      </ul>
-    </div>
   </div>
 </template>
 
 <script>
 import Vue from "vue";
-import json from "@/data/be-json-v4.2-BC.json";
 import Results from "@/components/Results.vue";
 require("../i18n");
 
 import BaseCard from "@/components/base-components/BaseCard.vue";
-// import i18n from "@/i18n";
+import VueI18nEntity from "vue-i18n";
 /* eslint-disable */ 
+
+Vue.use(VueI18nEntity);
+
+// Create VueI18n instance with options
+export const i18n = new VueI18nEntity({
+  locale: process.env.VUE_APP_I18N_LOCALE || "en",
+  fallbackLocale: process.env.VUE_APP_I18N_FALLBACK_LOCALE || "en"
+});
 
 export default {
   name: "Entity",
@@ -194,219 +201,255 @@ export default {
     BaseCard,
     Results
   },
-  
+  i18n: {
+    locale: "en",
+    messages: {
+      en: {
+        question: "QUESTION",
+        of: "of",
+        previous: "Back",
+        next: "Next",
+        submit: "Finish",
+        restart: "Restart",
+        entity_title: "Suggested Business Structure",
+        entity_title_one: "Suggested",
+        entity_title_two: "Business Structure",
+      },
+      fr: {
+        question: "QUESTION",
+        of: "de",
+        previous: "Précédent",
+        next: "Suivant",
+        submit: "Terminer",
+        restart: "Redémarrer",
+        entity_title: "Structure d'entreprise suggérée",
+        entity_title_one: "Structure d'entreprise",
+        entity_title_two: "suggérée" 
+      }
+    }
+  }, // end i18n
+   props: {
+    lang: {
+      type: String,
+      default: "en"
+    },
+    sgc: {
+      type: String,
+      default: "59"
+    },
+    data: {
+      type: Object
+    }
+  }, 
+  // generic error capture for the component
+   errorCaptured(err,vm,info) {
+    console.log(`Error in Entity.vue: ${err.toString()}\ninfo: ${info}`); 
+     return false;
+  },
   data: function() {
-     this.$i18n.locale = "en";
-    return {    
+    return {
+      langLocal:this.lang,
       radioButton: "",
-      disabledNextButton: true,
-      disabledSubmitButton: true,
-      disabledPreviousButton: true,
+      showNextButton: false,
+      showFinishButton: false,
+      showPreviousButton: true,
       resultsShow: false,
-      bestEntity:"",
+      bestEntitiesId: [],
       // this will be dynamicallly created
-      userSelectedAnswer:{},
-      entitiesTotal:{},
-      totalCategories:0,
-      data: json,
+      userSelectedAnswer: {},
+      entitiesTotal: {},
+      totalCategories: 0,
+      dataLocal: this.data,
       currentCategoryIndex: 1,
       navElement: "",
       isHidden: false,
-      types: [
-        "sole_proprietorship",
-        "gen_partnership",
-        "bc_corporation",
-        "fed_corporation",
-        "lim_partnership",
-        "lim_liability_partnership"
-      ],
-      weights: [
-        "Geographic Reach",
-        "Risk level of industry",
-        "Risks to owners",
-        "Number of owners",
-        "Number of employees",
-        "Financing wants/needs",
-        "Set-up and ongoing costs",
-        "Anticipated profits",
-        "Name Protection"
-      ]
+      sgcLocal:this.sgc
     };
-  },
-    created(){
-    this.$i18n.locale = "en";
-  },
+  }, // end data
+  created: function() {
+    this.dataLocal = this.dataLocal[`pid-${this.sgcLocal}`];
+
+    try {
+      this.totalCategories = Object.keys(this.dataLocal.collection).length;
+      // here all the variables that are needed to be created via the json file.
+
+      // to track user selection
+      for (let [key, value] of Object.entries(this.dataLocal.collection)) {
+        // use set to make it  reactive 
+        Vue.set(this.userSelectedAnswer, key, {
+          answerIndex:"notset",
+          impact:[]
+        })
+      }
+      // to track entities total and added summary for quick access to it
+      for (let [key, value] of Object.entries(this.dataLocal.entities)) {
+        // use set to make it  reactive 
+        Vue.set(this.entitiesTotal, key, {
+          total: 0,
+          summary_en: value["summary_en"] || "",
+          summary_fr: value["summary_fr"] || ""
+        })   
+      }
+
+  }catch(e){
+   console.log("error with data structure.")
+   //return false;
+  }
+  }, // end created
+  mounted: function() {
+    this.$i18n.locale = this.langLocal;
+  }, // end mounted
+  computed: {
+    getTotal: function(entityKey) {
+      return (this.entitiesTotal[entityKey]) ? this.entitiesTotal[entityKey].total : 0;
+    },
+    // returns The dataLocal for the current question
+    current: function() {
+      return this.dataLocal.collection[`cat-${this.currentCategoryIndex}`].answers;
+    },
+    getQuestionContext: function() {
+      return this.dataLocal.collection[`cat-${this.currentCategoryIndex}`][`context_${this.locale}`] || "";
+    },
+    // returns The current language
+    locale: function() {
+      return this.langLocal;
+    }
+  }, //end computed
+  watch: {
+    currentCategoryIndex: function(val) {
+        // retrieved user answer for thequestion
+      let question = this.userSelectedAnswer[`cat-${val}`];
+
+      if (val == this.totalCategories && question.answerIndex!="notset")  {
+        this.showNextButton = false;
+        this.showFinishButton = true;
+      } else {
+        // disabeld next button if necessary
+        this.showNextButton = (question.answerIndex=="notset") ? false : true;
+        
+      }
+      //this.showPreviousButton=(val==0) ? false : true;
+      
+      // set inital radio value  from user answer  
+      this.radioButton = (question.answerIndex=="notset") ? "" : question.answerIndex;
+
+    } // end currentCategoryIndex
+  }, // end watch
   methods: {
-   showResults: function() {
-        this.resultsShow = true;
-         // re-order to show from higher to lower for structure resultbundleRenderer.renderToStream
+    onClickButton: function() {
+      this.tempValue = false;
+      this.$emit("clicked", this.tempValue);
+    },
+    onClickPrevious: function() {
+      this.tempValue = true;
+      this.$emit("clicked", this.tempValue);
+    },
+    showResults: function() {
+      this.resultsShow = true;
+      // re-order to show from higher to lower for structure resultbundleRenderer.renderToStream
     
-       let myEntities=this.entitiesTotal;
-       let keysSorted = Object.keys(this.entitiesTotal).sort(function(a,b){
-         return myEntities[b]["total"]-myEntities[a]["total"]
-         })
-
-       let sortedEntities = {}
-       let gotTopEntity = false;
-       let bestEntitySelectionId = "";
-       keysSorted.map(function(key){
-             if(!gotTopEntity){
-               bestEntitySelectionId = key;
-               gotTopEntity = true;
-               
-             }
-             sortedEntities[key]= myEntities[key];
-       })
-       this.bestEntity = bestEntitySelectionId;
+      let myEntities=this.entitiesTotal;
+      let keysSorted = Object.keys(this.entitiesTotal).sort(function(a,b) {
+        return myEntities[b]["total"]-myEntities[a]["total"]
+      });
+      let sortedEntities = {};
+      let topEntitiesId = [];
+      let topEntitiesTotal = [];
+      let gotTopEntity = false;
+      let iteration = 1;
+      //let bestEntitySelectionId = "";
+      keysSorted.map(function(key) {
+        if (!gotTopEntity) {
+          //bestEntitySelectionId = key;
+          topEntitiesId.push(key)
+          //topEntitiesId.push("e1") // to testing
+          topEntitiesTotal.push(myEntities[key]["total"])
+          gotTopEntity = true;
+        }
+        sortedEntities[key]= myEntities[key];
+        //check if we have tie for top entity suggestion
+        if(iteration > 1){
+               if(topEntitiesTotal.pop() == myEntities[key]["total"]){
+                  topEntitiesId.push(key);
+               }
+        }
+         iteration++;
+         
+      });
+      this.bestEntitiesId = topEntitiesId;
       this.entitiesTotal = sortedEntities;
-
-   },
+    }, // end showResults
     // Advances to the next question
     next: function() {
-       if(this.currentCategoryIndex < this.totalCategories){
-           this.currentCategoryIndex++;
-       }
-    },
+      if (this.currentCategoryIndex < this.totalCategories) {
+        this.currentCategoryIndex++;
+      }
+    }, // end next
     // Goes back to the previous question
     previous: function() {
-      if(this.currentCategoryIndex>1) this.currentCategoryIndex--
-    },
+      if (this.currentCategoryIndex <= 1 )
+      {
+        this.onClickPrevious();
+       return;
+      }
+       
+      if (this.currentCategoryIndex>1) {
+        this.currentCategoryIndex--;
+        this.showFinishButton = false;
+         return;
+      }
+       
+    }, // end previous
     //Saves the selected question option param {number} answer 
     //The index of the selected option
     onSelect: function(answer,answerIndex) {
-        this.disabledNextButton = (this.currentCategoryIndex == 9) ? true : false;
-        if(this.currentCategoryIndex == 9) this.disabledSubmitButton = false;
- 
+      this.showNextButton = (this.currentCategoryIndex == this.totalCategories) ? false : true;
+      if (this.currentCategoryIndex == this.totalCategories) {
+        this.showFinishButton = true;
+      }
       // record user answer index and impact to variable 
       this.userSelectedAnswer[`cat-${this.currentCategoryIndex}`].answerIndex = answerIndex;
       this.userSelectedAnswer[`cat-${this.currentCategoryIndex}`].impact = answer.impact;
 
-    for (let [entityKey, value] of Object.entries(this.data.entities)){
-
-      let totalImpact=0;
-
-         // go throught all recoreded answers to find impact for that Entity
-          for (let [key, answerValue] of Object.entries(this.userSelectedAnswer)){
-            if(value.answerIndex !="notset"){
-              let impactValue = answerValue.impact[entityKey] || 0;
-               totalImpact = totalImpact + impactValue;
-            }
+      for (let [entityKey, value] of Object.entries(this.dataLocal.entities)) {
+        let totalImpact=0;
+        // go throught all recoreded answers to find impact for that Entity
+        for (let [key, answerValue] of Object.entries(this.userSelectedAnswer)) {
+          if (value.answerIndex != "notset") {
+            let impactValue = answerValue.impact[entityKey] || 0;
+            totalImpact = totalImpact + impactValue;
           }
-       this.entitiesTotal[entityKey].total = totalImpact;
-     }
-    },
-    //Toggles display language
-    toggleLocale: function() {
-      this.$i18n.locale = this.locale == "en" ? "fr" : "en";
-    },
-    //Restarts business entity tool
-    restartEntity(value) {
+        }
+        this.entitiesTotal[entityKey].total = totalImpact;
+      }
+    }, // end onSelect
+    //If restart clicked, restart tool
+    restartEntity: function(value) {
+      if (value == false) {
       this.$parent.started = value;
+      this.$parent.introGate = value;
+      this.$parent.welcomeGate = true;
+      }
+      //if previous clicked, close results
+      if (value == true) {
+        this.resultsShow = false;
+      }
     },
+
+    // Display percentage value on progress bar
     displayPercentage: function(value) {
       let displayValue = value;
       let minValue = 0;
-      if (displayValue <= -1 ){
+      if (displayValue <= -1 ) {
         return minValue;
       }
       else {
         return displayValue;
       }
-    }
-  }, //end methods
-  watch: {
-    currentCategoryIndex: function(val) {
-      if(val==9){
-        this.disabledNextButton = true;
-      }else {
-        // check if questions already answered
-        let question = this.userSelectedAnswer[`cat-${val}`];
-
-       this.disabledNextButton = (question.answerIndex=="notset") ? true : false;
-      }
-      this.disabledPreviousButton=(val==1) ? true : false
-    }
-  }, //end watch
-  computed: {
-    getTotal: function(entityKey){
-      return (this.entitiesTotal[entityKey]) ? this.entitiesTotal[entityKey].total:0;
-    },
-    // returns The data for the current question
-    current: function() {
-      return this.data.collection[`cat-${this.currentCategoryIndex}`].answers;
-    },
-    getQuestionContext: function(){
-      return this.data.collection[`cat-${this.currentCategoryIndex}`][`context_${this.locale}`] || "";
-    },
-    // returns The current language
-    locale: function() {
-      return this.$i18n.locale;
-    },
-    //returns percentage completed
-    progress: function() {
-      let tally = 0;
-      for (let i = 0; i < this.data.length; i++) {
-        tally += this.categoryCompletion(i);
-      }
-      return tally * (100 / 9);
-    },
-    //Whether the submit button should be showing - returns True if done, False otherwise
-    allAnswered: function() {
-      return this.progress >= 100;
-    },
-    //returns The category the most full
-    maxCheck: function() {
-      let a = this.total;
-      let maxIndex = a.reduce(
-        (iMax, x, i, arr) => (x > arr[iMax] ? i : iMax),
-        0
-      );
-      return this.types[maxIndex];
-    },
-    
-  }, //end computed
-  created(){
-    this.data= this.data["pid-59"]
-    this.totalCategories = Object.keys(this.data.collection).length
-    // here all the variables that are needed to be created via the json file.
-
-      // to track user selection
-     for (let [key, value] of Object.entries(this.data.collection)){
-        // use set to make it  reactive 
-        Vue.set(this.userSelectedAnswer, key, {
-         answerIndex:"notset",
-         impact:[]
-       })
-     }
-     // to track entities total and added summary for quick access to it
-     for (let [key, value] of Object.entries(this.data.entities)){
-        // use set to make it  reactive 
-        Vue.set(this.entitiesTotal, key, {
-          total:0,
-          summary_en:value["summary_en"] || "",
-          summary_fr:value["summary_fr"] || ""
-       })   
-     }
-  }, //end created
+    } // end displayPercentage
+  } // end methods
 };
 </script>
 <style scoped>
 
-em {
-  color:#2C5671;
-}
-.be-progress {
-  margin-bottom: 5px;
-  margin-top: 5px;
-  margin-right: 20px;
-  margin-left: 20px;
-}
-.be-entitywrap{
-  border-bottom-style: solid;
-  border-bottom-color: #edf3f7;
-  padding-top: 5px;
-}
-#be-results-list {
-  list-style: none;
-}
 </style>
