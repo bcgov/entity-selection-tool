@@ -212,9 +212,6 @@ import Vue from "vue";
 import BaseCard from "@/components/base-components/BaseCard.vue";
 import Entity from "@/components/Entity.vue";
 import NonProfit from "@/components/NonProfit.vue";
-<<<<<<< HEAD
-require("../i18n");
-=======
 import VueI18nHome from "vue-i18n";
 
 Vue.use(VueI18nHome);
@@ -224,7 +221,6 @@ export const i18n = new VueI18nHome({
   locale: process.env.VUE_APP_I18N_LOCALE || "en",
   fallbackLocale: process.env.VUE_APP_I18N_FALLBACK_LOCALE || "en"
 });
->>>>>>> dynamic-components
 
 export default {
   name: "ModalHome",
