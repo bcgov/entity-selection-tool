@@ -89,7 +89,7 @@
             {{ $t("print_summaries") }}
           </b-button>
         </span>
-        <span class="card-footer-item">
+        <span v-if="!nextSteps" class="card-footer-item">
           <b-button class="be-form-button" @click="nextStepsClick()">
             {{ $t("next_steps_title") }}</b-button
           >
@@ -363,7 +363,7 @@ export default {
       en: {
         advantages: "Advantages:",
         disadvantages: "Disadvantages:",
-        download_name: "business-structures-in-{prov}",
+        download_name: "business-structures-wizard-your-results",
         download_name_summary: "business-structures-in-{prov}-summary",
         restart: "Restart",
         print_results: "Print / Download",
@@ -397,7 +397,7 @@ export default {
       fr: {
         advantages: "Avantages :",
         disadvantages: "Désavantages :",
-        download_name: "structures-entreprises-dans-{prov}",
+        download_name: "business-structures-wizard-your-results",
         download_name_summary: "structures-entreprises-dans-{prov}-sommaire",
         restart: "Redémarrer",
         print_results: "Imprimer/Télécharger",
@@ -574,8 +574,7 @@ export default {
         (today.getMonth() + 1) +
         "-" +
         today.getDate();
-      let filename =
-        this.$t("download_name_summary", { prov: "BC" }) + `-${date}.pdf`;
+      let filename = this.$t("download_name", { prov: "BC" }) + `-${date}.pdf`;
       const document = {
         content: [
           { text: this.getHeaderTitles(this.entities), style: "title" }

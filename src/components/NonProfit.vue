@@ -3,22 +3,49 @@
     <div class="column is-half">
       <BaseCard class="summary box">
         <template v-slot:headertext>
-          <h2 class="title be-results-title">
+          <h2 v-if="!nextSteps" class="title be-results-title">
             {{ $t("header_text") }}
+          </h2>
+          <h2 v-if="nextSteps" class="title be-results-title">
+            {{ $t("next_steps_title") }}
           </h2>
         </template>
         <template v-slot:bodytext>
-          <p>
-            {{ $t("explanation_intro") }}
-          </p>
-          <ul class="be-nonprofit-list">
-            <li v-for="(item, index) in dataLocal" v-bind:key="index">
-              <h3 class="subtitle be-nonprofit-subtitle  is-5">
-                {{ item[`title_${langLocal}`] }}
+          <div v-if="!nextSteps">
+            <p>
+              {{ $t("explanation_intro") }}
+            </p>
+            <ul class="be-nonprofit-list">
+              <li v-for="(item, index) in dataLocal" v-bind:key="index">
+                <h3 class="subtitle be-nonprofit-subtitle  is-5">
+                  {{ item[`title_${langLocal}`] }}
+                </h3>
+                <p class="be-results-text">
+                  {{ item[`summary_${langLocal}`] }}
+                </p>
+              </li>
+            </ul>
+          </div>
+          <div v-if="nextSteps">
+            <p class="be-results-text">{{ $t("next_steps_intro") }}</p>
+            <div class="be-next-steps-list">
+              {{ getNextSteps() }}
+
+              <h3 class="subtitle be-results-subtitle is-5">
+                {{ $t("non_profit_resources") }}
               </h3>
-              <p class="be-results-text">{{ item[`summary_${langLocal}`] }}</p>
-            </li>
-          </ul>
+              <ul v-bind:key="index" v-for="(item, index) in resources">
+                <li v-html="item"></li>
+              </ul>
+            </div>
+
+            <h3 class="subtitle be-results-subtitle is-5">
+              {{ $t("general_resources") }}
+            </h3>
+            <ul v-bind:key="index" v-for="(item, index) in resourcesGeneral">
+              <li v-html="item"></li>
+            </ul>
+          </div>
         </template>
         <template v-slot:footertext>
           <span class="card-footer-item">
@@ -37,8 +64,8 @@
               {{ $t("print_summaries") }}
             </b-button>
           </span>
-          <span class="card-footer-item">
-            <b-button class="be-form-button" disabled>
+          <span v-if="!nextSteps" class="card-footer-item">
+            <b-button class="be-form-button" @click="nextStepsClick()">
               {{ $t("next_steps") }}</b-button
             >
           </span>
@@ -150,7 +177,12 @@ export default {
         bizpal_link: "https://services.bizpal-perle.ca/",
         bizpal: "BizPaL",
         results: "Business Structures Wizard",
-        next_steps: "What's Next?"
+        next_steps: "What's Next?",
+        next_steps_title: "What's Next?",
+        next_steps_intro:
+          "Ready to start your business? Try these next steps. Keep in mind, some business structures may require the services of a lawyer and accountant.",
+        general_resources: "All Business Types:",
+        non_profit_resources: "Non-Profit Resources:"
       },
       fr: {
         close: "Fermer",
@@ -168,7 +200,12 @@ export default {
         bizpal_link: "https://services.perle-bizpal.ca/",
         bizpal: "PerLE",
         results: "Business Structures Wizard (FR)",
-        next_steps: "What's Next? (FR)"
+        next_steps: "What's Next? (FR)",
+        next_steps_title: "What's Next? (FR)",
+        next_steps_intro:
+          "Ready to start your business? Try these next steps. Keep in mind, some business structures may require the services of a lawyer and accountant.(FR)",
+        general_resources: "All Business Types : (FR)",
+        non_profit_resources: "Non-Profit Resources : (FR)"
       }
     }
   }, // end i18n
@@ -201,7 +238,8 @@ export default {
         `,
       dataLocal: this.data,
       isCardModalActive: false,
-      langLocal: this.lang
+      langLocal: this.lang,
+      nextSteps: false
     };
   }, // end data
   created: function() {
@@ -232,8 +270,31 @@ export default {
       this.$emit("clicked", this.tempValue);
     },
     onClickPrevious: function() {
-      this.tempValue = true;
-      this.$emit("clicked", this.tempValue);
+      if (this.nextSteps == true) {
+        this.nextSteps = false;
+        return;
+      } else {
+        this.tempValue = true;
+        this.$emit("clicked", this.tempValue);
+        return;
+      }
+    },
+    nextStepsClick: function() {
+      this.nextSteps = true;
+    },
+    // sort links in order of which non-profit structure was recommended first
+    getNextSteps: function() {
+      let resourcesList = this.data[`pid-${this.sgc}`].resources;
+      let entityID = this.entityId;
+      this.resourcesGeneral = resourcesList.general_resources;
+      switch (entityID) {
+        case "n3":
+          this.resources = [resourcesList.r6.url_2, resourcesList.r6.url_1];
+          break;
+        default:
+          this.resources = [resourcesList.r6.url_1, resourcesList.r6.url_2];
+          break;
+      }
     },
     downloadPDF: function() {
       let today = new Date();
@@ -289,7 +350,6 @@ export default {
           }
         ]);
       } //for
-
 
       document.content.push([
         {
