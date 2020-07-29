@@ -1,24 +1,3 @@
-<i18n>
-{
-  "en": {
-    "business_structures": "Business Structure Title",
-    "submit": "submit",
-    "generic_context": "context",
-    "entity_titles":"Entity Title",
-    "disclaimer":"Disclaimer"
-  },
-   "fr": {
-    "business_structures": "Business Structure Title - French",
-        "submit": "submit",
-            "generic_context": "context",
-                "entity_titles":"Entity Title",
-                    "disclaimer":"Disclaimer"
-
-
-
-  }
-}
-</i18n>
 <template>
   <div class="columns">
     <div v-if="resultsShow == false" class="column is-three-fifths">

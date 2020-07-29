@@ -1,14 +1,3 @@
-<i18n>
-{
-  "en": {
-    "business_structures": "Business Structure Title"
-  },
-   "fr": {
-    "business_structures": "Business Structure Title - French"
-  }
-}
-</i18n>
-
 <template>
   <div id="app">
     <b-button @click="homeModal()">
@@ -62,9 +51,6 @@ export default {
       dataLocal: this.data
     };
   }, // end data
-  created(){
-    this.$i18n.locale = "en";
-  },
   mounted: function() {
     this.dataLocal = this.data ? this.data : json;
   },
