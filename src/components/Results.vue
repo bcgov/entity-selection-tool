@@ -79,7 +79,7 @@
           }}</b-button>
         </span>
 
-        <span class="card-footer-item">
+        <span v-if="!nextSteps" class="card-footer-item">
           <b-button class="be-form-button" @click="printEntity">
             {{ $t("print") }}/&#8203;{{ $t("download") }}
           </b-button>

@@ -59,7 +59,7 @@
               {{ $t("previous") }}
             </b-button>
           </span>
-          <span class="card-footer-item">
+          <span v-if="!nextSteps" class="card-footer-item">
             <b-button class="be-form-button" @click="printSummaries">
               {{ $t("print_summaries") }}
             </b-button>
