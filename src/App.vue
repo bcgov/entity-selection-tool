@@ -19,9 +19,10 @@ import {
   faTimes,
   faAngleDown,
   faAngleUp,
-  faUndo
+  faUndo,
+  faExclamationCircle
 } from "@fortawesome/free-solid-svg-icons";
-library.add(faTimes, faAngleDown, faAngleUp, faUndo);
+library.add(faTimes, faAngleDown, faAngleUp, faUndo, faExclamationCircle);
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
 Vue.component("font-awesome-icon", FontAwesomeIcon);
