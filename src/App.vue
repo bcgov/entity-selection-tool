@@ -451,7 +451,7 @@ p.be-emphasis {
   /* White Content Card */
   .question.box {
     width: 520px;
-    height: 500px;
+    height: 502px;
     z-index: 50;
     position: absolute;
     top: 72px;
@@ -461,7 +461,7 @@ p.be-emphasis {
   }
   .summary.box {
     width: 620px;
-    height: 500px;
+    height: 502px;
     z-index: 50;
     position: absolute;
     top: 72px;
@@ -485,7 +485,7 @@ p.be-emphasis {
   /*white card content */
   .card .card-content {
     padding-top: 1rem;
-    height: 360px;
+    height: 362px;
   }
   .be-question-text {
     width: 448px;
@@ -502,7 +502,7 @@ p.be-emphasis {
     padding-left: 0px;
   }
   .be-start-button {
-    margin-top: 28px;
+    margin-top: 29px;
   }
   /* white card footer */
   .be-form-button {
@@ -521,6 +521,94 @@ p.be-emphasis {
   }
   .be-progress-box {
     width: auto;
+  }
+}
+@media screen and (min-width: 1280px) and (min-height: 768px) {
+  /* Modal Card */
+  .modal-card {
+    width: 980px;
+    height: 668px;
+  }
+  /* Modal Card Body */
+  .modal-card-body {
+    height: 406px;
+  }
+  /* White Content Card */
+  .question.box {
+    width: 568px;
+    height: 584px;
+  }
+  .summary.box {
+    width: 712px;
+    height: 584px;
+  }
+  /*white card content */
+  .card .card-content {
+    /* padding-top: 1rem; */
+    height: 444px;
+  }
+  .be-question-text {
+    width: 496px;
+  }
+  .be-gate-text {
+    width: 626px;
+  }
+  .be-start-button {
+    margin-top: 70px;
+  }
+  /* white card footer */
+  .be-disclaimer {
+    padding-top: 6px;
+    font-size: 13px;
+  }
+  /* progress bars */
+  .be-entitywrap {
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+}
+@media screen and (min-width: 1440px) and (min-height: 900px) {
+  /* Modal Card */
+  .modal-card {
+    width: 1208px;
+    height: 768px;
+  }
+  /* Modal Card Body */
+  .modal-card-body {
+    height: 546px;
+  }
+  /* White Content Card */
+  .question.box {
+    width: 698px;
+    height: 684px;
+  }
+  .summary.box {
+    width: 898px;
+    height: 684px;
+  }
+  /*white card content */
+  .card .card-content {
+    /* padding-top: 1rem; */
+    height: 548px;
+  }
+  .be-question-text {
+    width: 646px;
+  }
+  .be-gate-text {
+    width: 746px;
+  }
+  .be-start-button {
+    /* margin-top: 120px; */
+  }
+  /* white card footer */
+  .be-disclaimer {
+    padding-top: 8px;
+    font-size: 14px;
+  }
+  /* progress bars */
+  .be-entitywrap {
+    padding-top: 16px;
+    padding-bottom: 8px;
   }
 }
 </style>
