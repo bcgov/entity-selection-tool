@@ -1,8 +1,10 @@
 <template>
   <div id="app">
+    <slot>
     <b-button @click="homeModal()">
       Start Business Structures Widget
     </b-button>
+    </slot>
   </div>
 </template>
 <script>
@@ -107,7 +109,7 @@ export default {
 }
 .button.is-light.is-outlined.be-nav-button:hover,
 .button.is-light.is-outlined.be-nav-button.is-hovered {
-  color: #2c5671;
+  color: #274f6e;
 }
 /* Modal Card Body*/
 .modal-card-body {
@@ -126,7 +128,7 @@ export default {
 }
 a.be-link,
 a.be-link-button {
-  color: #366b8c;
+  color: hsl(217, 71%, 53%);
 }
 a.be-link:hover,
 a.be-link-button:hover,
@@ -140,7 +142,7 @@ a.be-link:active,
   color: #274f6e;
 }
 .be-tooltip {
-  color: #366b8c;
+  color: hsl(217, 71%, 53%);
   cursor: pointer;
 }
 .be-tooltip:hover,
@@ -174,7 +176,7 @@ a.be-link:active,
 .be-results-title {
   font-weight: 300;
   font-size: 22px;
-  color: #2c5671;
+  color: #274f6e;
   text-transform: uppercase;
   margin-bottom: 16px;
   margin-top: 16px;
@@ -183,7 +185,7 @@ a.be-link:active,
 .be-question-title {
   font-weight: 300;
   font-size: 22px;
-  color: #2c5671;
+  color: #274f6e;
   margin-bottom: 16px;
   margin-top: 16px;
   margin-left: 4px;
@@ -196,6 +198,7 @@ a.be-link:active,
   padding-top: 0rem;
   padding-bottom: 1rem;
   overflow-y: auto;
+  overflow-x: hidden;
 }
 .card .content .be-nonprofit-list {
   margin-top: 6px;
@@ -204,14 +207,14 @@ a.be-link:active,
   margin-left: 0em;
 }
 .content .be-nonprofit-subtitle {
-  color: #24465c;
+  color: #274f6e;
   font-weight: 400;
   margin-top: 24px;
   margin-bottom: 12px;
 }
 .be-context {
   padding-top: 4px;
-  color: #2c5671;
+  color: #274f6e;
   font-size: 14px;
 }
 .be-results-text {
@@ -221,7 +224,7 @@ a.be-link:active,
   margin-bottom: 0px;
 }
 .subtitle.be-results-subtitle {
-  color: #2c5671;
+  color: #274f6e;
   font-weight: 400;
 }
 .subtitle.be-results-subtitle.is-4 {
@@ -269,7 +272,7 @@ a.be-link:active,
   -webkit-box-shadow: none;
   box-shadow: none;
   text-decoration: none;
-  color: #2c5671;
+  color: #274f6e;
   white-space: normal;
   padding: 4px;
   line-height: 1;
@@ -288,14 +291,14 @@ a.be-link:active,
   height: 60px;
 }
 .card-footer-item {
-  color: #2c5671;
+  color: #274f6e;
   padding: 0;
 }
 .be-disclaimer {
   padding-top: 4px;
-  color: #2c5671;
+  color: #274f6e;
   font-size: 12px;
-  font-weight: 500;
+  font-weight: 600;
   font-style: italic;
   overflow-y: auto;
 }
@@ -309,7 +312,7 @@ a.be-link:active,
   -webkit-box-shadow: none;
   box-shadow: none;
   text-decoration: none;
-  color: #2c5671;
+  color: hsl(217, 71%, 53%);
   white-space: normal;
   padding: 2px;
   line-height: 1;
@@ -328,24 +331,24 @@ a.be-link:active,
   box-shadow: 0, 0, 0, 0;
   border: none;
   border-radius: 0%;
-  color: #363636;
+  color: #274f6e;
   width: 100%;
   height: 100%;
-  background-color: rgb(207, 232, 252);
+  background-color: rgb(164, 221, 252);
   display: block;
 }
 /* Progress Bars */
 .be-carat-icon {
-  color: #2c5671;
+  color: #274f6e;
 }
 .subtitle.be-progress-subtitle.is-5 {
   font-weight: 500;
-  color: #2c5671;
+  color: #274f6e;
   margin-bottom: 0px;
 }
 .subtitle.be-progress-subtitle.is-4 {
   font-weight: 500;
-  color: #2c5671;
+  color: #274f6e;
   margin-bottom: 24px;
 }
 .be-progress-title {
@@ -361,7 +364,7 @@ a.be-link:active,
   padding-top: 24px;
 }
 p.be-emphasis {
-  color: #2c5671;
+  color: #274f6e;
 }
 .be-progress {
   margin-bottom: 5px;
@@ -415,21 +418,21 @@ p.be-emphasis {
   color: white;
 }
 .be-button {
-  color: #2c5671;
-  border-color: #2c5671;
+  color: #274f6e;
+  border-color: #274f6e;
 }
 .be-button:focus,
 .be-button.is-focused,
 .be-button:active {
-  background-color: #2c5671;
-  border-color: #2c5671;
+  background-color: #274f6e;
+  border-color: #274f6e;
   box-shadow: 0 0 0 0.125em hsl(203, 44%, 80%);
   color: white;
 }
 .be-button:hover,
 .be-button.is-hovered {
-  background-color: #2c5671;
-  border-color: #2c5671;
+  background-color: #274f6e;
+  border-color: #274f6e;
   color: white;
 }
 /* for desktop */
@@ -467,21 +470,21 @@ p.be-emphasis {
   }
   /* White Content Card */
   .question.box {
-    width: 520px;
-    height: 500px;
+    width: 524px;
+    height: 512px;
     z-index: 50;
     position: absolute;
-    top: 72px;
+    top: 64px;
     left: 10px;
     padding: 20px;
     margin-top: 0rem;
   }
   .summary.box {
-    width: 620px;
-    height: 500px;
+    width: 642px;
+    height: 512px;
     z-index: 50;
     position: absolute;
-    top: 72px;
+    top: 64px;
     left: 10px;
     padding: 20px;
     margin-top: 0rem;
@@ -502,7 +505,7 @@ p.be-emphasis {
   /*white card content */
   .card .card-content {
     padding-top: 1rem;
-    height: 360px;
+    height: 362px;
   }
   .be-question-text {
     width: 448px;
@@ -519,7 +522,7 @@ p.be-emphasis {
     padding-left: 0px;
   }
   .be-start-button {
-    margin-top: 28px;
+    margin-top: 29px;
   }
   /* white card footer */
   .be-form-button {
@@ -538,6 +541,94 @@ p.be-emphasis {
   }
   .be-progress-box {
     width: auto;
+  }
+}
+@media screen and (min-width: 1280px) and (min-height: 768px) {
+  /* Modal Card */
+  .modal-card {
+    width: 980px;
+    height: 668px;
+  }
+  /* Modal Card Body */
+  .modal-card-body {
+    height: 406px;
+  }
+  /* White Content Card */
+  .question.box {
+    width: 568px;
+    height: 584px;
+  }
+  .summary.box {
+    width: 712px;
+    height: 584px;
+  }
+  /*white card content */
+  .card .card-content {
+    /* padding-top: 1rem; */
+    height: 444px;
+  }
+  .be-question-text {
+    width: 496px;
+  }
+  .be-gate-text {
+    width: 626px;
+  }
+  .be-start-button {
+    margin-top: 70px;
+  }
+  /* white card footer */
+  /* .be-disclaimer {
+    padding-top: 6px;
+    font-size: 13px;
+  } */
+  /* progress bars */
+  .be-entitywrap {
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+}
+@media screen and (min-width: 1440px) and (min-height: 900px) {
+  /* Modal Card */
+  .modal-card {
+    width: 1208px;
+    height: 768px;
+  }
+  /* Modal Card Body */
+  .modal-card-body {
+    height: 546px;
+  }
+  /* White Content Card */
+  .question.box {
+    width: 698px;
+    height: 684px;
+  }
+  .summary.box {
+    width: 898px;
+    height: 684px;
+  }
+  /*white card content */
+  .card .card-content {
+    /* padding-top: 1rem; */
+    height: 548px;
+  }
+  .be-question-text {
+    width: 646px;
+  }
+  .be-gate-text {
+    width: 746px;
+  }
+  .be-start-button {
+    /* margin-top: 120px; */
+  }
+  /* white card footer */
+  .be-disclaimer {
+    padding-top: 8px;
+    font-size: 14px;
+  }
+  /* progress bars */
+  .be-entitywrap {
+    padding-top: 16px;
+    padding-bottom: 8px;
   }
 }
 </style>
