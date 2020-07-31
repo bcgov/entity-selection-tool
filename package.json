@@ -1,16 +1,16 @@
 {
-  "name": "be-package",
-  "version": "1.1.9",
+  "name": "@bizpal/open-services-be",
+  "version": "0.0.1",
   "private": false,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
-    "build-bundle": "vue-cli-service build --target lib --name be-package ./src/components/index.js",
+    "build-bundle": "vue-cli-service build --target lib --name open-services-be ./src/components/index.js",
     "i18n:report": "vue-cli-service i18n:report --src './src/**/*.?(js|vue)' --locales './src/locales/**/*.json'"
   },
-  "main": "./dist/be-package.common.js",
+  "main": "./dist/open-services-be.common.js",
   "files": [
     "dist/*"
   ],

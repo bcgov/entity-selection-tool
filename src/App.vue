@@ -33,7 +33,7 @@ Vue.use(Buefy, {
   defaultIconComponent: "font-awesome-icon"
 });
 export default {
-  name: "BE",
+  name: "BusinessStructureTool",
   props: {
     lang: {
       type: String,

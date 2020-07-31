@@ -1,5 +1,5 @@
-# business-entity-tool
-v0.1.3
+# Buisness Stuctures Tool
+v0.0.1
 
 
 ## Project setup
@@ -7,30 +7,3 @@ v0.1.3
 npm install
 ```
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Run your unit tests
-```
-npm run test:unit
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
