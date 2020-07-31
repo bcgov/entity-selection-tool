@@ -1,5 +1,5 @@
 {
-  "name": "@bizpal/open-services-be",
+  "name": "@bizpal/open-services-bst",
   "version": "0.0.1",
   "private": false,
   "scripts": {
@@ -7,10 +7,10 @@
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
-    "build-bundle": "vue-cli-service build --target lib --name open-services-be ./src/components/index.js",
+    "build-bundle": "vue-cli-service build --target lib --name open-services-bst ./src/components/index.js",
     "i18n:report": "vue-cli-service i18n:report --src './src/**/*.?(js|vue)' --locales './src/locales/**/*.json'"
   },
-  "main": "./dist/open-services-be.common.js",
+  "main": "./dist/open-services-bst.common.js",
   "files": [
     "dist/*"
   ],

@@ -1,7 +1,7 @@
 import Vue from "vue";
-import BusinessStructureTool from "../App.vue";
+import BusinessStructuresTool from "../App.vue";
 const Components = {
-  BusinessStructureTool
+  BusinessStructuresTool
 };
 Object.keys(Components).forEach(name => {
   Vue.component(name, Components[name]);
