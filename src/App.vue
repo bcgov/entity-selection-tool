@@ -452,20 +452,20 @@ p.be-emphasis {
   /* White Content Card */
   .question.box {
     width: 524px;
-    height: 516px;
+    height: 512px;
     z-index: 50;
     position: absolute;
-    top: 72px;
+    top: 64px;
     left: 10px;
     padding: 20px;
     margin-top: 0rem;
   }
   .summary.box {
     width: 642px;
-    height: 516px;
+    height: 512px;
     z-index: 50;
     position: absolute;
-    top: 72px;
+    top: 64px;
     left: 10px;
     padding: 20px;
     margin-top: 0rem;
