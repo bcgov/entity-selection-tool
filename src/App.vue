@@ -1,8 +1,10 @@
 <template>
   <div id="app">
+    <slot>
     <b-button @click="homeModal()">
       Start Business Structures Widget
     </b-button>
+    </slot>
   </div>
 </template>
 <script>
