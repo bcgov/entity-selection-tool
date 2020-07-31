@@ -90,7 +90,7 @@ export default {
 }
 .button.is-light.is-outlined.be-nav-button:hover,
 .button.is-light.is-outlined.be-nav-button.is-hovered {
-  color: #2c5671;
+  color: #274f6e;
 }
 /* Modal Card Body*/
 .modal-card-body {
@@ -109,7 +109,7 @@ export default {
 }
 a.be-link,
 a.be-link-button {
-  color: #366b8c;
+  color: hsl(217, 71%, 53%);
 }
 a.be-link:hover,
 a.be-link-button:hover,
@@ -123,7 +123,7 @@ a.be-link:active,
   color: #274f6e;
 }
 .be-tooltip {
-  color: #366b8c;
+  color: hsl(217, 71%, 53%);
   cursor: pointer;
 }
 .be-tooltip:hover,
@@ -157,7 +157,7 @@ a.be-link:active,
 .be-results-title {
   font-weight: 300;
   font-size: 22px;
-  color: #2c5671;
+  color: #274f6e;
   text-transform: uppercase;
   margin-bottom: 16px;
   margin-top: 16px;
@@ -166,7 +166,7 @@ a.be-link:active,
 .be-question-title {
   font-weight: 300;
   font-size: 22px;
-  color: #2c5671;
+  color: #274f6e;
   margin-bottom: 16px;
   margin-top: 16px;
   margin-left: 4px;
@@ -187,14 +187,14 @@ a.be-link:active,
   margin-left: 0em;
 }
 .content .be-nonprofit-subtitle {
-  color: #24465c;
+  color: #274f6e;
   font-weight: 400;
   margin-top: 24px;
   margin-bottom: 12px;
 }
 .be-context {
   padding-top: 4px;
-  color: #2c5671;
+  color: #274f6e;
   font-size: 14px;
 }
 .be-results-text {
@@ -204,7 +204,7 @@ a.be-link:active,
   margin-bottom: 0px;
 }
 .subtitle.be-results-subtitle {
-  color: #2c5671;
+  color: #274f6e;
   font-weight: 400;
 }
 .subtitle.be-results-subtitle.is-4 {
@@ -252,7 +252,7 @@ a.be-link:active,
   -webkit-box-shadow: none;
   box-shadow: none;
   text-decoration: none;
-  color: #2c5671;
+  color: #274f6e;
   white-space: normal;
   padding: 4px;
   line-height: 1;
@@ -271,14 +271,14 @@ a.be-link:active,
   height: 60px;
 }
 .card-footer-item {
-  color: #2c5671;
+  color: #274f6e;
   padding: 0;
 }
 .be-disclaimer {
   padding-top: 4px;
-  color: #2c5671;
+  color: #274f6e;
   font-size: 12px;
-  font-weight: 500;
+  font-weight: 600;
   font-style: italic;
   overflow-y: auto;
 }
@@ -292,7 +292,7 @@ a.be-link:active,
   -webkit-box-shadow: none;
   box-shadow: none;
   text-decoration: none;
-  color: #2c5671;
+  color: hsl(217, 71%, 53%);
   white-space: normal;
   padding: 2px;
   line-height: 1;
@@ -311,24 +311,24 @@ a.be-link:active,
   box-shadow: 0, 0, 0, 0;
   border: none;
   border-radius: 0%;
-  color: #363636;
+  color: #274f6e;
   width: 100%;
   height: 100%;
-  background-color: rgb(207, 232, 252);
+  background-color: rgb(164, 221, 252);
   display: block;
 }
 /* Progress Bars */
 .be-carat-icon {
-  color: #2c5671;
+  color: #274f6e;
 }
 .subtitle.be-progress-subtitle.is-5 {
   font-weight: 500;
-  color: #2c5671;
+  color: #274f6e;
   margin-bottom: 0px;
 }
 .subtitle.be-progress-subtitle.is-4 {
   font-weight: 500;
-  color: #2c5671;
+  color: #274f6e;
   margin-bottom: 24px;
 }
 .be-progress-title {
@@ -344,7 +344,7 @@ a.be-link:active,
   padding-top: 24px;
 }
 p.be-emphasis {
-  color: #2c5671;
+  color: #274f6e;
 }
 .be-progress {
   margin-bottom: 5px;
@@ -398,21 +398,21 @@ p.be-emphasis {
   color: white;
 }
 .be-button {
-  color: #2c5671;
-  border-color: #2c5671;
+  color: #274f6e;
+  border-color: #274f6e;
 }
 .be-button:focus,
 .be-button.is-focused,
 .be-button:active {
-  background-color: #2c5671;
-  border-color: #2c5671;
+  background-color: #274f6e;
+  border-color: #274f6e;
   box-shadow: 0 0 0 0.125em hsl(203, 44%, 80%);
   color: white;
 }
 .be-button:hover,
 .be-button.is-hovered {
-  background-color: #2c5671;
-  border-color: #2c5671;
+  background-color: #274f6e;
+  border-color: #274f6e;
   color: white;
 }
 /* for desktop */
@@ -557,10 +557,10 @@ p.be-emphasis {
     margin-top: 70px;
   }
   /* white card footer */
-  .be-disclaimer {
+  /* .be-disclaimer {
     padding-top: 6px;
     font-size: 13px;
-  }
+  } */
   /* progress bars */
   .be-entitywrap {
     padding-top: 8px;
