@@ -179,6 +179,7 @@ a.be-link:active,
   padding-top: 0rem;
   padding-bottom: 1rem;
   overflow-y: auto;
+  overflow-x: hidden;
 }
 .card .content .be-nonprofit-list {
   margin-top: 6px;
@@ -450,8 +451,8 @@ p.be-emphasis {
   }
   /* White Content Card */
   .question.box {
-    width: 520px;
-    height: 502px;
+    width: 524px;
+    height: 516px;
     z-index: 50;
     position: absolute;
     top: 72px;
@@ -460,8 +461,8 @@ p.be-emphasis {
     margin-top: 0rem;
   }
   .summary.box {
-    width: 620px;
-    height: 502px;
+    width: 642px;
+    height: 516px;
     z-index: 50;
     position: absolute;
     top: 72px;
