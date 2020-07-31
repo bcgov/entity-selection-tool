@@ -2,8 +2,8 @@
 v0.0.1
 
 
-## Project setup
+## To install 
 ```
-npm install
+npm install @bizpal/open-services-bst
 ```
 
