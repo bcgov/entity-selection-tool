@@ -83,7 +83,7 @@ export default {
 }
 .be-modal-title {
   color: white;
-  font-size: 24px;
+  font-size: 2rem;
   size: inherit;
 }
 .modal-card-head {
@@ -175,7 +175,7 @@ a.be-link:active,
 /*white card header */
 .be-results-title {
   font-weight: 300;
-  font-size: 22px;
+  font-size: 1.75rem;
   color: #274f6e;
   text-transform: uppercase;
   margin-bottom: 16px;
@@ -184,7 +184,7 @@ a.be-link:active,
 }
 .be-question-title {
   font-weight: 300;
-  font-size: 22px;
+  font-size: 1.75rem;
   color: #274f6e;
   margin-bottom: 16px;
   margin-top: 16px;
@@ -215,10 +215,10 @@ a.be-link:active,
 .be-context {
   padding-top: 4px;
   color: #274f6e;
-  font-size: 14px;
+  font-size: 0.9rem;
 }
 .be-results-text {
-  font-size: 16px;
+  font-size: 1rem;
 }
 .content p.be-results-header-intro {
   margin-bottom: 0px;
@@ -228,27 +228,27 @@ a.be-link:active,
   font-weight: 400;
 }
 .subtitle.be-results-subtitle.is-4 {
-  font-size: 22px;
+  font-size: 1.4rem;
   margin-bottom: 18px;
   margin-top: 8px;
 }
 .subtitle.be-results-subtitle.is-5 {
   font-weight: normal;
-  font-size: 19px;
+  font-size: 1.3rem;
   margin-top: 8px;
   margin-bottom: 8px;
 }
 .subtitle.be-results-subtitle.is-6 {
   font-weight: normal;
-  font-size: 17px;
+  font-size: 1.15rem;
   margin-bottom: 4px;
 }
 .be-question-text {
-  margin-top: 16px;
+  margin-top: 1rem;
   margin-bottom: 0px;
 }
 .be-gate-text {
-  margin-top: 16px;
+  margin-top: 1rem;
   margin-bottom: 0px;
 }
 .be-card-content {
@@ -297,7 +297,7 @@ a.be-link:active,
 .be-disclaimer {
   padding-top: 4px;
   color: #274f6e;
-  font-size: 12px;
+  font-size: 0.75rem;
   font-weight: 600;
   font-style: italic;
   overflow-y: auto;
@@ -351,9 +351,6 @@ a.be-link:active,
   color: #274f6e;
   margin-bottom: 24px;
 }
-.be-progress-title {
-  font-size: 14px;
-}
 .be-progress-box {
   padding-bottom: 0px;
   padding-top: 0px;
@@ -373,7 +370,7 @@ p.be-emphasis {
   margin-left: 20px;
 }
 .be-progress-summary {
-  font-size: 14px;
+  font-size: 0.9rem;
 }
 .be-entitywrap {
   border-bottom-style: solid;
@@ -444,7 +441,7 @@ p.be-emphasis {
   }
   /* Modal Card Header */
   .be-modal-title {
-    font-size: 30px;
+    font-size: 2rem;
     margin-top: 0px;
   }
   .modal-card-head {
@@ -471,20 +468,22 @@ p.be-emphasis {
   /* White Content Card */
   .question.box {
     width: 524px;
-    height: 512px;
+    height: 502px;
     z-index: 50;
     position: absolute;
-    top: 64px;
+    /* top: 64px; */
+    bottom: 12px;
     left: 10px;
     padding: 20px;
     margin-top: 0rem;
   }
   .summary.box {
-    width: 642px;
-    height: 512px;
+    width: 636px;
+    height: 502px;
     z-index: 50;
     position: absolute;
-    top: 64px;
+    /* top: 64px; */
+    bottom: 12px;
     left: 10px;
     padding: 20px;
     margin-top: 0rem;
@@ -492,13 +491,13 @@ p.be-emphasis {
   /* white card headers */
   .be-question-title {
     font-weight: 400;
-    font-size: 24px;
+    font-size: 1.5rem;
     margin-top: 6px;
     margin-left: 0px;
   }
   .be-results-title {
     font-weight: 400;
-    font-size: 24px;
+    font-size: 1.5rem;
     margin-top: 6px;
     margin-left: 0px;
   }
@@ -516,7 +515,7 @@ p.be-emphasis {
   .be-context-icon {
     padding-right: 0px;
     padding-left: 16px;
-    font-size: 16px;
+    font-size: 1rem;
   }
   .be-context-text {
     padding-left: 0px;
@@ -576,11 +575,7 @@ p.be-emphasis {
   .be-start-button {
     margin-top: 70px;
   }
-  /* white card footer */
-  /* .be-disclaimer {
-    padding-top: 6px;
-    font-size: 13px;
-  } */
+
   /* progress bars */
   .be-entitywrap {
     padding-top: 8px;
@@ -617,13 +612,11 @@ p.be-emphasis {
   .be-gate-text {
     width: 746px;
   }
-  .be-start-button {
-    /* margin-top: 120px; */
-  }
+
   /* white card footer */
   .be-disclaimer {
     padding-top: 8px;
-    font-size: 14px;
+    font-size: 0.85rem;
   }
   /* progress bars */
   .be-entitywrap {
