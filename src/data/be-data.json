@@ -67,8 +67,8 @@
                  "category_name_fr":"Industry/Professional Risk(FR)",
                  "question_en":"How much risk is there in your industry or profession?",
                  "question_fr":"How much risk is there in your industry or profession?(FR)",
-                 "context_en":"In some industries or professions there is a greater chance somebody will take legal action against you or your company. They may seek compensation for personal injury, property damage, or financial loss for example. Some industries like construction, transportation, fishing, and manufacturing - and some professions like medicine and dentistry - have high risks than others. If you think your industry may have high risk you will probably want to protect yourself through a limited liability structure. (e.g., corporation or limited liability partnership.)",
-                 "context_fr":"In some industries or professions there is a greater chance somebody will take legal action against you or your company. They may seek compensation for personal injury, property damage, or financial loss for example. Some industries like construction, transportation, fishing, and manufacturing - and some professions like medicine and dentistry - have high risks than others. If you think your industry may have high risk you will probably want to protect yourself through a limited liability structure. (e.g., corporation or limited liability partnership.)(FR)",
+                 "context_en":"In some industries or professions there is a greater chance somebody will take legal action against you or your company. They may seek compensation for personal injury, property damage, or financial loss for example. Some industries like construction, transportation, fishing, forestry, mining, and manufacturing - and some professions like medicine and dentistry - have higher risks than others. If you think your industry may have high risk you will probably want to protect yourself through a limited liability structure (e.g., corporation or limited liability partnership).",
+                 "context_fr":"In some industries or professions there is a greater chance somebody will take legal action against you or your company. They may seek compensation for personal injury, property damage, or financial loss for example. Some industries like construction, transportation, fishing, forestry, mining, and manufacturing - and some professions like medicine and dentistry - have higher risks than others. If you think your industry may have high risk you will probably want to protect yourself through a limited liability structure (e.g., corporation or limited liability partnership).(FR)",
                  "answers":{
                      "a1":{
                          "id":"a1",
@@ -252,14 +252,14 @@
                  "category": 5,
                  "category_name_en":"Number of employees.",
                  "category_name_fr":"Number of employees.(FR)",
-                 "question_en":"Including yourself, how many employees will you have?",
-                 "question_fr":"Including yourself, how many employees will you have?(FR)",
+                 "question_en":"Excluding yourself and any other owners, how many employees will you have?",
+                 "question_fr":"Excluding yourself and any other owners, how many employees will you have?(FR)",
                  "context_en":"The number of employees indicates how complex your business may be. It's generally better to incorporate if you will have a large number of employees.",
                  "context_fr":"The number of employees indicates how complex your business may be. It's generally better to incorporate if you will have a large number of employees.(FR)",
                  "answers":{
                      "a1":{
                          "id":"a1",
-                         "title_en":"1",
+                         "title_en":"0-1",
                          "title_fr":"1(FR)",
                          "impact": {
                              "e1":10,
@@ -379,8 +379,8 @@
                  "answers":{
                      "a1":{
                          "id":"a1",
-                         "title_en":"Not concerned, willing to pay what's necessary to get the right business structures",
-                         "title_fr":"Not concerned, willing to pay what's necessary to get the right business structures(FR)",
+                         "title_en":"Not concerned, willing to pay what's necessary to get the right business structure",
+                         "title_fr":"Not concerned, willing to pay what's necessary to get the right business structure(FR)",
                          "impact": {
                              "e1":1.5,
                              "e2":1.5,
@@ -425,8 +425,8 @@
                  "category": 8,
                  "category_name_en":"Forecast profitiability",
                  "category_name_fr":"Forecast profitiability(FR)",
-                 "question_en":"What's your financial forecast for your organization?",
-                 "question_fr":"How do you feel about setup and administrative costs?(FR)",
+                 "question_en":"What's your financial forecast for your business?",
+                 "question_fr":"What's your financial forecast for your business?(FR)",
                  "context_en":"If you choose proprietorship or partnership you might be able to use losses from the business to offset other income, and therefore pay less personal income tax.",
                  "context_fr":"If you choose proprietorship or partnership you might be able to use losses from the business to offset other income, and therefore pay less personal income tax.(FR)",
                  "answers":{
@@ -531,8 +531,8 @@
                  "category": 10,
                  "category_name_en":"Name Protection",
                  "category_name_fr":"Name Protection(FR)",
-                 "question_en":"How important is protecting your organization's name?",
-                 "question_fr":"How important is protecting your organization's name?(FR)",
+                 "question_en":"How important is protecting your business name?",
+                 "question_fr":"How important is protecting your business name?(FR)",
                  "context_en":"Incorporation provides a higher level of name protection than other business structures. If you are a sole proprietorship - or partnership - and someone incorporates using your business name, they will have the rights to the name. Sole proprietorships and partnerships have no name protection in this area.",
                  "context_fr":"Incorporation provides a higher level of name protection than other business structures. If you are a sole proprietorship - or partnership - and someone incorporates using your business name, they will have the rights to the name. Sole proprietorships and partnerships have no name protection in this area.(FR)",
                  "answers":{
@@ -665,11 +665,11 @@
              "id": "ne1",
              "title_en":"Community Contribution Company (CCC)" ,
              "title_fr":"Community Contribution Company (CCC) (FR)",
-             "summary_en":"A Community Contribution Corporation ('CCC' or also known as a 'C3') is a hybrid entity that bridges the gap between for-profit and non-profit organizations. A CCC is similar to a BC corporation, with a Board of Directors and shareholders. Like a regular corporation it is a legal entity, separate and distinct from its owners. It can, for example, own real estate, acquire assets, go into debt, and enter into contracts. Similar to a non-profit, a CCC is set up to achieve a social purpose. It must allocate at least 60% of its profit toward that purpose, and can pay out up to 40% of profits to investors. There are several advantages to a CCC: it provides an opportunity for investors to receive a return while fulfilling a social purpose; it benefits from lower tax rates than a sole proprietorship or partnership; it's easier to raise capital for a CCC than for a sole proprietorship, partnership or non-profit; shares can be transferred; and it enjoys name protection. There are disadvantages as well: CCCs are more closely regulated with more reporting requirements than proprietorships, partnerships and regular corporations; CCCs are more complex and costly to set up and run than a proprietorship, partnership, or regular corporation; salaries paid to management and staff are restricted; potential returns to shareholders are restricted; and CCCs are not eligible for grants, donations or income tax exemptions and do not have the ability to issue tax receipts.",
+             "summary_en":"A Community Contribution Corporation ('CCC' or also known as a 'C3') is a hybrid entity that bridges the gap between for-profit and non-profit organizations. A CCC is similar to a BC corporation, with a Board of Directors and shareholders. Like a regular corporation it is a legal entity, separate and distinct from its owners. It can, for example, own real estate, acquire assets, go into debt, and enter into contracts. Similar to a non-profit, a CCC is set up to achieve a social purpose. It must allocate at least 60% of its profit toward that purpose, and can pay out up to 40% of profits to investors.",
              "summary_fr":"Summary1(FR)",
-             "advantage_en":"",
+             "advantage_en":"There are several advantages to a CCC: it provides an opportunity for investors to receive a return while fulfilling a social purpose; it benefits from lower tax rates than a sole proprietorship or partnership; it's easier to raise capital for a CCC than for a sole proprietorship, partnership or non-profit; shares can be transferred; and it enjoys name protection.",
              "advantage_fr":"",
-             "disadvantage_en":"",
+             "disadvantage_en":"There are disadvantages as well: CCCs are more closely regulated with more reporting requirements than proprietorships, partnerships and regular corporations; CCCs are more complex and costly to set up and run than a proprietorship, partnership, or regular corporation; salaries paid to management and staff are restricted; potential returns to shareholders are restricted; and CCCs are not eligible for grants, donations or income tax exemptions and do not have the ability to issue tax receipts.",
              "disadvantage_fr":""
          }
  
@@ -709,35 +709,34 @@
              "disadvantage_fr":""
          }
      },
-     "resources": {
-         "general_resources": {
-             "sbcc": "Small Business BC helps entrepreneurs grow successful and sustainable businesses through expert business advisors, educational services, and easy-to-use free resources. SBBC also provides <a href='https://smallbusinessbc.ca/advisory/business-registration-services/' target='_blank'>guided business registration services</a>.",
-             "bizpal_bc": "Use <a href='https://www.bcbizpal.ca/' target='_blank'>BizPaL</a> to find the permits and licences you may need to start or grow your business."
-         },
-"r1": {
-"url_1": "Before registering your business, use <a href='https://www.bcregistrynames.gov.bc.ca/nro/' target='_blank'>Name Requests Online</a> to submit a name approval request.",
-"url_2": "Register your business with <a href='https://onestop.gov.bc.ca/' target='_blank'>BC OneStop</a>."
-},
-"r2": {
-    "url_1": "Before incorporating or registering your business, use <a href='https://www.bcregistrynames.gov.bc.ca/nro/' target='_blank'>Name Requests Online</a> to submit a name approval request",
-    "url_2": "Learn more about <a href='https://www2.gov.bc.ca/gov/content/employment-business/business/managing-a-business/permits-licences/businesses-incorporated-companies/incorporated-companies/incorporating-bc-company/incorporate-c3?keyword=Community&keyword=Contribution&keyword=Company' target='_blank'>incorporating a Community Contribution Company (CCC)</a>."
-},
-"r3": {
-    "url_1": "Before registering your business, use <a href='https://www.bcregistrynames.gov.bc.ca/nro/' target='_blank'>Name Requests Online</a> to submit a name approval request ",
-    "url_2": "Learn more about <a href='https://www2.gov.bc.ca/gov/content/employment-business/business/managing-a-business/permits-licences/businesses-incorporated-companies/new-west-partnership-trade-agreement/registrations-nwpta-bc-corporation' target='_blank>registering a BC Corporation</a>."
-},
-"r4": {
-    "url_1": "Learn how to <a href='https://corporationscanada.ic.gc.ca/eic/site/cd-dgc.nsf/eng/cs06642.html' targe='_blank'> incorporate a business federally</a>."
-    
-},
-"r5": {
-    "url_1": "Before registering your business, use <a href='https://www.bcregistrynames.gov.bc.ca/nro/' target='_blank'>Name Requests Online</a> to submit a name approval request ",
-    "url_2": "Register a benefit company with <a href='https://www.bcregistry.ca/business/auth/home/decide-business' target='_blank'>BC Registries and Online Services</a>."
-},
-"r6": {
-    "url_1": "Use <a href='https://www.bcregistry.ca/societies/' target='_blank'>Societies Online</a> to incorporate a society",
-    "url_2": "Learn how to incorporate a <a href='https://www2.gov.bc.ca/gov/content/employment-business/business/managing-a-business/permits-licences/businesses-incorporated-companies/cooperative-associations/incorporate-bc-cooperative' target='_blank'>BC Co-operative</a>"
-}
-     }
- }
+     "resources":{
+        "general_resources": {
+            "g1": "Small Business BC helps entrepreneurs grow successful and sustainable businesses through expert business advisors, educational services, and easy-to-use free resources. SBBC also provides <a class='be-link' href='https://smallbusinessbc.ca/advisory/business-registration-services/' target='_blank'>guided business registration services</a>.",
+            "g2": "Use <a class='be-link' href='https://www.bcbizpal.ca/' target='_blank'>BizPaL</a> to find the permits and licences you may need to start or grow your business."
+        },
+        "r1":{
+            "url_1": "Before registering your business, use <a class='be-link' href='https://www.bcregistrynames.gov.bc.ca/nro/' target='_blank'>Name Requests Online</a> to submit a name approval request.",
+            "url_2": "Register your business with <a class='be-link' href='https://onestop.gov.bc.ca/' target='_blank'>BC OneStop</a>."
+            },
+        "r2":{
+            "url_1": "Before incorporating or registering your business, use <a class='be-link' href='https://www.bcregistrynames.gov.bc.ca/nro/' target='_blank'>Name Requests Online</a> to submit a name approval request",
+            "url_2": "Learn more about <a class='be-link' href='https://www2.gov.bc.ca/gov/content/employment-business/business/managing-a-business/permits-licences/businesses-incorporated-companies/incorporated-companies/incorporating-bc-company/incorporate-c3?keyword=Community&keyword=Contribution&keyword=Company' target='_blank'>incorporating a Community Contribution Company (CCC)</a>."
+            },
+        "r3":{
+            "url_1": "Before registering your business, use <a class='be-link' href='https://www.bcregistrynames.gov.bc.ca/nro/' target='_blank'>Name Requests Online</a> to submit a name approval request ",
+            "url_2": "Learn more about <a class='be-link' href='https://www2.gov.bc.ca/gov/content/employment-business/business/managing-a-business/permits-licences/businesses-incorporated-companies/new-west-partnership-trade-agreement/registrations-nwpta-bc-corporation' target='_blank'>registering a BC Corporation</a>."
+            },
+        "r4":{
+            "url_1": "Learn how to <a class='be-link' href='https://corporationscanada.ic.gc.ca/eic/site/cd-dgc.nsf/eng/cs06642.html' targe='_blank'> incorporate a business federally</a>."  
+        },
+        "r5":{
+            "url_1": "Before registering your business, use <a class='be-link' href='https://www.bcregistrynames.gov.bc.ca/nro/' target='_blank'>Name Requests Online</a> to submit a name approval request ",
+            "url_2": "Register a benefit company with <a class='be-link' href='https://www.bcregistry.ca/business/auth/home/decide-business' target='_blank'>BC Registries and Online Services</a>."
+            },
+        "r6":{
+            "url_1": "Use <a class='be-link' href='https://www.bcregistry.ca/societies/' target='_blank'>Societies Online</a> to incorporate a society",
+            "url_2": "Learn how to incorporate a <a class='be-link' href='https://www2.gov.bc.ca/gov/content/employment-business/business/managing-a-business/permits-licences/businesses-incorporated-companies/cooperative-associations/incorporate-bc-cooperative' target='_blank'>BC Co-operative</a>"
+            }
+        }
+    }  
  }

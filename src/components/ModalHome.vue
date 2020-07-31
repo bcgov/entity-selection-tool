@@ -56,10 +56,13 @@
       <div v-if="!started && !nonProfit">
         <BaseCard class="summary box">
           <template v-slot:headertext>
-            <h2 v-if="welcomeGate" class="title be-question-title is-4">
+            <h2 v-if="welcomeGate" class="title be-results-title">
               {{ $t("welcome") }}
-            </h2></template
-          >
+            </h2>
+            <h2 v-if="introGate" class="title be-results-title">
+              {{ $t("intro_title") }}
+            </h2>
+          </template>
           <template v-slot:bodytext>
             <div v-if="!introGate">
               <p>{{ $t("intro_1") }}</p>
@@ -73,7 +76,7 @@
             <div v-if="introGate">
               <fieldset class="be-card-content">
                 <legend class="be-gate-text">
-                  {{ $t("start_question") }}
+                  {{ $t("intro_header") }} {{ $t("start_question") }}
                 </legend>
                 <br />
                 <form class="be-question-form">
@@ -142,12 +145,6 @@
             </div>
           </template>
           <template v-slot:footertext>
-            <!--  <span v-if="!introGate" class="card-footer-item">
-              <b-button class="be-form-button" @click="showIntroGate()">
-                {{ $t("start") }}</b-button
-              >
-            </span> -->
-
             <section v-if="welcomeGate" class="be-disclaimer">
               <p>*{{ $t("disclaimer") }} {{ $t("intro_disclaimer") }}</p>
             </section>
@@ -155,17 +152,22 @@
         </BaseCard>
       </div>
       <div v-if="started">
-        <Entity @clicked="restartEntity" :lang="this.langLocal"></Entity>
+        <Entity
+          @clicked="restartEntity"
+          :lang="this.langLocal"
+          :sgc="this.sgcLocal"
+          :data="this.dataLocal"
+        ></Entity>
       </div>
       <div v-if="nonProfit">
         <NonProfit
           @clicked="restartNonProfit"
           :lang="this.langLocal"
           :entity-id="this.radioButton"
+          :data="this.dataLocal"
         ></NonProfit>
       </div>
     </div>
-
     <footer class="modal-card-foot">
       <p class="is-pulled-right">
         <b-tooltip
@@ -195,7 +197,6 @@ import Vue from "vue";
 import BaseCard from "@/components/base-components/BaseCard.vue";
 import Entity from "@/components/Entity.vue";
 import NonProfit from "@/components/NonProfit.vue";
-
 import VueI18nHome from "vue-i18n";
 
 Vue.use(VueI18nHome);
@@ -218,7 +219,7 @@ export default {
     messages: {
       en: {
         business_structures: "Business Structures Wizard",
-        welcome: "WELCOME",
+        welcome: "Welcome",
         close: "Close",
         restart: "Restart",
         start: "Start",
@@ -229,7 +230,8 @@ export default {
         start_question_opt1: "Generate a profit for owners",
         start_question_opt2:
           "Generate a profit for owners combined with a public benefit",
-        start_question_opt3: "Provide services as a licensed professional",
+        start_question_opt3:
+          "Provide services at a profit as a licensed professional (e.g. lawyer, accountant, doctor, etc.)",
         start_question_opt4: "Support a charitable cause or public benefit",
         start_question_opt5:
           "Provide shared benefit for members through a cooperative association",
@@ -247,11 +249,14 @@ export default {
           "This tool helps you decide among the most common types: proprietorships, partnerships, corporations, benefit companies, co-operatives, and non-profit societies.",
         intro_4: "Pick the answers that best fit your situation.",
         intro_disclaimer:
-          "No personal information will be requested or collected through the use of this tool."
+          "No personal information will be requested or collected through the use of this tool.",
+        intro_header:
+          "The first thing to decide is whether you’re starting a for-profit or non-profit enterprise.",
+        intro_title: "Your Enterprise Type"
       },
       fr: {
         business_structures: "Structures d'entreprise",
-        welcome: "BIENVENUE",
+        welcome: "Bienvenue",
         close: "Fermer",
         restart: "Redémarrer",
         start: "Commencer",
@@ -262,7 +267,8 @@ export default {
         start_question_opt1: "Generate a profit for owners (fr)",
         start_question_opt2:
           "Generate a profit for owners combined with a public benefit (fr)",
-        start_question_opt3: "Provide services as a licensed professional (fr)",
+        start_question_opt3:
+          "Provide services at a profit as a licensed professional (e.g. lawyer, accountant, doctor, etc.). (fr)",
         start_question_opt4:
           "Support a charitable cause or public benefit (fr)",
         start_question_opt5:
@@ -281,7 +287,10 @@ export default {
           "This tool helps you decide among the most common types: proprietorships, partnerships, corporations, benefit companies, co-operatives, and non-profit societies. FR",
         intro_4: "Pick the answers that best fit your situation.FR",
         intro_disclaimer:
-          "No personal information will be requested or collected through the use of this tool. FR"
+          "No personal information will be requested or collected through the use of this tool. FR",
+        intro_header:
+          "The first thing to decide is whether you’re starting a for-profit or non-profit enterprise. (FR)",
+        intro_title: "Your Enterprise Type (FR)"
       }
     }
   }, // end i18n
@@ -289,6 +298,13 @@ export default {
     lang: {
       type: String,
       default: "en"
+    },
+    sgc: {
+      type: String,
+      default: "59"
+    },
+    data: {
+      type: Object
     }
   },
   data: function() {
@@ -298,7 +314,9 @@ export default {
       nonProfit: false,
       langLocal: this.lang,
       introGate: false,
-      welcomeGate: true
+      welcomeGate: true,
+      sgcLocal: this.sgc,
+      dataLocal: this.data
     };
   },
   mounted: function() {

@@ -3,8 +3,8 @@
     <div v-if="resultsShow == false" class="column is-three-fifths">
       <BaseCard class="question box">
         <template v-slot:headertext>
-          <h2 class="title be-question-title is-4">
-            QUESTION {{ currentCategoryIndex }} {{ $t("of") }}
+          <h2 class="title be-question-title">
+            {{ $t("question") }} {{ currentCategoryIndex }} {{ $t("of") }}
             {{ totalCategories }}
           </h2>
         </template>
@@ -12,7 +12,7 @@
           <fieldset class="be-card-content">
             <legend class="be-question-text">
               {{
-                data.collection[`cat-${currentCategoryIndex}`][
+                dataLocal.collection[`cat-${currentCategoryIndex}`][
                   `question_${locale}`
                 ]
               }}
@@ -41,7 +41,7 @@
             </form>
           </fieldset>
           <section class="be-context">
-            <div v-if="!isHidden" class="columns">
+            <div v-if="!isHidden" class="columns is-mobile">
               <div class="column is-1 be-context-icon">
                 <font-awesome-icon :icon="['fas', 'exclamation-circle']" />
               </div>
@@ -91,7 +91,7 @@
     </div>
     <div v-if="resultsShow == true" class="column is-three-fifths">
       <Results
-        :data="data"
+        :data="dataLocal"
         :entities-id="bestEntitiesId"
         :entities-total="entitiesTotal"
         :user-answers="userSelectedAnswer"
@@ -123,7 +123,7 @@
                   :aria-controls="`contentIdFor${index}`"
                 >
                   <p class="be-emphasis">
-                    {{ data.entities[index][`title_${locale}`] }}
+                    {{ dataLocal.entities[index][`title_${locale}`] }}
 
                     <font-awesome-icon
                       class="be-carat-icon is-pulled-right"
@@ -159,7 +159,6 @@
 
 <script>
 import Vue from "vue";
-import json from "@/data/be-json-v6.0.json";
 import Results from "@/components/Results.vue";
 import BaseCard from "@/components/base-components/BaseCard.vue";
 import VueI18nEntity from "vue-i18n";
@@ -183,6 +182,7 @@ export default {
     locale: "en",
     messages: {
       en: {
+        question: "QUESTION",
         of: "of",
         previous: "Back",
         next: "Next",
@@ -193,6 +193,7 @@ export default {
         entity_title_two: "Business Structure",
       },
       fr: {
+        question: "QUESTION",
         of: "de",
         previous: "Précédent",
         next: "Suivant",
@@ -200,8 +201,7 @@ export default {
         restart: "Redémarrer",
         entity_title: "Structure d'entreprise suggérée",
         entity_title_one: "Structure d'entreprise",
-        entity_title_two: "suggérée"
-        
+        entity_title_two: "suggérée" 
       }
     }
   }, // end i18n
@@ -209,8 +209,20 @@ export default {
     lang: {
       type: String,
       default: "en"
+    },
+    sgc: {
+      type: String,
+      default: "59"
+    },
+    data: {
+      type: Object
     }
   }, 
+  // generic error capture for the component
+   errorCaptured(err,vm,info) {
+    console.log(`Error in Entity.vue: ${err.toString()}\ninfo: ${info}`); 
+     return false;
+  },
   data: function() {
     return {
       langLocal:this.lang,
@@ -224,34 +236,42 @@ export default {
       userSelectedAnswer: {},
       entitiesTotal: {},
       totalCategories: 0,
-      data: json,
+      dataLocal: this.data,
       currentCategoryIndex: 1,
       navElement: "",
       isHidden: false,
+      sgcLocal:this.sgc
     };
   }, // end data
   created: function() {
-    this.data = this.data["pid-59"];
-    this.totalCategories = Object.keys(this.data.collection).length;
-    // here all the variables that are needed to be created via the json file.
+    this.dataLocal = this.dataLocal[`pid-${this.sgcLocal}`];
 
-    // to track user selection
-    for (let [key, value] of Object.entries(this.data.collection)) {
-      // use set to make it  reactive 
-      Vue.set(this.userSelectedAnswer, key, {
-        answerIndex:"notset",
-        impact:[]
-      })
-    }
-    // to track entities total and added summary for quick access to it
-    for (let [key, value] of Object.entries(this.data.entities)) {
-      // use set to make it  reactive 
-      Vue.set(this.entitiesTotal, key, {
-        total: 0,
-        summary_en: value["summary_en"] || "",
-        summary_fr: value["summary_fr"] || ""
-      })   
-    }
+    try {
+      this.totalCategories = Object.keys(this.dataLocal.collection).length;
+      // here all the variables that are needed to be created via the json file.
+
+      // to track user selection
+      for (let [key, value] of Object.entries(this.dataLocal.collection)) {
+        // use set to make it  reactive 
+        Vue.set(this.userSelectedAnswer, key, {
+          answerIndex:"notset",
+          impact:[]
+        })
+      }
+      // to track entities total and added summary for quick access to it
+      for (let [key, value] of Object.entries(this.dataLocal.entities)) {
+        // use set to make it  reactive 
+        Vue.set(this.entitiesTotal, key, {
+          total: 0,
+          summary_en: value["summary_en"] || "",
+          summary_fr: value["summary_fr"] || ""
+        })   
+      }
+
+  }catch(e){
+   console.log("error with data structure.")
+   //return false;
+  }
   }, // end created
   mounted: function() {
     this.$i18n.locale = this.langLocal;
@@ -260,12 +280,12 @@ export default {
     getTotal: function(entityKey) {
       return (this.entitiesTotal[entityKey]) ? this.entitiesTotal[entityKey].total : 0;
     },
-    // returns The data for the current question
+    // returns The dataLocal for the current question
     current: function() {
-      return this.data.collection[`cat-${this.currentCategoryIndex}`].answers;
+      return this.dataLocal.collection[`cat-${this.currentCategoryIndex}`].answers;
     },
     getQuestionContext: function() {
-      return this.data.collection[`cat-${this.currentCategoryIndex}`][`context_${this.locale}`] || "";
+      return this.dataLocal.collection[`cat-${this.currentCategoryIndex}`][`context_${this.locale}`] || "";
     },
     // returns The current language
     locale: function() {
@@ -297,7 +317,6 @@ export default {
       this.tempValue = false;
       this.$emit("clicked", this.tempValue);
     },
-
     onClickPrevious: function() {
       this.tempValue = true;
       this.$emit("clicked", this.tempValue);
@@ -329,7 +348,6 @@ export default {
         if(iteration > 1){
                if(topEntitiesTotal.pop() == myEntities[key]["total"]){
                   topEntitiesId.push(key);
-
                }
         }
          iteration++;
@@ -370,7 +388,7 @@ export default {
       this.userSelectedAnswer[`cat-${this.currentCategoryIndex}`].answerIndex = answerIndex;
       this.userSelectedAnswer[`cat-${this.currentCategoryIndex}`].impact = answer.impact;
 
-      for (let [entityKey, value] of Object.entries(this.data.entities)) {
+      for (let [entityKey, value] of Object.entries(this.dataLocal.entities)) {
         let totalImpact=0;
         // go throught all recoreded answers to find impact for that Entity
         for (let [key, answerValue] of Object.entries(this.userSelectedAnswer)) {
