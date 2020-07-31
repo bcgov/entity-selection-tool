@@ -1,9 +1,9 @@
 <template>
   <div id="app">
-    <slot>
-    <b-button @click="homeModal()">
-      Start Business Structures Widget
-    </b-button>
+    <slot name="start" :homeModal="homeModal">
+      <b-button @click="homeModal()">
+        Start Business Structures Widget
+      </b-button>
     </slot>
   </div>
 </template>
