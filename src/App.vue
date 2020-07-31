@@ -1,9 +1,9 @@
 <template>
   <div id="app">
     <slot>
-    <b-button @click="homeModal()">
-      Start Business Structures Widget
-    </b-button>
+      <b-button @click="homeModal()">
+        Start Business Structures Widget
+      </b-button>
     </slot>
   </div>
 </template>
@@ -199,6 +199,9 @@ a.be-link:active,
   padding-top: 4px;
   color: #274f6e;
   font-size: 0.9rem;
+}
+.subtitle.be-subtitle {
+  color: #274f6e;
 }
 .be-results-text {
   font-size: 1rem;
