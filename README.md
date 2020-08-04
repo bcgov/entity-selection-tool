@@ -10,13 +10,7 @@ npm install @bizpal/open-services-bst
 
 ## Importing in Vue
 ```
-import bst from "@bizpal/open-services-bst";
-export default {
-  name: "App",
-  components: {
-    ...bst
-  }
-};
+import "@bizpal/open-services-bst";
 
 ```
 
