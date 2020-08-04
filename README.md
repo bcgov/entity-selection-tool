@@ -1,4 +1,4 @@
-# Buisness Stuctures Tool
+# Business Stuctures Tool
 This tool helps you decide among the most common types: proprietorships, partnerships, corporations, benefit companies, co-operatives, and non-profit societies.
 
 
