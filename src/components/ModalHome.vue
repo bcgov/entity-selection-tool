@@ -104,18 +104,7 @@
                       {{ $t("start_question_opt2") }}
                     </b-radio>
                   </div>
-                  <div class="field">
-                    <b-radio
-                      type="is-info"
-                      @click.native="start()"
-                      id="services"
-                      name="purpose"
-                      native-value="services"
-                      v-model="radioButton"
-                    >
-                      {{ $t("start_question_opt3") }}
-                    </b-radio>
-                  </div>
+
                   <div class="field">
                     <b-radio
                       type="is-info"
@@ -229,9 +218,8 @@ export default {
           "Which of these statements best describes the main purpose of your new organization?",
         start_question_opt1: "Generate a profit for owners",
         start_question_opt2:
-          "Generate a profit for owners combined with a public benefit",
-        start_question_opt3:
-          "Provide services at a profit as a licensed professional (e.g. lawyer, accountant, doctor, etc.)",
+          "Generate a profit for owners combined with a formal public benefit",
+
         start_question_opt4: "Support a charitable cause or public benefit",
         start_question_opt5:
           "Provide shared benefit for members through a cooperative association",
@@ -266,9 +254,8 @@ export default {
           "Which of these statements best describes the main purpose of your new organization? (fr)",
         start_question_opt1: "Generate a profit for owners (fr)",
         start_question_opt2:
-          "Generate a profit for owners combined with a public benefit (fr)",
-        start_question_opt3:
-          "Provide services at a profit as a licensed professional (e.g. lawyer, accountant, doctor, etc.). (fr)",
+          "Generate a profit for owners combined with a formal public benefit (fr)",
+
         start_question_opt4:
           "Support a charitable cause or public benefit (fr)",
         start_question_opt5:
