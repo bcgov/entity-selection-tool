@@ -50,7 +50,10 @@
             <div class="be-next-steps-list" v-bind:key="index">
               {{ getNextSteps(value) }}
 
-              <h3 class="subtitle be-results-subtitle is-5">
+              <h3
+                v-if="index.length > 1"
+                class="subtitle be-results-subtitle is-5"
+              >
                 {{ title(value) }}:
               </h3>
               <ul v-bind:key="index" v-for="(item, index) in resources">
@@ -58,7 +61,10 @@
               </ul>
             </div>
           </template>
-          <h3 class="subtitle be-results-subtitle is-5">
+          <h3
+            v-if="entitiesId.length > 1"
+            class="subtitle be-results-subtitle is-5"
+          >
             {{ $t("general_resources") }}:
           </h3>
           <ul v-bind:key="index" v-for="(item, index) in resourcesGeneral">
