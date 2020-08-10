@@ -614,6 +614,9 @@ export default {
           normal: {
             fontSize: 10,
             lineHeight: 1.5
+          },
+          link: {
+            color: "#366b8c"
           }
         }
       };
@@ -652,7 +655,6 @@ export default {
       }
 
       // list questions/anwers
-
       document.content.push([
         {
           text: this.$t("questions_answers"),
@@ -660,7 +662,6 @@ export default {
           style: "subtitle",
           margin: [0, 10, 0, 5]
         },
-
         {
           text: this.$t("text_answers", { format: this.$t("bold_italic") }),
           style: "header",
@@ -696,8 +697,7 @@ export default {
         document.content.push([{ ul: arrayList }]);
       } //endfor
 
-      // suggested resul
-
+      // suggested result
       document.content.push([
         {
           text: this.$t("print_result_header"),
@@ -730,10 +730,16 @@ export default {
 
       document.content.push([
         {
-          text: this.$t("powerby") + this.$t("bizpal"),
+          text: [
+            this.$t("powerby"),
+            {
+              text: this.$t("bizpal"),
+              style: "link",
+              link: this.$t("bizpal_link")
+            }
+          ],
           style: "normal",
-          margin: [0, 5, 0, 5],
-          link: this.$t("bizpal_link")
+          margin: [0, 5, 0, 5]
         }
       ]);
 
@@ -777,6 +783,9 @@ export default {
           normal: {
             fontSize: 10,
             lineHeight: 1.5
+          },
+          link: {
+            color: "#366b8c"
           }
         }
       };
@@ -825,13 +834,18 @@ export default {
           }
         ]);
       }
-
       document.content.push([
         {
-          text: this.$t("powerby") + this.$t("bizpal"),
+          text: [
+            this.$t("powerby"),
+            {
+              text: this.$t("bizpal"),
+              style: "link",
+              link: this.$t("bizpal_link")
+            }
+          ],
           style: "normal",
-          margin: [0, 5, 0, 5],
-          link: this.$t("bizpal_link")
+          margin: [0, 5, 0, 5]
         }
       ]);
       pdfMake.createPdf(document).download(filename);
@@ -863,32 +877,6 @@ export default {
         this.$emit("clicked", this.tempValue);
         return;
       }
-    },
-    displaySummaries: function() {
-      //function to display summaries info
-      var layout = "";
-
-      for (var index in this.data.entities) {
-        layout +=
-          '<h2 class="subtitle is-4">' +
-          this.data.entities[index][`title_${this.langLocal}`] +
-          "</h2>";
-        for (var sindex in this.data.entities[index][`summary_desc`]) {
-          layout +=
-            '<h3 class="subtitle be-subtitle-summaries is-5">' +
-            this.data.entities[index][`summary_desc`][sindex][
-              `header_${this.langLocal}`
-            ] +
-            "</h3>";
-          layout +=
-            "<p>" +
-            this.data.entities[index][`summary_desc`][sindex][
-              `subtitle_${this.langLocal}`
-            ] +
-            "</p><br />";
-        }
-      }
-      return layout;
     },
     // Display percentage value on progress bar
     displayPercentage: function(value) {
