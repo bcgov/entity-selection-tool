@@ -605,6 +605,9 @@ export default {
           normal: {
             fontSize: 10,
             lineHeight: 1.5
+          },
+          link: {
+            color: "#366b8c"
           }
         }
       };
@@ -643,7 +646,6 @@ export default {
       }
 
       // list questions/anwers
-
       document.content.push([
         {
           text: this.$t("questions_answers"),
@@ -651,7 +653,6 @@ export default {
           style: "subtitle",
           margin: [0, 10, 0, 5]
         },
-
         {
           text: this.$t("text_answers", { format: this.$t("bold_italic") }),
           style: "header",
@@ -687,8 +688,7 @@ export default {
         document.content.push([{ ul: arrayList }]);
       } //endfor
 
-      // suggested resul
-
+      // suggested result
       document.content.push([
         {
           text: this.$t("print_result_header"),
@@ -721,10 +721,16 @@ export default {
 
       document.content.push([
         {
-          text: this.$t("powerby") + this.$t("bizpal"),
+          text: [
+            this.$t("powerby"),
+            {
+              text: this.$t("bizpal"),
+              style: "link",
+              link: this.$t("bizpal_link")
+            }
+          ],
           style: "normal",
-          margin: [0, 5, 0, 5],
-          link: this.$t("bizpal_link")
+          margin: [0, 5, 0, 5]
         }
       ]);
 
@@ -768,6 +774,9 @@ export default {
           normal: {
             fontSize: 10,
             lineHeight: 1.5
+          },
+          link: {
+            color: "#366b8c"
           }
         }
       };
@@ -816,13 +825,18 @@ export default {
           }
         ]);
       }
-
       document.content.push([
         {
-          text: this.$t("powerby") + this.$t("bizpal"),
+          text: [
+            this.$t("powerby"),
+            {
+              text: this.$t("bizpal"),
+              style: "link",
+              link: this.$t("bizpal_link")
+            }
+          ],
           style: "normal",
-          margin: [0, 5, 0, 5],
-          link: this.$t("bizpal_link")
+          margin: [0, 5, 0, 5]
         }
       ]);
       pdfMake.createPdf(document).download(filename);
