@@ -869,32 +869,6 @@ export default {
         return;
       }
     },
-    displaySummaries: function() {
-      //function to display summaries info
-      var layout = "";
-
-      for (var index in this.data.entities) {
-        layout +=
-          '<h2 class="subtitle is-4">' +
-          this.data.entities[index][`title_${this.langLocal}`] +
-          "</h2>";
-        for (var sindex in this.data.entities[index][`summary_desc`]) {
-          layout +=
-            '<h3 class="subtitle be-subtitle-summaries is-5">' +
-            this.data.entities[index][`summary_desc`][sindex][
-              `header_${this.langLocal}`
-            ] +
-            "</h3>";
-          layout +=
-            "<p>" +
-            this.data.entities[index][`summary_desc`][sindex][
-              `subtitle_${this.langLocal}`
-            ] +
-            "</p><br />";
-        }
-      }
-      return layout;
-    },
     // Display percentage value on progress bar
     displayPercentage: function(value) {
       let displayValue = value;
