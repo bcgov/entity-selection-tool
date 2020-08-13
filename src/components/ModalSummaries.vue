@@ -1,7 +1,7 @@
 <template>
   <section>
     <div class="modal-card" style="width: auto">
-      <header class="modal-card-head be-print-modal-head">
+      <header class="modal-card-head be-modal-card-head be-print-modal-head">
         <span class="be-modal-title">{{ $t("summaries") }}</span>
       </header>
       <section
@@ -22,7 +22,7 @@
         <hr />
         <div v-html="$t('federal_corporation')"></div>
       </section>
-      <footer class="modal-card-foot">
+      <footer class="modal-card-foot be-modal-card-foot">
         <button class="button" type="button" @click="print()">
           {{ $t("print") }}
         </button>

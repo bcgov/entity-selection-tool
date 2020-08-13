@@ -113,7 +113,7 @@
       class="be-print-modal"
     >
       <div class="modal-card" style="width: auto">
-        <header class="modal-card-head be-print-modal-head">
+        <header class="modal-card-head be-modal-card-head be-print-modal-head">
           <span class="be-modal-title">{{ $t("results") }}</span>
         </header>
         <section id="printBody" ref="PrintBody" class="be-modal-print-body">
@@ -219,7 +219,7 @@
             </div>
           </div>
         </section>
-        <footer class="modal-card-foot">
+        <footer class="modal-card-foot be-modal-card-foot">
           <b-button class="be-button" outlined @click="print()">
             {{ $t("print") }}
           </b-button>
@@ -246,7 +246,7 @@
       class="be-print-modal"
     >
       <div class="modal-card" style="width: auto">
-        <header class="modal-card-head be-print-modal-head">
+        <header class="modal-card-head be-modal-card-head be-print-modal-head">
           <span class="be-modal-title">{{ $t("summaries") }}</span>
         </header>
         <section
@@ -335,7 +335,7 @@
             >
           </div>
         </section>
-        <footer class="modal-card-foot">
+        <footer class="modal-card-foot be-modal-card-foot">
           <b-button class="be-button" outlined @click="print()">
             {{ $t("print") }}
           </b-button>
