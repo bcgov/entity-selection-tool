@@ -51,7 +51,7 @@
               {{ getNextSteps(value) }}
 
               <h3
-                v-if="index.length > 1"
+                v-if="entitiesId.length > 1"
                 class="subtitle be-results-subtitle is-5"
               >
                 {{ title(value) }}:
