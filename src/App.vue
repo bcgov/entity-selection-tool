@@ -9,13 +9,9 @@
 </template>
 <script>
 import ModalHome from "@/components/ModalHome.vue";
-import Vue from "vue";
-//import Buefy from "buefy";
-import { Button, Tooltip, Radio, Collapse, Modal, Progress } from "buefy";
 import "buefy/dist/buefy.css";
 import json from "@/data/be-data.json";
 
-Vue.use(Button, Tooltip, Radio, Collapse, Modal, Progress);
 export default {
   name: "App",
   props: {
