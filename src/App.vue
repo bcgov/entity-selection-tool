@@ -165,6 +165,14 @@ a.be-link:active,
   margin-top: 16px;
   margin-left: 4px;
 }
+.be-results-entity-title {
+  font-weight: 400;
+  font-size: 1.5rem;
+  color: #274f6e;
+  margin-bottom: 0px;
+  margin-top: 12px;
+  margin-left: 4px;
+}
 .be-question-title {
   font-weight: 300;
   font-size: 1.75rem;

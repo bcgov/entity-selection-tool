@@ -117,22 +117,26 @@
           <span class="be-modal-title">{{ $t("results") }}</span>
         </header>
         <section id="printBody" ref="PrintBody" class="be-modal-print-body">
-          <h1 class="subtitle be-subtitle is-3">
+          <h2 class="title be-results-title">
+            {{ $t("results_headers") }}
+          </h2>
+          <p class="be-results-header-intro">{{ getHeaderIntro() }}</p>
+          <h3 class="title be-results-entity-title">
             {{ getHeaderTitles(entities) }}
-          </h1>
+          </h3>
 
           <template v-for="(value, index) in entities">
             <div v-bind:key="index">
               <div v-if="entitiesId.length > 1">
-                <h2 class="subtitle be-subtitle is-4">{{ title(value) }}</h2>
+                <h2 class="subtitle be-results-subtitle is-4">{{ title(value) }}</h2>
+                <br />
               </div>
-              <br />
               <div>
                 <p>{{ body(value) }}</p>
                 <br />
               </div>
               <div>
-                <h2 class="subtitle be-subtitle is-4">
+                <h2 class="subtitle be-results-subtitle is-4">
                   {{ $t("advantages") }}
                 </h2>
                 <ul>
@@ -141,7 +145,7 @@
                 <br />
               </div>
               <div>
-                <h2 class="subtitle be-subtitle is-4">
+                <h2 class="subtitle be-results-subtitle is-4">
                   {{ $t("disadvantages") }}
                 </h2>
                 <ul>
@@ -248,8 +252,7 @@
           ref="PrintBody"
           class="be-modal-print-body"
         >
-          <h1 class="subtitle be-subtitle is-4">{{ $t("title") }}</h1>
-          <br />
+          <h1 class="subtitle be-results-subtitle is-4">{{ $t("title") }}</h1>
           <div>
             <ul>
               <template v-for="(value, index) in data.entities">
