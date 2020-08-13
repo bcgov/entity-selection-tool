@@ -1,6 +1,6 @@
 <template>
   <div class="columns">
-    <BaseCard class="question box">
+    <BaseCard class="be-question box">
       <template v-slot:headertext>
         <h2 v-if="!nextSteps" class="title be-results-title">
           {{ $t("results_headers") }}
@@ -128,7 +128,9 @@
           <template v-for="(value, index) in entities">
             <div v-bind:key="index">
               <div v-if="entitiesId.length > 1">
-                <h2 class="subtitle be-results-subtitle is-4">{{ title(value) }}</h2>
+                <h2 class="subtitle be-results-subtitle is-4">
+                  {{ title(value) }}
+                </h2>
                 <br />
               </div>
               <div>

@@ -1,6 +1,6 @@
 <template>
-  <div class="modal-card" scroll="keep">
-    <div class="modal-card-head">
+  <div class="modal-card be-card" scroll="keep">
+    <div class="modal-card-head be-modal-card-head">
       <div class="container">
         <div class="columns is-mobile">
           <div class="column is-three-quarters">
@@ -52,9 +52,9 @@
         </div>
       </div>
     </div>
-    <div class="modal-card-body">
+    <div class="modal-card-body be-modal-card-body">
       <div v-if="!started && !nonProfit">
-        <BaseCard class="summary box">
+        <BaseCard class="be-summary box">
           <template v-slot:headertext>
             <h2 v-if="welcomeGate" class="title be-results-title">
               {{ $t("welcome") }}
@@ -157,7 +157,7 @@
         ></NonProfit>
       </div>
     </div>
-    <footer class="modal-card-foot">
+    <footer class="modal-card-foot be-modal-card-foot">
       <p class="is-pulled-right">
         <b-tooltip
           v-if="!welcomeGate"

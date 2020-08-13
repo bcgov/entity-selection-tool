@@ -1,7 +1,7 @@
 <template>
   <div class="columns">
     <div v-if="resultsShow == false" class="column is-three-fifths">
-      <BaseCard class="question box">
+      <BaseCard class="be-question box">
         <template v-slot:headertext>
           <h2 class="title be-question-title">
             {{ $t("question") }} {{ currentCategoryIndex }} {{ $t("of") }}

@@ -58,7 +58,7 @@ export default {
 </script>
 <style>
 /*Modal Card Header */
-.card .custom-header {
+.card.be-custom-header {
   height: 40px;
 }
 .be-modal-title {
@@ -66,7 +66,7 @@ export default {
   font-size: 2rem;
   size: inherit;
 }
-.modal-card-head {
+.modal-card-head.be-modal-card-head {
   background-color: #274f6e;
   padding-bottom: 6px;
   height: 120px;
@@ -92,13 +92,13 @@ export default {
   color: #274f6e;
 }
 /* Modal Card Body*/
-.modal-card-body {
+.modal-card-body.be-modal-card-body {
   background-color: rgb(207, 232, 252);
   padding-bottom: 0px;
   padding-top: 0px;
 }
 /*Modal Card Footer */
-.modal-card-foot {
+.modal-card-foot.be-modal-card-foot {
   background-color: rgb(207, 232, 252);
   padding-bottom: 10px;
   padding-top: 10px;
@@ -132,22 +132,22 @@ a.be-link:active,
 .be-tooltip:active {
   color: #274f6e;
 }
-.b-tooltip.is-top.is-primary:before {
+.be-tooltip.is-top.is-primary:before {
   border-top: 5px solid #274f6e;
 }
 .be-tooltip.is-primary:after {
   background-color: #274f6e;
   z-index: 55;
 }
-.b-tooltip.is-multiline:after {
+.be-tooltip.is-multiline:after {
   text-align: left;
 }
 /* White Content Cards */
-.question.box {
+.be-question.box {
   padding: 0.5rem;
   margin-top: 1rem;
 }
-.summary.box {
+.be-summary.box {
   padding: 0.5rem;
   margin-top: 1rem;
 }
@@ -179,7 +179,7 @@ a.be-link:active,
   margin-left: 4px;
 }
 /*white card content */
-.card .card-content {
+.card .card-content.be-content {
   background-color: transparent;
   padding-left: 1rem;
   padding-right: 1rem;
@@ -423,7 +423,7 @@ p.be-emphasis {
 /* for desktop */
 @media screen and (min-width: 920px) and (min-height: 620px) {
   /* Modal Card */
-  .modal-card {
+  .modal-card.be-card {
     width: 900px;
     height: 600px;
   }
@@ -432,7 +432,7 @@ p.be-emphasis {
     font-size: 2rem;
     margin-top: 0px;
   }
-  .modal-card-head {
+  .modal-card-head.be-modal-card-head {
     padding-top: 12px;
     height: 144px;
   }
@@ -450,11 +450,11 @@ p.be-emphasis {
     margin-top: 0px;
   }
   /* Modal Card Body */
-  .modal-card-body {
+  .modal-card-body.be-modal-card-body {
     height: 388px;
   }
   /* White Content Card */
-  .question.box {
+  .be-question.box {
     width: 524px;
     height: 502px;
     z-index: 50;
@@ -465,7 +465,7 @@ p.be-emphasis {
     padding: 20px;
     margin-top: 0rem;
   }
-  .summary.box {
+  .be-summary.box {
     width: 636px;
     height: 502px;
     z-index: 50;
@@ -490,7 +490,7 @@ p.be-emphasis {
     margin-left: 0px;
   }
   /*white card content */
-  .card .card-content {
+  .card .card-content.be-content {
     padding-top: 1rem;
     height: 362px;
   }
@@ -532,25 +532,25 @@ p.be-emphasis {
 }
 @media screen and (min-width: 1280px) and (min-height: 768px) {
   /* Modal Card */
-  .modal-card {
+  .modal-card.be-card {
     width: 980px;
     height: 668px;
   }
   /* Modal Card Body */
-  .modal-card-body {
+  .modal-card-body.be-modal-card-body {
     height: 406px;
   }
   /* White Content Card */
-  .question.box {
+  .be-question.box {
     width: 568px;
     height: 584px;
   }
-  .summary.box {
+  .be-summary.box {
     width: 712px;
     height: 584px;
   }
   /*white card content */
-  .card .card-content {
+  .card .card-content.be-content {
     /* padding-top: 1rem; */
     height: 444px;
   }
@@ -572,25 +572,25 @@ p.be-emphasis {
 }
 @media screen and (min-width: 1440px) and (min-height: 900px) {
   /* Modal Card */
-  .modal-card {
+  .modal-card.be-card {
     width: 1208px;
     height: 768px;
   }
   /* Modal Card Body */
-  .modal-card-body {
+  .modal-card-body.be-modal-card-body {
     height: 546px;
   }
   /* White Content Card */
-  .question.box {
+  .be-question.box {
     width: 698px;
     height: 684px;
   }
-  .summary.box {
+  .be-summary.box {
     width: 898px;
     height: 684px;
   }
   /*white card content */
-  .card .card-content {
+  .card .card-content.be-content {
     /* padding-top: 1rem; */
     height: 548px;
   }

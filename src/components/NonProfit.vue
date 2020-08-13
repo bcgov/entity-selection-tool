@@ -1,7 +1,7 @@
 <template>
   <div class="columns">
     <div class="column is-half">
-      <BaseCard class="summary box">
+      <BaseCard class="be-summary box">
         <template v-slot:headertext>
           <h2 v-if="!nextSteps" class="title be-results-title">
             {{ $t("header_text") }}
