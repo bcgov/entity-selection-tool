@@ -1,7 +1,7 @@
 
 <template>
-  <div class="modal-card" scroll="keep">
-    <div class="modal-card-head">
+  <div class="modal-card be-card" scroll="keep">
+    <div class="modal-card-head be-modal-card-head">
       <div class="container">
         <div class="columns is-mobile">
           <div class="column is-three-quarters">
@@ -53,9 +53,9 @@
         </div>
       </div>
     </div>
-    <div class="modal-card-body">
+    <div class="modal-card-body be-modal-card-body">
       <div v-if="!started && !nonProfit">
-        <BaseCard class="summary box">
+        <BaseCard class="be-summary box">
           <template v-slot:headertext>
             <h2 v-if="welcomeGate" class="title be-results-title">
               {{ $t("welcome") }}
@@ -105,18 +105,7 @@
                       {{ $t("start_question_opt2") }}
                     </b-radio>
                   </div>
-                  <div class="field">
-                    <b-radio
-                      type="is-info"
-                      @click.native="start()"
-                      id="services"
-                      name="purpose"
-                      native-value="services"
-                      v-model="radioButton"
-                    >
-                      {{ $t("start_question_opt3") }}
-                    </b-radio>
-                  </div>
+
                   <div class="field">
                     <b-radio
                       type="is-info"
@@ -169,7 +158,7 @@
         ></NonProfit>
       </div>
     </div>
-    <footer class="modal-card-foot">
+    <footer class="modal-card-foot be-modal-card-foot">
       <p class="is-pulled-right">
         <b-tooltip
           v-if="!welcomeGate"
@@ -230,9 +219,8 @@ export default {
           "Which of these statements best describes the main purpose of your new organization?",
         start_question_opt1: "Generate a profit for owners",
         start_question_opt2:
-          "Generate a profit for owners combined with a public benefit",
-        start_question_opt3:
-          "Provide services at a profit as a licensed professional (e.g. lawyer, accountant, doctor, etc.)",
+          "Generate a profit for owners combined with a formal public benefit",
+
         start_question_opt4: "Support a charitable cause or public benefit",
         start_question_opt5:
           "Provide shared benefit for members through a cooperative association",
@@ -267,9 +255,8 @@ export default {
           "Which of these statements best describes the main purpose of your new organization? (fr)",
         start_question_opt1: "Generate a profit for owners (fr)",
         start_question_opt2:
-          "Generate a profit for owners combined with a public benefit (fr)",
-        start_question_opt3:
-          "Provide services at a profit as a licensed professional (e.g. lawyer, accountant, doctor, etc.). (fr)",
+          "Generate a profit for owners combined with a formal public benefit (fr)",
+
         start_question_opt4:
           "Support a charitable cause or public benefit (fr)",
         start_question_opt5:

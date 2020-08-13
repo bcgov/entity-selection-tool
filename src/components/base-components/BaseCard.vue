@@ -1,10 +1,10 @@
 <template>
   <div class="card">
-    <div class="custom-header">
+    <div class="be-custom-header">
       <!-- slot names are all lowercase because of browser requirements -->
       <slot name="headertext"></slot>
     </div>
-    <div class="card-content">
+    <div class="card-content be-content">
       <div class="content">
         <slot name="bodytext"></slot>
       </div>

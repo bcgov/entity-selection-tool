@@ -1,6 +1,6 @@
 <template>
   <div class="columns">
-    <BaseCard class="question box">
+    <BaseCard class="be-question box">
       <template v-slot:headertext>
         <h2 v-if="!nextSteps" class="title be-results-title">
           {{ $t("results_headers") }}
@@ -50,7 +50,10 @@
             <div class="be-next-steps-list" v-bind:key="index">
               {{ getNextSteps(value) }}
 
-              <h3 class="subtitle be-results-subtitle is-5">
+              <h3
+                v-if="index.length > 1"
+                class="subtitle be-results-subtitle is-5"
+              >
                 {{ title(value) }}:
               </h3>
               <ul v-bind:key="index" v-for="(item, index) in resources">
@@ -58,7 +61,10 @@
               </ul>
             </div>
           </template>
-          <h3 class="subtitle be-results-subtitle is-5">
+          <h3
+            v-if="entitiesId.length > 1"
+            class="subtitle be-results-subtitle is-5"
+          >
             {{ $t("general_resources") }}:
           </h3>
           <ul v-bind:key="index" v-for="(item, index) in resourcesGeneral">
@@ -111,29 +117,39 @@
           <span class="be-modal-title">{{ $t("results") }}</span>
         </header>
         <section id="printBody" ref="PrintBody" class="be-modal-print-body">
-          <h1 class="subtitle is-3">
+          <h2 class="title be-results-title">
+            {{ $t("results_headers") }}
+          </h2>
+          <p class="be-results-header-intro">{{ getHeaderIntro() }}</p>
+          <h3 class="title be-results-entity-title">
             {{ getHeaderTitles(entities) }}
-          </h1>
+          </h3>
 
           <template v-for="(value, index) in entities">
             <div v-bind:key="index">
               <div v-if="entitiesId.length > 1">
-                <h2 class="subtitle is-4">{{ title(value) }}</h2>
+                <h2 class="subtitle be-results-subtitle is-4">
+                  {{ title(value) }}
+                </h2>
+                <br />
               </div>
-              <br />
               <div>
                 <p>{{ body(value) }}</p>
                 <br />
               </div>
               <div>
-                <h2 class="subtitle is-4">{{ $t("advantages") }}</h2>
+                <h2 class="subtitle be-results-subtitle is-4">
+                  {{ $t("advantages") }}
+                </h2>
                 <ul>
                   <span v-html="advantages(value)"></span>
                 </ul>
                 <br />
               </div>
               <div>
-                <h2 class="subtitle is-4">{{ $t("disadvantages") }}</h2>
+                <h2 class="subtitle be-results-subtitle is-4">
+                  {{ $t("disadvantages") }}
+                </h2>
                 <ul>
                   <span v-html="disadvantages(value)"></span>
                 </ul>
@@ -142,7 +158,9 @@
             </div>
           </template>
           <div>
-            <h1 class="subtitle is-3">{{ $t("questions_answers") }}</h1>
+            <h1 class="subtitle be-results-subtitle is-3">
+              {{ $t("questions_answers") }}
+            </h1>
             <i18n path="text_answers" tag="h2" class="subtitle is-4">
               <template v-slot:format>
                 <span class="has-text-weight-bold is-italic">{{
@@ -170,7 +188,9 @@
               </template>
             </ul>
             <div>
-              <h1 class="subtitle is-3">{{ $t("print_result_header") }}</h1>
+              <h1 class="subtitle be-results-subtitle is-3">
+                {{ $t("print_result_header") }}
+              </h1>
               <ul class="be-answers">
                 <template v-for="(value, index) in entitiesTotal">
                   <li v-bind:key="index">
@@ -234,7 +254,7 @@
           ref="PrintBody"
           class="be-modal-print-body"
         >
-          <h1 class="subtitle is-3">{{ $t("title") }}</h1>
+          <h1 class="subtitle be-results-subtitle is-4">{{ $t("title") }}</h1>
           <div>
             <ul>
               <template v-for="(value, index) in data.entities">
@@ -605,6 +625,9 @@ export default {
           normal: {
             fontSize: 10,
             lineHeight: 1.5
+          },
+          link: {
+            color: "#366b8c"
           }
         }
       };
@@ -643,7 +666,6 @@ export default {
       }
 
       // list questions/anwers
-
       document.content.push([
         {
           text: this.$t("questions_answers"),
@@ -651,7 +673,6 @@ export default {
           style: "subtitle",
           margin: [0, 10, 0, 5]
         },
-
         {
           text: this.$t("text_answers", { format: this.$t("bold_italic") }),
           style: "header",
@@ -687,8 +708,7 @@ export default {
         document.content.push([{ ul: arrayList }]);
       } //endfor
 
-      // suggested resul
-
+      // suggested result
       document.content.push([
         {
           text: this.$t("print_result_header"),
@@ -721,10 +741,16 @@ export default {
 
       document.content.push([
         {
-          text: this.$t("powerby") + this.$t("bizpal"),
+          text: [
+            this.$t("powerby"),
+            {
+              text: this.$t("bizpal"),
+              style: "link",
+              link: this.$t("bizpal_link")
+            }
+          ],
           style: "normal",
-          margin: [0, 5, 0, 5],
-          link: this.$t("bizpal_link")
+          margin: [0, 5, 0, 5]
         }
       ]);
 
@@ -768,6 +794,9 @@ export default {
           normal: {
             fontSize: 10,
             lineHeight: 1.5
+          },
+          link: {
+            color: "#366b8c"
           }
         }
       };
@@ -816,13 +845,18 @@ export default {
           }
         ]);
       }
-
       document.content.push([
         {
-          text: this.$t("powerby") + this.$t("bizpal"),
+          text: [
+            this.$t("powerby"),
+            {
+              text: this.$t("bizpal"),
+              style: "link",
+              link: this.$t("bizpal_link")
+            }
+          ],
           style: "normal",
-          margin: [0, 5, 0, 5],
-          link: this.$t("bizpal_link")
+          margin: [0, 5, 0, 5]
         }
       ]);
       pdfMake.createPdf(document).download(filename);
@@ -854,32 +888,6 @@ export default {
         this.$emit("clicked", this.tempValue);
         return;
       }
-    },
-    displaySummaries: function() {
-      //function to display summaries info
-      var layout = "";
-
-      for (var index in this.data.entities) {
-        layout +=
-          '<h2 class="subtitle is-4">' +
-          this.data.entities[index][`title_${this.langLocal}`] +
-          "</h2>";
-        for (var sindex in this.data.entities[index][`summary_desc`]) {
-          layout +=
-            '<h3 class="subtitle be-subtitle-summaries is-5">' +
-            this.data.entities[index][`summary_desc`][sindex][
-              `header_${this.langLocal}`
-            ] +
-            "</h3>";
-          layout +=
-            "<p>" +
-            this.data.entities[index][`summary_desc`][sindex][
-              `subtitle_${this.langLocal}`
-            ] +
-            "</p><br />";
-        }
-      }
-      return layout;
     },
     // Display percentage value on progress bar
     displayPercentage: function(value) {
