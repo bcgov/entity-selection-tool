@@ -567,22 +567,38 @@ export default {
     getNextSteps: function(entity) {
       let resourcesList = this.data.resources;
       let entityID = entity.id;
-      this.resourcesGeneral = resourcesList.general_resources;
+      if (entityID == "e1" || entityID == "e2") {
+        this.resourcesGeneral = [resourcesList.general_resources.g2];
+      } else {
+        this.resourcesGeneral = resourcesList.general_resources;
+      }
       switch (entityID) {
         case "e1":
+          this.resources = [
+            resourcesList.r1.url_1,
+            resourcesList.r1.url_2,
+            resourcesList.r1.url_3
+          ];
+          break;
         case "e2":
+          this.resources = [
+            resourcesList.r1.url_1,
+            resourcesList.r1.url_2,
+            resourcesList.r1.url_4
+          ];
+          break;
         case "e3":
         case "e4":
-          this.resources = resourcesList.r1;
+          this.resources = [resourcesList.r1.url_1, resourcesList.r1.url_2];
           break;
         case "e5":
-          this.resources = resourcesList.r5;
+          this.resources = [resourcesList.r1.url_1, resourcesList.r1.url_9];
           break;
         case "e6":
-          this.resources = resourcesList.r3;
+          this.resources = [resourcesList.r1.url_1, resourcesList.r1.url_7];
           break;
         case "e7":
-          this.resources = resourcesList.r4;
+          this.resources = [resourcesList.r1.url_8];
           break;
       }
     },

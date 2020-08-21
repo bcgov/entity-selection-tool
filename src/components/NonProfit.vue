@@ -289,10 +289,10 @@ export default {
       this.resourcesGeneral = resourcesList.general_resources;
       switch (entityID) {
         case "n3":
-          this.resources = [resourcesList.r6.url_2, resourcesList.r6.url_1];
+          this.resources = [resourcesList.r2.url_2, resourcesList.r2.url_1];
           break;
         default:
-          this.resources = [resourcesList.r6.url_1, resourcesList.r6.url_2];
+          this.resources = [resourcesList.r2.url_1, resourcesList.r2.url_2];
           break;
       }
     },
