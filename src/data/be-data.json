@@ -671,42 +671,46 @@
              "advantage_fr":"",
              "disadvantage_en":"There are disadvantages as well: CCCs are more closely regulated with more reporting requirements than proprietorships, partnerships and regular corporations; CCCs are more complex and costly to set up and run than a proprietorship, partnership, or regular corporation; salaries paid to management and staff are restricted; potential returns to shareholders are restricted; and CCCs are not eligible for grants, donations or income tax exemptions and do not have the ability to issue tax receipts.",
              "disadvantage_fr":""
-         }
+         },
+         "ne2":{
+            "id": "ne2",
+            "title_en":"Cooperative Association",
+            "title_fr":"Cooperative Association (FR)",
+            "summary_en":"In B.C., a cooperative association (co-op) is an incorporated membership organization owned and operated by the people who use and benefit from its services. Co-ops create jobs and support communities by offering a variety of products and services including food, housing, and health care. Once incorporated, a co-op gains independent legal status separate from its members. As a legal business structure, a co-op can enter into contracts or take on debt in its own name with legal rights and obligations similar to those of an individual. Incorporating limits the liability of a co-op's members. There are several advantages to a co-op structure: members provide multiple sources of investment capital; managerial and operational duties are shared; there are potential cost savings for members; and a co-op can build a sense of community through shared purpose. The main disadvantages are that it is often more complex and costly to set-up than a corporation, decision-making can sometimes be slow or challenging, and it can be difficult to raise large amounts of capital.",
+            "summary_fr":" Summary1(FR)",
+            "advantage_en":"",
+            "advantage_fr":"",
+            "disadvantage_en":"",
+            "disadvantage_fr":""
+        }
  
     },
      "non-profit-entities":{
          "n1":{
              "id": "n1",
-             "title_en":"Non-Registered Society:",
-             "title_fr":"Non-Registered Society :(FR)",
+             "title_en":"Non-Registered Society",
+             "title_fr":"Non-Registered Society (FR)",
              "summary_en":"A non-registered society is an unincorporated non-profit. Members are personally responsible for all of the society's financial and legal liabilities. Incorporated or not, societies must use funds or profits only for social or community benefit. Societies cannot provide funds, profits or other material benefit to members, other than staff salaries and reimbursement of expenses. Many small clubs or associations without assets or liabilities operate as non-registered societies. A non-registered society is simple and inexpensive to set-up and maintain. On the other hand, a non-registered society cannot enter into legal contracts on its own, has no name protection, and is unlikely to be eligible for grants or other forms of funding. It may also be difficult for a non-registered society to get a bank account, insurance, or federal charitable status.",
              "summary_fr":" Summary1(FR)",
-             "advantage_en":"<li></li>",
+             "advantage_en":"",
              "advantage_fr":"",
-             "disadvantage_en":"<li></li>",
+             "disadvantage_en":"",
              "disadvantage_fr":""
          },
          "n2":{
              "id": "n2",
-             "title_en":"Incorporated Society:",
-             "title_fr":"Incorporated Society :(FR)",
+             "title_en":"Incorporated Society",
+             "title_fr":"Incorporated Society (FR)",
              "summary_en":"An incorporated society is a non-profit organization. Any funds or profits must be used only for social or community benefit. Other than staff salaries, and reimbursements of expenses, a society cannot provide funds, profits or other material benefit to members. Societies are not required by law to incorporate, but there are several benefits to doing so. When a society is incorporated, it acquires all of the powers of an individual, as well as an independent existence - separate and distinct from its members. If a society is seeking funding or grants, or charitable status from the federal government, there may be a requirement to incorporate. There are other advantages to incorporating a society: members, staff and directors are protected from personal liability; it can bring or defend a lawsuit, if it needs to collect a debt or enforce a right; and it can obtain insurance. Among the disadvantages: it's more complex and costly to set up and maintain than a non-registered society; and, despite limited liability, directors, officers and members may be held legally responsible in certain circumstances, in particular for violation of federal or provincial statutes.",
              "summary_fr":" Summary1(FR)",
-             "advantage_en":"<li></li>",
+             "advantage_en":"",
              "advantage_fr":"",
-             "disadvantage_en":"<li></li>",
+             "disadvantage_en":"",
              "disadvantage_fr":""
          },
          "n3":{
-             "id": "n3",
-             "title_en":"Cooperative Association:",
-             "title_fr":"Cooperative Association :(FR)",
-             "summary_en":"In B.C., a cooperative association (co-op) is an incorporated membership organization owned and operated by the people who use and benefit from its services. Co-ops create jobs and support communities by offering a variety of products and services including food, housing, and health care. Once incorporated, a co-op gains independent legal status separate from its members. As a legal business structure, a co-op can enter into contracts or take on debt in its own name with legal rights and obligations similar to those of an individual. Incorporating limits the liability of a co-op's members. There are several advantages to a co-op structure: members provide multiple sources of investment capital; managerial and operational duties are shared; there are potential cost savings for members; and a co-op can build a sense of community through shared purpose. The main disadvantages are that it is often more complex and costly to set-up than a corporation, decision-making can sometimes be slow or challenging, and it can be difficult to raise large amounts of capital.",
-             "summary_fr":" Summary1(FR)",
-             "advantage_en":"<li></li>",
-             "advantage_fr":"",
-             "disadvantage_en":"<li></li>",
-             "disadvantage_fr":""
+             "id": "n3"
+             
          }
      },
      "resources":{
@@ -720,15 +724,17 @@
             "url_3":"<a class='be-link' href='https://smallbusinessbc.ca/' target='_blank'>Small Business BC</a> helps entrepreneurs grow successful businesses through expert business advisors, educational services, and easy-to-use free resources. SBBC also provides <a class='be-link' href='https://smallbusinessbc.ca/advisory/business-registration-services/' target='_blank'>guided business registration services</a> for Sole Proprietorships.",
             "url_4":"<a class='be-link' href='https://smallbusinessbc.ca/' target='_blank'>Small Business BC</a> helps entrepreneurs grow successful businesses through expert business advisors, educational services, and easy-to-use free resources. SBBC also provides <a class='be-link' href='https://smallbusinessbc.ca/advisory/business-registration-services/' target='_blank'>guided business registration services</a> for General Partnerships.",
             "url_5": "Before incorporating or registering your business, use <a class='be-link' href='https://www.bcregistrynames.gov.bc.ca/nro/' target='_blank'>Name Requests Online</a> to submit a name approval request",
-            "url_6": "Learn more about <a class='be-link' href='https://www2.gov.bc.ca/gov/content/employment-business/business/managing-a-business/permits-licences/businesses-incorporated-companies/incorporated-companies/incorporating-bc-company/incorporate-c3?keyword=Community&keyword=Contribution&keyword=Company' target='_blank'>incorporating a Community Contribution Company (CCC)</a>.",
-            "url_7": "Learn more about <a class='be-link' href='https://www2.gov.bc.ca/gov/content/employment-business/business/managing-a-business/permits-licences/businesses-incorporated-companies/new-west-partnership-trade-agreement/registrations-nwpta-bc-corporation' target='_blank'>registering a BC Corporation</a>.",
-            "url_8": "Learn how to <a class='be-link' href='https://corporationscanada.ic.gc.ca/eic/site/cd-dgc.nsf/eng/cs06642.html' targe='_blank'> incorporate a business federally</a>.",
-            "url_9": "Register a benefit company with <a class='be-link' href='https://www.bcregistry.ca/business/auth/home/decide-business' target='_blank'>BC Registries and Online Services</a>."
+            "url_6": "Learn more about <a class='be-link' href='https://www2.gov.bc.ca/gov/content/employment-business/business/managing-a-business/permits-licences/businesses-incorporated-companies/new-west-partnership-trade-agreement/registrations-nwpta-bc-corporation' target='_blank'>registering a BC Corporation</a>.",
+            "url_7": "Learn how to <a class='be-link' href='https://corporationscanada.ic.gc.ca/eic/site/cd-dgc.nsf/eng/cs06642.html' targe='_blank'> incorporate a business federally</a>.",
+            "url_8": "Register a benefit company with <a class='be-link' href='https://www.bcregistry.ca/business/auth/home/decide-business' target='_blank'>BC Registries and Online Services</a>."
             },
         "r2":{
-            "url_1": "Use <a class='be-link' href='https://www.bcregistry.ca/societies/' target='_blank'>Societies Online</a> to incorporate a society",
+            "url_1": "Use <a class='be-link' href='https://www.bcregistry.ca/societies/' target='_blank'>Societies Online</a> to incorporate a society"
+            },
+        "r3": {
+            "url_1": "Learn more about <a class='be-link' href='https://www2.gov.bc.ca/gov/content/employment-business/business/managing-a-business/permits-licences/businesses-incorporated-companies/incorporated-companies/incorporating-bc-company/incorporate-c3?keyword=Community&keyword=Contribution&keyword=Company' target='_blank'>incorporating a Community Contribution Company (CCC)</a>.",
             "url_2": "Learn how to incorporate a <a class='be-link' href='https://www2.gov.bc.ca/gov/content/employment-business/business/managing-a-business/permits-licences/businesses-incorporated-companies/cooperative-associations/incorporate-bc-cooperative' target='_blank'>BC Co-operative</a>"
-            }
+        }
         }
     }  
 }

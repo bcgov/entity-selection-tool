@@ -117,6 +117,7 @@
                       {{ $t("start_question_opt4") }}
                     </b-radio>
                   </div>
+                  <!-- hidden until decision made on placement of co-operatives -->
                   <div class="field">
                     <b-radio
                       type="is-info"
@@ -125,6 +126,7 @@
                       name="purpose"
                       native-value="cooperative"
                       v-model="radioButton"
+                      style="visibility: hidden"
                     >
                       {{ $t("start_question_opt5") }}
                     </b-radio>

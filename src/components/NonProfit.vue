@@ -249,7 +249,7 @@ export default {
     this.$i18n.locale = this.langLocal;
 
     // check if if it's associative , if yes, move to
-
+    // n3 is currently empty of data - if co-op associations are put back into the non-profit list, copy ne3 json data into n3 json data
     if (this.entityId == "n3") {
       let temp = {};
       let self = this;
@@ -289,10 +289,10 @@ export default {
       this.resourcesGeneral = resourcesList.general_resources;
       switch (entityID) {
         case "n3":
-          this.resources = [resourcesList.r2.url_2, resourcesList.r2.url_1];
+          this.resources = [resourcesList.r3.url_1, resourcesList.r2.url_1];
           break;
         default:
-          this.resources = [resourcesList.r2.url_1, resourcesList.r2.url_2];
+          this.resources = [resourcesList.r2.url_1];
           break;
       }
     },

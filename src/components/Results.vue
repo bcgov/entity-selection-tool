@@ -592,13 +592,13 @@ export default {
           this.resources = [resourcesList.r1.url_1, resourcesList.r1.url_2];
           break;
         case "e5":
-          this.resources = [resourcesList.r1.url_1, resourcesList.r1.url_9];
+          this.resources = [resourcesList.r1.url_1, resourcesList.r1.url_8];
           break;
         case "e6":
-          this.resources = [resourcesList.r1.url_1, resourcesList.r1.url_7];
+          this.resources = [resourcesList.r1.url_1, resourcesList.r1.url_6];
           break;
         case "e7":
-          this.resources = [resourcesList.r1.url_8];
+          this.resources = [resourcesList.r1.url_7];
           break;
       }
     },
