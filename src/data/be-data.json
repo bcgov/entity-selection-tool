@@ -72,8 +72,8 @@
                  "answers":{
                      "a1":{
                          "id":"a1",
-                         "title_en":"High Risk",
-                         "title_fr":"High Risk(FR)",
+                         "title_en":"High risk",
+                         "title_fr":"High risk(FR)",
                          "impact": {
                              "e1":0,
                              "e2":0,
