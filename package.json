@@ -5,6 +5,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "build-wc": "vue-cli-service build --target wc --name business-entity-tool ./src/App.vue",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit"
   },
@@ -18,7 +19,6 @@
     "printd": "^1.4.2",
     "save": "^2.4.0",
     "vue": "^2.6.11",
-    "vue-custom-element": "^3.2.10",
     "vue-i18n": "^8.15.4"
   },
   "devDependencies": {

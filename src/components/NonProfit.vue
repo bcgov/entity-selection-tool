@@ -141,11 +141,11 @@
 import Vue from "vue";
 import BaseCard from "@/components/base-components/BaseCard.vue";
 import VueI18nNonProfit from "vue-i18n";
-import Printd from "printd";
-import pdfMake from "pdfmake/build/pdfmake.js";
-import pdfFonts from "pdfmake/build/vfs_fonts.js";
+//const Printd = () => import("printd");
+//import pdfMake from "pdfmake/build/pdfmake.js";
+//import pdfFonts from "pdfmake/build/vfs_fonts.js";
 Vue.use(VueI18nNonProfit);
-pdfMake.vfs = pdfFonts.pdfMake.vfs;
+this.pdfMake.vfs = this.pdfFonts.pdfMake.vfs;
 
 // Create VueI18n instance with options
 export const i18n = new VueI18nNonProfit({
@@ -359,7 +359,7 @@ export default {
           link: this.$t("bizpal_link")
         }
       ]);
-      pdfMake.createPdf(document).download(filename);
+      this.pdfMake.createPdf(document).download(filename);
     },
     printEntity: function() {
       this.isCardModalActive = true;
@@ -368,8 +368,8 @@ export default {
       this.isCardModalActive = true;
     },
     print: function() {
-      const d = new Printd();
-      d.print(this.$refs.PrintBody, [this.css]);
+      //const d = new Printd();
+      this.print(this.$refs.PrintBody, [this.css]);
     }
   } // end methods
 }; // end export default
