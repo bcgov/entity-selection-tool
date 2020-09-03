@@ -357,12 +357,12 @@
 <script>
 import Vue from "vue";
 import BaseCard from "@/components/base-components/BaseCard.vue";
-//import Printd from "printd";
-//const Printd = () => import("printd");
-//import pdfMake from "pdfmake/build/pdfmake.js";
-//import pdfFonts from "pdfmake/build/vfs_fonts.js";
+import Printd from "printd";
+import pdfMake from "pdfmake/build/pdfmake.js";
+import pdfFonts from "pdfmake/build/vfs_fonts.js";
+pdfMake.vfs = pdfFonts.pdfMake.vfs;
+
 import VueI18nResults from "vue-i18n";
-this.pdfMake.vfs = this.pdfFonts.pdfMake.vfs;
 Vue.use(VueI18nResults);
 // Create VueI18n instance with options
 export const i18n = new VueI18nResults({
@@ -752,7 +752,7 @@ export default {
         }
       ]);
 
-      this.pdfMake.createPdf(document).download(filename);
+      pdfMake.createPdf(document).download(filename);
     },
     downloadSummaryPDF: function() {
       let today = new Date();
@@ -857,7 +857,7 @@ export default {
           margin: [0, 5, 0, 5]
         }
       ]);
-      this.pdfMake.createPdf(document).download(filename);
+      pdfMake.createPdf(document).download(filename);
     },
     printEntity: function() {
       this.isCardModalActive = true;
@@ -870,8 +870,8 @@ export default {
       return userAnswerIndex == answerIndex ? true : false;
     },
     print: function() {
-      //const d = new Printd();
-      this.print(this.$refs.PrintBody, [this.css]);
+      const d = new Printd();
+      d.print(this.$refs.PrintBody, [this.css]);
     },
     onClickButton: function() {
       this.tempValue = false;
