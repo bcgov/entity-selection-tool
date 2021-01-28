@@ -5,6 +5,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "build-lib": "vue-cli-service build --target lib --name business-entity-tool ./src/main.js",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit"
   },
@@ -12,7 +13,7 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.28",
     "@fortawesome/free-solid-svg-icons": "^5.13.0",
     "@fortawesome/vue-fontawesome": "^0.1.10",
-    "buefy": "^0.8.13",
+    "buefy": "^0.9.4",
     "core-js": "^3.6.4",
     "pdfmake": "^0.1.67",
     "printd": "^1.4.2",

@@ -1,183 +1,164 @@
 <template>
-  <div class="modal-card be-card" scroll="keep">
-    <div class="modal-card-head be-modal-card-head">
-      <div class="container">
-        <div class="columns is-mobile">
-          <div class="column is-three-quarters">
-            <h1 class="be-modal-title">
-              {{ $t("business_structures") }}
-            </h1>
-          </div>
-          <div class="column  is-one-quarter">
-            <b-button
-              class="be-nav-button is-pulled-right"
-              outlined
-              type="is-light"
-              :aria-label="$t('close')"
-              @click="$parent.close()"
-            >
-              <font-awesome-icon :icon="['fas', 'times']" />
-              {{ $t("close") }}
-            </b-button>
-          </div>
-        </div>
-        <div class="columns be-subheader">
-          <div class="column auto"></div>
-          <div class="column is-one-half">
-            <div class="column be-subheader is-four-fifths is-pulled-right ">
-              <div v-if="started">
-                <h2 class="subtitle be-subtitle is-5">
-                  {{ $t("entity_title_one") }}
-                </h2>
-                <h3 class="subtitle be-subtitle is-4">
-                  {{ $t("entity_title_two") }}
-                </h3>
-              </div>
-              <div v-if="!started">
-                <h2
-                  class="subtitle be-subtitle is-5"
-                  style="visibility: hidden"
-                >
-                  Placeholder
-                </h2>
-                <h3
-                  class="subtitle be-subtitle is-4"
-                  style="visibility: hidden"
-                >
-                  Placeholder
-                </h3>
-              </div>
+  <div>
+    <div class="modal-card be-card" scroll="keep">
+      <div class="modal-card-head be-modal-card-head">
+        <div class="container">
+          <div class="columns is-mobile">
+            <div class="column is-three-quarters">
+              <h1 class="be-modal-title">
+                {{ $t("business_structures") }}
+              </h1>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="modal-card-body be-modal-card-body">
-      <div v-if="!started && !nonProfit">
-        <BaseCard class="be-summary box">
-          <template v-slot:headertext>
-            <h2 v-if="welcomeGate" class="title be-results-title">
-              {{ $t("welcome") }}
-            </h2>
-            <h2 v-if="introGate" class="title be-results-title">
-              {{ $t("intro_title") }}
-            </h2>
-          </template>
-          <template v-slot:bodytext>
-            <div v-if="!introGate">
-              <p>{{ $t("intro_1") }}</p>
-              <p>{{ $t("intro_2") }}</p>
-              <p>{{ $t("intro_3") }}</p>
-              <p>{{ $t("intro_4") }}</p>
-              <b-button class="be-start-button" @click="showIntroGate()">
-                {{ $t("start") }}</b-button
+            <div class="column  is-one-quarter">
+              <b-button
+                class="be-nav-button is-pulled-right"
+                outlined
+                type="is-light"
+                :aria-label="$t('close')"
+                @click="$parent.close()"
               >
+                <font-awesome-icon :icon="['fas', 'times']" />
+                {{ $t("close") }}
+              </b-button>
             </div>
-            <div v-if="introGate">
-              <fieldset class="be-card-content">
-                <legend class="be-gate-text">
-                  {{ $t("intro_header") }} {{ $t("start_question") }}
-                </legend>
-                <br />
-                <form class="be-question-form">
-                  <div class="field">
-                    <b-radio
-                      type="is-info"
-                      @click.native="start()"
-                      id="profit"
-                      name="purpose"
-                      native-value="profit"
-                      v-model="radioButton"
-                    >
-                      {{ $t("start_question_opt1") }}
-                    </b-radio>
-                  </div>
-                  <div class="field">
-                    <b-radio
-                      type="is-info"
-                      @click.native="start()"
-                      id="services"
-                      name="purpose"
-                      native-value="services"
-                      v-model="radioButton"
-                    >
-                      {{ $t("start_question_opt2") }}
-                    </b-radio>
-                  </div>
+          </div>
+          <div class="columns be-subheader">
+            <div class="column auto"></div>
+            <div class="column is-one-half">
+              <div class="column be-subheader is-four-fifths is-pulled-right ">
+                <div v-if="started">
+                  <b-tooltip
+                    type="is-light"
+                    :label="$t('entity_tooltip')"
+                    multilined
+                    position="is-top"
+                  >
+                    <div>
+                      <h2 class="subtitle be-subtitle is-5">
+                        {{ $t("entity_title_one") }}
+                      </h2>
+                      <h3 class="subtitle be-subtitle is-4">
+                        {{ $t("entity_title_two") }}
+                      </h3>
+                    </div>
+                  </b-tooltip>
+                </div>
 
-                  <div class="field">
-                    <b-radio
-                      type="is-info"
-                      @click.native="showNonProfit()"
-                      id="charitable"
-                      name="purpose"
-                      native-value="charitable"
-                      v-model="radioButton"
-                    >
-                      {{ $t("start_question_opt4") }}
-                    </b-radio>
-                  </div>
-                  <div class="field">
-                    <b-radio
-                      type="is-info"
-                      @click.native="showNonProfit('n3')"
-                      id="cooperative"
-                      name="purpose"
-                      native-value="cooperative"
-                      v-model="radioButton"
-                    >
-                      {{ $t("start_question_opt5") }}
-                    </b-radio>
-                  </div>
-                </form>
-              </fieldset>
+                <div v-if="!started">
+                  <h2
+                    class="subtitle be-subtitle is-5"
+                    style="visibility: hidden"
+                  >
+                    Placeholder
+                  </h2>
+                  <h3
+                    class="subtitle be-subtitle is-4"
+                    style="visibility: hidden"
+                  >
+                    Placeholder
+                  </h3>
+                </div>
+              </div>
             </div>
-          </template>
-          <template v-slot:footertext>
-            <section v-if="welcomeGate" class="be-disclaimer">
-              <p>*{{ $t("disclaimer") }} {{ $t("intro_disclaimer") }}</p>
-            </section>
-          </template>
-        </BaseCard>
+          </div>
+        </div>
       </div>
-      <div v-if="started">
-        <Entity
-          @clicked="restartEntity"
-          :lang="this.langLocal"
-          :sgc="this.sgcLocal"
-          :data="this.dataLocal"
-        ></Entity>
+      <div class="modal-card-body be-modal-card-body">
+        <div v-if="!started">
+          <BaseCard class="be-summary box">
+            <template v-slot:headertext>
+              <h2 v-if="welcomeGate" class="title be-results-title">
+                {{ $t("welcome") }}
+              </h2>
+            </template>
+            <template v-slot:bodytext>
+              <div v-if="welcomeGate">
+                <p>{{ $t("intro_1") }}</p>
+                <p>{{ $t("intro_2") }}</p>
+                <p>{{ $t("intro_3") }}</p>
+                <p>{{ $t("intro_4") }}</p>
+                <p>
+                  {{ $t("intro_5")
+                  }}<a class="be-link" @click="printSummaries"> here</a>.
+                </p>
+                <b-button class="be-start-button" @click="start()">
+                  {{ $t("start") }}</b-button
+                >
+              </div>
+            </template>
+            <template v-slot:footertext>
+              <section v-if="welcomeGate" class="be-disclaimer">
+                <p v-html="$t('disclaimer')">{{ $t("intro_disclaimer") }}</p>
+              </section>
+            </template>
+          </BaseCard>
+        </div>
+        <div v-if="started">
+          <Entity
+            @clicked="restartEntity"
+            :lang="this.langLocal"
+            :sgc="this.sgcLocal"
+            :data="this.dataLocal"
+          ></Entity>
+        </div>
       </div>
-      <div v-if="nonProfit">
-        <NonProfit
-          @clicked="restartNonProfit"
-          :lang="this.langLocal"
-          :entity-id="this.radioButton"
-          :data="this.dataLocal"
-        ></NonProfit>
-      </div>
+
+      <footer class="modal-card-foot be-modal-card-foot">
+        <p class="is-pulled-right">
+          <span v-if="welcomeGate">
+            <img
+              class="be-footer-logo"
+              src="../assets/BC_Logo_Colour.png"
+              alt="British Columbia Logo"
+            />
+          </span>
+
+          <b-tooltip
+            v-if="!welcomeGate"
+            class="be-tooltip"
+            multilined
+            role="tooltip"
+            :triggers="['focus', 'hover']"
+          >
+            <template v-slot:content>
+              {{ $t("tooltip_disclaimer") }}
+            </template>
+            <span tabindex="0">{{ $t("disclaimer_title") }}</span>
+          </b-tooltip>
+          <span v-if="started"> | </span>
+
+          <a
+            v-if="started"
+            class="be-link"
+            target="_blank"
+            rel="noopener"
+            :href="$t('support_link')"
+            >{{ $t("support") }}</a
+          >
+          <span v-if="!welcomeGate"> | </span>
+          <span>
+            {{ $t("powered") }}
+            <a
+              class="be-link"
+              target="_blank"
+              rel="noopener"
+              :href="$t('bizpal_link')"
+              >{{ $t("bizpal") }}</a
+            >
+          </span>
+        </p>
+      </footer>
     </div>
-    <footer class="modal-card-foot be-modal-card-foot">
-      <p class="is-pulled-right">
-        <b-tooltip
-          v-if="!welcomeGate"
-          class="be-tooltip"
-          :label="$t('disclaimer')"
-          multilined
-        >
-          {{ $t("disclaimer_title") }}
-        </b-tooltip>
-        <span v-if="!welcomeGate"> | </span>
-        {{ $t("powered") }}
-        <a
-          class="be-link"
-          target="_blank"
-          rel="noopener"
-          :href="$t('bizpal_link')"
-          >{{ $t("bizpal") }}</a
-        >
-      </p>
-    </footer>
+    <b-modal
+      :active.sync="isSummariesModalActive"
+      :can-cancel="canCancel"
+      full-screen
+      aria-role="dialog"
+      aria-modal
+      class="be-print-modal"
+    >
+      <ModalSummary @clicked="closeModal()" :data="dataSummary"> </ModalSummary>
+    </b-modal>
   </div>
 </template>
 
@@ -185,9 +166,8 @@
 import Vue from "vue";
 import BaseCard from "@/components/base-components/BaseCard.vue";
 import Entity from "@/components/Entity.vue";
-import NonProfit from "@/components/NonProfit.vue";
 import VueI18nHome from "vue-i18n";
-
+import ModalSummary from "./ModalSummary.vue";
 Vue.use(VueI18nHome);
 
 // Create VueI18n instance with options
@@ -201,7 +181,7 @@ export default {
   components: {
     BaseCard,
     Entity,
-    NonProfit
+    ModalSummary
   },
   i18n: {
     locale: "en",
@@ -209,76 +189,66 @@ export default {
       en: {
         business_structures: "Business Structures Wizard",
         welcome: "Welcome",
-        close: "Close",
+        close: "Exit",
         restart: "Restart",
         start: "Start",
         entity_title_one: "Suggested",
         entity_title_two: "Business Structure",
-        start_question:
-          "Which of these statements best describes the main purpose of your new organization?",
-        start_question_opt1: "Generate a profit for owners",
-        start_question_opt2:
-          "Generate a profit for owners combined with a formal public benefit",
-
-        start_question_opt4: "Support a charitable cause or public benefit",
-        start_question_opt5:
-          "Provide shared benefit for members through a cooperative association",
         disclaimer_title: "Disclaimer",
         disclaimer:
-          "Please note that this tool is intended as general guidance and not as legal or financial advice. Please seek the services of a lawyer and accountant before making a decision.",
+          "This tool is intended as general guidance and not as legal or financial advice. Please seek the services of a lawyer and accountant or get advice from <a class='be-link' href='https://smallbusinessbc.ca/' target='_blank'>Small Business BC</a> before making your decision.",
+        tooltip_disclaimer:
+          "This tool is intended as general guidance and not as legal or financial advice. Please seek the services of a lawyer and accountant or get advice from Small Business BC before making your decision.",
         powered: "Powered by",
         bizpal_link: "https://services.bizpal-perle.ca/",
         bizpal: "BizPaL",
         intro_1:
           "One of your first decisions when creating a new organization is your legal structure, or entity type. Each type has advantages and disadvantages.",
         intro_2:
-          "Use this tool to compare different business entity options and help you determine which one may be the best fit for your business.",
+          "Use this tool to compare different business structure options and help you determine which one may be the best fit for your business.",
         intro_3:
-          "This tool helps you decide among the most common types: proprietorships, partnerships, corporations, benefit companies, co-operatives, and non-profit societies.",
-        intro_4: "Pick the answers that best fit your situation.",
+          "The tool covers the most common types in British Columbia: sole proprietorships, partnerships, corporations, and benefit companies.",
+        intro_4: "Pick the answers that best fit your business.",
+        intro_5: "You can also read a summary of all business structures",
         intro_disclaimer:
           "No personal information will be requested or collected through the use of this tool.",
-        intro_header:
-          "The first thing to decide is whether you’re starting a for-profit or non-profit enterprise.",
-        intro_title: "Your Enterprise Type"
-      },
-      fr: {
-        business_structures: "Structures d'entreprise",
-        welcome: "Bienvenue",
-        close: "Fermer",
-        restart: "Redémarrer",
-        start: "Commencer",
-        entity_title_one: "Structure d'entreprise",
-        entity_title_two: "suggérée",
-        start_question:
-          "Which of these statements best describes the main purpose of your new organization? (fr)",
-        start_question_opt1: "Generate a profit for owners (fr)",
-        start_question_opt2:
-          "Generate a profit for owners combined with a formal public benefit (fr)",
-
-        start_question_opt4:
-          "Support a charitable cause or public benefit (fr)",
-        start_question_opt5:
-          "Provide shared benefit for members through a cooperative association (fr)",
-        disclaimer_title: "Disclaimer (fr)",
-        disclaimer:
-          "Please note that this tool is intended as general guidance and not as legal or financial advice. Please seek the services of a lawyer and accountant before making a decision. (fr)",
-        powered: "Proposé par",
-        bizpal_link: "https://services.perle-bizpal.ca/",
-        bizpal: "PerLE",
-        intro_1:
-          "One of your first decisions when creating a new organization is your legal structure, or entity type. Each type has advantages and disadvantages. FR",
-        intro_2:
-          "Use this tool to compare different business entity options and help you determine which one may be the best fit for your business. FR",
-        intro_3:
-          "This tool helps you decide among the most common types: proprietorships, partnerships, corporations, benefit companies, co-operatives, and non-profit societies. FR",
-        intro_4: "Pick the answers that best fit your situation.FR",
-        intro_disclaimer:
-          "No personal information will be requested or collected through the use of this tool. FR",
-        intro_header:
-          "The first thing to decide is whether you’re starting a for-profit or non-profit enterprise. (FR)",
-        intro_title: "Your Enterprise Type (FR)"
+        entity_tooltip:
+          "Watch these progress bars change to see how your answers affect your best match.",
+        support_link: "mailto:open@bizpal-perle.ca",
+        support: "Support"
       }
+    },
+    fr: {
+      business_structures: "Structures d'entreprise",
+      welcome: "Bienvenue",
+      close: "Fermer",
+      restart: "Redémarrer",
+      start: "Commencer",
+      entity_title_one: "Structure d'entreprise",
+      entity_title_two: "suggérée",
+      disclaimer_title: "Disclaimer (fr)",
+      disclaimer:
+        "This tool is intended as general guidance and not as legal or financial advice. Please seek the services of a lawyer and accountant or get advice from <a class='be-link' href='https://smallbusinessbc.ca/' target='_blank'>Small Business BC</a> before making your decision.(fr)",
+      tooltip_disclaimer:
+        "This tool is intended as general guidance and not as legal or financial advice. Please seek the services of a lawyer and accountant or get advice from Small Business BC before making your decision.(fr)",
+      powered: "Proposé par",
+      bizpal_link: "https://services.perle-bizpal.ca/",
+      bizpal: "PerLE",
+      intro_1:
+        "One of your first decisions when creating a new organization is your legal structure, or entity type. Each type has advantages and disadvantages. (FR)",
+      intro_2:
+        "Use this tool to compare different business structure options and help you determine which one may be the best fit for your business. (FR)",
+      intro_3:
+        "The tool covers the most common types in British Columbia: sole proprietorships, partnerships, corporations, and benefit companies. (FR)",
+      intro_4: "Pick the answers that best fit your business.",
+      intro_5:
+        "You can also read a summary of all business structures here. (FR)",
+      intro_disclaimer:
+        "No personal information will be requested or collected through the use of this tool. FR",
+      entity_tooltip:
+        "Watch these progress bars change to see how your answers affect your best match. (FR)",
+      support_link: "mailto:ouverts@perle-bizpal.ca",
+      support: "Support (FR)"
     }
   }, // end i18n
   props: {
@@ -298,13 +268,16 @@ export default {
     return {
       radioButton: "",
       started: false,
-      nonProfit: false,
       langLocal: this.lang,
-      introGate: false,
       welcomeGate: true,
       sgcLocal: this.sgc,
-      dataLocal: this.data
+      dataLocal: this.data,
+      isSummariesModalActive: false,
+      canCancel: false
     };
+  },
+  created: function() {
+    this.dataSummary = this.dataLocal[`pid-${this.sgcLocal}`];
   },
   mounted: function() {
     this.$i18n.locale = this.langLocal;
@@ -312,45 +285,28 @@ export default {
   methods: {
     start: function() {
       this.started = true;
+      this.welcomeGate = false;
     },
     // reset form
     reset: function() {
       this.started = false;
-      this.nonProfit = false;
-    },
-    showNonProfit: function(type) {
-      this.radioButton = type;
-      this.nonProfit = true;
-    },
-    showIntroGate: function() {
-      this.introGate = true;
-      this.welcomeGate = false;
-    },
-    // restart from non-profit card
-    restartNonProfit(value) {
-      if (value == false) {
-        this.nonProfit = value;
-        this.introGate = value;
-        this.welcomeGate = true;
-      }
-      if (value == true) {
-        this.nonProfit = false;
-        this.introGate = value;
-        this.welcomeGate = false;
-      }
     },
     // restart from entity card
     restartEntity(value) {
       if (value == false) {
         this.started = value;
-        this.introGate = value;
         this.welcomeGate = true;
       }
       if (value == true) {
         this.started = false;
-        this.introGate = value;
-        this.welcomeGate = false;
+        this.welcomeGate = value;
       }
+    },
+    printSummaries: function() {
+      this.isSummariesModalActive = true;
+    },
+    closeModal(value) {
+      this.isSummariesModalActive = value;
     }
   } //end methods
 };

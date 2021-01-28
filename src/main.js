@@ -19,6 +19,10 @@ Vue.use(Buefy, {
   defaultIconComponent: "font-awesome-icon"
 });
 
+// Import customElement for Web component option with build-lib
+import vueCustomElement from "vue-custom-element";
+Vue.use(vueCustomElement);
+Vue.customElement("business-entity-tool", App);
 Vue.config.productionTip = false;
 
 new Vue({
