@@ -1,159 +1,180 @@
 <template>
-  <div class="columns">
-    <div v-if="resultsShow == false" class="column is-three-fifths">
-      <BaseCard class="be-question box">
-        <template v-slot:headertext>
-          <h2 class="title be-question-title">
-            {{ $t("question") }} {{ currentCategoryIndex }} {{ $t("of") }}
-            {{ totalCategories }}
-          </h2>
-        </template>
-        <template v-slot:bodytext>
-          <fieldset class="be-card-content">
-            <legend class="be-question-text">
-              {{
-                dataLocal.collection[`cat-${currentCategoryIndex}`][
-                  `question_${locale}`
-                ]
-              }}
-            </legend>
+  <div>
+    <div class="columns">
+      <div v-if="resultsShow == false" class="column is-three-fifths">
+        <BaseCard class="be-question box">
+          <template v-slot:headertext>
+            <h2 class="title be-question-title">
+              {{ $t("question") }} {{ currentCategoryIndex }} {{ $t("of") }}
+              {{ totalCategories }}
+            </h2>
+          </template>
+          <template v-slot:bodytext>
+            <fieldset class="be-card-content">
+              <legend
+                class="be-question-text"
+                v-html="
+                  dataLocal.collection[`cat-${currentCategoryIndex}`][
+                    `question_${locale}`
+                  ]
+                "
+              ></legend>
 
-            <br />
-            <form class="be-question-form">
-              <template v-for="(value, index) in current">
-                <div
-                  v-bind:key="`${index}${currentCategoryIndex}`"
-                  class="field"
-                >
-                  <b-radio
-                    type="is-info"
-                    name="questions"
-                    v-model="radioButton"
-                    :id="index"
-                    :native-value="index"
-                    @click.native="onSelect(value, index)"
-                    v-on:keyup.enter="onSelect(value, index)"
+              <br />
+              <form class="be-question-form">
+                <template v-for="(value, index) in current">
+                  <div
+                    v-bind:key="`${index}${currentCategoryIndex}`"
+                    class="field"
                   >
-                    {{ value[`title_${locale}`] }}
-                  </b-radio>
-                </div>
-              </template>
-            </form>
-          </fieldset>
-          <section class="be-context">
-            <div v-if="!isHidden" class="columns is-mobile">
-              <div class="column is-1 be-context-icon">
-                <font-awesome-icon :icon="['fas', 'exclamation-circle']" />
-              </div>
-              <div class="column is-11 be-context-text">
-                <p>
-                  {{ getQuestionContext }}
-                </p>
-              </div>
-            </div>
-          </section>
-        </template>
-        <template v-slot:footertext>
-          <span class="card-footer-item">
-            <b-button class="be-form-button " @click="onClickButton">{{
-              $t("restart")
-            }}</b-button>
-          </span>
-          <span class="card-footer-item">
-            <b-button
-              class="be-form-button "
-              :disabled="!showPreviousButton"
-              @click="previous()"
-            >
-              {{ $t("previous") }}</b-button
-            >
-          </span>
-
-          <span class="card-footer-item">
-            <b-button
-              v-if="showFinishButton"
-              class="be-form-button"
-              @click="showResults()"
-            >
-              {{ $t("submit") }}</b-button
-            >
-            <b-button
-              v-if="!showFinishButton"
-              class="be-form-button"
-              :disabled="!showNextButton"
-              @click="next()"
-            >
-              {{ $t("next") }}
-            </b-button>
-          </span>
-        </template>
-      </BaseCard>
-    </div>
-    <div v-if="resultsShow == true" class="column is-three-fifths">
-      <Results
-        :data="dataLocal"
-        :entities-id="bestEntitiesId"
-        :entities-total="entitiesTotal"
-        :user-answers="userSelectedAnswer"
-        @clicked="restartEntity"
-        :lang="locale"
-      ></Results>
-    </div>
-    <!-- end left side -->
-    <div class="column is-two-fifths be-progress-wrapper">
-      <div class="column be-progress-box">
-        <h2 class="subtitle be-progress-subtitle is-5">
-          {{ $t("entity_title_one") }}
-        </h2>
-        <h2 class="subtitle be-progress-subtitle is-4">
-          {{ $t("entity_title_two") }}
-        </h2>
-        <section>
-          <template v-for="(value, index) in entitiesTotal">
-            <div class="be-entitywrap" v-bind:key="index">
-              <b-collapse
-                :open="false"
-                :aria-id="`contentIdFor${index}`"
-                animation="slide"
-              >
-                <div
-                  slot="trigger"
-                  slot-scope="props"
-                  role="button"
-                  :aria-controls="`contentIdFor${index}`"
-                >
-                  <p class="be-emphasis">
-                    {{ dataLocal.entities[index][`title_${locale}`] }}
-
-                    <font-awesome-icon
-                      class="be-carat-icon is-pulled-right"
-                      :icon="
-                        props.open ? ['fas', 'angle-up'] : ['fas', 'angle-down']
-                      "
+                    <b-radio
+                      type="is-info"
+                      name="questions"
+                      v-model="radioButton"
+                      :id="index"
+                      :native-value="index"
+                      @click.native="onSelect(value, index)"
+                      v-on:keyup.enter="onSelect(value, index)"
                     >
-                    </font-awesome-icon>
-                  </p>
+                      {{ value[`title_${locale}`] }}
+                    </b-radio>
+                  </div>
+                </template>
+              </form>
+            </fieldset>
+            <section class="be-context">
+              <div v-if="!isHidden" class="columns is-mobile">
+                <div class="column is-1 be-context-icon">
+                  <font-awesome-icon :icon="['fas', 'exclamation-circle']" />
                 </div>
-                <div class="notification be-notification">
-                  <div class="content">
-                    <p class="be-progress-summary">
-                      {{ entitiesTotal[index][`summary_${locale}`] }}
+                <div class="column is-11 be-context-text">
+                  <p v-html="getQuestionContext"></p>
+                </div>
+              </div>
+            </section>
+          </template>
+          <template v-slot:footertext>
+            <span class="card-footer-item">
+              <b-button class="be-form-button " @click="confirmRestart">{{
+                $t("restart")
+              }}</b-button>
+            </span>
+            <span class="card-footer-item">
+              <b-button
+                class="be-form-button "
+                :disabled="!showPreviousButton"
+                @click="previous()"
+              >
+                {{ $t("previous") }}</b-button
+              >
+            </span>
+
+            <span class="card-footer-item">
+              <b-button
+                v-if="showFinishButton"
+                class="be-form-button"
+                @click="showResults()"
+              >
+                {{ $t("submit") }}</b-button
+              >
+              <b-button
+                v-if="!showFinishButton"
+                class="be-form-button"
+                :disabled="!showNextButton"
+                @click="next()"
+              >
+                {{ $t("next") }}
+              </b-button>
+            </span>
+            <span class="card-footer-item">
+              <b-button class="be-form-button" @click="printSummaries">
+                {{ $t("print_summaries") }}
+              </b-button>
+            </span>
+          </template>
+        </BaseCard>
+      </div>
+      <div v-if="resultsShow == true" class="column is-three-fifths">
+        <Results
+          :data="dataLocal"
+          :entities-id="bestEntitiesId"
+          :entities-total="entitiesTotal"
+          :user-answers="userSelectedAnswer"
+          @clicked="restartEntity"
+          :lang="locale"
+        ></Results>
+      </div>
+      <!-- end left side -->
+      <div class="column is-two-fifths be-progress-wrapper">
+        <div class="column be-progress-box">
+          <h2 class="subtitle be-progress-subtitle is-5">
+            {{ $t("entity_title_one") }}
+          </h2>
+          <h2 class="subtitle be-progress-subtitle is-4">
+            {{ $t("entity_title_two") }}
+          </h2>
+          <section>
+            <template v-for="(value, index) in entitiesTotal">
+              <div class="be-entitywrap" v-bind:key="index">
+                <b-collapse
+                  :open="isOpen == index"
+                  @open="isOpen = index"
+                  :aria-id="`contentIdFor${index}`"
+                  animation="slide"
+                >
+                  <div
+                    slot="trigger"
+                    slot-scope="props"
+                    role="button"
+                    :aria-controls="`contentIdFor${index}`"
+                    tabindex="0"
+                    @keyup.enter="isOpen ? (isOpen = false) : (isOpen = index)"
+                  >
+                    <p class="be-emphasis">
+                      {{ dataLocal.entities[index][`title_${locale}`] }}
+
+                      <font-awesome-icon
+                        class="be-carat-icon is-pulled-right fa-lg"
+                        :icon="
+                          props.open
+                            ? ['fas', 'angle-up']
+                            : ['fas', 'angle-down']
+                        "
+                      >
+                      </font-awesome-icon>
                     </p>
                   </div>
-                </div>
-              </b-collapse>
-              <b-progress
-                size="is-small"
-                type="is-info"
-                class="be-progress"
-                :value="entitiesTotal[index].total"
-                min="0"
-              ></b-progress>
-            </div>
-          </template>
-        </section>
+                  <div class="notification be-notification">
+                    <div class="content">
+                      <p class="be-progress-summary">
+                        {{ entitiesTotal[index][`summary_${locale}`] }}
+                      </p>
+                    </div>
+                  </div>
+                </b-collapse>
+                <b-progress
+                  size="is-small"
+                  type="is-info"
+                  class="be-progress"
+                  :value="entitiesTotal[index].total"
+                  min="0"
+                ></b-progress>
+              </div>
+            </template>
+          </section>
+        </div>
       </div>
     </div>
+    <b-modal
+      :active.sync="isSummariesModalActive"
+      :can-cancel="canCancel"
+      full-screen
+      aria-role="dialog"
+      aria-modal
+      class="be-print-modal"
+    >
+      <ModalSummary @clicked="closeModal()" :data="dataLocal"> </ModalSummary>
+    </b-modal>
   </div>
 </template>
 
@@ -162,6 +183,7 @@ import Vue from "vue";
 import Results from "@/components/Results.vue";
 import BaseCard from "@/components/base-components/BaseCard.vue";
 import VueI18nEntity from "vue-i18n";
+import ModalSummary from "./ModalSummary.vue";
 /* eslint-disable */ 
 
 Vue.use(VueI18nEntity);
@@ -176,7 +198,8 @@ export default {
   name: "Entity",
   components: {
     BaseCard,
-    Results
+    Results,
+    ModalSummary
   },
   i18n: {
     locale: "en",
@@ -191,6 +214,7 @@ export default {
         entity_title: "Suggested Business Structure",
         entity_title_one: "Suggested",
         entity_title_two: "Business Structure",
+         print_summaries: "See All Structures",
       },
       fr: {
         question: "QUESTION",
@@ -201,7 +225,8 @@ export default {
         restart: "Redémarrer",
         entity_title: "Structure d'entreprise suggérée",
         entity_title_one: "Structure d'entreprise",
-        entity_title_two: "suggérée" 
+        entity_title_two: "suggérée",
+         print_summaries: "See All Structures (FR)",
       }
     }
   }, // end i18n
@@ -225,11 +250,12 @@ export default {
   },
   data: function() {
     return {
-      langLocal:this.lang,
+      isOpen: false,
+      langLocal: this.lang,
       radioButton: "",
       showNextButton: false,
       showFinishButton: false,
-      showPreviousButton: true,
+      showPreviousButton: false,
       resultsShow: false,
       bestEntitiesId: [],
       // this will be dynamicallly created
@@ -240,7 +266,9 @@ export default {
       currentCategoryIndex: 1,
       navElement: "",
       isHidden: false,
-      sgcLocal:this.sgc
+      sgcLocal: this.sgc,
+      isSummariesModalActive: false,
+       canCancel: false
     };
   }, // end data
   created: function() {
@@ -267,11 +295,10 @@ export default {
           summary_fr: value["summary_fr"] || ""
         })   
       }
-
-  }catch(e){
-   console.log("error with data structure.")
-   //return false;
-  }
+    } catch(e) {
+      console.log("error with data structure.")
+      //return false;
+    }
   }, // end created
   mounted: function() {
     this.$i18n.locale = this.langLocal;
@@ -290,30 +317,42 @@ export default {
     // returns The current language
     locale: function() {
       return this.langLocal;
-    }
+    },
+    
   }, //end computed
   watch: {
     currentCategoryIndex: function(val) {
-        // retrieved user answer for thequestion
+      // retrieved user answer for thequestion
       let question = this.userSelectedAnswer[`cat-${val}`];
-
       if (val == this.totalCategories && question.answerIndex!="notset")  {
         this.showNextButton = false;
         this.showFinishButton = true;
       } else {
         // disabeld next button if necessary
         this.showNextButton = (question.answerIndex=="notset") ? false : true;
-        
       }
-      //this.showPreviousButton=(val==0) ? false : true;
-      
+      // disable previous button on question 1
+      if (val <= 1){
+        this.showPreviousButton = false;
+      }
       // set inital radio value  from user answer  
       this.radioButton = (question.answerIndex=="notset") ? "" : question.answerIndex;
-
-    } // end currentCategoryIndex
+    }// end currentCategoryIndex
   }, // end watch
   methods: {
-    onClickButton: function() {
+    confirmRestart: function() {
+      this.$buefy.dialog.confirm({
+        message: 'Do you wish to restart the wizard? All saved data will be lost.',
+        type: 'is-danger',
+        hasIcon: true,
+        icon: 'exclamation-circle',
+        iconPack: 'fas',
+        ariaRole: 'alertdialog',
+        ariaModal: true,
+        onConfirm: () => this.onClickRestart()
+      })
+    }, // end confirmRestart
+    onClickRestart: function() {
       this.tempValue = false;
       this.$emit("clicked", this.tempValue);
     },
@@ -346,12 +385,11 @@ export default {
         sortedEntities[key]= myEntities[key];
         //check if we have tie for top entity suggestion
         if(iteration > 1){
-               if(topEntitiesTotal.pop() == myEntities[key]["total"]){
-                  topEntitiesId.push(key);
-               }
+          if(topEntitiesTotal.pop() == myEntities[key]["total"]){
+            topEntitiesId.push(key);
+          }
         }
-         iteration++;
-         
+        iteration++;
       });
       this.bestEntitiesId = topEntitiesId;
       this.entitiesTotal = sortedEntities;
@@ -359,23 +397,28 @@ export default {
     // Advances to the next question
     next: function() {
       if (this.currentCategoryIndex < this.totalCategories) {
+        this.isOpen = false;
         this.currentCategoryIndex++;
+      }
+      // show previous button when greater than question 1
+      if (this.currentCategoryIndex >= 2){
+        this.showPreviousButton = true;
       }
     }, // end next
     // Goes back to the previous question
     previous: function() {
-      if (this.currentCategoryIndex <= 1 )
-      {
-        this.onClickPrevious();
-       return;
+      if (this.currentCategoryIndex <= 1 ) {
+        this.showPreviousButton = false;
+        this.isOpen = false;
+        return;
       }
        
       if (this.currentCategoryIndex>1) {
+        this.isOpen = false;
         this.currentCategoryIndex--;
         this.showFinishButton = false;
-         return;
+        return;
       }
-       
     }, // end previous
     //Saves the selected question option param {number} answer 
     //The index of the selected option
@@ -403,16 +446,15 @@ export default {
     //If restart clicked, restart tool
     restartEntity: function(value) {
       if (value == false) {
-      this.$parent.started = value;
-      this.$parent.introGate = value;
-      this.$parent.welcomeGate = true;
+        this.$parent.started = value;
+        //this.$parent.introGate = value;
+        this.$parent.welcomeGate = true;
       }
       //if previous clicked, close results
       if (value == true) {
         this.resultsShow = false;
       }
     },
-
     // Display percentage value on progress bar
     displayPercentage: function(value) {
       let displayValue = value;
@@ -423,7 +465,13 @@ export default {
       else {
         return displayValue;
       }
-    } // end displayPercentage
+    }, // end displayPercentage
+    printSummaries: function() {
+      this.isSummariesModalActive = true;
+    },
+     closeModal(value) {
+      this.isSummariesModalActive = value;
+    }
   } // end methods
 };
 </script>

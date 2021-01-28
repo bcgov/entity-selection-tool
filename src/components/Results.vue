@@ -1,108 +1,110 @@
 <template>
-  <div class="columns">
-    <BaseCard class="be-question box">
-      <template v-slot:headertext>
-        <h2 v-if="!nextSteps" class="title be-results-title">
-          {{ $t("results_headers") }}
-        </h2>
-        <h2 v-if="nextSteps" class="title be-results-title">
-          {{ $t("next_steps_title") }}
-        </h2>
-      </template>
-      <template v-slot:bodytext>
-        <div v-if="!nextSteps">
-          <p class="be-results-header-intro">{{ getHeaderIntro() }}</p>
-          <h3 class="subtitle be-results-subtitle is-4">
-            {{ getHeaderTitles(entities) }}
-          </h3>
-          <template v-for="(value, index) in entities">
-            <div v-bind:key="index">
-              <div v-if="entitiesId.length > 1">
-                <h3 class="subtitle be-results-subtitle is-5">
+  <div>
+    <div class="columns">
+      <BaseCard class="be-question box">
+        <template v-slot:headertext>
+          <h2 v-if="!nextSteps" class="title be-results-title">
+            {{ $t("results_headers") }}
+          </h2>
+          <h2 v-if="nextSteps" class="title be-results-title">
+            {{ $t("next_steps_title") }}
+          </h2>
+        </template>
+        <template v-slot:bodytext>
+          <div v-if="!nextSteps">
+            <p class="be-results-header-intro">{{ getHeaderIntro() }}</p>
+
+            <h3 class="subtitle be-results-subtitle is-4">
+              {{ getHeaderTitles(entities) }}
+            </h3>
+            <template v-for="(value, index) in entities">
+              <div v-bind:key="index">
+                <div v-if="entitiesId.length > 1">
+                  <h3 class="subtitle be-results-subtitle is-5">
+                    {{ title(value) }}:
+                  </h3>
+                </div>
+                <p class="be-results-text">{{ body(value) }}</p>
+                <div>
+                  <h4 class="subtitle be-results-subtitle is-6">
+                    {{ $t("advantages") }}
+                  </h4>
+                  <p class="be-results-text">
+                    {{ advantages(value) }}
+                  </p>
+                </div>
+                <br />
+                <div>
+                  <h4 class="subtitle be-results-subtitle is-6">
+                    {{ $t("disadvantages") }}
+                  </h4>
+                  <p class="be-results-text">
+                    {{ disadvantages(value) }}
+                  </p>
+                </div>
+                <br />
+              </div>
+            </template>
+          </div>
+          <div v-if="nextSteps">
+            <p class="be-results-text">{{ $t("next_steps_intro") }}</p>
+            <template v-for="(value, index) in entities">
+              <div class="be-next-steps-list" v-bind:key="index">
+                {{ getNextSteps(value) }}
+
+                <h3
+                  v-if="entitiesId.length > 1"
+                  class="subtitle be-results-subtitle is-5"
+                >
                   {{ title(value) }}:
                 </h3>
+                <ul v-bind:key="index" v-for="(item, index) in resources">
+                  <li v-html="item"></li>
+                </ul>
               </div>
-              <p class="be-results-text">{{ body(value) }}</p>
-              <div>
-                <h4 class="subtitle be-results-subtitle is-6">
-                  {{ $t("advantages") }}
-                </h4>
-                <p class="be-results-text">
-                  {{ advantages(value) }}
-                </p>
-              </div>
-              <br />
-              <div>
-                <h4 class="subtitle be-results-subtitle is-6">
-                  {{ $t("disadvantages") }}
-                </h4>
-                <p class="be-results-text">
-                  {{ disadvantages(value) }}
-                </p>
-              </div>
-              <br />
-            </div>
-          </template>
-        </div>
-        <div v-if="nextSteps">
-          <p class="be-results-text">{{ $t("next_steps_intro") }}</p>
-          <template v-for="(value, index) in entities">
-            <div class="be-next-steps-list" v-bind:key="index">
-              {{ getNextSteps(value) }}
+            </template>
+            <h3
+              v-if="entitiesId.length > 1"
+              class="subtitle be-results-subtitle is-5"
+            >
+              {{ $t("general_resources") }}:
+            </h3>
+            <ul v-bind:key="index" v-for="(item, index) in resourcesGeneral">
+              <li v-html="item"></li>
+            </ul>
+          </div>
+        </template>
 
-              <h3
-                v-if="entitiesId.length > 1"
-                class="subtitle be-results-subtitle is-5"
-              >
-                {{ title(value) }}:
-              </h3>
-              <ul v-bind:key="index" v-for="(item, index) in resources">
-                <li v-html="item"></li>
-              </ul>
-            </div>
-          </template>
-          <h3
-            v-if="entitiesId.length > 1"
-            class="subtitle be-results-subtitle is-5"
-          >
-            {{ $t("general_resources") }}:
-          </h3>
-          <ul v-bind:key="index" v-for="(item, index) in resourcesGeneral">
-            <li v-html="item"></li>
-          </ul>
-        </div>
-      </template>
+        <template v-slot:footertext>
+          <span class="card-footer-item">
+            <b-button class="be-form-button " @click="confirmRestart">{{
+              $t("restart")
+            }}</b-button>
+          </span>
+          <span class="card-footer-item">
+            <b-button class="be-form-button " @click="onClickPrevious">{{
+              $t("previous")
+            }}</b-button>
+          </span>
 
-      <template v-slot:footertext>
-        <span class="card-footer-item">
-          <b-button class="be-form-button " @click="onClickButton">{{
-            $t("restart")
-          }}</b-button>
-        </span>
-        <span class="card-footer-item">
-          <b-button class="be-form-button " @click="onClickPrevious">{{
-            $t("previous")
-          }}</b-button>
-        </span>
-
-        <span v-if="!nextSteps" class="card-footer-item">
-          <b-button class="be-form-button" @click="printEntity">
-            {{ $t("print") }}/&#8203;{{ $t("download") }}
-          </b-button>
-        </span>
-        <span class="card-footer-item">
-          <b-button class="be-form-button" @click="printSummaries">
-            {{ $t("print_summaries") }}
-          </b-button>
-        </span>
-        <span v-if="!nextSteps" class="card-footer-item">
-          <b-button class="be-form-button" @click="nextStepsClick()">
-            {{ $t("next_steps_title") }}</b-button
-          >
-        </span>
-      </template>
-    </BaseCard>
-
+          <span v-if="!nextSteps" class="card-footer-item">
+            <b-button class="be-form-button" @click="printEntity">
+              {{ $t("print") }}/&#8203;{{ $t("download") }}
+            </b-button>
+          </span>
+          <span class="card-footer-item">
+            <b-button class="be-form-button" @click="printSummaries">
+              {{ $t("print_summaries") }}
+            </b-button>
+          </span>
+          <span v-if="!nextSteps" class="card-footer-item">
+            <b-button class="be-form-button" @click="nextStepsClick()">
+              {{ $t("next_steps_title") }}</b-button
+            >
+          </span>
+        </template>
+      </BaseCard>
+    </div>
     <!-- modal for results print view -->
     <b-modal
       :active.sync="isCardModalActive"
@@ -171,7 +173,9 @@
             <ul>
               <template v-for="(value, index) in data.collection">
                 <li v-bind:key="index">
-                  <strong>{{ value[`question_${lang}`] }}</strong>
+                  <strong>{{
+                    decodeHTMLEntities(value[`question_${lang}`])
+                  }}</strong>
                   <ul class="be-answers">
                     <li
                       v-for="(answer, answerIndex) in value.answers"
@@ -236,6 +240,7 @@
         </footer>
       </div>
     </b-modal>
+
     <!-- modal for summaries print view -->
     <b-modal
       :active.sync="isSummariesModalActive"
@@ -245,112 +250,7 @@
       aria-modal
       class="be-print-modal"
     >
-      <div class="modal-card" style="width: auto">
-        <header class="modal-card-head be-modal-card-head be-print-modal-head">
-          <span class="be-modal-title">{{ $t("summaries") }}</span>
-        </header>
-        <section
-          id="printBodySummaries"
-          ref="PrintBody"
-          class="be-modal-print-body"
-        >
-          <h1 class="subtitle be-results-subtitle is-4">{{ $t("title") }}</h1>
-          <div>
-            <ul>
-              <template v-for="(value, index) in data.entities">
-                <li v-bind:key="index">
-                  <a class="be-link" v-bind:href="`#${index}`"
-                    >{{ value[`title_${langLocal}`] }}
-                  </a>
-                </li>
-              </template>
-
-              <template v-for="(value, index) in data['non-active-entities']">
-                <li v-bind:key="index">
-                  <a class="be-link" v-bind:href="`#${index}`"
-                    >{{ value[`title_${langLocal}`] }}
-                  </a>
-                </li>
-              </template>
-            </ul>
-            <br />
-          </div>
-
-          <div v-for="(value, index) in data.entities" v-bind:key="index">
-            <template>
-              <a :name="index"></a>
-              <h2 class="subtitle be-results-subtitle is-4">
-                {{ value[`title_${langLocal}`] }}
-              </h2>
-              <p>{{ value[`summary_${langLocal}`] }}</p>
-              <br />
-              <h3 class="subtitle be-results-subtitle is-5">
-                {{ $t("advantages") }}
-              </h3>
-              <p>
-                {{ value[`advantage_${langLocal}`] }}
-              </p>
-              <br />
-              <h3 class="subtitle be-results-subtitle is-5">
-                {{ $t("disadvantages") }}
-              </h3>
-              <p>{{ value[`disadvantage_${langLocal}`] }}</p>
-              <br />
-            </template>
-          </div>
-
-          <div
-            v-for="(value, index) in data['non-active-entities']"
-            v-bind:key="index"
-          >
-            <template>
-              <a :name="index"></a>
-              <h2 class="subtitle be-results-subtitle is-4">
-                {{ value[`title_${langLocal}`] }}
-              </h2>
-              <p>{{ value[`summary_${langLocal}`] }}</p>
-              <br />
-              <h3 class="subtitle be-results-subtitle is-5">
-                {{ $t("advantages") }}
-              </h3>
-              <p>
-                {{ value[`advantage_${langLocal}`] }}
-              </p>
-              <br />
-              <h3 class="subtitle be-results-subtitle is-5">
-                {{ $t("disadvantages") }}
-              </h3>
-              <p>{{ value[`disadvantage_${langLocal}`] }}</p>
-              <br />
-            </template>
-          </div>
-          <div>
-            {{ $t("powerby") }}
-            <a
-              class="be-link"
-              target="_blank"
-              rel="noopener"
-              :href="$t('bizpal_link')"
-              >{{ $t("bizpal") }}</a
-            >
-          </div>
-        </section>
-        <footer class="modal-card-foot be-modal-card-foot">
-          <b-button class="be-button" outlined @click="print()">
-            {{ $t("print") }}
-          </b-button>
-          <b-button class="be-button" outlined @click="downloadSummaryPDF()">
-            {{ $t("download") }}
-          </b-button>
-          <b-button
-            class="be-button"
-            outlined
-            @click="isSummariesModalActive = false"
-          >
-            {{ $t("close") }}
-          </b-button>
-        </footer>
-      </div>
+      <ModalSummary @clicked="closeModal()" :data="data"></ModalSummary>
     </b-modal>
   </div>
 </template>
@@ -358,11 +258,10 @@
 import Vue from "vue";
 import BaseCard from "@/components/base-components/BaseCard.vue";
 import Printd from "printd";
-//import jsPDF from "jspdf";
 import pdfMake from "pdfmake/build/pdfmake.js";
 import pdfFonts from "pdfmake/build/vfs_fonts.js";
 import VueI18nResults from "vue-i18n";
-
+import ModalSummary from "./ModalSummary.vue";
 Vue.use(VueI18nResults);
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
@@ -375,7 +274,8 @@ export const i18n = new VueI18nResults({
 export default {
   name: "Results",
   components: {
-    BaseCard
+    BaseCard,
+    ModalSummary
   },
   i18n: {
     locale: "en",
@@ -387,7 +287,7 @@ export default {
         download_name_summary: "business-structures-in-{prov}-summary",
         restart: "Restart",
         print_results: "Print / Download",
-        print_summaries: "All Structures",
+        print_summaries: "See All Structures",
         print_result_header: "Suggested Business Entity Result",
         results: "Business Structures Wizard",
         results_headers: "Your Results",
@@ -401,7 +301,7 @@ export default {
         text_answers: "Your answers are in {format}.",
         summaries: "Summary of Business Structures",
         title:
-          "This page provides a summary of all for-profit business structures in BC",
+          "This page provides a summary of all for-profit business structures in BC, including those not covered in the Wizard questions.",
         print: "Print",
         download: "Download",
         close: "Back",
@@ -412,7 +312,9 @@ export default {
         previous: "Back",
         general_resources: "All Business Types",
         bizpal_link: "https://services.bizpal-perle.ca/",
-        bizpal: "BizPaL"
+        bizpal: "BizPaL",
+        more_info:
+          "For more information on business structures in British Columbia and how to set up your business, contact <a class='be-link' href='https://smallbusinessbc.ca/' target='_blank'>Small Business BC</a>."
       },
       fr: {
         advantages: "Avantages :",
@@ -433,7 +335,7 @@ export default {
         text_answers: "Vos réponses sont en {format}.",
         summaries: "Summary of Business Structures (FR)",
         title:
-          "This page provides a summary of all for-profit business structures in BC",
+          "This page provides a summary of all for-profit business structures in BC, including those not covered in the Wizard questions.(FR)",
         print: "Imprimer",
         download: "Télécharger",
         close: "Arrière",
@@ -444,7 +346,9 @@ export default {
         previous: "Précédent",
         general_resources: "All Business Types (FR)",
         bizpal_link: "https://services.perle-bizpal.ca/",
-        bizpal: "PerLE"
+        bizpal: "PerLE",
+        more_info:
+          "For more information on business structures in British Columbia and how to set up your business, contact <a class='be-link' href='https://smallbusinessbc.ca/' target='_blank'>Small Business BC</a>."
       }
     }
   }, // end i18n
@@ -478,7 +382,6 @@ export default {
     // get top Entity from data
     let temp = {};
     let self = this;
-    //let objKeys = Object.keys(this.entitiesId);
 
     this.entitiesId.forEach(function(value) {
       temp[value] = self.data.entities[value];
@@ -567,22 +470,38 @@ export default {
     getNextSteps: function(entity) {
       let resourcesList = this.data.resources;
       let entityID = entity.id;
-      this.resourcesGeneral = resourcesList.general_resources;
+      if (entityID == "e1" || entityID == "e2") {
+        this.resourcesGeneral = [resourcesList.general_resources.g2];
+      } else {
+        this.resourcesGeneral = resourcesList.general_resources;
+      }
       switch (entityID) {
         case "e1":
+          this.resources = [
+            resourcesList.r1.url_1,
+            resourcesList.r1.url_2,
+            resourcesList.r1.url_3
+          ];
+          break;
         case "e2":
+          this.resources = [
+            resourcesList.r1.url_1,
+            resourcesList.r1.url_2,
+            resourcesList.r1.url_4
+          ];
+          break;
         case "e3":
         case "e4":
-          this.resources = resourcesList.r1;
+          this.resources = [resourcesList.r1.url_1, resourcesList.r1.url_2];
           break;
         case "e5":
-          this.resources = resourcesList.r5;
+          this.resources = [resourcesList.r1.url_1, resourcesList.r1.url_8];
           break;
         case "e6":
-          this.resources = resourcesList.r3;
+          this.resources = [resourcesList.r1.url_1, resourcesList.r1.url_6];
           break;
         case "e7":
-          this.resources = resourcesList.r4;
+          this.resources = [resourcesList.r1.url_7];
           break;
       }
     },
@@ -597,14 +516,13 @@ export default {
       let filename = this.$t("download_name", { prov: "BC" }) + `-${date}.pdf`;
       const document = {
         content: [
-          { text: this.getHeaderTitles(this.entities), style: "title" }
+          { text: this.$t("results_headers"), style: "title" },
+          { text: this.getHeaderIntro(), style: "normal" }
         ],
         styles: {
           questions: {
             fontSize: 12,
             bold: true
-            // color: "#366b8c"
-            //decoration: 'underline'
           },
           title: {
             fontSize: 16,
@@ -641,7 +559,11 @@ export default {
             style: "subtitle",
             margin: [0, 10, 0, 5]
           },
-
+          {
+            text: this.body(entity),
+            style: "normal",
+            margin: [0, 10, 0, 5]
+          },
           {
             text: this.$t("advantages"),
             style: "header",
@@ -687,7 +609,9 @@ export default {
         let question = this.data.collection[index];
         document.content.push([
           {
-            text: question[`question_${this.langLocal}`],
+            text: this.decodeHTMLEntities(
+              question[`question_${this.langLocal}`]
+            ),
             style: "questions",
             margin: [0, 10, 0, 5]
           }
@@ -756,111 +680,6 @@ export default {
 
       pdfMake.createPdf(document).download(filename);
     },
-    downloadSummaryPDF: function() {
-      let today = new Date();
-      let date =
-        today.getFullYear() +
-        "-" +
-        (today.getMonth() + 1) +
-        "-" +
-        today.getDate();
-      let filename =
-        this.$t("download_name_summary", { prov: "BC" }) + `-${date}.pdf`;
-      const allEntities = this.data.entities;
-      const document = {
-        content: [{ text: this.$t("title"), style: "title" }],
-        styles: {
-          toc: {
-            fontSize: 10,
-            color: "#366b8c"
-            //decoration: 'underline'
-          },
-          title: {
-            fontSize: 16,
-            bold: true,
-            lineHeight: 1.5
-          },
-          subtitle: {
-            fontSize: 14,
-            bold: true,
-            lineHeight: 1.5,
-            color: "#2c5671"
-          },
-          header: {
-            fontSize: 12,
-            bold: true,
-            lineHeight: 1.5
-          },
-          normal: {
-            fontSize: 10,
-            lineHeight: 1.5
-          },
-          link: {
-            color: "#366b8c"
-          }
-        }
-      };
-
-      for (var toc in allEntities) {
-        document.content.push([
-          {
-            text: allEntities[toc][`title_${this.langLocal}`],
-            style: "toc",
-            linkToDestination: toc
-          }
-        ]);
-      }
-      for (var index in allEntities) {
-        document.content.push([
-          {
-            text: allEntities[index][`title_${this.langLocal}`],
-            style: "subtitle",
-            id: index,
-            margin: [0, 10, 0, 5]
-          },
-          {
-            text: allEntities[index][`summary_${this.langLocal}`],
-            style: "normal",
-            margin: [0, 5, 0, 5]
-          },
-          {
-            text: this.$t("advantages"),
-            style: "header",
-            margin: [0, 5, 0, 5]
-          },
-          {
-            text: allEntities[index][`advantage_${this.langLocal}`],
-            style: "normal",
-            margin: [0, 5, 0, 5]
-          },
-          {
-            text: this.$t("disadvantages"),
-            style: "header",
-            margin: [0, 5, 0, 5]
-          },
-          {
-            text: allEntities[index][`disadvantage_${this.langLocal}`],
-            style: "normal",
-            margin: [0, 5, 0, 5]
-          }
-        ]);
-      }
-      document.content.push([
-        {
-          text: [
-            this.$t("powerby"),
-            {
-              text: this.$t("bizpal"),
-              style: "link",
-              link: this.$t("bizpal_link")
-            }
-          ],
-          style: "normal",
-          margin: [0, 5, 0, 5]
-        }
-      ]);
-      pdfMake.createPdf(document).download(filename);
-    },
     printEntity: function() {
       this.isCardModalActive = true;
     },
@@ -898,7 +717,35 @@ export default {
       } else {
         return displayValue;
       }
-    } // end displayPercentage
+    }, // end displayPercentage
+    closeModal(value) {
+      this.isSummariesModalActive = value;
+    },
+    confirmRestart: function() {
+      this.$buefy.dialog.confirm({
+        message:
+          "Do you wish to restart the wizard? All saved data will be lost.",
+        type: "is-danger",
+        hasIcon: true,
+        icon: "exclamation-circle",
+        iconPack: "fas",
+        ariaRole: "alertdialog",
+        ariaModal: true,
+        onConfirm: () => this.onClickButton()
+      });
+    }, // end confirmRestart
+    decodeHTMLEntities: function(str) {
+      var element = document.createElement("div");
+      if (str && typeof str === "string") {
+        // strip script/html tags
+        str = str.replace(/<script[^>]*>([\S\s]*?)<\/script>/gim, "");
+        str = str.replace(/<\/?\w(?:[^"'>]|"[^"]*"|'[^']*')*>/gim, "");
+        element.innerHTML = str;
+        str = element.textContent;
+        element.textContent = "";
+      }
+      return str;
+    } // end decodeHTMLEntities
   } // end methods
 }; // end export default
 </script>

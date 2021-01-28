@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <slot name="start" :homeModal="homeModal">
-      <b-button @click="homeModal()">
-        Start Business Structures Widget
+      <b-button class="be-launch-button" @click="homeModal()">
+        Help choose my business structure
       </b-button>
     </slot>
   </div>
@@ -57,6 +57,17 @@ export default {
 };
 </script>
 <style>
+/* launch button */
+.be-launch-button {
+  background-color: #38598a;
+  color: #ffffff;
+}
+.be-launch-button:hover,
+.be-launch-button:active {
+  background-color: #428bca;
+  border-color: #357ebd;
+  color: #ffffff;
+}
 /*Modal Card Header */
 .card.be-custom-header {
   height: 40px;
@@ -69,6 +80,8 @@ export default {
 .modal-card-head.be-modal-card-head {
   background-color: #274f6e;
   padding-bottom: 6px;
+  padding-left: 10px;
+  padding-right: 10px;
   height: 120px;
 }
 .subtitle.be-subtitle {
@@ -102,6 +115,8 @@ export default {
   background-color: rgb(207, 232, 252);
   padding-bottom: 10px;
   padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
   justify-content: flex-end;
   border-top: none;
   color: #595959;
@@ -120,6 +135,11 @@ a.be-link-button.is-focused,
 a.be-link:active,
 .be-link-button:active {
   color: #274f6e;
+}
+/* tooltip */
+.be-tooltip-light {
+  color: hsl(217, 71%, 53%);
+  cursor: pointer;
 }
 .be-tooltip {
   color: hsl(217, 71%, 53%);
@@ -142,6 +162,14 @@ a.be-link:active,
 .be-tooltip.is-multiline:after {
   text-align: left;
 }
+/* tooltip content */
+.be-tooltip.is-primary .tooltip-content:before {
+  border-top: 5px solid #274f6e !important;
+}
+.be-tooltip.is-primary .tooltip-content {
+  background-color: #274f6e !important;
+  z-index: 55 !important;
+}
 /* White Content Cards */
 .be-question.box {
   padding: 0.5rem;
@@ -158,7 +186,7 @@ a.be-link:active,
   font-size: 1.75rem;
   color: #274f6e;
   text-transform: uppercase;
-  margin-bottom: 16px;
+  margin-bottom: 6px;
   margin-top: 16px;
   margin-left: 4px;
 }
@@ -174,7 +202,7 @@ a.be-link:active,
   font-weight: 300;
   font-size: 1.75rem;
   color: #274f6e;
-  margin-bottom: 16px;
+  margin-bottom: 6px;
   margin-top: 16px;
   margin-left: 4px;
 }
@@ -213,18 +241,18 @@ a.be-link:active,
 }
 .subtitle.be-results-subtitle {
   color: #274f6e;
-  font-weight: 400;
+  font-weight: 600;
 }
 .subtitle.be-results-subtitle.is-4 {
   font-size: 1.4rem;
-  margin-bottom: 18px;
-  margin-top: 8px;
+  margin-bottom: 12px;
+  margin-top: 12px;
 }
 .subtitle.be-results-subtitle.is-5 {
   font-weight: normal;
-  font-size: 1.3rem;
-  margin-top: 8px;
-  margin-bottom: 8px;
+  font-size: 1.2rem;
+  margin-top: 4px;
+  margin-bottom: 4px;
 }
 .subtitle.be-results-subtitle.is-6 {
   font-weight: normal;
@@ -420,13 +448,23 @@ p.be-emphasis {
   border-color: #274f6e;
   color: white;
 }
+.be-footer-logo {
+  padding-right: 4px;
+  width: auto;
+  height: 36px;
+  position: absolute;
+  right: 150px;
+  bottom: 4px;
+}
 /* for desktop */
-@media screen and (min-width: 920px) and (min-height: 620px) {
+
+@media screen and (min-width: 830px) and (min-height: 620px) {
   /* Modal Card */
   .modal-card.be-card {
-    width: 900px;
+    width: 820px;
     height: 600px;
   }
+
   /* Modal Card Header */
   .be-modal-title {
     font-size: 2rem;
@@ -455,25 +493,23 @@ p.be-emphasis {
   }
   /* White Content Card */
   .be-question.box {
-    width: 524px;
+    width: 482px;
     height: 502px;
     z-index: 50;
     position: absolute;
-    /* top: 64px; */
     bottom: 12px;
     left: 10px;
-    padding: 20px;
+    padding: 16px;
     margin-top: 0rem;
   }
   .be-summary.box {
-    width: 636px;
+    width: 592px;
     height: 502px;
     z-index: 50;
     position: absolute;
-    /* top: 64px; */
     bottom: 12px;
     left: 10px;
-    padding: 20px;
+    padding: 16px;
     margin-top: 0rem;
   }
   /* white card headers */
@@ -495,7 +531,7 @@ p.be-emphasis {
     height: 362px;
   }
   .be-question-text {
-    width: 448px;
+    width: 428px;
   }
   .be-gate-text {
     width: 548px;
@@ -509,7 +545,7 @@ p.be-emphasis {
     padding-left: 0px;
   }
   .be-start-button {
-    margin-top: 29px;
+    margin-top: 9px;
   }
   /* white card footer */
   .be-form-button {
@@ -528,6 +564,58 @@ p.be-emphasis {
   }
   .be-progress-box {
     width: auto;
+  }
+  .be-footer-logo {
+    padding-right: 4px;
+    width: auto;
+    height: 52px;
+    position: absolute;
+    right: 150px;
+    bottom: 10px;
+  }
+}
+@media screen and (min-width: 920px) and (min-height: 620px) {
+  /* Modal Card */
+  .modal-card.be-card {
+    width: 900px;
+    height: 600px;
+  }
+  /* White Content Card */
+  .be-question.box {
+    width: 524px;
+    height: 502px;
+    z-index: 50;
+    position: absolute;
+    /* top: 64px; */
+    bottom: 12px;
+    left: 10px;
+    padding: 20px;
+    margin-top: 0rem;
+  }
+  .be-summary.box {
+    width: 636px;
+    height: 502px;
+    z-index: 50;
+    position: absolute;
+    bottom: 12px;
+    left: 10px;
+    padding: 20px;
+    margin-top: 0rem;
+  }
+  /*white card content */
+  .be-question-text {
+    width: 448px;
+  }
+  .be-gate-text {
+    width: 548px;
+  }
+  .be-footer-logo {
+    padding-right: 16px;
+    width: auto;
+    height: 76px;
+    position: absolute;
+    right: 146px;
+    bottom: 10px;
   }
 }
 @media screen and (min-width: 1280px) and (min-height: 768px) {
@@ -561,54 +649,11 @@ p.be-emphasis {
     width: 626px;
   }
   .be-start-button {
-    margin-top: 70px;
-  }
-
-  /* progress bars */
-  .be-entitywrap {
-    padding-top: 8px;
-    padding-bottom: 8px;
-  }
-}
-@media screen and (min-width: 1440px) and (min-height: 900px) {
-  /* Modal Card */
-  .modal-card.be-card {
-    width: 1208px;
-    height: 768px;
-  }
-  /* Modal Card Body */
-  .modal-card-body.be-modal-card-body {
-    height: 546px;
-  }
-  /* White Content Card */
-  .be-question.box {
-    width: 698px;
-    height: 684px;
-  }
-  .be-summary.box {
-    width: 898px;
-    height: 684px;
-  }
-  /*white card content */
-  .card .card-content.be-content {
-    /* padding-top: 1rem; */
-    height: 548px;
-  }
-  .be-question-text {
-    width: 646px;
-  }
-  .be-gate-text {
-    width: 746px;
-  }
-
-  /* white card footer */
-  .be-disclaimer {
-    padding-top: 8px;
-    font-size: 0.85rem;
+    margin-top: 50px;
   }
   /* progress bars */
   .be-entitywrap {
-    padding-top: 16px;
+    padding-top: 8px;
     padding-bottom: 8px;
   }
 }
