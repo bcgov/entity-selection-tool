@@ -9,18 +9,7 @@
                 {{ $t("business_structures") }}
               </h1>
             </div>
-            <div class="column  is-one-quarter">
-              <b-button
-                class="be-nav-button is-pulled-right"
-                outlined
-                type="is-light"
-                :aria-label="$t('close')"
-                @click="$parent.close()"
-              >
-                <font-awesome-icon :icon="['fas', 'times']" />
-                {{ $t("close") }}
-              </b-button>
-            </div>
+            <div class="column  is-one-quarter"></div>
           </div>
           <div class="columns be-subheader">
             <div class="column auto"></div>
