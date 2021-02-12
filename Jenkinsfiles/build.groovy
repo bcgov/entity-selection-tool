@@ -25,8 +25,8 @@ import groovy.json.*
 def APP_NAME = 'namerequest-ui'
 def DESTINATION_TAG = 'dev'
 def TOOLS_TAG = 'tools'
-def NAMESPACE_BUILD = 'servicebc-ne-tools'
-def NAMESPACE_DEPLOY = '1rdehl-dev'
+def NAMESPACE_BUILD = 'hak2zo-tools'
+def NAMESPACE_DEPLOY = 'hak2zo-dev'
 
 def ROCKETCHAT_DEVELOPER_CHANNEL='#registries-bot'
 
