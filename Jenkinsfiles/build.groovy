@@ -22,7 +22,7 @@
 import groovy.json.*
 
 // define constants - values sent in as env vars from whatever calls this pipeline
-def APP_NAME = 'namerequest-ui'
+def APP_NAME = 'entity-selection'
 def DESTINATION_TAG = 'dev'
 def TOOLS_TAG = 'tools'
 def NAMESPACE_BUILD = 'hak2zo-tools'
