@@ -1,11 +1,5 @@
 <template>
-  <div id="app">
-    <slot name="start" :homeModal="homeModal">
-      <b-button class="be-launch-button" @click="homeModal()">
-        Help choose my business structure
-      </b-button>
-    </slot>
-  </div>
+  <div id="app"></div>
 </template>
 <script>
 import ModalHome from "@/components/ModalHome.vue";
@@ -36,6 +30,7 @@ export default {
   }, // end data
   mounted: function() {
     this.dataLocal = this.data ? this.data : json;
+		this.homeModal();
   },
 
   methods: {
