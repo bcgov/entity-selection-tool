@@ -1,6 +1,7 @@
 # business-entity-tool
 v0.1.3
 
+[![img](https://img.shields.io/badge/Lifecycle-Stable-97ca00)](https://github.com/bcgov/repomountie/blob/master/doc/lifecycle-badges.md)
 
 ## Project setup
 ```
