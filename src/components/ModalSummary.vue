@@ -80,15 +80,7 @@
           <br />
         </template>
       </div>
-      <p>
-        {{ $t("more_info") }}
-        <a
-          class="be-link"
-          target="_blank"
-          rel="noopener"
-          :href="$t('small_business_link')"
-          >{{ $t("small_business_bc") }}</a
-        >.
+      <p>        
       </p>
       <br />
       <p>
@@ -154,11 +146,7 @@ export default {
         previous: "Back",
         general_resources: "All Business Types",
         bizpal_link: "https://services.bizpal-perle.ca/",
-        bizpal: "BizPaL",
-        more_info:
-          "For more information on business structures in British Columbia and how to set up your business, contact ",
-        small_business_bc: "Small Business BC",
-        small_business_link: "https://smallbusinessbc.ca/"
+        bizpal: "BizPaL",                
       },
       fr: {
         advantages: "Avantages :",
@@ -179,11 +167,7 @@ export default {
         previous: "Précédent",
         general_resources: "All Business Types (FR)",
         bizpal_link: "https://services.perle-bizpal.ca/",
-        bizpal: "PerLE",
-        more_info:
-          "For more information on business structures in British Columbia and how to set up your business, contact ",
-        small_business_bc: "Small Business BC",
-        small_business_link: "https://smallbusinessbc.ca/"
+        bizpal: "PerLE",              
       }
     }
   }, // end i18n
@@ -331,19 +315,7 @@ export default {
           }
         ]);
       }
-      document.content.push([
-        {
-          text: [
-            this.$t("more_info"),
-            {
-              text: this.$t("small_business_bc"),
-              style: "link",
-              link: this.$t("small_business_link")
-            }
-          ],
-          style: "normal",
-          margin: [0, 5, 0, 5]
-        },
+      document.content.push([        
         {
           text: [
             this.$t("powerby"),

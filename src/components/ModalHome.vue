@@ -185,9 +185,9 @@ export default {
         entity_title_two: "Business Structure",
         disclaimer_title: "Disclaimer",
         disclaimer:
-          "This tool is intended as general guidance and not as legal or financial advice. Please seek the services of a lawyer and accountant or get advice from <a class='be-link' href='https://smallbusinessbc.ca/' target='_blank'>Small Business BC</a> before making your decision.",
+          "This tool is intended as general guidance and not as legal or financial advice. Please seek the services of a lawyer and accountant before making your decision.",
         tooltip_disclaimer:
-          "This tool is intended as general guidance and not as legal or financial advice. Please seek the services of a lawyer and accountant or get advice from Small Business BC before making your decision.",
+          "This tool is intended as general guidance and not as legal or financial advice. Please seek the services of a lawyer and accountant before making your decision.",
         powered: "Powered by",
         bizpal_link: "https://services.bizpal-perle.ca/",
         bizpal: "BizPaL",
@@ -217,9 +217,9 @@ export default {
       entity_title_two: "suggérée",
       disclaimer_title: "Disclaimer (fr)",
       disclaimer:
-        "This tool is intended as general guidance and not as legal or financial advice. Please seek the services of a lawyer and accountant or get advice from <a class='be-link' href='https://smallbusinessbc.ca/' target='_blank'>Small Business BC</a> before making your decision.(fr)",
+        "This tool is intended as general guidance and not as legal or financial advice. Please seek the services of a lawyer and accountant before making your decision.(fr)",
       tooltip_disclaimer:
-        "This tool is intended as general guidance and not as legal or financial advice. Please seek the services of a lawyer and accountant or get advice from Small Business BC before making your decision.(fr)",
+        "This tool is intended as general guidance and not as legal or financial advice. Please seek the services of a lawyer and accountant before making your decision.(fr)",
       powered: "Proposé par",
       bizpal_link: "https://services.perle-bizpal.ca/",
       bizpal: "PerLE",
