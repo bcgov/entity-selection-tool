@@ -688,14 +688,14 @@
      },
      "resources":{
         "general_resources": {
-            "g1": "<a class='be-link' href='https://smallbusinessbc.ca/' target='_blank'>Small Business BC</a> helps entrepreneurs grow successful businesses through expert business advisors, educational services, and easy-to-use free resources.",
+            "g1": "",
             "g2": "Use <a class='be-link' href='https://www.bcbizpal.ca/' target='_blank'>BizPaL</a> to find the permits and licences you may need to start or grow your business."
         },
         "r1":{
             "url_1": "Before registering your business, use <a class='be-link' href='https://www.bcregistrynames.gov.bc.ca/nro/' target='_blank'>Name Requests Online</a> to submit a name approval request.",
             "url_2": "Register your business with <a class='be-link' href='https://onestop.gov.bc.ca/' target='_blank'>BC OneStop</a>.",
-            "url_3":"<a class='be-link' href='https://smallbusinessbc.ca/' target='_blank'>Small Business BC</a> helps entrepreneurs grow successful businesses through expert business advisors, educational services, and easy-to-use free resources. SBBC also provides <a class='be-link' href='https://smallbusinessbc.ca/advisory/business-registration-services/' target='_blank'>guided business registration services</a> for Sole Proprietorships.",
-            "url_4":"<a class='be-link' href='https://smallbusinessbc.ca/' target='_blank'>Small Business BC</a> helps entrepreneurs grow successful businesses through expert business advisors, educational services, and easy-to-use free resources. SBBC also provides <a class='be-link' href='https://smallbusinessbc.ca/advisory/business-registration-services/' target='_blank'>guided business registration services</a> for General Partnerships.",
+            "url_3":"",
+            "url_4":"",
             "url_5": "Before incorporating or registering your business, use <a class='be-link' href='https://www.bcregistrynames.gov.bc.ca/nro/' target='_blank'>Name Requests Online</a> to submit a name approval request",
             "url_6": "Learn more about <a class='be-link' href='https://www2.gov.bc.ca/gov/content/employment-business/business/managing-a-business/permits-licences/businesses-incorporated-companies/new-west-partnership-trade-agreement/registrations-nwpta-bc-corporation' target='_blank'>registering a BC Corporation</a>.",
             "url_7": "Learn how to <a class='be-link' href='https://corporationscanada.ic.gc.ca/eic/site/cd-dgc.nsf/eng/cs06642.html' targe='_blank'> incorporate a business federally</a>.",
