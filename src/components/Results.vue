@@ -314,7 +314,7 @@ export default {
         bizpal_link: "https://services.bizpal-perle.ca/",
         bizpal: "BizPaL",
         more_info:
-          "For more information on business structures in British Columbia and how to set up your business, contact <a class='be-link' href='https://smallbusinessbc.ca/' target='_blank'>Small Business BC</a>."
+          ""
       },
       fr: {
         advantages: "Avantages :",
@@ -348,7 +348,7 @@ export default {
         bizpal_link: "https://services.perle-bizpal.ca/",
         bizpal: "PerLE",
         more_info:
-          "For more information on business structures in British Columbia and how to set up your business, contact <a class='be-link' href='https://smallbusinessbc.ca/' target='_blank'>Small Business BC</a>."
+          ""
       }
     }
   }, // end i18n
